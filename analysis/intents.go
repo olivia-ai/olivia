@@ -22,7 +22,7 @@ type Document struct {
 
 func SliceContains(slice []string, text string) bool {
 	for _, item := range slice {
-		if text == item {
+		if item == text {
 			return true
 		}
 	}
@@ -51,8 +51,8 @@ func Serialize() []Intent {
 func Organize() (words, classes []string, documents []Document) {
 	for _, intent := range Serialize() {
 		for _, response := range intent.Responses {
-			tokenizer := sentences.NewWordTokenizer(nil)
-			tokens := tokenizer.Tokenize(response, true)
+			tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
+			tokens := tokenizer.Tokenize(response, false)
 
 			// Initialize empty string array of tokens length
 			var tokenizedWords []string
@@ -78,7 +78,7 @@ func Organize() (words, classes []string, documents []Document) {
 			})
 
 			// Add the intent tag to class if it doesn't exists
-			if SliceContains(classes, intent.Tag) {
+			if !SliceContains(classes, intent.Tag) {
 				classes = append(classes, intent.Tag)
 			}
 		}
