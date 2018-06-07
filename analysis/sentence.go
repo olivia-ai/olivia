@@ -6,6 +6,7 @@ import (
 	"github.com/stevenmiller888/go-mind"
 	"sort"
 	"strings"
+	"math/rand"
 )
 
 type Sentence struct {
@@ -56,7 +57,7 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 }
 
 // Classify the sentence with the model
-func (sentence Sentence) Classify(model *mind.Mind) {
+func (sentence Sentence) Classify(model *mind.Mind) Result {
 	words, classes, _ := Organize()
 
 	// Predict with the model
@@ -85,4 +86,24 @@ func (sentence Sentence) Classify(model *mind.Mind) {
 
 		returnList = append(returnList, Result{classes[i], result})
 	}
+
+	return returnList[0]
+}
+
+// Returns the human readable response
+func (sentence Sentence) Response(model *mind.Mind) string {
+	result := sentence.Classify(model)
+
+	// Iterate all the json intents
+	for _, intent := range Serialize() {
+		if intent.Tag != result.Tag {
+			continue
+		}
+
+		// Return a random response
+		return intent.Responses[rand.Intn(len(intent.Responses) - 1)]
+	}
+
+	// Error
+	return "Je ne comprends pas :("
 }
