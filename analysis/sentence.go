@@ -3,11 +3,18 @@ package analysis
 import (
 	"../slice"
 	"github.com/neurosnap/sentences"
+	"github.com/stevenmiller888/go-mind"
+	"sort"
 	"strings"
 )
 
 type Sentence struct {
 	Content string
+}
+
+type Result struct {
+	Tag   string
+	Value float64
 }
 
 // Returns an array of words which are tokenized with natural processing
@@ -46,4 +53,36 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	}
 
 	return bag
+}
+
+// Classify the sentence with the model
+func (sentence Sentence) Classify(model *mind.Mind) {
+	words, classes, _ := Organize()
+
+	// Predict with the model
+	predict := model.Predict([][]float64{
+		sentence.WordsBag(words),
+	})
+
+	// Put the predict results in an array
+	var results []float64
+	_, size := predict.Dims()
+	for i := 0; i < size; i++ {
+		results = append(results, predict.At(0, i))
+	}
+
+	// Sort the results in ascending order
+	sort.Slice(results, func(i, j int) bool {
+		return results[i] < results[j]
+	})
+
+	// Add the index and remove all values that are below 0.25
+	var returnList []Result
+	for i, result := range results {
+		if result < 0.25 {
+			continue
+		}
+
+		returnList = append(returnList, Result{classes[i], result})
+	}
 }
