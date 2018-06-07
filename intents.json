@@ -2,13 +2,11 @@
   {
     "tag": "salutation",
     "patterns": ["Hey", "Yo", "Salut", "slt", "Bonjour"],
-    "responses": ["Salut!", "Hello", "Coucou"],
-    "context": ""
+    "responses": ["Salut!", "Hello", "Coucou"]
   },
   {
     "tag": "humeur",
     "patterns": ["Ca va?", "Comment ça va?", "tu vas bien?"],
-    "responses": ["Oui et toi?", "Plutôt pas mal", "bien"],
-    "context": ""
+    "responses": ["Oui et toi?", "Plutôt pas mal", "bien"]
   }
 ]

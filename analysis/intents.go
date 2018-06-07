@@ -12,7 +12,6 @@ type Intent struct {
 	Tag       string   `json:"tag"`
 	Patterns  []string `json:"patterns"`
 	Responses []string `json:"responses"`
-	Context   string   `json:"context"`
 }
 
 type Document struct {
