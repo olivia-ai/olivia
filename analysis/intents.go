@@ -6,6 +6,7 @@ import (
 	"github.com/neurosnap/sentences"
 	"io/ioutil"
 	"strings"
+	"../slice"
 )
 
 type Intent struct {
@@ -18,16 +19,6 @@ type Intent struct {
 type Document struct {
 	Words []string
 	Tag   string
-}
-
-func SliceContains(slice []string, text string) bool {
-	for _, item := range slice {
-		if item == text {
-			return true
-		}
-	}
-
-	return false
 }
 
 // Return the intents json file's content
@@ -48,6 +39,8 @@ func Serialize() []Intent {
 	return intents
 }
 
+// Organize intents with an array of all words, an array with a representative word of each tag
+// and an array of Documents which contains a word list associated with a tag
 func Organize() (words, classes []string, documents []Document) {
 	for _, intent := range Serialize() {
 		for _, response := range intent.Responses {
@@ -78,7 +71,7 @@ func Organize() (words, classes []string, documents []Document) {
 			})
 
 			// Add the intent tag to class if it doesn't exists
-			if !SliceContains(classes, intent.Tag) {
+			if !slice.SliceContains(classes, intent.Tag) {
 				classes = append(classes, intent.Tag)
 			}
 		}
