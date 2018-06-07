@@ -77,17 +77,14 @@ func (sentence Sentence) Classify(model *mind.Mind) Result {
 		return results[i] < results[j]
 	})
 
-	// Add the index and remove all values that are below 0.25
-	var returnList []Result
+	// Return the good value
 	for i, result := range results {
-		if result < 0.25 {
-			continue
+		if result == predict.At(0, 1) {
+			return Result{classes[i], result}
 		}
-
-		returnList = append(returnList, Result{classes[i], result})
 	}
 
-	return returnList[0]
+	return Result{classes[0], 0}
 }
 
 // Returns the human readable response
