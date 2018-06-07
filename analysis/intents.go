@@ -3,9 +3,7 @@ package analysis
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/neurosnap/sentences"
 	"io/ioutil"
-	"strings"
 	"../slice"
 )
 
@@ -17,7 +15,7 @@ type Intent struct {
 }
 
 type Document struct {
-	Words []string
+	Sentence Sentence
 	Tag   string
 }
 
@@ -44,29 +42,17 @@ func Serialize() []Intent {
 func Organize() (words, classes []string, documents []Document) {
 	for _, intent := range Serialize() {
 		for _, pattern := range intent.Patterns {
-			tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
-			tokens := tokenizer.Tokenize(pattern, false)
-
-			// Initialize empty string array of tokens length
-			var tokenizedWords []string
-
-			// Get the string token and add it to tokenizedWords
-			for _, tokenizedWord := range tokens {
-				word := strings.ToLower(tokenizedWord.Tok)
-
-				if word != "?" && word != "-" {
-					tokenizedWords = append(tokenizedWords, word)
-				}
-			}
+			// Tokenize the pattern's sentence
+			patternSentence := Sentence{pattern}
 
 			// Add each word to response
-			for _, word := range tokenizedWords {
+			for _, word := range patternSentence.Tokenize() {
 				words = append(words, word)
 			}
 
 			// Add a new document
 			documents = append(documents, Document{
-				tokenizedWords,
+				patternSentence,
 				intent.Tag,
 			})
 
