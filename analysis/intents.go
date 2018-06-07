@@ -1,10 +1,11 @@
 package analysis
 
 import (
+	"../slice"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"../slice"
+	"sort"
 )
 
 type Intent struct {
@@ -16,7 +17,7 @@ type Intent struct {
 
 type Document struct {
 	Sentence Sentence
-	Tag   string
+	Tag      string
 }
 
 // Return the intents json file's content
@@ -62,6 +63,8 @@ func Organize() (words, classes []string, documents []Document) {
 			}
 		}
 	}
+
+	sort.Strings(classes)
 
 	return words, classes, documents
 }
