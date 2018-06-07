@@ -3,7 +3,10 @@ package analysis
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/neurosnap/sentences"
 	"io/ioutil"
+	"strings"
+	"../slice"
 )
 
 type Intent struct {
@@ -11,6 +14,11 @@ type Intent struct {
 	Patterns  []string `json:"patterns"`
 	Responses []string `json:"responses"`
 	Context   string   `json:"context"`
+}
+
+type Document struct {
+	Words []string
+	Tag   string
 }
 
 // Return the intents json file's content
@@ -29,4 +37,45 @@ func Serialize() []Intent {
 	json.Unmarshal(Read(), &intents)
 
 	return intents
+}
+
+// Organize intents with an array of all words, an array with a representative word of each tag
+// and an array of Documents which contains a word list associated with a tag
+func Organize() (words, classes []string, documents []Document) {
+	for _, intent := range Serialize() {
+		for _, pattern := range intent.Patterns {
+			tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
+			tokens := tokenizer.Tokenize(pattern, false)
+
+			// Initialize empty string array of tokens length
+			var tokenizedWords []string
+
+			// Get the string token and add it to tokenizedWords
+			for _, tokenizedWord := range tokens {
+				word := strings.ToLower(tokenizedWord.Tok)
+
+				if word != "?" && word != "-" {
+					tokenizedWords = append(tokenizedWords, word)
+				}
+			}
+
+			// Add each word to response
+			for _, word := range tokenizedWords {
+				words = append(words, word)
+			}
+
+			// Add a new document
+			documents = append(documents, Document{
+				tokenizedWords,
+				intent.Tag,
+			})
+
+			// Add the intent tag to class if it doesn't exists
+			if !slice.Contains(classes, intent.Tag) {
+				classes = append(classes, intent.Tag)
+			}
+		}
+	}
+
+	return words, classes, documents
 }
