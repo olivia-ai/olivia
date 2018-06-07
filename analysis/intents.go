@@ -43,9 +43,9 @@ func Serialize() []Intent {
 // and an array of Documents which contains a word list associated with a tag
 func Organize() (words, classes []string, documents []Document) {
 	for _, intent := range Serialize() {
-		for _, response := range intent.Responses {
+		for _, pattern := range intent.Patterns {
 			tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
-			tokens := tokenizer.Tokenize(response, false)
+			tokens := tokenizer.Tokenize(pattern, false)
 
 			// Initialize empty string array of tokens length
 			var tokenizedWords []string
@@ -71,7 +71,7 @@ func Organize() (words, classes []string, documents []Document) {
 			})
 
 			// Add the intent tag to class if it doesn't exists
-			if !slice.SliceContains(classes, intent.Tag) {
+			if !slice.Contains(classes, intent.Tag) {
 				classes = append(classes, intent.Tag)
 			}
 		}

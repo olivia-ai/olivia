@@ -4,9 +4,10 @@ import (
 	"../analysis"
 	"../slice"
 	"strings"
+	"fmt"
 )
 
-func TrainData() {
+func TrainData() (trainx, trainy [][]int) {
 	words, classes, documents := analysis.Organize()
 
 	for _, document := range documents {
@@ -19,15 +20,26 @@ func TrainData() {
 			patternWords = append(patternWords, strings.ToLower(word))
 		}
 
+		fmt.Println(patternWords)
+
 		// Iterate all intents.json words
 		for _, word := range words {
 			// Append 1 if the patternWords contains the actual word, else 0
 			valueToAppend := 0
-			if slice.SliceContains(patternWords, word) {
+			if slice.Contains(patternWords, word) {
 				valueToAppend = 1
 			}
 
 			bag = append(bag, valueToAppend)
 		}
+
+		// Change value to 1 where there is the document Tag
+		outputRow[slice.Index(classes, document.Tag)] = 1
+
+		// Append data to trainx and trainy
+		trainx = append(trainx, bag)
+		trainy = append(trainy, outputRow)
 	}
+
+	return trainx, trainy
 }
