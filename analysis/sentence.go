@@ -11,7 +11,7 @@ type Sentence struct {
 }
 
 // Returns an array of words which are tokenized with natural processing
-func (sentence *Sentence) TokenizeSentence() (tokenizedWords []string) {
+func (sentence *Sentence) Tokenize() (tokenizedWords []string) {
 	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
 	tokens := tokenizer.Tokenize(sentence.Content, false)
 
@@ -38,7 +38,7 @@ func (sentence *Sentence) WordsBag(words []string) (bag []float64) {
 	for _, word := range words {
 		// Append 1 if the patternWords contains the actual word, else 0
 		var valueToAppend float64 = 0
-		if slice.Contains(sentence.TokenizeSentence(), word) {
+		if slice.Contains(sentence.Tokenize(), word) {
 			valueToAppend = 1
 		}
 
