@@ -4,28 +4,27 @@ import (
 	"../analysis"
 	"../slice"
 	"strings"
-	"fmt"
+	"github.com/stevenmiller888/go-mind"
 )
 
-func TrainData() (trainx, trainy [][]int) {
+// Return the data for training the model
+func TrainData() (training [][][]float64) {
 	words, classes, documents := analysis.Organize()
 
 	for _, document := range documents {
-		var bag []int
+		var bag []float64
 		var patternWords []string
-		outputRow := make([]int, len(classes))
+		outputRow := make([]float64, len(classes))
 
 		// Down case all document's words
 		for _, word := range document.Words {
 			patternWords = append(patternWords, strings.ToLower(word))
 		}
 
-		fmt.Println(patternWords)
-
 		// Iterate all intents.json words
 		for _, word := range words {
 			// Append 1 if the patternWords contains the actual word, else 0
-			valueToAppend := 0
+			var valueToAppend float64 = 0
 			if slice.Contains(patternWords, word) {
 				valueToAppend = 1
 			}
@@ -37,9 +36,19 @@ func TrainData() (trainx, trainy [][]int) {
 		outputRow[slice.Index(classes, document.Tag)] = 1
 
 		// Append data to trainx and trainy
-		trainx = append(trainx, bag)
-		trainy = append(trainy, outputRow)
+		training = append(training, [][]float64{bag, outputRow})
 	}
 
-	return trainx, trainy
+	return training
+}
+
+// Create the go-mind model
+func CreateModel() *mind.Mind {
+	training := TrainData()
+
+	// Initialize the model
+	model := mind.New(0.7, 1000, len(training[0][0]), "sigmoid")
+	model.Learn(training)
+
+	return model
 }
