@@ -1,9 +1,9 @@
 package triggers
 
 import (
-	"time"
 	"fmt"
 	"strings"
+	"time"
 )
 
 type Clock struct {

@@ -1,14 +1,14 @@
 package supports
 
 import (
-	"../training"
 	"../analysis"
+	"../training"
 	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"os"
 	"os/signal"
-	"syscall"
 	"strings"
+	"syscall"
 )
 
 type Discord struct {
