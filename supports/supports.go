@@ -2,6 +2,7 @@ package supports
 
 import (
 	"../prompt"
+	"../training"
 	"fmt"
 	"golang.org/x/crypto/ssh/terminal"
 )
@@ -10,10 +11,13 @@ type Support interface {
 	Run()
 }
 
+var model = training.CreateModel()
+
 // Returns all the registered supports
 func RegisteredSupports(token string) map[string]Support {
 	return map[string]Support{
-		"Discord": Discord{token},
+		"Discord":  Discord{token},
+		"Telegram": Telegram{token},
 	}
 }
 
