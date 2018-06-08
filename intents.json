@@ -55,8 +55,24 @@
   },
   {
     "tag": "heure",
-    "patterns": ["Quelle heure est-il?", "C'est quelle heure?", "Donne l'heure stp"],
+    "patterns": ["Quelle heure est-il ?", "C'est quelle heure ?", "Donne l'heure stp"],
     "responses": ["Il est ${CLOCK}", "C'est ${CLOCK} actuellement"],
+    "context": ""
+  },
+  {
+    "tag": "blague",
+    "patterns": ["Raconte moi une blague", "Fait une blague", "Raconte une blague"],
+    "responses": [
+      "Qu'est-ce qu'un duche ?\nUne douche sans o",
+      "L'autre jour, j’ai raconté une blague sur Carrefour, mais elle a pas supermarché…",
+      "Dans la phrase \"le voleur a volé une télévision\", où est le sujet ?\nEn prison !",
+      "Quels sont les fruits que nous trouvons dans toutes les maisons ?\nLes coins et les mûres.",
+      "Comment ramasse-t-on la papaye ?\n Avec une foufourche.",
+      "Un iceberg vient d'être papa. Comment l'annonce-t-il à ses amis ?\nC'est un petit glaçon.",
+      "Pourquoi Mickey Mousse ?\n Parce que Mario brosse.",
+      "Qu'est-ce qui fait \"zzzb, zzzb,...\" ?\n Une mouche qui vole à l'envers !",
+      "Quel est le coquillage le moins lourd ?\nLa palourde."
+    ],
     "context": ""
   }
 ]
