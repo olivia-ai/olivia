@@ -3,6 +3,7 @@ package supports
 import (
 	"../prompt"
 	"fmt"
+	"golang.org/x/crypto/ssh/terminal"
 )
 
 type Support interface {
@@ -32,12 +33,16 @@ func ChooseSupport() {
 	}.Run()
 
 	// Get the token
-	var token string
 	fmt.Printf("Please enter your %s token: ", choice)
-	fmt.Scanf("%s", &token)
+	token, err := terminal.ReadPassword(0)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("")
 
 	// Run the selected choice
-	for name, support := range RegisteredSupports(token) {
+	for name, support := range RegisteredSupports(string(token)) {
 		if choice != name {
 			continue
 		}
