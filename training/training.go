@@ -29,7 +29,7 @@ func CreateModel() *mind.Mind {
 	training := TrainData()
 
 	// Initialize the model
-	model := mind.New(0.7, 1000, len(training[0][0]), "sigmoid")
+	model := mind.New(0.3, 10000, len(training[0][0]), "sigmoid")
 	model.Learn(training)
 
 	return model

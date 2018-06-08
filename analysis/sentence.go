@@ -109,7 +109,7 @@ func (sentence Sentence) Response(model *mind.Mind, userId string) string {
 		response := intent.Responses[0]
 		// Return a random response if there are more than one
 		if len(intent.Responses) > 1 {
-			response = intent.Responses[rand.Intn(len(intent.Responses)-1)]
+			response = intent.Responses[rand.Intn(len(intent.Responses) - 1)]
 		}
 
 		// Apply triggers
