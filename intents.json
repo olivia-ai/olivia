@@ -16,5 +16,11 @@
     "patterns": ["Ca va bien merci", "Je vais bien", "Super"],
     "responses": ["Et bien tout est parfait alors!"],
     "context": "humeur"
+  },
+  {
+    "tag": "heure",
+    "patterns": ["Quelle heure est-il?", "C'est quelle heure?", "Donne l'heure stp"],
+    "responses": ["Il est ${CLOCK}", "C'est ${CLOCK} actuellement"],
+    "context": ""
   }
 ]
