@@ -1,0 +1,1 @@
+web: go run main.go -support=Telegram -token=$TELEGRAM_TOKEN
