@@ -64,6 +64,7 @@ func Organize() (words, classes []string, documents []Document) {
 		}
 	}
 
+	sort.Strings(words)
 	sort.Strings(classes)
 
 	return words, classes, documents
