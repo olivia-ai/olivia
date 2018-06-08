@@ -2,7 +2,6 @@ package supports
 
 import (
 	"../analysis"
-	"../training"
 	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"os"
@@ -14,8 +13,6 @@ import (
 type Discord struct {
 	Token string
 }
-
-var model = training.CreateModel()
 
 func (discord Discord) Run() {
 	// Create a new Discord session using the support token.
