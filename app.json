@@ -1,0 +1,9 @@
+{
+  "name": "Olivia",
+  "description": "Olivia French chatbot built in Golang with differents supports like Discord or Telegram ",
+  "keywords": [
+    "chatbot"
+  ],
+  "website": "https://github.com/ananagame/Olivia",
+  "repository": "https://github.com/ananagame/Olivia"
+}
