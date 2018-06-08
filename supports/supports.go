@@ -16,6 +16,7 @@ func RegisteredSupports(token string) map[string]Support {
 	}
 }
 
+// Choose which support the user wants to use
 func ChooseSupport() {
 	var choices []string
 	// Iterate with null token for getting names

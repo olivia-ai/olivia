@@ -11,7 +11,7 @@ import (
 )
 
 // Initialize the user's context cache
-var cache = make(map[int]string)
+var cache = make(map[string]string)
 
 type Sentence struct {
 	Content string
@@ -91,7 +91,7 @@ func (sentence Sentence) Classify(model *mind.Mind) Result {
 }
 
 // Returns the human readable response
-func (sentence Sentence) Response(model *mind.Mind, userId int) string {
+func (sentence Sentence) Response(model *mind.Mind, userId string) string {
 	result := sentence.Classify(model)
 
 	// Iterate all the json intents
