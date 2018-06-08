@@ -6,8 +6,8 @@ import (
 )
 
 type List struct {
-	Question string
-	Choices []string
+	Question      string
+	Choices       []string
 	DefaultChoice int
 }
 
@@ -61,7 +61,7 @@ keyPress:
 				list.Display()
 			case termbox.KeyArrowDown:
 				list.Reset()
-				if list.DefaultChoice != len(list.Choices) - 1 {
+				if list.DefaultChoice != len(list.Choices)-1 {
 					list.DefaultChoice++
 				}
 				list.Display()
