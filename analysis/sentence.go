@@ -4,10 +4,13 @@ import (
 	"../slice"
 	"github.com/neurosnap/sentences"
 	"github.com/stevenmiller888/go-mind"
+	"math/rand"
 	"sort"
 	"strings"
-	"math/rand"
 )
+
+// Initialize the user's context cache
+var cache = make(map[int]string)
 
 type Sentence struct {
 	Content string
@@ -72,26 +75,22 @@ func (sentence Sentence) Classify(model *mind.Mind) Result {
 		results = append(results, predict.At(0, i))
 	}
 
-	// Sort the results in ascending order
-	sort.Slice(results, func(i, j int) bool {
-		return results[i] < results[j]
-	})
-
-	// Add the index and remove all values that are below 0.25
-	var returnList []Result
+	// Enumerate the results with the intent tags
+	var resultsTag []Result
 	for i, result := range results {
-		if result < 0.25 {
-			continue
-		}
-
-		returnList = append(returnList, Result{classes[i], result})
+		resultsTag = append(resultsTag, Result{classes[i], result})
 	}
 
-	return returnList[0]
+	// Sort the results in ascending order
+	sort.Slice(resultsTag, func(i, j int) bool {
+		return resultsTag[i].Value > resultsTag[j].Value
+	})
+
+	return resultsTag[0]
 }
 
 // Returns the human readable response
-func (sentence Sentence) Response(model *mind.Mind) string {
+func (sentence Sentence) Response(model *mind.Mind, userId int) string {
 	result := sentence.Classify(model)
 
 	// Iterate all the json intents
@@ -100,8 +99,18 @@ func (sentence Sentence) Response(model *mind.Mind) string {
 			continue
 		}
 
+		if intent.Context != "" && cache[userId] != intent.Context {
+			return "Je ne comprends pas :("
+		}
+
+		cache[userId] = intent.Tag
+
 		// Return a random response
-		return intent.Responses[rand.Intn(len(intent.Responses) - 1)]
+		if len(intent.Responses) != 1 {
+			return intent.Responses[rand.Intn(len(intent.Responses)-1)]
+		} else {
+			return intent.Responses[0]
+		}
 	}
 
 	// Error

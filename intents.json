@@ -10,5 +10,11 @@
     "patterns": ["Ca va?", "Comment ça va?", "tu vas bien?"],
     "responses": ["Oui et toi?", "Plutôt pas mal", "bien"],
     "context": ""
+  },
+  {
+    "tag": "bien",
+    "patterns": ["Ca va bien merci", "Je vais bien", "Super"],
+    "responses": ["Et bien tout est parfait alors!"],
+    "context": "humeur"
   }
 ]
