@@ -2,6 +2,7 @@ package analysis
 
 import (
 	"../slice"
+	"../triggers"
 	"github.com/neurosnap/sentences"
 	"github.com/stevenmiller888/go-mind"
 	"math/rand"
@@ -105,12 +106,18 @@ func (sentence Sentence) Response(model *mind.Mind, userId int) string {
 
 		cache[userId] = intent.Tag
 
-		// Return a random response
-		if len(intent.Responses) != 1 {
-			return intent.Responses[rand.Intn(len(intent.Responses)-1)]
-		} else {
-			return intent.Responses[0]
+		response := intent.Responses[0]
+		// Return a random response if there are more than one
+		if len(intent.Responses) > 1 {
+			response = intent.Responses[rand.Intn(len(intent.Responses)-1)]
 		}
+
+		// Apply triggers
+		for _, trigger := range triggers.RegisteredTriggers(response) {
+			response = trigger.ReplaceContent()
+		}
+
+		return response
 	}
 
 	// Error
