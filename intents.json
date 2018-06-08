@@ -2,20 +2,32 @@
   {
     "tag": "salutation",
     "patterns": ["Hey", "Yo", "Salut", "slt", "Bonjour"],
-    "responses": ["Salut!", "Hello", "Coucou"],
+    "responses": ["Salut ! 😄", "Hello", "Coucou"],
     "context": ""
   },
   {
     "tag": "humeur",
     "patterns": ["Ca va?", "Comment ça va?", "tu vas bien?"],
-    "responses": ["Oui et toi?", "Plutôt pas mal", "bien"],
+    "responses": ["Oui et toi ?", "Plutôt pas mal et toi ?", "Je vais bien et toi ?", "Niquel et toi ?"],
     "context": ""
   },
   {
     "tag": "bien",
-    "patterns": ["Ca va bien merci", "Je vais bien", "Super"],
-    "responses": ["Et bien tout est parfait alors!"],
+    "patterns": ["Ca va bien merci", "Je vais bien", "Super", "Niquel"],
+    "responses": ["Et bien tout est parfait alors ! 🎉"],
     "context": "humeur"
+  },
+  {
+    "tag": "mal",
+    "patterns": ["Je vais mal", "Bof", "Non je suis triste", "Non je me sens mal"],
+    "responses": ["Ah mince 😰", "Oh 😥", "J'espère que ça ira mieux"],
+    "context": "humeur"
+  },
+  {
+    "tag": "amour",
+    "patterns": ["Bébé", "Mon amour", "Je t'aime", "Jtm"],
+    "responses": ["Oh, moi aussi je t'aime ❤️", "C'est mignon", "Moi aussi bébé ❤️"],
+    "context": ""
   },
   {
     "tag": "heure",
