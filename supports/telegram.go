@@ -2,6 +2,7 @@ package supports
 
 import (
 	"../analysis"
+	"fmt"
 	"gopkg.in/tucnak/telebot.v2"
 	"log"
 	"time"
@@ -34,5 +35,6 @@ func (telegram Telegram) Run() {
 		b.Send(m.Sender, response)
 	})
 
+	fmt.Println("Telegram support started")
 	b.Start()
 }

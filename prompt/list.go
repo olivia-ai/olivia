@@ -71,5 +71,5 @@ keyPress:
 		}
 	}
 
-	return "There is a problem"
+	panic("There is a problem")
 }
