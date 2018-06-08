@@ -1,16 +1,21 @@
 package supports
 
 import (
+	"../training"
+	"../analysis"
 	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"os"
 	"os/signal"
 	"syscall"
+	"strings"
 )
 
 type Discord struct {
 	Token string
 }
+
+var model = training.CreateModel()
 
 func (discord Discord) Run() {
 	// Create a new Discord session using the support token.
@@ -19,6 +24,9 @@ func (discord Discord) Run() {
 		fmt.Println("Error creating the discord bot session: ", err)
 		return
 	}
+
+	// Register the event
+	dg.AddHandler(messageCreate)
 
 	// Open the connection
 	err = dg.Open()
@@ -35,4 +43,26 @@ func (discord Discord) Run() {
 
 	// Cleanly close down the Discord session.
 	dg.Close()
+}
+
+// Retrieves the user entry when the discord bot is mentionned and respond with the chatbot
+func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
+	// Ignore all messages created by the bot itself
+	if m.Author.ID == s.State.User.ID {
+		return
+	}
+
+	// Discord format for bot mention
+	botMention := fmt.Sprintf("<@%s>", s.State.User.ID)
+
+	// If the message is "ping" reply with "Pong!"
+	if strings.HasPrefix(m.Content, botMention) {
+		// Get the response with the chatbot
+		response := analysis.Sentence{
+			Content: strings.Replace(m.Content, botMention, "", 1),
+		}.Response(model, m.Author.ID)
+
+		// Respond it with a user mention
+		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("<@%s> %s", m.Author.ID, response))
+	}
 }
