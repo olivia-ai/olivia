@@ -48,6 +48,18 @@
     "context": ""
   },
   {
+    "tag": "merci",
+    "patterns": ["Merci", "Merci beaucoup", "Thanks"],
+    "responses": ["Je ne fais que mon travail️", "A votre service"],
+    "context": ""
+  },
+  {
+    "tag": "nom",
+    "patterns": ["Tu t'appelles comment?", "Comment t'appelles tu?", "c'est quoi ton nom?"],
+    "responses": ["Je m'appelle Olivia️", "Mon nom est olivia"],
+    "context": ""
+  },
+  {
     "tag": "au revoir",
     "patterns": ["Au revoir", "A bientot", "A plus"],
     "responses": ["Salut !", "A bientot", "a+"],
