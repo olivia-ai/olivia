@@ -3,11 +3,11 @@ package training
 import (
 	"../analysis"
 	"../slice"
-	"github.com/stevenmiller888/go-mind"
+	"github.com/xamber/Varis"
 )
 
 // Return the data for training the model
-func TrainData() (training [][][]float64) {
+func TrainData() (training [][2]varis.Vector) {
 	words, classes, documents := analysis.Organize()
 
 	for _, document := range documents {
@@ -18,19 +18,25 @@ func TrainData() (training [][][]float64) {
 		outputRow[slice.Index(classes, document.Tag)] = 1
 
 		// Append data to trainx and trainy
-		training = append(training, [][]float64{bag, outputRow})
+		training = append(training, [2]varis.Vector{bag, outputRow})
 	}
 
 	return training
 }
 
-// Create the go-mind model
-func CreateModel() *mind.Mind {
+// Create the neural network
+func CreateModel() varis.Perceptron {
+	_, classes, _ := analysis.Organize()
 	training := TrainData()
+	inputLayers := len(training[0][0])
 
-	// Initialize the model
-	model := mind.New(0.3, 10000, len(training[0][0]), "sigmoid")
-	model.Learn(training)
+	// Create neural network with words bags
+	network := varis.CreatePerceptron(inputLayers, inputLayers/2, len(classes))
+	trainer := varis.PerceptronTrainer{
+		Network: &network,
+		Dataset: varis.Dataset(training),
+	}
+	trainer.BackPropagation(1000)
 
-	return model
+	return network
 }

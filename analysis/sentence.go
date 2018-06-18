@@ -3,11 +3,14 @@ package analysis
 import (
 	"../slice"
 	"../triggers"
+	"fmt"
+	"github.com/go-redis/redis"
 	"github.com/neurosnap/sentences"
-	"github.com/stevenmiller888/go-mind"
+	"github.com/xamber/Varis"
 	"math/rand"
 	"sort"
 	"strings"
+	"time"
 )
 
 // Initialize the user's context cache
@@ -61,24 +64,16 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 }
 
 // Classify the sentence with the model
-func (sentence Sentence) Classify(model *mind.Mind) Result {
+func (sentence Sentence) PredictTag(n varis.Perceptron) string {
 	words, classes, _ := Organize()
 
 	// Predict with the model
-	predict := model.Predict([][]float64{
-		sentence.WordsBag(words),
-	})
-
-	// Put the predict results in an array
-	var results []float64
-	_, size := predict.Dims()
-	for i := 0; i < size; i++ {
-		results = append(results, predict.At(0, i))
-	}
+	predict := n.Calculate(sentence.WordsBag(words))
+	fmt.Println(predict)
 
 	// Enumerate the results with the intent tags
 	var resultsTag []Result
-	for i, result := range results {
+	for i, result := range predict {
 		resultsTag = append(resultsTag, Result{classes[i], result})
 	}
 
@@ -87,16 +82,14 @@ func (sentence Sentence) Classify(model *mind.Mind) Result {
 		return resultsTag[i].Value > resultsTag[j].Value
 	})
 
-	return resultsTag[0]
+	return resultsTag[0].Tag
 }
 
 // Returns the human readable response
-func (sentence Sentence) Response(model *mind.Mind, userId string) string {
-	result := sentence.Classify(model)
-
+func RandomizeResponse(tag string, userId string) string {
 	// Iterate all the json intents
 	for _, intent := range Serialize() {
-		if intent.Tag != result.Tag {
+		if intent.Tag != tag {
 			continue
 		}
 
@@ -109,7 +102,7 @@ func (sentence Sentence) Response(model *mind.Mind, userId string) string {
 		response := intent.Responses[0]
 		// Return a random response if there are more than one
 		if len(intent.Responses) > 1 {
-			response = intent.Responses[rand.Intn(len(intent.Responses) - 1)]
+			response = intent.Responses[rand.Intn(len(intent.Responses)-1)]
 		}
 
 		// Apply triggers
@@ -121,5 +114,20 @@ func (sentence Sentence) Response(model *mind.Mind, userId string) string {
 	}
 
 	// Error
-	return "Je ne comprends pas :("
+	return "Désolé, je n'ai pas compris"
+}
+
+// Respond with the cache or the model
+func (sentence Sentence) Calculate(client redis.Client, network varis.Perceptron, userId string) string {
+	tag, err := client.Get(sentence.Content).Result()
+
+	// If the sentence isn't in the redis database
+	if err == redis.Nil {
+		tag = sentence.PredictTag(network)
+		client.Set(sentence.Content, tag, 2*time.Minute)
+	} else if err != nil {
+		panic(err)
+	}
+
+	return RandomizeResponse(tag, userId)
 }

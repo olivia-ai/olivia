@@ -48,7 +48,10 @@ func Organize() (words, classes []string, documents []Document) {
 
 			// Add each word to response
 			for _, word := range patternSentence.Tokenize() {
-				words = append(words, word)
+
+				if !slice.Contains(words, word) {
+					words = append(words, word)
+				}
 			}
 
 			// Add a new document
