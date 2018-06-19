@@ -3,14 +3,15 @@ package analysis
 import (
 	"../slice"
 	"../triggers"
-	"fmt"
+	"github.com/fxsjy/gonn/gonn"
 	"github.com/go-redis/redis"
 	"github.com/neurosnap/sentences"
-	"github.com/xamber/Varis"
 	"math/rand"
 	"sort"
 	"strings"
 	"time"
+
+	"fmt"
 )
 
 // Initialize the user's context cache
@@ -64,11 +65,11 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 }
 
 // Classify the sentence with the model
-func (sentence Sentence) PredictTag(n varis.Perceptron) string {
+func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 	words, classes, _ := Organize()
 
 	// Predict with the model
-	predict := n.Calculate(sentence.WordsBag(words))
+	predict := n.Forward(sentence.WordsBag(words))
 	fmt.Println(predict)
 
 	// Enumerate the results with the intent tags
@@ -118,7 +119,7 @@ func RandomizeResponse(tag string, userId string) string {
 }
 
 // Respond with the cache or the model
-func (sentence Sentence) Calculate(client redis.Client, network varis.Perceptron, userId string) string {
+func (sentence Sentence) Calculate(client redis.Client, network gonn.NeuralNetwork, userId string) string {
 	tag, err := client.Get(sentence.Content).Result()
 
 	// If the sentence isn't in the redis database
