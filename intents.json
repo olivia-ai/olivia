@@ -19,7 +19,7 @@
   },
   {
     "tag": "mal",
-    "patterns": ["Je vais mal", "Bof", "Non je suis triste", "Non je me sens mal"],
+    "patterns": ["Je vais mal", "Non je suis triste", "Non je me sens mal"],
     "responses": ["Ah mince 😰", "Oh 😥", "J'espère que ça ira mieux"],
     "context": "humeur"
   },
@@ -71,6 +71,7 @@
     "responses": ["Il est ${CLOCK}", "C'est ${CLOCK} actuellement"],
     "context": ""
   },
+
   {
     "tag": "blague",
     "patterns": ["Raconte moi une blague", "Fait une blague", "Raconte une blague"],

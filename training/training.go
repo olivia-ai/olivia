@@ -3,11 +3,13 @@ package training
 import (
 	"../analysis"
 	"../slice"
-	"github.com/xamber/Varis"
+	"fmt"
+	"github.com/fxsjy/gonn/gonn"
+	"time"
 )
 
-// Return the data for training the model
-func TrainData() (training [][2]varis.Vector) {
+// Return the inputs and targets generated from the intents for the neural network
+func TrainData() (inputs, targets [][]float64) {
 	words, classes, documents := analysis.Organize()
 
 	for _, document := range documents {
@@ -18,25 +20,28 @@ func TrainData() (training [][2]varis.Vector) {
 		outputRow[slice.Index(classes, document.Tag)] = 1
 
 		// Append data to trainx and trainy
-		training = append(training, [2]varis.Vector{bag, outputRow})
+		inputs = append(inputs, bag)
+		targets = append(targets, outputRow)
 	}
 
-	return training
+	return inputs, targets
 }
 
-// Create the neural network
-func CreateModel() varis.Perceptron {
-	_, classes, _ := analysis.Organize()
-	training := TrainData()
-	inputLayers := len(training[0][0])
+// Returns a new neural network and learn from the TrainData()'s inputs and targets
+func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
+	fmt.Println("Creating the neural network...")
+	start := time.Now()
 
-	// Create neural network with words bags
-	network := varis.CreatePerceptron(inputLayers, inputLayers/2, len(classes))
-	trainer := varis.PerceptronTrainer{
-		Network: &network,
-		Dataset: varis.Dataset(training),
-	}
-	trainer.BackPropagation(1000)
+	trainx, trainy := TrainData()
+	inputLayers, outputLayers := len(trainx[0]), len(trainy[0])
+	hiddenLayers := int(float64(outputLayers)*30/13 + 0.5)
+
+	network = *gonn.DefaultNetwork(inputLayers, hiddenLayers, outputLayers, true)
+
+	network.Train(trainx, trainy, 1000)
+
+	end := time.Now()
+	fmt.Printf("Done in %s\n", end.Sub(start))
 
 	return network
 }
