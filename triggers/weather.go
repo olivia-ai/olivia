@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -19,6 +21,7 @@ type City struct {
 	Country string `json:"country"`
 }
 
+// Serialize the json file which contains cities as an array
 func SerializeCities() (cities []City) {
 	bytes, err := ioutil.ReadFile("cities.json")
 	if err != nil {
@@ -30,7 +33,8 @@ func SerializeCities() (cities []City) {
 	return cities
 }
 
-func SentenceContainsCity(sentence string) (possibilites []City) {
+// Returns the list of cities found in the sentence
+func SentenceCities(sentence string) (possibilites []City) {
 	for _, city := range cities {
 		if !strings.Contains(strings.ToLower(sentence)+" ",
 			" "+strings.ToLower(city.Name)+" ") {
@@ -43,6 +47,12 @@ func SentenceContainsCity(sentence string) (possibilites []City) {
 	return possibilites
 }
 
+// Returns an array of numbers found in the sentence
+func ScanNumbers(sentence string) []string {
+	regexp, _ := regexp.Compile("[0-9]+")
+	return regexp.FindAllString(sentence, -1)
+}
+
 var cities = SerializeCities()
 
 // Replace the content of the sentence by the actual clock
@@ -52,7 +62,7 @@ func (weather Weather) ReplaceContent() string {
 		return weather.Response
 	}
 
-	possibilites := SentenceContainsCity(weather.Entry)
+	possibilites := SentenceCities(weather.Entry)
 
 	if len(possibilites) == 0 {
 		return "Je n'ai trouvé aucune ville correspondante 😦"
@@ -66,11 +76,23 @@ func (weather Weather) ReplaceContent() string {
 			1)
 	}
 
-	response := "J'ai trouvé plusieurs villes :\n"
+	numbers := ScanNumbers(weather.Entry)
 
-	for i, city := range possibilites {
-		response += fmt.Sprintf("%d - %s, %s\n", i+1, city.Name, city.Country)
+	if len(numbers) == 0 {
+		response := "J'ai trouvé plusieurs villes :\n"
+
+		for i, city := range possibilites {
+			response += fmt.Sprintf("%d - %s, %s\n", i+1, city.Name, city.Country)
+		}
+
+		return response
 	}
 
-	return response
+	lastNumber, _ := strconv.Atoi(numbers[len(numbers)-1])
+
+	return strings.Replace(
+		weather.Response,
+		"${WEATHER}",
+		"météo machin à "+possibilites[lastNumber].Name,
+		1)
 }
