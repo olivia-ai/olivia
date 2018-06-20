@@ -5,11 +5,18 @@ import (
 	"../training"
 	"fmt"
 	"golang.org/x/crypto/ssh/terminal"
+	"os"
 )
 
 type Support interface {
 	Run()
 }
+
+const (
+	ChoseSupport = "OLIVIA_SUPPORT"
+	BotToken   = "OLIVIA_BOT_TOKEN"
+	WeatherKey = "OLIVIA_WEATHER_KEY"
+)
 
 var (
 	model = training.CreateNeuralNetwork()
@@ -17,29 +24,51 @@ var (
 )
 
 // Returns all the registered supports
-func RegisteredSupports(token string) map[string]Support {
+func RegisteredSupports() map[string]Support {
 	return map[string]Support{
-		"Discord": Discord{token},
+		"Discord": Discord{os.Getenv("OLIVIA_BOT_TOKEN")},
 	}
 }
 
 // Choose the support where to run Olivia
 func ChooseSupport() {
-	var choice string
-	fmt.Print("Choose your support: ")
-	fmt.Scan(&choice)
+	// Set the chose support environment variable if it is empty
+	if os.Getenv(ChoseSupport) == "" {
+		var choice string
+		fmt.Print("Choose your support: ")
+		fmt.Scan(&choice)
 
-	fmt.Printf("Please enter your %s token: ", choice)
-	token, err := terminal.ReadPassword(0)
+		os.Setenv(ChoseSupport, choice)
+	}
 
-	if err != nil {
-		panic(err)
+	// Set the bot token environment variable if it is empty
+	if os.Getenv(BotToken) == "" {
+		fmt.Print("Please enter your token: ")
+		token, err := terminal.ReadPassword(0)
+		if err != nil {
+			panic(err)
+		}
+
+		os.Setenv(BotToken, string(token))
+		fmt.Println("")
+	}
+
+	// Set the weather key environment variable if it is empty
+	if os.Getenv(WeatherKey) == "" {
+		fmt.Print("Please enter your OpenWeatherMap key: ")
+		key, err := terminal.ReadPassword(0)
+		if err != nil {
+			panic(err)
+		}
+
+		os.Setenv(WeatherKey, string(key))
 	}
 
 	fmt.Println("")
+	choice := os.Getenv(ChoseSupport)
 
 	// Run the selected support
-	for name, support := range RegisteredSupports(string(token)) {
+	for name, support := range RegisteredSupports() {
 		if choice != name {
 			continue
 		}

@@ -78,6 +78,24 @@
     "context": ""
   },
   {
+    "tag": "couleur",
+    "patterns": ["Quelle est ta couleur préférée?", "C'est quoi ta couleur préférée?", "Quelle couleur tu préfères?"],
+    "responses": ["Je pense que c'est le rose", "Hum, le rose probablement"],
+    "context": ""
+  },
+  {
+    "tag": "ville",
+    "patterns": ["Tu habites où?", "Où habites-tu?", "tu viens d'où?"],
+    "responses": ["J'habite tout près de Montpellier", "Pas très loin de montpellier"],
+    "context": ""
+  },
+  {
+    "tag": "ville précis",
+    "patterns": ["Où précisement?", "Exactement?"],
+    "responses": ["N'en demande pas trop 😒", "Je garde ce lieu secret"],
+    "context": ""
+  },
+  {
     "tag": "blague",
     "patterns": ["Raconte moi une blague", "Fait une blague", "Raconte une blague"],
     "responses": [
@@ -92,5 +110,17 @@
       "Quel est le coquillage le moins lourd ?\nLa palourde."
     ],
     "context": ""
+  },
+  {
+    "tag": "blague connue",
+    "patterns": ["Je la connaissais", "Je l'avais déjà entendue"],
+    "responses": ["Ah mince", "Mince 😅"],
+    "context": "blague"
+  },
+  {
+    "tag": "chocolatine",
+    "patterns": ["Pain au chocolat ou chocolatine"],
+    "responses": ["Hum, difficile de choisir", "Ce choix est très dur"],
+    "context": "blague"
   }
 ]
