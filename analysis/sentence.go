@@ -1,8 +1,8 @@
 package analysis
 
 import (
-	"../slice"
-	"../triggers"
+	"github.com/ananagame/Olivia/slice"
+	"github.com/ananagame/Olivia/triggers"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/go-redis/redis"
 	"github.com/neurosnap/sentences"

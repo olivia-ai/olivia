@@ -1,7 +1,7 @@
 package supports
 
 import (
-	"../analysis"
+	"github.com/ananagame/Olivia/analysis"
 	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"os"
