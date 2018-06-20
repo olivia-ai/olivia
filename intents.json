@@ -56,7 +56,7 @@
   {
     "tag": "nom",
     "patterns": ["Tu t'appelles comment?", "Comment t'appelles tu?", "c'est quoi ton nom?"],
-    "responses": ["Je m'appelle Olivia️", "Mon nom est olivia"],
+    "responses": ["Je m'appelle Olivia", "Mon nom est olivia"],
     "context": ""
   },
   {
@@ -67,8 +67,14 @@
   },
   {
     "tag": "heure",
-    "patterns": ["Quelle heure est-il?", "C'est quelle heure?", "Donne l'heure stp"],
+    "patterns": ["Quelle heure est-il?", "C'est quelle heure?", "Heure"],
     "responses": ["Il est ${CLOCK}", "C'est ${CLOCK} actuellement"],
+    "context": ""
+  },
+  {
+    "tag": "météo",
+    "patterns": ["Météo à", "Peut tu me donner la météo"],
+    "responses": ["Il fait ${WEATHER}"],
     "context": ""
   },
   {

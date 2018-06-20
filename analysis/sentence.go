@@ -84,7 +84,7 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 }
 
 // Returns the human readable response
-func RandomizeResponse(tag string, userId string) string {
+func RandomizeResponse(entry string, tag string, userId string) string {
 	// Iterate all the json intents
 	for _, intent := range SerializeIntents() {
 		if intent.Tag != tag {
@@ -104,7 +104,7 @@ func RandomizeResponse(tag string, userId string) string {
 		}
 
 		// Apply triggers
-		for _, trigger := range triggers.RegisteredTriggers(response) {
+		for _, trigger := range triggers.RegisteredTriggers(entry, response) {
 			response = trigger.ReplaceContent()
 		}
 
@@ -127,5 +127,5 @@ func (sentence Sentence) Calculate(client redis.Client, network gonn.NeuralNetwo
 		panic(err)
 	}
 
-	return RandomizeResponse(tag, userId)
+	return RandomizeResponse(sentence.Content, tag, userId)
 }
