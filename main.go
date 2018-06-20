@@ -1,6 +1,6 @@
 package main
 
-import "./supports"
+import "github.com/ananagame/Olivia/supports"
 
 func main() {
 	supports.ChooseSupport()
