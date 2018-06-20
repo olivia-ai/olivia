@@ -70,6 +70,8 @@ func ChooseSupport() {
 	choice := os.Getenv(ChoseSupport)
 	fmt.Println(choice)
 
+	http.ListenAndServe(":8080", nil)
+
 	// Run the selected support
 	for name, support := range RegisteredSupports() {
 		if choice != name {
@@ -78,6 +80,4 @@ func ChooseSupport() {
 
 		support.Run()
 	}
-
-	http.ListenAndServe(":8080", nil)
 }
