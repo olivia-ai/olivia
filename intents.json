@@ -67,11 +67,10 @@
   },
   {
     "tag": "heure",
-    "patterns": ["Quelle heure est-il ?", "C'est quelle heure ?", "Donne l'heure stp"],
+    "patterns": ["Quelle heure est-il?", "C'est quelle heure?", "Donne l'heure stp"],
     "responses": ["Il est ${CLOCK}", "C'est ${CLOCK} actuellement"],
     "context": ""
   },
-
   {
     "tag": "blague",
     "patterns": ["Raconte moi une blague", "Fait une blague", "Raconte une blague"],
