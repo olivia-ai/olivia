@@ -1,8 +1,8 @@
 package supports
 
 import (
-	"../cache"
-	"../training"
+	"github.com/ananagame/Olivia/cache"
+	"github.com/ananagame/Olivia/training"
 	"fmt"
 	"golang.org/x/crypto/ssh/terminal"
 	"os"

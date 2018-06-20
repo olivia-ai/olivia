@@ -1,7 +1,7 @@
 package analysis
 
 import (
-	"../slice"
+	"github.com/ananagame/Olivia/slice"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"

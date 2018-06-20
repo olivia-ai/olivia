@@ -1,8 +1,8 @@
 package training
 
 import (
-	"../analysis"
-	"../slice"
+	"github.com/ananagame/Olivia/analysis"
+	"github.com/ananagame/Olivia/slice"
 	"fmt"
 	"github.com/fxsjy/gonn/gonn"
 	"time"
