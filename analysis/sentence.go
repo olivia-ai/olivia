@@ -1,8 +1,8 @@
 package analysis
 
 import (
-	"../slice"
-	"../triggers"
+	"github.com/ananagame/Olivia/slice"
+	"github.com/ananagame/Olivia/triggers"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/go-redis/redis"
 	"github.com/neurosnap/sentences"
@@ -10,8 +10,6 @@ import (
 	"sort"
 	"strings"
 	"time"
-
-	"fmt"
 )
 
 // Initialize the user's context cache
@@ -70,7 +68,6 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 
 	// Predict with the model
 	predict := n.Forward(sentence.WordsBag(words))
-	fmt.Println(predict)
 
 	// Enumerate the results with the intent tags
 	var resultsTag []Result
@@ -87,9 +84,9 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 }
 
 // Returns the human readable response
-func RandomizeResponse(tag string, userId string) string {
+func RandomizeResponse(entry string, tag string, userId string) string {
 	// Iterate all the json intents
-	for _, intent := range Serialize() {
+	for _, intent := range SerializeIntents() {
 		if intent.Tag != tag {
 			continue
 		}
@@ -103,11 +100,11 @@ func RandomizeResponse(tag string, userId string) string {
 		response := intent.Responses[0]
 		// Return a random response if there are more than one
 		if len(intent.Responses) > 1 {
-			response = intent.Responses[rand.Intn(len(intent.Responses)-1)]
+			response = intent.Responses[rand.Intn(len(intent.Responses))]
 		}
 
 		// Apply triggers
-		for _, trigger := range triggers.RegisteredTriggers(response) {
+		for _, trigger := range triggers.RegisteredTriggers(entry, response) {
 			response = trigger.ReplaceContent()
 		}
 
@@ -130,5 +127,5 @@ func (sentence Sentence) Calculate(client redis.Client, network gonn.NeuralNetwo
 		panic(err)
 	}
 
-	return RandomizeResponse(tag, userId)
+	return RandomizeResponse(sentence.Content, tag, userId)
 }
