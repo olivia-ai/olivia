@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net/http"
+	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -53,6 +55,24 @@ func ScanNumbers(sentence string) []string {
 	return regexp.FindAllString(sentence, -1)
 }
 
+func GetWeather(cityId int) string {
+	apiUrl := fmt.Sprintf(
+		"https://api.openweathermap.org/data/2.5/weather?id=%s&APPID=%s",
+		strconv.Itoa(cityId),
+		os.Getenv("OLIVIA_WEATHER_KEY"))
+
+	resp, err := http.Get(apiUrl)
+	if err != nil {
+		fmt.Println(err)
+		return ":("
+	}
+
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	fmt.Println(string(body))
+	return string(body)
+}
+
 var cities = SerializeCities()
 
 // Replace the content of the sentence by the actual clock
@@ -89,7 +109,7 @@ func (weather Weather) ReplaceContent() string {
 	}
 
 	lastNumber, _ := strconv.Atoi(numbers[len(numbers)-1])
-
+	GetWeather(possibilites[lastNumber].Id)
 	return strings.Replace(
 		weather.Response,
 		"${WEATHER}",
