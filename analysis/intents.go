@@ -20,8 +20,7 @@ type Document struct {
 	Tag      string
 }
 
-// Return the intents json file's content
-func Read() []byte {
+func ReadIntents() []byte {
 	bytes, err := ioutil.ReadFile("intents.json")
 	if err != nil {
 		fmt.Println(err)
@@ -31,9 +30,9 @@ func Read() []byte {
 }
 
 // Unmarshal the json and return the array of Intents
-func Serialize() []Intent {
+func SerializeIntents() []Intent {
 	var intents []Intent
-	json.Unmarshal(Read(), &intents)
+	json.Unmarshal(ReadIntents(), &intents)
 
 	return intents
 }
@@ -41,7 +40,7 @@ func Serialize() []Intent {
 // Organize intents with an array of all words, an array with a representative word of each tag
 // and an array of Documents which contains a word list associated with a tag
 func Organize() (words, classes []string, documents []Document) {
-	for _, intent := range Serialize() {
+	for _, intent := range SerializeIntents() {
 		for _, pattern := range intent.Patterns {
 			// Tokenize the pattern's sentence
 			patternSentence := Sentence{pattern}
