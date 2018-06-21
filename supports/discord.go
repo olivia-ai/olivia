@@ -1,8 +1,8 @@
 package supports
 
 import (
-	"github.com/ananagame/Olivia/analysis"
 	"fmt"
+	"github.com/ananagame/Olivia/analysis"
 	"github.com/bwmarrin/discordgo"
 	"os"
 	"os/signal"
