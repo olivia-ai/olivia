@@ -1,12 +1,12 @@
 package supports
 
 import (
+	"fmt"
 	"github.com/ananagame/Olivia/cache"
 	"github.com/ananagame/Olivia/training"
-	"fmt"
 	"golang.org/x/crypto/ssh/terminal"
-	"os"
 	"net/http"
+	"os"
 )
 
 type Support interface {
@@ -69,8 +69,6 @@ func ChooseSupport() {
 	fmt.Println("")
 	choice := os.Getenv(ChoseSupport)
 	fmt.Println(choice)
-
-	http.ListenAndServe(":8080", nil)
 
 	// Run the selected support
 	for name, support := range RegisteredSupports() {
