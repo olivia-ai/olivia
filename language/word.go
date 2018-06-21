@@ -28,11 +28,6 @@ func (word Word) MarkVowels() (content string) {
 		return strings.Replace(string(match), "y", "Y", 1)
 	}
 
-	// Match a `u` preceded by a `q`
-	matches["qu"] = func (string) string {
-		return "qU"
-	}
-
 	// Iterate the matches and execute the replacements
 	content = strings.ToLower(word.Content)
 	for pattern, replace := range matches {
@@ -40,5 +35,5 @@ func (word Word) MarkVowels() (content string) {
 		content = regex.ReplaceAllStringFunc(content, replace)
 	}
 
-	return content
+	return strings.Replace(content, "qu", "qU", -1)
 }
