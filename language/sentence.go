@@ -9,13 +9,15 @@ type Sentence struct {
 	Content string
 }
 
+const frenchChars = "[a-zàâçéèêëîïôùûœæA-ZÀÂÇÉÈÊËÎÏÔÙÛŒÆ0-9-]"
+
 // Returns an array of tokenized words
 func (sentence Sentence) Tokenize() []string {
 	regex, err := regexp.Compile(
 		strings.Replace(
 			"(\\d+(\\.\\d+)?\\s*%)|(${LETTERS}')|(${LETTERS}+)|([^${LETTERS}\\s])",
 			"${LETTERS}",
-			"[a-zàâçéèêëîïôùûœæA-ZÀÂÇÉÈÊËÎÏÔÙÛŒÆ0-9-]",
+			frenchChars,
 			3))
 
 	if err != nil {
@@ -24,3 +26,4 @@ func (sentence Sentence) Tokenize() []string {
 
 	return regex.FindAllString(sentence.Content, -1)
 }
+
