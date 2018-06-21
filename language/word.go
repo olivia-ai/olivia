@@ -12,7 +12,7 @@ type Word struct {
 const vowels = "[aeiouyâàëéêèïîôûù]"
 
 // Marking specific vowels as consonants by puting them in upper case
-func (word Word) MarkVowels() (content string) {
+func (word Word) MarkVowels() (response Word) {
 	// Initialize the possibilities with regex (as a string) and a replace func
 	matches := make(map[string]func (string) string)
 
@@ -29,11 +29,11 @@ func (word Word) MarkVowels() (content string) {
 	}
 
 	// Iterate the matches and execute the replacements
-	content = strings.ToLower(word.Content)
+	content := strings.ToLower(word.Content)
 	for pattern, replace := range matches {
 		regex := regexp.MustCompile(pattern)
 		content = regex.ReplaceAllStringFunc(content, replace)
 	}
 
-	return strings.Replace(content, "qu", "qU", -1)
+	return Word{strings.Replace(content, "qu", "qU", -1)}
 }
