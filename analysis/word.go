@@ -1,4 +1,4 @@
-package language
+package analysis
 
 import "regexp"
 
@@ -10,8 +10,8 @@ type Word struct {
 func (word Word) Stem() string {
 	suffixes := regexp.MustCompile("(" +
 		"lement|sement|nerait|eaient|amment|aient|ement|eront|erait|ation|" +
-			"erait|euse|eant|ante|ance|ions|erai|eait|les|ait|eux|nez|ive|ies|" +
-				"ité|ant|ant|era|ie|ir|le|és|ée|er|ez|e|é|i|s)$")
+		"erait|euse|eant|ante|ance|ions|erai|eait|les|ait|eux|nez|ive|ies|" +
+		"ité|ant|ant|era|ie|ir|le|és|ée|er|ez|e|é|i|s)$")
 
 	return suffixes.ReplaceAllString(word.Content, "")
 }
