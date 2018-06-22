@@ -9,7 +9,10 @@ type Word struct {
 	Content string
 }
 
-const vowels = "[aeiouyâàëéêèïîôûù]"
+const (
+	vowels = "[aeiouyâàëéêèïîôûù]"
+	letters = "[a-zâàëéêèïîôûùæœA-ZÂÀËÉÈÊÇÎÏÔŒÆÙ0-9-]"
+)
 
 // Marking specific vowels as consonants by puting them in upper case
 func (word Word) MarkVowels() (response Word) {
@@ -36,4 +39,33 @@ func (word Word) MarkVowels() (response Word) {
 	}
 
 	return Word{strings.Replace(content, "qu", "qU", -1)}
+}
+
+// Returns a region selected by the start index and end
+func Region(word string, start, end int) string {
+	chars := []byte(word)
+	var region []byte
+
+	for i, char := range chars {
+		if i >= start && i <= end {
+			region = append(region, char)
+		}
+	}
+
+	return string(region)
+}
+
+// Returns the region which begins after the first vowel not at the begining of the word
+func (word Word) RegionAfterFirstVowel() string {
+	startVowels := regexp.MustCompile("^(" + vowels + "{2})|(tap)|(col)|(tap)")
+	match := startVowels.MatchString(word.Content)
+
+	if match {
+		return Region(word.Content, 3, len(word.Content))
+	}
+
+	firstVowelRegex := regexp.MustCompile(vowels + letters + "+")
+	firstVowel := firstVowelRegex.FindString(Region(word.Content, 1, len(word.Content)))
+
+	return Region(firstVowel, 1, len(firstVowel))
 }
