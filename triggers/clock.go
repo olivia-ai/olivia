@@ -14,6 +14,7 @@ type Clock struct {
 func (clock Clock) ReplaceContent() string {
 	hours, minutes, _ := time.Now().Clock()
 	actualClock := fmt.Sprintf("%dh%d", hours, minutes)
+	fmt.Println(clock.Sentence)
 
 	return strings.Replace(clock.Sentence, "${CLOCK}", actualClock, 1)
 }

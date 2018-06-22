@@ -1,10 +1,11 @@
 package supports
 
 import (
+	"fmt"
 	"github.com/ananagame/Olivia/cache"
 	"github.com/ananagame/Olivia/training"
-	"fmt"
 	"golang.org/x/crypto/ssh/terminal"
+	"net/http"
 	"os"
 )
 
@@ -14,8 +15,8 @@ type Support interface {
 
 const (
 	ChoseSupport = "OLIVIA_SUPPORT"
-	BotToken   = "OLIVIA_BOT_TOKEN"
-	WeatherKey = "OLIVIA_WEATHER_KEY"
+	BotToken     = "OLIVIA_BOT_TOKEN"
+	WeatherKey   = "OLIVIA_WEATHER_KEY"
 )
 
 var (
@@ -32,6 +33,7 @@ func RegisteredSupports() map[string]Support {
 
 // Choose the support where to run Olivia
 func ChooseSupport() {
+	fmt.Println("s")
 	// Set the chose support environment variable if it is empty
 	if os.Getenv(ChoseSupport) == "" {
 		var choice string
@@ -66,6 +68,7 @@ func ChooseSupport() {
 
 	fmt.Println("")
 	choice := os.Getenv(ChoseSupport)
+	fmt.Println(choice)
 
 	// Run the selected support
 	for name, support := range RegisteredSupports() {
