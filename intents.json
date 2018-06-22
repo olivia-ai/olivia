@@ -67,7 +67,7 @@
   },
   {
     "tag": "heure",
-    "patterns": ["Quelle heure est-il?", "C'est quelle heure?", "Heure"],
+    "patterns": ["Quelle heure est-il?", "C'est quelle heure?", "donne l'heure"],
     "responses": ["Il est ${CLOCK}", "C'est ${CLOCK} actuellement"],
     "context": ""
   },
