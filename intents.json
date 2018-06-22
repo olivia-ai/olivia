@@ -116,11 +116,5 @@
     "patterns": ["Je la connaissais", "Je l'avais déjà entendue"],
     "responses": ["Ah mince", "Mince 😅"],
     "context": "blague"
-  },
-  {
-    "tag": "chocolatine",
-    "patterns": ["Pain au chocolat ou chocolatine"],
-    "responses": ["Hum, difficile de choisir", "Ce choix est très dur"],
-    "context": "blague"
   }
 ]

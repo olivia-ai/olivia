@@ -5,11 +5,10 @@ import (
 	"github.com/ananagame/Olivia/triggers"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/go-redis/redis"
-	"github.com/neurosnap/sentences"
 	"math/rand"
 	"sort"
-	"strings"
 	"time"
+	"regexp"
 )
 
 // Initialize the user's context cache
@@ -24,27 +23,26 @@ type Result struct {
 	Value float64
 }
 
-// Returns an array of words which are tokenized with natural processing
-func (sentence Sentence) Tokenize() (tokenizedWords []string) {
-	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
-	tokens := tokenizer.Tokenize(sentence.Content, false)
+const letters = "[a-zàâçéèêëîïôùûœæA-ZÀÂÇÉÈÊËÎÏÔÙÛŒÆ0-9-]"
 
-	// Initialize an array of ignored characters
-	ignoredChars := []string{"?", "-"}
+// Returns an array of tokenized words
+func (sentence Sentence) Tokenize() []string {
+	regex, err := regexp.Compile(
+		"(\\d+(\\.\\d+)?\\s*%)|(" + letters + "')|(" + letters + "+)|([^" + letters + "\\s])",
+	)
 
-	// Get the string token and add it to tokenizedWords
-	for _, tokenizedWord := range tokens {
-		word := strings.ToLower(tokenizedWord.Tok)
-
-		// Remove all ignored characters from the word
-		for _, ignoredChar := range ignoredChars {
-			word = strings.Replace(word, ignoredChar, "", -1)
-		}
-
-		tokenizedWords = append(tokenizedWords, word)
+	if err != nil {
+		panic(err)
 	}
 
-	return tokenizedWords
+	words := regex.FindAllString(sentence.Content, -1)
+	var stemmedWords []string
+
+	for _, word := range words {
+		stemmedWords = append(stemmedWords, Word{word}.Stem())
+	}
+
+	return stemmedWords
 }
 
 // Retrieves all the intents words and returns the bag of words of the Sentence content
