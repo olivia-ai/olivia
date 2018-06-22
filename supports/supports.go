@@ -33,7 +33,6 @@ func RegisteredSupports() map[string]Support {
 
 // Choose the support where to run Olivia
 func ChooseSupport() {
-	fmt.Println("s")
 	// Set the chose support environment variable if it is empty
 	if os.Getenv(ChoseSupport) == "" {
 		var choice string

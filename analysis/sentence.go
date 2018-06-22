@@ -1,14 +1,16 @@
 package analysis
 
 import (
+	"../language"
+	"fmt"
 	"github.com/ananagame/Olivia/slice"
 	"github.com/ananagame/Olivia/triggers"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/go-redis/redis"
 	"math/rand"
+	"regexp"
 	"sort"
 	"time"
-	"regexp"
 )
 
 // Initialize the user's context cache
@@ -39,9 +41,9 @@ func (sentence Sentence) Tokenize() []string {
 	var stemmedWords []string
 
 	for _, word := range words {
-		stemmedWords = append(stemmedWords, Word{word}.Stem())
+		stemmedWords = append(stemmedWords, language.Word{word}.Stem())
 	}
-
+	fmt.Println(stemmedWords)
 	return stemmedWords
 }
 
@@ -103,6 +105,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 
 		// Apply triggers
 		for _, trigger := range triggers.RegisteredTriggers(entry, response) {
+			fmt.Println("trigger")
 			response = trigger.ReplaceContent()
 		}
 
@@ -116,6 +119,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 // Respond with the cache or the model
 func (sentence Sentence) Calculate(client redis.Client, network gonn.NeuralNetwork, userId string) string {
 	tag, err := client.Get(sentence.Content).Result()
+	fmt.Println("s")
 
 	// If the sentence isn't in the redis database
 	if err == redis.Nil {
