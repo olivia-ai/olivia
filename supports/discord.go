@@ -28,7 +28,7 @@ func (discord Discord) Run() {
 	// Open the connection
 	err = dg.Open()
 	if err != nil {
-		fmt.Println("Rrror opening connection: ", err)
+		fmt.Println("Error opening connection: ", err)
 		return
 	}
 

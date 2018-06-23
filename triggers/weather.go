@@ -45,16 +45,16 @@ type WeatherResponse struct {
 }
 
 type Main struct {
-	Temperature    int `json:"temp"`
+	Temperature    float64 `json:"temp"`
 	Pressure       int `json:"pressure"`
 	Humidity       int `json:"humidity"`
-	TemperatureMin int `json:"temp_min"`
-	TemperatureMax int `json:"temp_max"`
+	TemperatureMin float64 `json:"temp_min"`
+	TemperatureMax float64 `json:"temp_max"`
 }
 
 type Wind struct {
-	Speed int `json:"speed"`
-	Deg   int `json:"deg"`
+	Speed float64 `json:"speed"`
+	Deg   float64 `json:"deg"`
 }
 
 type Cloud struct {
@@ -72,7 +72,7 @@ type Sys struct {
 
 func GetWeather(cityId int) Response {
 	apiUrl := fmt.Sprintf(
-		"https://api.openweathermap.org/data/2.5/weather?id=%s&APPID=%s",
+		"https://api.openweathermap.org/data/2.5/weather?id=%s&APPID=%s&units=metric&lang=fr",
 		strconv.Itoa(cityId),
 		os.Getenv("OLIVIA_WEATHER_KEY"))
 
@@ -108,11 +108,12 @@ func (weather Weather) ReplaceContent() string {
 
 	// Respond weather with the good city
 	if len(possibilites) == 1 {
-		GetWeather(possibilites[0].Id)
+		conditions := GetWeather(possibilites[0].Id)
+		
 		return strings.Replace(
 			weather.Response,
 			"${WEATHER}",
-			"météo machin à "+possibilites[0].Name,
+			fmt.Sprintf("%s avec %d°C", conditions.Weather[0].Description, int(conditions.Main.Temperature)),
 			1)
 	}
 

@@ -46,7 +46,7 @@ func FindCities(sentence string) (possibilites []City) {
 	if len(numbers) != 0 {
 		number, _ := strconv.Atoi(numbers[len(numbers)-1])
 
-		return []City{possibilites[number]}
+		return []City{possibilites[number+1]}
 	}
 
 	return possibilites
