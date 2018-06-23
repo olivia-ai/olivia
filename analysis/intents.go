@@ -3,7 +3,7 @@ package analysis
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ananagame/Olivia/slice"
+	"../slice"
 	"io/ioutil"
 	"sort"
 )

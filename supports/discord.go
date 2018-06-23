@@ -2,7 +2,7 @@ package supports
 
 import (
 	"fmt"
-	"github.com/ananagame/Olivia/analysis"
+	"../analysis"
 	"github.com/bwmarrin/discordgo"
 	"os"
 	"os/signal"

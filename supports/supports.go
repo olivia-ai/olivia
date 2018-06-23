@@ -2,10 +2,9 @@ package supports
 
 import (
 	"fmt"
-	"github.com/ananagame/Olivia/cache"
-	"github.com/ananagame/Olivia/training"
+	"../cache"
+	"../training"
 	"golang.org/x/crypto/ssh/terminal"
-	"net/http"
 	"os"
 )
 
@@ -67,7 +66,6 @@ func ChooseSupport() {
 
 	fmt.Println("")
 	choice := os.Getenv(ChoseSupport)
-	fmt.Println(choice)
 
 	// Run the selected support
 	for name, support := range RegisteredSupports() {
