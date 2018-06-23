@@ -1,6 +1,6 @@
 # Olivia
 
-Olivia French chatbot built in Golang with differents supports like Discord or Telegram 
+Olivia French chatbot built in Golang with a Redis cache 
 
 ## Installation
 
@@ -10,6 +10,8 @@ Clone the project :
 $ git clone https://github.com/ananagame/Olivia.git
 ```
 
+Install a redis database in local with no password
+
 ## Usage
 
 Run the `main.go`: 
@@ -18,10 +20,14 @@ Run the `main.go`:
 $ go run main.go
 ```
 
-or launch it just a command
+and follow the instructions for the discord token and openweathermap key
+
+or launch it with environment variables
 
 ```
-$ go run main.go -support=Telegram -token=Yourtoken
+OLIVIA_SUPPORT = Discord
+OLIVIA_BOT_TOKEN = xxx
+OLIVIA_WEATHER_KEY = xxx
 ```
 
 ## Contributing
