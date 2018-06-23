@@ -1,10 +1,8 @@
 package analysis
 
 import (
-	"../language"
-	"fmt"
-	"github.com/ananagame/Olivia/slice"
-	"github.com/ananagame/Olivia/triggers"
+	"../slice"
+	"../triggers"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/go-redis/redis"
 	"math/rand"
@@ -37,14 +35,7 @@ func (sentence Sentence) Tokenize() []string {
 		panic(err)
 	}
 
-	words := regex.FindAllString(sentence.Content, -1)
-	var stemmedWords []string
-
-	for _, word := range words {
-		stemmedWords = append(stemmedWords, language.Word{word}.Stem())
-	}
-	fmt.Println(stemmedWords)
-	return stemmedWords
+	return regex.FindAllString(sentence.Content, -1)
 }
 
 // Retrieves all the intents words and returns the bag of words of the Sentence content
@@ -105,7 +96,6 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 
 		// Apply triggers
 		for _, trigger := range triggers.RegisteredTriggers(entry, response) {
-			fmt.Println("trigger")
 			response = trigger.ReplaceContent()
 		}
 
@@ -119,7 +109,6 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 // Respond with the cache or the model
 func (sentence Sentence) Calculate(client redis.Client, network gonn.NeuralNetwork, userId string) string {
 	tag, err := client.Get(sentence.Content).Result()
-	fmt.Println("s")
 
 	// If the sentence isn't in the redis database
 	if err == redis.Nil {

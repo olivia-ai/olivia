@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ananagame/Olivia/supports"
+	"./supports"
 )
 
 func main() {
