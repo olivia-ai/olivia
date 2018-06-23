@@ -74,7 +74,7 @@
   {
     "tag": "météo",
     "patterns": ["Météo à", "Peut tu me donner la météo", "donne la météo"],
-    "responses": ["Il fait ${WEATHER}"],
+    "responses": ["Les conditions sont : ${WEATHER}"],
     "context": ""
   },
   {
