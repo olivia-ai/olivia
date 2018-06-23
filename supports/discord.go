@@ -2,7 +2,7 @@ package supports
 
 import (
 	"fmt"
-	"github.com/ananagame/Olivia/analysis"
+	"../analysis"
 	"github.com/bwmarrin/discordgo"
 	"os"
 	"os/signal"
@@ -28,7 +28,7 @@ func (discord Discord) Run() {
 	// Open the connection
 	err = dg.Open()
 	if err != nil {
-		fmt.Println("Rrror opening connection: ", err)
+		fmt.Println("Error opening connection: ", err)
 		return
 	}
 

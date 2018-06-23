@@ -2,10 +2,9 @@ package supports
 
 import (
 	"fmt"
-	"github.com/ananagame/Olivia/cache"
-	"github.com/ananagame/Olivia/training"
+	"../cache"
+	"../training"
 	"golang.org/x/crypto/ssh/terminal"
-	"net/http"
 	"os"
 )
 
@@ -33,7 +32,6 @@ func RegisteredSupports() map[string]Support {
 
 // Choose the support where to run Olivia
 func ChooseSupport() {
-	fmt.Println("s")
 	// Set the chose support environment variable if it is empty
 	if os.Getenv(ChoseSupport) == "" {
 		var choice string
@@ -68,7 +66,6 @@ func ChooseSupport() {
 
 	fmt.Println("")
 	choice := os.Getenv(ChoseSupport)
-	fmt.Println(choice)
 
 	// Run the selected support
 	for name, support := range RegisteredSupports() {
