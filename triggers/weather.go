@@ -1,7 +1,7 @@
 package triggers
 
 import (
-	"../language"
+	"github.com/oliviabot/api/language"
 	"fmt"
 	"io/ioutil"
 	"net/http"
