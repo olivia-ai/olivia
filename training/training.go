@@ -2,8 +2,8 @@ package training
 
 import (
 	"fmt"
-	"../analysis"
-	"../slice"
+	"github.com/oliviabot/api/analysis"
+	"github.com/oliviabot/api/slice"
 	"github.com/fxsjy/gonn/gonn"
 	"time"
 )
