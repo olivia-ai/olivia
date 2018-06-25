@@ -1,8 +1,8 @@
 package analysis
 
 import (
-	"github.com/oliviabot/api/slice"
-	"github.com/oliviabot/api/triggers"
+	"../slice"
+	"../triggers"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/go-redis/redis"
 	"github.com/neurosnap/sentences"
@@ -10,6 +10,7 @@ import (
 	"sort"
 	"time"
 	"strings"
+	"fmt"
 )
 
 // Initialize the user's context cache
@@ -80,6 +81,13 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 		return resultsTag[i].Value > resultsTag[j].Value
 	})
 
+	fmt.Println(resultsTag)
+
+	// Don't understand if the rate is under 0.35
+	if resultsTag[0].Value < 0.35 {
+		return "don't understand"
+	}
+
 	return resultsTag[0].Tag
 }
 
@@ -92,7 +100,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 		}
 
 		if intent.Context != "" && cache[userId] != intent.Context {
-			return "Je ne comprends pas :("
+			return RandomizeResponse(entry, "don't understand", userId)
 		}
 
 		cache[userId] = intent.Tag
@@ -112,7 +120,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 	}
 
 	// Error
-	return "Désolé, je n'ai pas compris"
+	return RandomizeResponse(entry, "don't understand", userId)
 }
 
 // Respond with the cache or the model

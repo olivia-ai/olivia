@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/oliviabot/api/analysis"
-	"github.com/oliviabot/api/training"
-	"github.com/oliviabot/api/cache"
+	"./analysis"
+	"./training"
+	"./cache"
 	"net/http"
 	"log"
 	"fmt"

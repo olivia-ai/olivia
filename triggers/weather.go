@@ -1,7 +1,7 @@
 package triggers
 
 import (
-	"github.com/oliviabot/api/language"
+	"../language"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -109,7 +109,7 @@ func (weather Weather) ReplaceContent() string {
 	// Respond weather with the good city
 	if len(possibilites) == 1 {
 		conditions := GetWeather(possibilites[0].Id)
-		
+
 		return strings.Replace(
 			weather.Response,
 			"${WEATHER}",

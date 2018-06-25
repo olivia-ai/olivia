@@ -3,7 +3,7 @@ package analysis
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/oliviabot/api/slice"
+	"../slice"
 	"io/ioutil"
 	"sort"
 )
