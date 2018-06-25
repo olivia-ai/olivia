@@ -74,7 +74,7 @@ func GetWeather(cityId int) Response {
 	apiUrl := fmt.Sprintf(
 		"https://api.openweathermap.org/data/2.5/weather?id=%s&APPID=%s&units=metric&lang=fr",
 		strconv.Itoa(cityId),
-		os.Getenv("OLIVIA_WEATHER_KEY"))
+		os.Getenv("WEATHER_KEY"))
 
 	resp, err := http.Get(apiUrl)
 	if err != nil {
