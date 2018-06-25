@@ -1,16 +1,27 @@
-# Olivia
+# Api
 
-Olivia French chatbot built in Golang with a Redis cache 
+Olivia's REST Api 
 
 ## Installation
 
 Clone the project :
 
 ```
-$ git clone https://github.com/ananagame/Olivia.git
+$ git clone https://github.com/OliviaBot/Api.git
 ```
 
-Install a redis database in local with no password
+Get a key on [OpenWeathermap](https://www.openweathermap.org/) and set it in the environment variable
+
+```
+WEATHER_KEY = xxx
+```
+
+Install a redis database and set the environment variables, by default it is `localhost:6379` and no password
+
+```
+REDIS_ADDRESS = xxx.xxx:xxx
+REDIS_PASSWORD = xxx
+```
 
 ## Usage
 
@@ -20,19 +31,19 @@ Run the `main.go`:
 $ go run main.go
 ```
 
-and follow the instructions for the discord token and openweathermap key
+Then send a POST request at `localhost:8080/api/response` with `sentence` and `authorId` parameters in the request Body
 
-or launch it with environment variables
+The api respond with this:
 
-```
-OLIVIA_SUPPORT = Discord
-OLIVIA_BOT_TOKEN = xxx
-OLIVIA_WEATHER_KEY = xxx
+```json
+{
+  "content": "Plutôt pas mal et toi ?"
+}
 ```
 
 ## Contributing
 
-1. Fork it (https://github.com/ananagame/Olivia/fork)
+1. Fork it (https://github.com/OliviaBot/Api/fork)
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -40,4 +51,4 @@ OLIVIA_WEATHER_KEY = xxx
 
 ## Contributors
 
-- [AnanaGame](https://github.com/ananagame) - creator, maintainer
+- [ananagame](https://github.com/ananagame) - creator, maintainer
