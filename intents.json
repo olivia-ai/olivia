@@ -116,5 +116,10 @@
     "patterns": ["Je la connaissais", "Je l'avais déjà entendue"],
     "responses": ["Ah mince", "Mince 😅"],
     "context": "blague"
+  },
+  {
+    "tag": "don't understand",
+    "patterns": [],
+    "responses": ["Je ne comprends pas 😅", "Désolé, je n'ai pas compris", "Excusez moi je n'ai pas compris"]
   }
 ]
