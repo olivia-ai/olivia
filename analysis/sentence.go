@@ -3,7 +3,6 @@ package analysis
 import (
 	"../slice"
 	"../triggers"
-	"fmt"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/go-redis/redis"
 	"github.com/neurosnap/sentences"
