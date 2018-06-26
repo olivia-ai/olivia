@@ -2,13 +2,14 @@ package main
 
 import (
 	"./analysis"
-	"./cache"
 	"./training"
+	"github.com/gorilla/mux"
+	gocache "github.com/patrickmn/go-cache"
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
+	"time"
 )
 
 type Response struct {
@@ -17,7 +18,7 @@ type Response struct {
 
 var (
 	model = training.CreateNeuralNetwork()
-	redis = cache.CreateClient()
+	cache = gocache.New(5*time.Minute, 5*time.Minute)
 )
 
 func main() {
@@ -31,7 +32,7 @@ func main() {
 func PostResponse(w http.ResponseWriter, r *http.Request) {
 	responseSentence := analysis.Sentence{
 		Content: r.FormValue("sentence"),
-	}.Calculate(redis, model, r.FormValue("authorId"))
+	}.Calculate(*cache, model, r.FormValue("authorId"))
 
 	// Marshall the response in json
 	response := Response{responseSentence}
