@@ -8,9 +8,8 @@ import (
 	"github.com/neurosnap/sentences"
 	"math/rand"
 	"sort"
-	"time"
 	"strings"
-	"fmt"
+	"time"
 )
 
 // Initialize the user's context cache
@@ -81,8 +80,6 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 		return resultsTag[i].Value > resultsTag[j].Value
 	})
 
-	fmt.Println(resultsTag)
-
 	// Don't understand if the rate is under 0.35
 	if resultsTag[0].Value < 0.35 {
 		return "don't understand"
@@ -111,12 +108,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 			response = intent.Responses[rand.Intn(len(intent.Responses))]
 		}
 
-		// Apply triggers
-		for _, trigger := range triggers.RegisteredTriggers(entry, response) {
-			response = trigger.ReplaceContent()
-		}
-
-		return response
+		return triggers.ReplaceContent(entry, response)
 	}
 
 	// Error

@@ -1,9 +1,9 @@
 package analysis
 
 import (
+	"../slice"
 	"encoding/json"
 	"fmt"
-	"../slice"
 	"io/ioutil"
 	"sort"
 )

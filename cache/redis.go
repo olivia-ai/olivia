@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	RedisAddress = os.Getenv("REDIS_ADRESS")
+	RedisAddress  = os.Getenv("REDIS_ADRESS")
 	RedisPassword = os.Getenv("REDIS_PASSWORD")
 )
 

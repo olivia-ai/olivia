@@ -7,6 +7,21 @@ type Trigger interface {
 // Returns all the registered triggers
 func RegisteredTriggers(entry, response string) []Trigger {
 	return []Trigger{
-		Weather{entry, response, cities},
+		Weather{
+			Entry:    entry,
+			Response: response,
+		},
+		Random{
+			Response: response,
+		},
 	}
+}
+
+// Apply the triggers
+func ReplaceContent(entry, response string) string {
+	for _, trigger := range RegisteredTriggers(entry, response) {
+		response = trigger.ReplaceContent()
+	}
+
+	return response
 }

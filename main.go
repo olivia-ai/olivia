@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/gorilla/mux"
 	"./analysis"
-	"./training"
 	"./cache"
-	"net/http"
-	"log"
-	"fmt"
+	"./training"
 	"encoding/json"
+	"fmt"
+	"github.com/gorilla/mux"
+	"log"
+	"net/http"
 )
 
 type Response struct {

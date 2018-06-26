@@ -2,7 +2,13 @@
   {
     "tag": "salutation",
     "patterns": ["Hey", "Yo", "Salut", "slt", "Bonjour"],
-    "responses": ["Salut ! 😄", "Hello", "Coucou"],
+    "responses": ["Salut !", "Hello", "Coucou"],
+    "context": ""
+  },
+  {
+    "tag": "identité",
+    "patterns": ["Qui es-tu?", "Tu es qui?"],
+    "responses": ["Je suis Olivia, votre assistante personnelle", "Je suis votre assistante personnelle"],
     "context": ""
   },
   {
@@ -14,31 +20,31 @@
   {
     "tag": "bien",
     "patterns": ["Ca va bien merci", "Je vais bien", "Super", "Niquel"],
-    "responses": ["Et bien tout est parfait alors ! 🎉"],
+    "responses": ["Et bien tout est parfait alors !"],
     "context": "humeur"
   },
   {
     "tag": "mal",
     "patterns": ["Je vais mal", "Non je suis triste", "Non je me sens mal"],
-    "responses": ["Ah mince 😰", "Oh 😥", "J'espère que ça ira mieux"],
+    "responses": ["Mince", "J'espère que ça ira mieux"],
     "context": "humeur"
   },
   {
     "tag": "féminin",
     "patterns": ["Tu es une fille?", "T'es une meuf?", "Tu es une femme?"],
-    "responses": ["Oui je suis une fille 💁‍", "Oui je suis une femme"],
+    "responses": ["Oui je suis une fille‍", "Oui je suis une femme"],
     "context": ""
   },
   {
     "tag": "masculin",
     "patterns": ["Tu es un garçon?", "T'es un mec?", "Tu es un homme?"],
-    "responses": ["Non je suis une fille", "Non je suis une femme 💁"],
+    "responses": ["Non je suis une fille", "Non je suis une femme"],
     "context": ""
   },
   {
     "tag": "amour",
     "patterns": ["Bébé", "Mon amour", "Jtm", "Je t'aime"],
-    "responses": ["Oh, moi aussi je t'aime ❤️", "C'est mignon", "Moi aussi bébé ❤️"],
+    "responses": ["Oh, moi aussi je t'aime️", "C'est mignon", "Moi aussi bébé️"],
     "context": ""
   },
   {
@@ -66,12 +72,6 @@
     "context": ""
   },
   {
-    "tag": "heure",
-    "patterns": ["Quelle heure est-il?", "C'est quelle heure?", "donne l'heure"],
-    "responses": ["Il est ${CLOCK}", "C'est ${CLOCK} actuellement"],
-    "context": ""
-  },
-  {
     "tag": "météo",
     "patterns": ["Météo à", "Peut tu me donner la météo", "donne la météo"],
     "responses": ["Les conditions sont : ${WEATHER}"],
@@ -92,34 +92,45 @@
   {
     "tag": "ville précis",
     "patterns": ["Où précisement?", "Exactement?"],
-    "responses": ["N'en demande pas trop 😒", "Je garde ce lieu secret"],
+    "responses": ["N'en demande pas trop", "Je garde ce lieu secret"],
     "context": ""
   },
   {
     "tag": "blague",
     "patterns": ["Raconte moi une blague", "Fait une blague", "Raconte une blague"],
     "responses": [
-      "Qu'est-ce qu'un duche ?\nUne douche sans o",
+      "Qu'est-ce qu'un duche ? Une douche sans o",
       "L'autre jour, j’ai raconté une blague sur Carrefour, mais elle a pas supermarché…",
-      "Dans la phrase \"le voleur a volé une télévision\", où est le sujet ?\nEn prison !",
-      "Quels sont les fruits que nous trouvons dans toutes les maisons ?\nLes coins et les mûres.",
-      "Comment ramasse-t-on la papaye ?\n Avec une foufourche.",
-      "Un iceberg vient d'être papa. Comment l'annonce-t-il à ses amis ?\nC'est un petit glaçon.",
-      "Pourquoi Mickey Mousse ?\n Parce que Mario brosse.",
-      "Qu'est-ce qui fait \"zzzb, zzzb,...\" ?\n Une mouche qui vole à l'envers !",
-      "Quel est le coquillage le moins lourd ?\nLa palourde."
+      "Dans la phrase le voleur a volé une télévision, où est le sujet ? En prison !",
+      "Quels sont les fruits que nous trouvons dans toutes les maisons ? Les coins et les mûres.",
+      "Comment ramasse-t-on la papaye ? Avec une foufourche.",
+      "Un iceberg vient d'être papa. Comment l'annonce-t-il à ses amis ? C'est un petit glaçon.",
+      "Pourquoi Mickey Mousse ? Parce que Mario brosse.",
+      "Qu'est-ce qui fait \"zzzb, zzzb,...\" ? Une mouche qui vole à l'envers !",
+      "Quel est le coquillage le moins lourd ? La palourde."
     ],
     "context": ""
   },
   {
     "tag": "blague connue",
     "patterns": ["Je la connaissais", "Je l'avais déjà entendue"],
-    "responses": ["Ah mince", "Mince 😅"],
+    "responses": ["Ah mince", "Mince"],
     "context": "blague"
+  },
+  {
+    "tag": "nombre aléatoire",
+    "patterns": ["Génère un nombre aléatoire", "Donne un nombre aléatoire"],
+    "responses": ["Voici le nombre ${RANDOM_NUMBER}", "Voici votre nombre ${RANDOM_NUMBER}"],
+    "context": ""
   },
   {
     "tag": "don't understand",
     "patterns": [],
-    "responses": ["Je ne comprends pas 😅", "Désolé, je n'ai pas compris", "Excusez moi je n'ai pas compris"]
+    "responses": [
+      "Je ne comprends pas",
+      "Désolé, je n'ai pas compris",
+      "Excusez moi je n'ai pas compris",
+      "Je n'ai pas compris ce que vous essayez de me dire"
+    ]
   }
 ]
