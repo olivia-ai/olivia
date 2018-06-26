@@ -11,6 +11,9 @@ func RegisteredTriggers(entry, response string) []Trigger {
 			Entry:    entry,
 			Response: response,
 		},
+		Random{
+			Response: response,
+		},
 	}
 }
 
