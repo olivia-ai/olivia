@@ -16,13 +16,6 @@ Get a key on [OpenWeathermap](https://www.openweathermap.org/) and set it in the
 WEATHER_KEY = xxx
 ```
 
-Install a redis database and set the environment variables, by default it is `localhost:6379` and no password
-
-```
-REDIS_ADDRESS = xxx.xxx:xxx
-REDIS_PASSWORD = xxx
-```
-
 ## Usage
 
 Run the `main.go`: 
