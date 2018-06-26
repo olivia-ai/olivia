@@ -2,19 +2,18 @@ package triggers
 
 import (
 	"../language"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"strconv"
 	"strings"
-	"encoding/json"
 )
 
 type Weather struct {
 	Entry    string
 	Response string
-	Cities   []language.City
 }
 
 type Response struct {
@@ -46,8 +45,8 @@ type WeatherResponse struct {
 
 type Main struct {
 	Temperature    float64 `json:"temp"`
-	Pressure       int `json:"pressure"`
-	Humidity       int `json:"humidity"`
+	Pressure       int     `json:"pressure"`
+	Humidity       int     `json:"humidity"`
 	TemperatureMin float64 `json:"temp_min"`
 	TemperatureMax float64 `json:"temp_max"`
 }
@@ -70,6 +69,7 @@ type Sys struct {
 	Sunset  int    `json:"sunset"`
 }
 
+// Send a HTTP request to openweathermap
 func GetWeather(cityId int) Response {
 	apiUrl := fmt.Sprintf(
 		"https://api.openweathermap.org/data/2.5/weather?id=%s&APPID=%s&units=metric&lang=fr",
