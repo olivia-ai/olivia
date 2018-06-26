@@ -2,6 +2,7 @@ package triggers
 
 import (
 	"../language"
+	"../data"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -103,7 +104,7 @@ func (weather Weather) ReplaceContent() string {
 
 	// No cities found in this sentence
 	if len(possibilites) == 0 {
-		return "Je n'ai trouvé aucune ville correspondante 😦"
+		return data.GetMessage("no city")
 	}
 
 	// Respond weather with the good city
@@ -117,9 +118,9 @@ func (weather Weather) ReplaceContent() string {
 			1)
 	}
 
-	response := "J'ai trouvé plusieurs villes :\n"
+	response := data.GetMessage("cities")
 	for i, city := range possibilites {
-		response += fmt.Sprintf("%d - %s, %s\n", i+1, city.Name, city.Country)
+		response += fmt.Sprintf("%d - %s, %s. ", i+1, city.Name, city.Country)
 	}
 
 	return response

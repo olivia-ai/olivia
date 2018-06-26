@@ -120,17 +120,13 @@
   {
     "tag": "nombre aléatoire",
     "patterns": ["Génère un nombre aléatoire", "Donne un nombre aléatoire"],
-    "responses": ["Voici le nombre ${RANDOM_NUMBER}", "Voici votre nombre ${RANDOM_NUMBER}"],
+    "responses": ["Le nombre est le ${RANDOM_NUMBER}"],
     "context": ""
   },
   {
-    "tag": "don't understand",
-    "patterns": [],
-    "responses": [
-      "Je ne comprends pas",
-      "Désolé, je n'ai pas compris",
-      "Excusez moi je n'ai pas compris",
-      "Je n'ai pas compris ce que vous essayez de me dire"
-    ]
+    "tag": "capitale",
+    "patterns": ["Quelle est la capitale de", "Donne la capitale de"],
+    "responses": ["La capitale ${COUNTRY} est ${CAPITAL}"],
+    "context": ""
   }
 ]
