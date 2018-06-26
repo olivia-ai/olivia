@@ -4,28 +4,29 @@ type Trigger interface {
 	ReplaceContent() string
 }
 
+var (
+	Entry string
+	Response string
+)
+
 // Returns all the registered triggers
 func RegisteredTriggers(entry, response string) []Trigger {
+	Entry = entry
+	Response = response
+
 	return []Trigger{
-		Weather{
-			Entry:    entry,
-			Response: response,
-		},
-		Random{
-			Response: response,
-		},
-		Capital{
-			Entry: entry,
-			Response: response,
-		},
+		Weather{},
+		Random{},
+		Capital{},
+		Area{},
 	}
 }
 
 // Apply the triggers
 func ReplaceContent(entry, response string) string {
 	for _, trigger := range RegisteredTriggers(entry, response) {
-		response = trigger.ReplaceContent()
+		Response = trigger.ReplaceContent()
 	}
 
-	return response
+	return Response
 }

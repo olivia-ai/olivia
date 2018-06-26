@@ -68,7 +68,7 @@
   {
     "tag": "au revoir",
     "patterns": ["Au revoir", "A bientot", "A plus"],
-    "responses": ["Salut !", "A bientot", "a+"],
+    "responses": ["Salut !", "A bientot", "À plus tard"],
     "context": ""
   },
   {
@@ -125,8 +125,20 @@
   },
   {
     "tag": "capitale",
-    "patterns": ["Quelle est la capitale de", "Donne la capitale de"],
+    "patterns": ["Quelle est la capitale", "Donne la capitale", "capitale"],
     "responses": ["La capitale ${COUNTRY} est ${CAPITAL}"],
+    "context": ""
+  },
+  {
+    "tag": "superficie",
+    "patterns": ["Quelle est la superficie", "Donne la superficie"],
+    "responses": ["La superficie ${COUNTRY} est de ${AREA}km²"],
+    "context": ""
+  },
+  {
+    "tag": "père",
+    "patterns": ["Qui est ton papa?", "Qui est ton père?"],
+    "responses": ["Mon père est Hugo", "Mon papa s'appelle Hugo"],
     "context": ""
   }
 ]
