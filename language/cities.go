@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"regexp"
-	"strings"
 	"strconv"
+	"strings"
 )
 
 type City struct {
@@ -14,6 +14,8 @@ type City struct {
 	Name    string `json:"name"`
 	Country string `json:"country"`
 }
+
+var cities = SerializeCities()
 
 // Serialize the json file which contains cities as an array
 func SerializeCities() (cities []City) {
@@ -31,7 +33,7 @@ func SerializeCities() (cities []City) {
 func FindCities(sentence string) (possibilites []City) {
 	sentence = strings.ToLower(sentence) + " "
 
-	for _, city := range SerializeCities() {
+	for _, city := range cities {
 		if !strings.Contains(sentence, " "+strings.ToLower(city.Name)+" ") {
 			continue
 		}
@@ -47,10 +49,9 @@ func FindCities(sentence string) (possibilites []City) {
 			match := strings.Replace(cityNumber.FindString(sentence), cityName, "", 1)
 			number, _ := strconv.Atoi(match)
 
-			return []City{possibilites[number - 1]}
+			return []City{possibilites[number-1]}
 		}
 	}
-
 
 	return possibilites
 }

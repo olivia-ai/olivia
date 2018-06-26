@@ -1,6 +1,7 @@
 package analysis
 
 import (
+	"../data"
 	"../slice"
 	"../triggers"
 	"github.com/fxsjy/gonn/gonn"
@@ -90,6 +91,10 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 
 // Returns the human readable response
 func RandomizeResponse(entry string, tag string, userId string) string {
+	if tag == "don't understand" {
+		return data.GetMessage(tag)
+	}
+
 	// Iterate all the json intents
 	for _, intent := range SerializeIntents() {
 		if intent.Tag != tag {
@@ -97,7 +102,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 		}
 
 		if intent.Context != "" && cache[userId] != intent.Context {
-			return RandomizeResponse(entry, "don't understand", userId)
+			return data.GetMessage("don't understand")
 		}
 
 		cache[userId] = intent.Tag
@@ -112,7 +117,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 	}
 
 	// Error
-	return RandomizeResponse(entry, "don't understand", userId)
+	return data.GetMessage("don't understand")
 }
 
 // Respond with the cache or the model
