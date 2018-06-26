@@ -1,20 +1,17 @@
 package analysis
 
 import (
-	"../data"
-	"../slice"
-	"../triggers"
+	"github.com/olivia-ai/Api/data"
+	"github.com/olivia-ai/Api/slice"
+	"github.com/olivia-ai/Api/triggers"
 	"github.com/fxsjy/gonn/gonn"
-	"github.com/go-redis/redis"
 	"github.com/neurosnap/sentences"
+	gocache "github.com/patrickmn/go-cache"
 	"math/rand"
 	"sort"
 	"strings"
 	"time"
 )
-
-// Initialize the user's context cache
-var cache = make(map[string]string)
 
 type Sentence struct {
 	Content string
@@ -24,6 +21,8 @@ type Result struct {
 	Tag   string
 	Value float64
 }
+
+var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 
 // Returns an array of tokenized words
 func (sentence Sentence) Tokenize() (tokenizedWords []string) {
@@ -101,11 +100,12 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 			continue
 		}
 
-		if intent.Context != "" && cache[userId] != intent.Context {
+		cacheTag, _ := userCache.Get(userId)
+		if intent.Context != "" && cacheTag != intent.Context {
 			return data.GetMessage("don't understand")
 		}
 
-		cache[userId] = intent.Tag
+		userCache.Set(userId, tag, gocache.DefaultExpiration)
 
 		response := intent.Responses[0]
 		// Return a random response if there are more than one
@@ -121,16 +121,14 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 }
 
 // Respond with the cache or the model
-func (sentence Sentence) Calculate(client redis.Client, network gonn.NeuralNetwork, userId string) string {
-	tag, err := client.Get(sentence.Content).Result()
+func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwork, userId string) string {
+	tag, found := cache.Get(sentence.Content)
 
 	// If the sentence isn't in the redis database
-	if err == redis.Nil {
+	if !found {
 		tag = sentence.PredictTag(network)
-		client.Set(sentence.Content, tag, 2*time.Minute)
-	} else if err != nil {
-		panic(err)
+		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
 	}
 
-	return RandomizeResponse(sentence.Content, tag, userId)
+	return RandomizeResponse(sentence.Content, tag.(string), userId)
 }

@@ -1,7 +1,7 @@
 package analysis
 
 import (
-	"../slice"
+	"github.com/olivia-ai/Api/slice"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"

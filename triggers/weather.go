@@ -1,8 +1,8 @@
 package triggers
 
 import (
-	"../language"
-	"../data"
+	"github.com/olivia-ai/Api/language"
+	"github.com/olivia-ai/Api/data"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -12,12 +12,9 @@ import (
 	"strings"
 )
 
-type Weather struct {
-	Entry    string
-	Response string
-}
+type Weather struct {}
 
-type Response struct {
+type RequestResponse struct {
 	Coord      Coord             `json:"coord"`
 	Weather    []WeatherResponse `json:"weather"`
 	Base       string            `json:"base"`
@@ -71,7 +68,7 @@ type Sys struct {
 }
 
 // Send a HTTP request to openweathermap
-func GetWeather(cityId int) Response {
+func GetWeather(cityId int) RequestResponse {
 	apiUrl := fmt.Sprintf(
 		"https://api.openweathermap.org/data/2.5/weather?id=%s&APPID=%s&units=metric&lang=fr",
 		strconv.Itoa(cityId),
@@ -85,7 +82,7 @@ func GetWeather(cityId int) Response {
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 
-	var weather Response
+	var weather RequestResponse
 	json.Unmarshal(body, &weather)
 
 	return weather
@@ -96,11 +93,11 @@ var cities = language.SerializeCities()
 // Replace the content of the sentence by the actual clock
 func (weather Weather) ReplaceContent() string {
 	// Escape if it isn't a weather message
-	if !strings.Contains(weather.Response, "${WEATHER}") {
-		return weather.Response
+	if !strings.Contains(Response, "${WEATHER}") {
+		return Response
 	}
 
-	possibilites := language.FindCities(weather.Entry)
+	possibilites := language.FindCities(Entry)
 
 	// No cities found in this sentence
 	if len(possibilites) == 0 {
@@ -112,7 +109,7 @@ func (weather Weather) ReplaceContent() string {
 		conditions := GetWeather(possibilites[0].Id)
 
 		return strings.Replace(
-			weather.Response,
+			Response,
 			"${WEATHER}",
 			fmt.Sprintf("%s avec %d°C", conditions.Weather[0].Description, int(conditions.Main.Temperature)),
 			1)
