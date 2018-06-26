@@ -6,6 +6,12 @@
     "context": ""
   },
   {
+    "tag": "identité",
+    "patterns": ["Qui es-tu?", "Tu es qui?"],
+    "responses": ["Je suis Olivia, votre assistante personnelle", "Je suis votre assistante personnelle"],
+    "context": ""
+  },
+  {
     "tag": "humeur",
     "patterns": ["Ca va?", "Comment ça va?", "tu vas bien?"],
     "responses": ["Oui et toi ?", "Plutôt pas mal et toi ?", "Je vais bien et toi ?", "Niquel et toi ?"],
