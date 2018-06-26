@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"regexp"
-	"strconv"
 	"strings"
+	"strconv"
 )
 
 type City struct {
@@ -31,9 +31,6 @@ func SerializeCities() (cities []City) {
 func FindCities(sentence string) (possibilites []City) {
 	sentence = strings.ToLower(sentence) + " "
 
-	numberRegex := regexp.MustCompile("\\d+")
-	numbers := numberRegex.FindAllString(sentence, -1)
-
 	for _, city := range SerializeCities() {
 		if !strings.Contains(sentence, " "+strings.ToLower(city.Name)+" ") {
 			continue
@@ -42,11 +39,18 @@ func FindCities(sentence string) (possibilites []City) {
 		possibilites = append(possibilites, city)
 	}
 
-	// Returns the sentence's number city
-	if len(numbers) > 0 {
-		number, _ := strconv.Atoi(numbers[len(numbers)-1])
-		return []City{possibilites[number-1]}
+	for _, possibility := range possibilites {
+		cityName := " " + strings.ToLower(possibility.Name) + " "
+		cityNumber := regexp.MustCompile(cityName + "\\d+")
+
+		if cityNumber.MatchString(sentence) {
+			match := strings.Replace(cityNumber.FindString(sentence), cityName, "", 1)
+			number, _ := strconv.Atoi(match)
+
+			return []City{possibilites[number - 1]}
+		}
 	}
+
 
 	return possibilites
 }

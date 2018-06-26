@@ -1,9 +1,9 @@
 package training
 
 import (
-	"fmt"
 	"../analysis"
 	"../slice"
+	"fmt"
 	"github.com/fxsjy/gonn/gonn"
 	"time"
 )
