@@ -1,0 +1,32 @@
+[
+  {
+    "tag": "don't understand",
+    "messages": [
+      "Je ne comprends pas",
+      "Désolé, je n'ai pas compris",
+      "Excusez moi je n'ai pas compris",
+      "Je n'ai pas compris ce que vous essayez de me dire"
+    ]
+  },
+  {
+    "tag": "no city",
+    "messages": [
+      "Je n'ai trouvé aucune ville",
+      "Excusez moi je n'ai pas trouvé de ville"
+    ]
+  },
+  {
+    "tag": "cities",
+    "messages": [
+      "J'ai trouvé plusieurs villes :",
+      "Voici les différentes villes que j'ai trouvé :"
+    ]
+  },
+  {
+    "tag": "no country",
+    "messages": [
+      "Je n'ai pas trouvé de pays",
+      "Excusez moi je n'ai trouvé aucun pays"
+    ]
+  }
+]

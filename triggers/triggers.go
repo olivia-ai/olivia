@@ -14,6 +14,10 @@ func RegisteredTriggers(entry, response string) []Trigger {
 		Random{
 			Response: response,
 		},
+		Capital{
+			Entry: entry,
+			Response: response,
+		},
 	}
 }
 
