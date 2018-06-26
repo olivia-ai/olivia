@@ -1,10 +1,10 @@
 package triggers
 
 import (
-	"time"
 	"math/rand"
-	"strings"
 	"strconv"
+	"strings"
+	"time"
 )
 
 type Random struct {
