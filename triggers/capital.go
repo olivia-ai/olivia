@@ -8,6 +8,7 @@ import (
 
 type Capital struct {}
 
+// Replace the content of the response by the country and his capital
 func (capital Capital) ReplaceContent() string {
 	// Escape if it isn't a message which contains a Country
 	if !strings.Contains(Response, "${CAPITAL}") {

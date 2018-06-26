@@ -68,7 +68,7 @@
   {
     "tag": "au revoir",
     "patterns": ["Au revoir", "A bientot", "A plus"],
-    "responses": ["Salut !", "A bientot", "a+"],
+    "responses": ["Salut !", "A bientot", "À plus tard"],
     "context": ""
   },
   {
