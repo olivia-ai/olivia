@@ -125,7 +125,7 @@
   },
   {
     "tag": "capitale",
-    "patterns": ["Quelle est la capitale", "Donne la capitale"],
+    "patterns": ["Quelle est la capitale", "Donne la capitale", "capitale"],
     "responses": ["La capitale ${COUNTRY} est ${CAPITAL}"],
     "context": ""
   },
@@ -133,6 +133,12 @@
     "tag": "superficie",
     "patterns": ["Quelle est la superficie", "Donne la superficie"],
     "responses": ["La superficie ${COUNTRY} est de ${AREA}km²"],
+    "context": ""
+  },
+  {
+    "tag": "père",
+    "patterns": ["Qui est ton papa?", "Qui est ton père?"],
+    "responses": ["Mon père est Hugo", "Mon papa s'appelle Hugo"],
     "context": ""
   }
 ]

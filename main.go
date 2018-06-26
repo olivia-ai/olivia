@@ -1,8 +1,8 @@
 package main
 
 import (
-	"./analysis"
-	"./training"
+	"github.com/olivia-ai/Api/analysis"
+	"github.com/olivia-ai/Api/training"
 	"github.com/gorilla/mux"
 	gocache "github.com/patrickmn/go-cache"
 	"encoding/json"

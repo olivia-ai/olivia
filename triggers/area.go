@@ -1,8 +1,8 @@
 package triggers
 
 import (
-	"../language"
-	"../data"
+	"github.com/olivia-ai/Api/language"
+	"github.com/olivia-ai/Api/data"
 	"strings"
 	"strconv"
 )

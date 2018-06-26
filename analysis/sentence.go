@@ -1,9 +1,9 @@
 package analysis
 
 import (
-	"../data"
-	"../slice"
-	"../triggers"
+	"github.com/olivia-ai/Api/data"
+	"github.com/olivia-ai/Api/slice"
+	"github.com/olivia-ai/Api/triggers"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/neurosnap/sentences"
 	gocache "github.com/patrickmn/go-cache"
