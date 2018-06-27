@@ -4,12 +4,14 @@ import (
 	"github.com/olivia-ai/Api/analysis"
 	"github.com/olivia-ai/Api/training"
 	"github.com/gorilla/mux"
+	"github.com/gorilla/handlers"
 	gocache "github.com/patrickmn/go-cache"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"time"
+	"os"
 )
 
 type Response struct {
@@ -23,10 +25,15 @@ var (
 
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
+	router.Headers()
 	router.HandleFunc("/api/response", PostResponse).Methods("POST")
 
+	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With"})
+	originsOk := handlers.AllowedOrigins([]string{os.Getenv("ORIGIN_ALLOWED")})
+	methodsOk := handlers.AllowedMethods([]string{"POST"})
+
 	fmt.Println("Listening on the port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 }
 
 func PostResponse(w http.ResponseWriter, r *http.Request) {
