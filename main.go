@@ -11,7 +11,6 @@ import (
 	"log"
 	"net/http"
 	"time"
-	"os"
 )
 
 type Response struct {
@@ -28,9 +27,9 @@ func main() {
 	router.Headers()
 	router.HandleFunc("/api/response", PostResponse).Methods("POST")
 
-	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With"})
-	originsOk := handlers.AllowedOrigins([]string{os.Getenv("ORIGIN_ALLOWED")})
-	methodsOk := handlers.AllowedMethods([]string{"POST"})
+	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
+	originsOk := handlers.AllowedOrigins([]string{"*"})
+	methodsOk := handlers.AllowedMethods([]string{"GET", "POST"})
 
 	fmt.Println("Listening on the port 8080...")
 	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
