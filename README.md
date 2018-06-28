@@ -18,6 +18,10 @@ WEATHER_KEY = xxx
 
 ## Usage
 
+Note:
+
+A public version is enabled at `https://olivia.cleverapps.io`
+
 Run the `main.go`: 
 
 ```
