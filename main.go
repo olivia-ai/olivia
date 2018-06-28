@@ -24,7 +24,6 @@ var (
 
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
-	router.Headers()
 	router.HandleFunc("/api/response", PostResponse).Methods("POST")
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
