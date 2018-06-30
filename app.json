@@ -1,0 +1,12 @@
+{
+  "name": "OliviaApi",
+  "description": "Olivia's REST Api ",
+  "keywords": [
+    "chatbot",
+    "golang",
+    "olivia",
+    "machine-learning"
+  ],
+  "website": "https://olivia-ai.netlify.com",
+  "repository": "https://github.com/olivia-ai/Api"
+}
