@@ -3,12 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/handlers"
-	"github.com/gorilla/mux"
 	"github.com/olivia-ai/Api/analysis"
 	"github.com/olivia-ai/Api/training"
+	"google.golang.org/appengine"
 	gocache "github.com/patrickmn/go-cache"
-	"log"
 	"net/http"
 	"time"
 )
@@ -23,15 +21,8 @@ var (
 )
 
 func main() {
-	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/api/response", PostResponse).Methods("POST")
-
-	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
-	originsOk := handlers.AllowedOrigins([]string{"*"})
-	methodsOk := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})
-
-	fmt.Println("Listening on the port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
+	http.HandleFunc("/api/response", PostResponse)
+	appengine.Main()
 }
 
 func PostResponse(w http.ResponseWriter, r *http.Request) {
