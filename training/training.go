@@ -1,10 +1,10 @@
 package training
 
 import (
-	"github.com/olivia-ai/Api/analysis"
-	"github.com/olivia-ai/Api/slice"
 	"fmt"
 	"github.com/fxsjy/gonn/gonn"
+	"github.com/olivia-ai/Api/analysis"
+	"github.com/olivia-ai/Api/slice"
 	"time"
 )
 

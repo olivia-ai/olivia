@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-type Capital struct {}
+type Capital struct{}
 
 // Replace the content of the response by the country and his capital
 func (capital Capital) ReplaceContent() string {
