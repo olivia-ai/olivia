@@ -1,14 +1,14 @@
 package data
 
 import (
-	"io/ioutil"
-	"fmt"
 	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"math/rand"
 )
 
 type Message struct {
-	Tag string `json:"tag"`
+	Tag      string   `json:"tag"`
 	Messages []string `json:"messages"`
 }
 
@@ -31,7 +31,7 @@ func GetMessage(tag string) string {
 			continue
 		}
 
-		return message.Messages[rand.Intn(len(message.Messages) - 1)]
+		return message.Messages[rand.Intn(len(message.Messages)-1)]
 	}
 
 	return messages[0].Messages[0]
