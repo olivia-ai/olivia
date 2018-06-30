@@ -1,47 +1,51 @@
-package training
+package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"github.com/fxsjy/gonn/gonn"
+	"github.com/gorilla/handlers"
+	"github.com/gorilla/mux"
 	"github.com/olivia-ai/Api/analysis"
-	"github.com/olivia-ai/Api/slice"
+	"github.com/olivia-ai/Api/training"
+	gocache "github.com/patrickmn/go-cache"
+	"log"
+	"net/http"
 	"time"
 )
 
-// Return the inputs and targets generated from the intents for the neural network
-func TrainData() (inputs, targets [][]float64) {
-	words, classes, documents := analysis.Organize()
-
-	for _, document := range documents {
-		outputRow := make([]float64, len(classes))
-		bag := document.Sentence.WordsBag(words)
-
-		// Change value to 1 where there is the document Tag
-		outputRow[slice.Index(classes, document.Tag)] = 1
-
-		// Append data to trainx and trainy
-		inputs = append(inputs, bag)
-		targets = append(targets, outputRow)
-	}
-
-	return inputs, targets
+type Response struct {
+	Content string `json:"content"`
 }
 
-// Returns a new neural network and learn from the TrainData()'s inputs and targets
-func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
-	fmt.Println("Creating the neural network...")
-	start := time.Now()
+var (
+	model = training.CreateNeuralNetwork()
+	cache = gocache.New(5*time.Minute, 5*time.Minute)
+)
 
-	trainx, trainy := TrainData()
-	inputLayers, outputLayers := len(trainx[0]), len(trainy[0])
-	hiddenLayers := int(float64(outputLayers)*30/13 + 0.5)
+func main() {
+	router := mux.NewRouter().StrictSlash(true)
+	router.HandleFunc("/api/response", PostResponse).Methods("POST")
 
-	network = *gonn.DefaultNetwork(inputLayers, hiddenLayers, outputLayers, true)
+	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
+	originsOk := handlers.AllowedOrigins([]string{"*"})
+	methodsOk := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})
 
-	network.Train(trainx, trainy, 1000)
+	fmt.Println("Listening on the port 8080...")
+	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
+}
 
-	end := time.Now()
-	fmt.Printf("Done in %s\n", end.Sub(start))
+func PostResponse(w http.ResponseWriter, r *http.Request) {
+	responseSentence := analysis.Sentence{
+		Content: r.FormValue("sentence"),
+	}.Calculate(*cache, model, r.FormValue("authorId"))
 
-	return network
+	// Marshall the response in json
+	response := Response{responseSentence}
+	bytes, err := json.Marshal(response)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Fprint(w, string(bytes))
 }
