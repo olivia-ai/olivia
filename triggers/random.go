@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-type Random struct {}
+type Random struct{}
 
 // Replace the key by a random number
 func (random Random) ReplaceContent() string {

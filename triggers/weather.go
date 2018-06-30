@@ -1,10 +1,10 @@
 package triggers
 
 import (
-	"github.com/olivia-ai/Api/language"
-	"github.com/olivia-ai/Api/data"
 	"encoding/json"
 	"fmt"
+	"github.com/olivia-ai/Api/data"
+	"github.com/olivia-ai/Api/language"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-type Weather struct {}
+type Weather struct{}
 
 type RequestResponse struct {
 	Coord      Coord             `json:"coord"`

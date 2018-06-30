@@ -5,7 +5,7 @@ type Trigger interface {
 }
 
 var (
-	Entry string
+	Entry    string
 	Response string
 )
 

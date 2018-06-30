@@ -1,13 +1,13 @@
 package triggers
 
 import (
-	"github.com/olivia-ai/Api/language"
 	"github.com/olivia-ai/Api/data"
-	"strings"
+	"github.com/olivia-ai/Api/language"
 	"strconv"
+	"strings"
 )
 
-type Area struct {}
+type Area struct{}
 
 func (area Area) ReplaceContent() string {
 	// Escape if it isn't a message which contains a Country
