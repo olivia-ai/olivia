@@ -11,6 +11,7 @@ import (
 	"log"
 	"net/http"
 	"time"
+	"os"
 )
 
 type Response struct {
@@ -30,8 +31,13 @@ func main() {
 	originsOk := handlers.AllowedOrigins([]string{"*"})
 	methodsOk := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})
 
+	port := "8080"
+	if os.Getenv("PORT") != "" {
+		port = os.Getenv("PORT")
+	}
+
 	fmt.Println("Listening on the port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
+	log.Fatal(http.ListenAndServe(":" + port, handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 }
 
 func PostResponse(w http.ResponseWriter, r *http.Request) {
