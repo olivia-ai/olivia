@@ -1,11 +1,11 @@
 package analysis
 
 import (
+	"github.com/fxsjy/gonn/gonn"
+	"github.com/neurosnap/sentences"
 	"github.com/olivia-ai/Api/data"
 	"github.com/olivia-ai/Api/slice"
 	"github.com/olivia-ai/Api/triggers"
-	"github.com/fxsjy/gonn/gonn"
-	"github.com/neurosnap/sentences"
 	gocache "github.com/patrickmn/go-cache"
 	"math/rand"
 	"sort"

@@ -1,13 +1,13 @@
 package main
 
 import (
-	"github.com/olivia-ai/Api/analysis"
-	"github.com/olivia-ai/Api/training"
-	"github.com/gorilla/mux"
-	"github.com/gorilla/handlers"
-	gocache "github.com/patrickmn/go-cache"
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/handlers"
+	"github.com/gorilla/mux"
+	"github.com/olivia-ai/Api/analysis"
+	"github.com/olivia-ai/Api/training"
+	gocache "github.com/patrickmn/go-cache"
 	"log"
 	"net/http"
 	"time"
