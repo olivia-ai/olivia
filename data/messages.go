@@ -31,6 +31,10 @@ func GetMessage(tag string) string {
 			continue
 		}
 
+		if len(message.Messages) == 1 {
+			return message.Messages[0]
+		}
+
 		return message.Messages[rand.Intn(len(message.Messages)-1)]
 	}
 
