@@ -15,7 +15,7 @@ type Message struct {
 var messages = SerializeMessages()
 
 func SerializeMessages() (messages []Message) {
-	bytes, err := ioutil.ReadFile("messages.json")
+	bytes, err := ioutil.ReadFile("res/messages.json")
 	if err != nil {
 		fmt.Println(err)
 	}

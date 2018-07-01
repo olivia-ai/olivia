@@ -21,7 +21,7 @@ type Document struct {
 }
 
 func ReadIntents() []byte {
-	bytes, err := ioutil.ReadFile("intents.json")
+	bytes, err := ioutil.ReadFile("res/intents.json")
 	if err != nil {
 		fmt.Println(err)
 	}
