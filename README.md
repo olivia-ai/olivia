@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/olivia-ai/Api.svg?branch=master)](https://travis-ci.org/olivia-ai/Api)
+
 # Api
 
 Olivia's REST Api 
