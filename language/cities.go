@@ -19,7 +19,7 @@ var cities = SerializeCities()
 
 // Serialize the json file which contains cities as an array
 func SerializeCities() (cities []City) {
-	bytes, err := ioutil.ReadFile("cities.json")
+	bytes, err := ioutil.ReadFile("res/cities.json")
 	if err != nil {
 		fmt.Println(err)
 	}
