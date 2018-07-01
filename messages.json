@@ -28,5 +28,11 @@
       "Je n'ai pas trouvé de pays",
       "Excusez moi je n'ai trouvé aucun pays"
     ]
+  },
+  {
+    "tag": "no population",
+    "messages": [
+      "Je ne connais pas la population ${COUNTRY}"
+    ]
   }
 ]
