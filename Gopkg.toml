@@ -24,6 +24,8 @@
 #   go-tests = true
 #   unused-packages = true
 
+[metadata.heroku]
+  root-package = "github.com/olivia-ai/Api"
 
 [[constraint]]
   branch = "master"
