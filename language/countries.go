@@ -16,6 +16,7 @@ type Country struct {
 	Code         string   `json:"code"`
 	Borders      []string `json:"borders"`
 	Area         int      `json:"area"`
+	Population   int      `json:"population"`
 }
 
 var countries = SerializeCountries()
