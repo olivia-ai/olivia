@@ -16,11 +16,14 @@ Get a key on [OpenWeathermap](https://www.openweathermap.org/) and set it in the
 WEATHER_KEY = xxx
 ```
 
+You can change the port with the PORT environment variable, by default it is 8080
+
+
 ## Usage
 
 Note:
 
-A public version is enabled at `https://olivia.cleverapps.io`
+A public version is enabled at https://olivia-api.herokuapp.com/
 
 Run the `main.go`: 
 
