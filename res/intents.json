@@ -142,6 +142,18 @@
     "context": ""
   },
   {
+    "tag": "nationalité",
+    "patterns": ["Quelle est ta nationalité ?", "Tu viens d'où ?"],
+    "responses": ["Je suis française"],
+    "context": ""
+  },
+  {
+    "tag": "nationalité française",
+    "patterns": ["Tu es française ?", "T'es française ?"],
+    "responses": ["Oui je suis française et fière de l'être"],
+    "context": ""
+  },
+  {
     "tag": "population",
     "patterns": ["Combien il y a d'habitants", "Combien y a t'il d'habitants"],
     "responses": ["La population ${COUNTRY} est de ${POPULATION} habitants"],
