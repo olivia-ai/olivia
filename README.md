@@ -25,7 +25,7 @@ You can change the port with the PORT environment variable, by default it is 808
 
 Note:
 
-A public version is enabled at https://olivia-api.herokuapp.com/
+A public version is enabled at https://olivia-ai.netlify.com/
 
 Run the `main.go`: 
 
