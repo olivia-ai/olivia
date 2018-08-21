@@ -15,7 +15,7 @@ type Message struct {
 var messages = SerializeMessages()
 
 func SerializeMessages() (messages []Message) {
-	bytes, err := ioutil.ReadFile("messages.json")
+	bytes, err := ioutil.ReadFile("res/messages.json")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -29,6 +29,10 @@ func GetMessage(tag string) string {
 	for _, message := range messages {
 		if message.Tag != tag {
 			continue
+		}
+
+		if len(message.Messages) == 1 {
+			return message.Messages[0]
 		}
 
 		return message.Messages[rand.Intn(len(message.Messages)-1)]

@@ -10,8 +10,8 @@ import (
 	gocache "github.com/patrickmn/go-cache"
 	"log"
 	"net/http"
-	"time"
 	"os"
+	"time"
 )
 
 type Response struct {
@@ -36,8 +36,8 @@ func main() {
 		port = os.Getenv("PORT")
 	}
 
-	fmt.Println("Listening on the port 8080...")
-	log.Fatal(http.ListenAndServe(":" + port, handlers.CORS(originsOk, headersOk, methodsOk)(router)))
+	fmt.Printf("Listening on the port %s...\n", port)
+	log.Fatal(http.ListenAndServe(":"+port, handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 }
 
 func PostResponse(w http.ResponseWriter, r *http.Request) {
