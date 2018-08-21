@@ -140,5 +140,11 @@
     "patterns": ["Qui est ton papa?", "Qui est ton père?"],
     "responses": ["Mon père est Hugo", "Mon papa s'appelle Hugo"],
     "context": ""
+  },
+  {
+    "tag": "population",
+    "patterns": ["Combien il y a d'habitants", "Combien y a t'il d'habitants"],
+    "responses": ["La population ${COUNTRY} est de ${POPULATION} habitants"],
+    "context": ""
   }
 ]
