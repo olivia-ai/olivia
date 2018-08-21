@@ -35,7 +35,7 @@ $ go run main.go
 
 Then send a POST request at `localhost:8080/api/response` with `sentence` and `authorId` parameters in the request Body
 
-The api respond with this:
+The API responds with this:
 
 ```json
 {
