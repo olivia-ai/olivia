@@ -11,7 +11,6 @@ import (
 	"sort"
 	"strings"
 	"time"
-	"fmt"
 )
 
 type Sentence struct {
