@@ -158,5 +158,11 @@
     "patterns": ["Combien il y a d'habitants", "Combien y a t'il d'habitants"],
     "responses": ["La population ${COUNTRY} est de ${POPULATION} habitants"],
     "context": ""
+  },
+  {
+    "tag": "opération",
+    "patterns": ["Combien font", "Quel est le résultat de "],
+    "responses": ["Le résultat est ${RESULT}"],
+    "context": ""
   }
 ]
