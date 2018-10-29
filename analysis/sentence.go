@@ -27,7 +27,7 @@ var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 // Returns an array of tokenized words
 func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
-	tokens := tokenizer.Tokenize(sentence.Content, false)
+	tokens := tokenizer.Tokenize(strings.TrimSpace(sentence.Content), false)
 
 	// Initialize an array of ignored characters
 	ignoredChars := []string{"?", "-"}
