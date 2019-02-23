@@ -15,12 +15,10 @@ func RegisteredTriggers(entry, response string) []Trigger {
 	Response = response
 
 	return []Trigger{
-		Weather{},
 		Random{},
 		Capital{},
 		Area{},
 		Population{},
-		Operation{},
 	}
 }
 
