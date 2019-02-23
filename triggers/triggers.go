@@ -20,6 +20,7 @@ func RegisteredTriggers(entry, response string) []Trigger {
 		Capital{},
 		Area{},
 		Population{},
+		Operation{},
 	}
 }
 
