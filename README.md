@@ -12,11 +12,6 @@ Clone the project :
 $ git clone https://github.com/olivia-ai/Api.git
 ```
 
-Get a key on [OpenWeathermap](https://www.openweathermap.org/) and set it in the environment variable
-
-```
-WEATHER_KEY = xxx
-```
 
 You can change the port with the PORT environment variable, by default it is 8080
 
