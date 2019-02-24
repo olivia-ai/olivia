@@ -13,13 +13,13 @@
   },
   {
     "tag": "feeling",
-    "patterns": ["What's up", "How are you", "Are you good"],
+    "patterns": ["What's up", "How are you", "Are you good", "How have you been"],
     "responses": ["Fine and you ? ", "I am feeling good, you ?", "Very good and you ?"],
     "context": ""
   },
   {
     "tag": "good",
-    "patterns": ["I am good too", "I feel fine", "Good !", "Fine"],
+    "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I'm good"],
     "responses": ["That is perfect !"],
     "context": "feeling"
   },
@@ -31,7 +31,7 @@
   },
   {
     "tag": "women",
-    "patterns": ["Are you a girl ?", "you are a women ?"],
+    "patterns": ["Are you a girl ?", "You are a women ?"],
     "responses": ["Yes I am a girl‍", "Sure I am a women"],
     "context": ""
   },

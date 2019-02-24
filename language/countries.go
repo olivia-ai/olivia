@@ -11,12 +11,13 @@ type Country struct {
 	OfficialName string   `json:"official_name"`
 	CommonName   string   `json:"common_name"`
 	Capital      string   `json:"capital"`
-	Continent    string   `json:"continent"`
-	SubContinent string   `json:"subcontinent"`
+	Region       string   `json:"continent"`
+	SubRegion    string   `json:"subcontinent"`
 	Code         string   `json:"code"`
 	Borders      []string `json:"borders"`
 	Area         int      `json:"area"`
-	Population   int      `json:"population"`
+	Currency     string   `json:"currency"`
+	Flag         string   `json:"flag"`
 }
 
 var countries = SerializeCountries()
