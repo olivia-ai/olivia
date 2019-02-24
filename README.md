@@ -1,26 +1,23 @@
 [![Build Status](https://travis-ci.org/olivia-ai/Api.svg?branch=master)](https://travis-ci.org/olivia-ai/Api)
 
-# Api
+# Olivia
 
-Olivia's REST Api 
+Your new best friend as an open-source personal assistant
 
 ## Installation
 
 Clone the project :
 
 ```
-$ git clone https://github.com/olivia-ai/Api.git
+$ git clone https://github.com/olivia-ai/olivia.git
 ```
-
 
 You can change the port with the PORT environment variable, by default it is 8080
 
 
 ## Usage
 
-Note:
-
-A public version is enabled at https://olivia-api.herokuapp.com/
+> Note: A public version is enabled at https://olivia-api.herokuapp.com/
 
 Run the `main.go`: 
 
@@ -40,7 +37,7 @@ The API responds with this:
 
 ## Contributing
 
-1. Fork it (https://github.com/olivia-ai/Api/fork)
+1. Fork it (https://github.com/olivia-ai/olivia/fork)
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
