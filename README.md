@@ -30,9 +30,7 @@ Then send a POST request at `localhost:8080/api/response` with `sentence` and `a
 The API responds with this:
 
 ```json
-{
-  "content": "Plutôt pas mal et toi ?"
-}
+{"content":"I am feeling good, you ?"}
 ```
 
 ## Contributing

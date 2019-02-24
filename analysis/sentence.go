@@ -11,7 +11,6 @@ import (
 	"sort"
 	"strings"
 	"time"
-	"fmt"
 )
 
 type Sentence struct {
@@ -81,10 +80,8 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 		return resultsTag[i].Value > resultsTag[j].Value
 	})
 
-
-	fmt.Println(resultsTag[0].Value)
 	// Don't understand if the rate is under 0.35
-	if resultsTag[0].Value < 0.35 {
+	if resultsTag[0].Value < 0.50 {
 		return "don't understand"
 	}
 

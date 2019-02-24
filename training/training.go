@@ -34,7 +34,7 @@ func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
 
 	trainx, trainy := TrainData()
 	inputLayers, outputLayers := len(trainx[0]), len(trainy[0])
-	hiddenLayers := int(float64(outputLayers)*30/13 + 0.5)
+	hiddenLayers := 10
 
 	network = *gonn.DefaultNetwork(inputLayers, hiddenLayers, outputLayers, true)
 
