@@ -3,7 +3,7 @@ package analysis
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/olivia-ai/Api/util"
+	"github.com/olivia-ai/olivia/util"
 	"io/ioutil"
 	"sort"
 )
