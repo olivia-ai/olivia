@@ -2,9 +2,9 @@ package training
 
 import (
 	"fmt"
-	"github.com/fxsjy/gonn/gonn"
-	"github.com/olivia-ai/Api/analysis"
-	"github.com/olivia-ai/Api/util"
+	"github.com/olivia-ai/gonn/gonn"
+	"github.com/olivia-ai/olivia/analysis"
+	"github.com/olivia-ai/olivia/util"
 	"time"
 )
 

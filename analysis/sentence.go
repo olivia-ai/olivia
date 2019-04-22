@@ -3,8 +3,8 @@ package analysis
 import (
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/neurosnap/sentences"
-	"github.com/olivia-ai/Api/triggers"
-	"github.com/olivia-ai/Api/util"
+	"github.com/olivia-ai/olivia/triggers"
+	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
 	"math/rand"
 	"sort"
