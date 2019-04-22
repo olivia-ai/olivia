@@ -3,9 +3,8 @@ package analysis
 import (
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/neurosnap/sentences"
-	"github.com/olivia-ai/Api/data"
-	"github.com/olivia-ai/Api/slice"
 	"github.com/olivia-ai/Api/triggers"
+	"github.com/olivia-ai/Api/util"
 	gocache "github.com/patrickmn/go-cache"
 	"math/rand"
 	"sort"
@@ -30,7 +29,7 @@ func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 	tokens := tokenizer.Tokenize(strings.TrimSpace(sentence.Content), false)
 
 	// Initialize an array of ignored characters
-	ignoredChars := []string{"?", "-"}
+	ignoredChars := []string{"?", "-", "."}
 
 	// Get the string token and add it to tokenizedWords
 	for _, tokenizedWord := range tokens {
@@ -52,7 +51,7 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	for _, word := range words {
 		// Append 1 if the patternWords contains the actual word, else 0
 		var valueToAppend float64 = 0
-		if slice.Contains(sentence.Tokenize(), word) {
+		if util.Contains(sentence.Tokenize(), word) {
 			valueToAppend = 1
 		}
 
@@ -91,7 +90,7 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 // Returns the human readable response
 func RandomizeResponse(entry string, tag string, userId string) string {
 	if tag == "don't understand" {
-		return data.GetMessage(tag)
+		return util.GetMessage(tag)
 	}
 
 	// Iterate all the json intents
@@ -102,7 +101,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 
 		cacheTag, _ := userCache.Get(userId)
 		if intent.Context != "" && cacheTag != intent.Context {
-			return data.GetMessage("don't understand")
+			return util.GetMessage("don't understand")
 		}
 
 		userCache.Set(userId, tag, gocache.DefaultExpiration)
@@ -117,7 +116,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 	}
 
 	// Error
-	return data.GetMessage("don't understand")
+	return util.GetMessage("don't understand")
 }
 
 // Respond with the cache or the model

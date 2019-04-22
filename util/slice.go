@@ -1,6 +1,6 @@
-package slice
+package util
 
-// Check if a slice contains a specific item
+// Check if a util contains a specific item
 func Contains(slice []string, text string) bool {
 	for _, item := range slice {
 		if item == text {
