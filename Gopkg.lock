@@ -32,6 +32,12 @@
   version = "v1.0.6"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/olivia-ai/gonn"
+  packages = ["gonn"]
+  revision = "4e1526e13288d289d30452aa834d3ca434032d98"
+
+[[projects]]
   name = "github.com/patrickmn/go-cache"
   packages = ["."]
   revision = "a3647f8e31d79543b2d0f0ae2fe5c379d72cedc0"
@@ -40,6 +46,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "77e68d6c20d424b4107cf0cef503073ff2f746525d8a6db8777673190714f8a5"
+  inputs-digest = "69d2209046e1b0458b1d5bbf0f2dee4f28aa56744d1eee94cfb3c0242c9b4680"
   solver-name = "gps-cdcl"
   solver-version = 1
