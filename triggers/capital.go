@@ -1,8 +1,8 @@
 package triggers
 
 import (
-	"github.com/olivia-ai/Api/data"
 	"github.com/olivia-ai/Api/language"
+	"github.com/olivia-ai/Api/util"
 	"strings"
 )
 
@@ -19,7 +19,7 @@ func (capital Capital) ReplaceContent() string {
 
 	// If there isn't a country respond with a data.Message
 	if country.Code == "" {
-		return data.GetMessage("no country")
+		return util.GetMessage("no country")
 	}
 
 	response := strings.Replace(Response, "${CAPITAL}", country.Capital, 1)

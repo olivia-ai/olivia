@@ -3,7 +3,7 @@ package analysis
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/olivia-ai/Api/slice"
+	"github.com/olivia-ai/Api/util"
 	"io/ioutil"
 	"sort"
 )
@@ -48,7 +48,7 @@ func Organize() (words, classes []string, documents []Document) {
 			// Add each word to response
 			for _, word := range patternSentence.Tokenize() {
 
-				if !slice.Contains(words, word) {
+				if !util.Contains(words, word) {
 					words = append(words, word)
 				}
 			}
@@ -60,7 +60,7 @@ func Organize() (words, classes []string, documents []Document) {
 			})
 
 			// Add the intent tag to class if it doesn't exists
-			if !slice.Contains(classes, intent.Tag) {
+			if !util.Contains(classes, intent.Tag) {
 				classes = append(classes, intent.Tag)
 			}
 		}

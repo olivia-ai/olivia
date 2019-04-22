@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/fxsjy/gonn/gonn"
 	"github.com/olivia-ai/Api/analysis"
-	"github.com/olivia-ai/Api/slice"
+	"github.com/olivia-ai/Api/util"
 	"time"
 )
 
@@ -17,7 +17,7 @@ func TrainData() (inputs, targets [][]float64) {
 		bag := document.Sentence.WordsBag(words)
 
 		// Change value to 1 where there is the document Tag
-		outputRow[slice.Index(classes, document.Tag)] = 1
+		outputRow[util.Index(classes, document.Tag)] = 1
 
 		// Append data to trainx and trainy
 		inputs = append(inputs, bag)
