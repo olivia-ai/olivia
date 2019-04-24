@@ -2,8 +2,6 @@
   <br>
   <img src="https://i.imgur.com/Xz0DUXf.png" alt="Cute character" width="400">
   <br>
-  Olivia
-  <br>
 </h1>
 
 <h4 align="center">Your new best friend</h4>
@@ -36,6 +34,13 @@ $ go run main.go
 ### Official API
 
 Just point your request to [https://olivia-api.herokuapp.com/](https://olivia-api.herokuapp.com/)
+
+
+The requests must be POST requests and point to `/api/response` with the following parameters :
+```
+sentence=hey
+authorId=192003943049
+```
 
 ## License
 
