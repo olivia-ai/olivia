@@ -19,7 +19,7 @@
   },
   {
     "tag": "good",
-    "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I'm good"],
+    "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I'm good", "I'm great"],
     "responses": ["That is perfect !"],
     "context": "feeling"
   },
