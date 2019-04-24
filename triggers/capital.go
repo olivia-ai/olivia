@@ -23,7 +23,7 @@ func (capital Capital) ReplaceContent() string {
 	}
 
 	response := strings.Replace(Response, "${CAPITAL}", country.Capital, 1)
-	response = strings.Replace(response, "${COUNTRY}", country.OfficialName+" "+country.Flag+" ", 1)
+	response = strings.Replace(response, "${COUNTRY}", country.OfficialName+" "+country.Flag, 1)
 
 	return response
 }

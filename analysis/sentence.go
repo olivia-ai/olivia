@@ -1,6 +1,7 @@
 package analysis
 
 import (
+	"github.com/caneroj1/stemmer"
 	"github.com/neurosnap/sentences"
 	"github.com/olivia-ai/gonn/gonn"
 	"github.com/olivia-ai/olivia/triggers"
@@ -39,6 +40,8 @@ func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 		for _, ignoredChar := range ignoredChars {
 			word = strings.Replace(word, ignoredChar, "", -1)
 		}
+
+		word = stemmer.Stem(word)
 
 		tokenizedWords = append(tokenizedWords, word)
 	}
