@@ -25,7 +25,7 @@
   },
   {
     "tag": "good",
-    "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I'm good", "I'm great"],
+    "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I am good", "I am great"],
     "responses": ["That is perfect !"],
     "context": "feeling"
   },
@@ -49,7 +49,7 @@
   },
   {
     "tag": "thanks",
-    "patterns": ["Thanks you", "Thanks you very much"],
+    "patterns": ["Thanks you", "Thanks you very much", "thanks"],
     "responses": ["I only do my job️"],
     "context": ""
   },

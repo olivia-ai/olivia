@@ -22,8 +22,8 @@ func (area Area) ReplaceContent() string {
 		return util.GetMessage("no country")
 	}
 
-	response := strings.Replace(Response, "${AREA}", strconv.Itoa(country.Area), 1)
-	response = strings.Replace(response, "${COUNTRY}", country.OfficialName, 1)
+	response := strings.Replace(Response, "${AREA}", strconv.FormatFloat(country.Area, 'f', 2, 64), 1)
+	response = strings.Replace(response, "${COUNTRY}", country.OfficialName+" "+country.Flag, 1)
 
 	return response
 }

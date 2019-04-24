@@ -15,7 +15,7 @@ type Country struct {
 	SubRegion    string   `json:"subcontinent"`
 	Code         string   `json:"code"`
 	Borders      []string `json:"borders"`
-	Area         int      `json:"area"`
+	Area         float64  `json:"area"`
 	Currency     string   `json:"currency"`
 	Flag         string   `json:"flag"`
 }
