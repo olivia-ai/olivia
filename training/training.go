@@ -38,7 +38,7 @@ func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
 
 	network = *gonn.DefaultNetwork(inputLayers, hiddenLayers, outputLayers, true)
 
-	network.Train(trainx, trainy, 1000)
+	network.Train(trainx, trainy, 10000)
 
 	end := time.Now()
 	fmt.Printf("Done in %s\n", end.Sub(start))
