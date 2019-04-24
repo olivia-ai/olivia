@@ -1,46 +1,42 @@
-[![Build Status](https://travis-ci.org/olivia-ai/Api.svg?branch=master)](https://travis-ci.org/olivia-ai/Api)
+<h1 align="center">
+  <br>
+  <img src="https://i.imgur.com/Xz0DUXf.png" alt="Cute character" width="400">
+  <br>
+  Olivia
+  <br>
+</h1>
 
-# Olivia
+<h4 align="center">Your new best friend</h4>
 
-Your new best friend as an open-source personal assistant
+<p align="center">
+  <a href="https://travis-ci.org/olivia-ai/olivia"><img src="https://travis-ci.org/olivia-ai/olivia.svg?branch=master"></a>
+</p>
 
-## Installation
+<p align="center">
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#license">License</a>
+</p>
 
-Clone the project :
+## How To Use
 
+- [Use your API version](#setup-the-api)
+- [Use official API](#official-api)
+
+### Setup the API
+Clone the API:
 ```
 $ git clone https://github.com/olivia-ai/olivia.git
 ```
 
-You can change the port with the PORT environment variable, by default it is 8080
-
-
-## Usage
-
-> Note: A public version is enabled at https://olivia-api.herokuapp.com/
-
-Run the `main.go`: 
-
+Then run it: 
 ```
 $ go run main.go
 ```
 
-Then send a POST request at `localhost:8080/api/response` with `sentence` and `authorId` parameters in the request Body
+### Official API
 
-The API responds with this:
+Just point your request to [https://olivia-api.herokuapp.com/](https://olivia-api.herokuapp.com/)
 
-```json
-{"content":"I am feeling good, you ?"}
-```
+## License
 
-## Contributing
-
-1. Fork it (https://github.com/olivia-ai/olivia/fork)
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
-
-## Contributors
-
-- [ananagame](https://github.com/ananagame) - creator, maintainer
+MIT
