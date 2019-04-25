@@ -13,8 +13,14 @@
   },
   {
     "tag": "action",
-    "patterns": ["What are you doing"],
+    "patterns": ["What are you doing", "What do you do"],
     "responses": ["I am speaking to a wonderful person"],
+    "context": ""
+  },
+  {
+    "tag": "fuck",
+    "patterns": ["Fuck you", "Fuck you bitch"],
+    "responses": ["I am sorry"],
     "context": ""
   },
   {
