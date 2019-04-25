@@ -17,6 +17,14 @@
 
 ## How To Use
 
+The requests must be POST requests and point to `/api/response` with the following parameters :
+```
+sentence=hey
+authorId=192003943049
+```
+
+Choose your API :
+
 - [Use your API version](#setup-the-api)
 - [Use official API](#official-api)
 
@@ -35,12 +43,6 @@ $ go run main.go
 
 Just point your request to [https://olivia-api.herokuapp.com/](https://olivia-api.herokuapp.com/)
 
-
-The requests must be POST requests and point to `/api/response` with the following parameters :
-```
-sentence=hey
-authorId=192003943049
-```
 
 ## License
 
