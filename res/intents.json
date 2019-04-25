@@ -7,7 +7,7 @@
   },
   {
     "tag": "identity",
-    "patterns": ["Who are you", "Are you an AI"],
+    "patterns": ["Who are you", "Are you an AI", "Are you a robot"],
     "responses": ["I am Olivia your personal assistant", "I am your new personal assistant"],
     "context": ""
   },
@@ -16,6 +16,12 @@
     "patterns": ["What are you doing", "What do you do"],
     "responses": ["I am speaking to a wonderful person"],
     "context": ""
+  },
+  {
+    "tag": "action reply",
+    "patterns": ["Oh you're so kind"],
+    "responses": ["Thanks you ! :)"],
+    "context": "action"
   },
   {
     "tag": "fuck",
@@ -37,7 +43,7 @@
   },
   {
     "tag": "bad",
-    "patterns": ["I am feeling bad", "No I am sad"],
+    "patterns": ["I am feeling bad", "No I am sad", "No"],
     "responses": ["I hope you will feel better !"],
     "context": "feeling"
   },
