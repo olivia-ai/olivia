@@ -6,12 +6,6 @@
 
 <h4 align="center">Your new best friend</h4>
 
-<div align="center">
-    <br>
-    <img src="https://i.imgur.com/hkdqgK6.gif" alt="gif of olivia working" width="400">
-    <br>
-</div>
-
 <p align="center">
   <a href="https://travis-ci.org/olivia-ai/olivia"><img src="https://travis-ci.org/olivia-ai/olivia.svg?branch=master"></a>
 </p>
