@@ -54,6 +54,12 @@
     "context": "feeling"
   },
   {
+    "tag": "actions",
+    "patterns": ["What can you do ?", "What can I ask you ?"],
+    "responses": ["You can ask me:\n - The capital of a country\n - The area of a country\n - The currency of a country\n - A random number"],
+    "context": ""
+  },
+  {
     "tag": "women",
     "patterns": ["Are you a girl ?", "You are a women ?"],
     "responses": ["Yes I am a girl‍", "Sure I am a women"],
