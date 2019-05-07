@@ -41,7 +41,7 @@ func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
 	network.Train(trainx, trainy, 1000)
 
 	end := time.Now()
-	fmt.Printf("Done in %s\n", end.Sub(start))
+	fmt.Printf("\nDone in %s\n", end.Sub(start))
 
 	return network
 }

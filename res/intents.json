@@ -18,6 +18,12 @@
     "context": ""
   },
   {
+    "tag": "job",
+    "patterns": ["What is your job"],
+    "responses": ["My job is to make you feel like everything is okay."],
+    "context": ""
+  },
+  {
     "tag": "action reply",
     "patterns": ["Oh you're so kind"],
     "responses": ["Thanks you ! :)"],
@@ -37,7 +43,7 @@
   },
   {
     "tag": "good",
-    "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I am good", "I am great"],
+    "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I am good", "I am great", "great"],
     "responses": ["That is perfect !"],
     "context": "feeling"
   },
@@ -99,6 +105,12 @@
     "tag": "area",
     "patterns": ["What is the area of ", "Give me the area of "],
     "responses": ["The area of ${COUNTRY} is ${AREA}km²"],
+    "context": ""
+  },
+  {
+    "tag": "currency",
+    "patterns": ["Which currency is used in ", "Give me the used currency of ", "Give me the currency of ", "What is the currency of "],
+    "responses": ["The currency of ${COUNTRY} is ${CURRENCY}"],
     "context": ""
   }
 ]
