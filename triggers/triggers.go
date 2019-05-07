@@ -18,6 +18,7 @@ func RegisteredTriggers(entry, response string) []Trigger {
 		Random{},
 		Capital{},
 		Area{},
+		Currency{},
 	}
 }
 
