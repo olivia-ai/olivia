@@ -12,12 +12,6 @@
     "context": ""
   },
   {
-    "tag": "action",
-    "patterns": ["What are you doing", "What do you do"],
-    "responses": ["I am speaking to a wonderful person"],
-    "context": ""
-  },
-  {
     "tag": "job",
     "patterns": ["What is your job"],
     "responses": ["My job is to make you feel like everything is okay."],
@@ -52,6 +46,12 @@
     "patterns": ["I am feeling bad", "No I am sad", "No"],
     "responses": ["I hope you will feel better !"],
     "context": "feeling"
+  },
+  {
+    "tag": "actions",
+    "patterns": ["What can you do ?", "What can I ask you ?"],
+    "responses": ["You can ask me:\n - The capital of a country\n - The area of a country\n - The currency of a country\n - A random number"],
+    "context": ""
   },
   {
     "tag": "women",
