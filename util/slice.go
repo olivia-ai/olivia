@@ -11,7 +11,7 @@ func Contains(slice []string, text string) bool {
 	return false
 }
 
-// Return the searched item's index
+// Index returns the index of an item in a slice of strings
 func Index(slice []string, text string) int {
 	for i, item := range slice {
 		if item == text {

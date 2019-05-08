@@ -82,7 +82,8 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 		return resultsTag[i].Value > resultsTag[j].Value
 	})
 
-	// Don't understand if the rate is under 0.35
+	// TODO: Review the value here, arbitrary choice of 0.50.
+	// If the model is not sure at 50% that it is the right tag returns the "don't understand" tag
 	if resultsTag[0].Value < 0.50 {
 		return "don't understand"
 	}

@@ -25,6 +25,7 @@ func SerializeMessages() (messages []Message) {
 	return messages
 }
 
+// GetMessage returns a random message which have a specified tag
 func GetMessage(tag string) string {
 	for _, message := range messages {
 		if message.Tag != tag {
