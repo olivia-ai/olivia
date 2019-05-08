@@ -3,13 +3,16 @@
     "tag": "don't understand",
     "messages": [
       "I don't understand",
-      "Sorry but I don't understand"
+      "Sorry but I don't understand",
+      "I'm trying to do my best but I don't understand :(",
+      "Sorry I'm still young, I don't understand"
     ]
   },
   {
     "tag": "no country",
     "messages": [
-      "I don't find a country"
+      "I don't find a country in your message",
+      "You must specify the country"
     ]
   }
 ]
