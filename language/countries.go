@@ -34,7 +34,7 @@ func SerializeCountries() (countries []Country) {
 	return countries
 }
 
-// Returns the country found in the sentence
+// FindCountry returns the country found in the sentence and if no country is found, returns an empty Country struct
 func FindCountry(sentence string) Country {
 	for _, country := range countries {
 		if !strings.Contains(strings.ToLower(sentence), strings.ToLower(country.CommonName)) &&
