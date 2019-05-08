@@ -30,7 +30,7 @@ func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 	tokens := tokenizer.Tokenize(strings.TrimSpace(sentence.Content), false)
 
 	// Initialize an array of ignored characters
-	ignoredChars := []string{"?", "-", "."}
+	ignoredChars := []string{"?", "-", ".", "!"}
 
 	// Get the string token and add it to tokenizedWords
 	for _, tokenizedWord := range tokens {
