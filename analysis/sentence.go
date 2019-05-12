@@ -1,7 +1,9 @@
 package analysis
 
 import (
+	"fmt"
 	"github.com/caneroj1/stemmer"
+	"github.com/gookit/color"
 	"github.com/neurosnap/sentences"
 	"github.com/olivia-ai/gonn/gonn"
 	"github.com/olivia-ai/olivia/triggers"
@@ -82,6 +84,8 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 		return resultsTag[i].Value > resultsTag[j].Value
 	})
 
+	LogResults(sentence.Content, resultsTag)
+
 	// TODO: Review the value here, arbitrary choice of 0.50.
 	// If the model is not sure at 50% that it is the right tag returns the "don't understand" tag
 	if resultsTag[0].Value < 0.50 {
@@ -134,4 +138,15 @@ func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwo
 	}
 
 	return RandomizeResponse(sentence.Content, tag.(string), userId)
+}
+
+func LogResults(entry string, results []Result) {
+	fmt.Printf("\n\"%s\"\n", entry)
+	for _, result := range results {
+		if result.Value < 0.05 {
+			continue
+		}
+
+		fmt.Printf("  ▫︎ %s - %f\n", result.Tag, result.Value)
+	}
 }
