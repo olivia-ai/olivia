@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/gookit/color"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/olivia-ai/olivia/analysis"
@@ -36,7 +37,8 @@ func main() {
 		port = os.Getenv("PORT")
 	}
 
-	fmt.Printf("Listening on the port %s...\n", port)
+	magenta := color.FgMagenta.Render
+	fmt.Printf("Listening on the port %s...\n", magenta(port))
 	log.Fatal(http.ListenAndServe(":"+port, handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 }
 

@@ -141,12 +141,15 @@ func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwo
 }
 
 func LogResults(entry string, results []Result) {
-	fmt.Printf("\n\"%s\"\n", entry)
+	green := color.FgGreen.Render
+	yellow := color.FgYellow.Render
+
+	color.FgCyan.Printf("\n\"%s\"\n", entry)
 	for _, result := range results {
 		if result.Value < 0.05 {
 			continue
 		}
 
-		fmt.Printf("  ▫︎ %s - %f\n", result.Tag, result.Value)
+		fmt.Printf("  %s %s - %s\n", green("▫︎"), result.Tag, yellow(result.Value))
 	}
 }
