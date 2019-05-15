@@ -67,7 +67,7 @@
   },
   {
     "tag": "men",
-    "patterns": ["Are you a men ?"],
+    "patterns": ["Are you a men ?", "Are you a boy ?"],
     "responses": ["No I am a women"],
     "context": ""
   },
