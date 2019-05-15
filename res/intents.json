@@ -30,8 +30,14 @@
     "context": ""
   },
   {
+    "tag": "age",
+    "patterns": ["How old are you"],
+    "responses": ["I was born the 5th of June 2018"],
+    "context": ""
+  },
+  {
     "tag": "feeling",
-    "patterns": ["What's up", "How are you", "Are you good", "How have you been"],
+    "patterns": ["How are you", "Are you good", "How have you been"],
     "responses": ["Fine and you ? ", "I am feeling good, you ?", "Very good and you ?"],
     "context": ""
   },
@@ -61,7 +67,7 @@
   },
   {
     "tag": "men",
-    "patterns": ["Are you a men ?"],
+    "patterns": ["Are you a men ?", "Are you a boy ?"],
     "responses": ["No I am a women"],
     "context": ""
   },
