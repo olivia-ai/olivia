@@ -2,6 +2,7 @@ package training
 
 import (
 	"fmt"
+	"github.com/gookit/color"
 	"github.com/olivia-ai/gonn/gonn"
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/util"
@@ -29,7 +30,7 @@ func TrainData() (inputs, targets [][]float64) {
 
 // Returns a new neural network and learn from the TrainData()'s inputs and targets
 func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
-	fmt.Println("Creating the neural network...")
+	color.FgCyan.Println("Creating the neural network...")
 	start := time.Now()
 
 	trainx, trainy := TrainData()
@@ -37,11 +38,11 @@ func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
 	hiddenLayers := 100
 
 	network = *gonn.DefaultNetwork(inputLayers, hiddenLayers, outputLayers, true)
-
 	network.Train(trainx, trainy, 1000)
 
 	end := time.Now()
-	fmt.Printf("\nDone in %s\n", end.Sub(start))
+	green := color.FgGreen.Render
+	fmt.Printf("\n\nDone in %s\n", green(end.Sub(start)))
 
 	return network
 }
