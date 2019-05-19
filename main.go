@@ -38,7 +38,7 @@ func main() {
 	}
 
 	magenta := color.FgMagenta.Render
-	fmt.Printf("Listening on the port %s...\n", magenta(port))
+	fmt.Printf("\nListening on the port %s...\n", magenta(port))
 	log.Fatal(http.ListenAndServe(":"+port, handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 }
 
