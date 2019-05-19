@@ -37,7 +37,7 @@
   },
   {
     "tag": "feeling",
-    "patterns": ["How are you", "Are you good", "How have you been"],
+    "patterns": ["How are you"],
     "responses": ["Fine and you ? ", "I am feeling good, you ?", "Very good and you ?"],
     "context": ""
   },

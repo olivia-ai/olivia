@@ -3,49 +3,95 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/fxsjy/gonn"
-  packages = ["gonn"]
-  revision = "bb82a6c319ea296cf765ab9b9d08a6af9435cc1a"
-
-[[projects]]
-  name = "github.com/gorilla/context"
+  digest = "1:9714edf467a38c16ada8f0841d21febefbe3feb56877d42c369e7c5bfc2a05ea"
+  name = "github.com/caneroj1/stemmer"
   packages = ["."]
-  revision = "08b5f424b9271eedf6f9f0ce86cb9396ed337a42"
-  version = "v1.1.1"
+  pruneopts = "UT"
+  revision = "c9f2ce1504d576b42a18f7db9cf05a50dd391c77"
 
 [[projects]]
+  digest = "1:a0cc264456743e2c8f9798dbe251c28bacbc3e60a4fbcf140997e8aaae5a0cf8"
+  name = "github.com/gookit/color"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "55e2fd773974775d0bda6daef1fe74bd47ccc260"
+  version = "v1.1.7"
+
+[[projects]]
+  digest = "1:664d37ea261f0fc73dd17f4a1f5f46d01fbb0b0d75f6375af064824424109b7d"
   name = "github.com/gorilla/handlers"
   packages = ["."]
-  revision = "90663712d74cb411cbef281bc1e08c19d1a76145"
-  version = "v1.3.0"
+  pruneopts = "UT"
+  revision = "7e0847f9db758cdebd26c149d0ae9d5d0b9c98ce"
+  version = "v1.4.0"
 
 [[projects]]
+  digest = "1:3af6be4fee7c08f81f13d36f04ffb63ad4b6b5aaba12cce96095c7c2863d4912"
   name = "github.com/gorilla/mux"
   packages = ["."]
-  revision = "e3702bed27f0d39777b0b37b664b6280e8ef8fbf"
-  version = "v1.6.2"
+  pruneopts = "UT"
+  revision = "ed099d42384823742bba0bf9a72b53b55c9e2e38"
+  version = "v1.7.2"
 
 [[projects]]
+  digest = "1:0356f3312c9bd1cbeda81505b7fd437501d8e778ab66998ef69f00d7f9b3a0d7"
+  name = "github.com/mattn/go-runewidth"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "3ee7d812e62a0804a7d0a324e0249ca2db3476d3"
+  version = "v0.0.4"
+
+[[projects]]
+  digest = "1:8276341abd121205600721bd831eb5209b83dd7a124d3a982e3ccc2da8c03012"
   name = "github.com/neurosnap/sentences"
   packages = ["."]
+  pruneopts = "UT"
   revision = "a7f18ead1433a139742a8b42ce7a059cfb484d60"
   version = "v1.0.6"
 
 [[projects]]
   branch = "master"
+  digest = "1:89afdce867f8b1f4e00770a3d37c920a91217d2e42eec849fe84fbcbb0c3cb31"
   name = "github.com/olivia-ai/gonn"
   packages = ["gonn"]
-  revision = "4e1526e13288d289d30452aa834d3ca434032d98"
+  pruneopts = "UT"
+  revision = "093ae1e9a6a69e14b23ca83180a213dc0f612171"
 
 [[projects]]
+  digest = "1:808cdddf087fb64baeae67b8dfaee2069034d9704923a3cb8bd96a995421a625"
   name = "github.com/patrickmn/go-cache"
   packages = ["."]
+  pruneopts = "UT"
   revision = "a3647f8e31d79543b2d0f0ae2fe5c379d72cedc0"
   version = "v2.1.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:3851a6d548ec5a808e396408f03a30b8d05ef4426db7ad8688f639b2d88b47bd"
+  name = "golang.org/x/sys"
+  packages = ["unix"]
+  pruneopts = "UT"
+  revision = "61b9204099cb1bebc803c9ffb9b2d3acd9d457d9"
+
+[[projects]]
+  digest = "1:d219400f09c151f0ada918bab650ef46f7ebdb1ff4fea923fdcb839481ec7ec1"
+  name = "gopkg.in/cheggaaa/pb.v1"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f907f6f5dd81f77c2bbc1cde92e4c5a04720cb11"
+  version = "v1.0.28"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "69d2209046e1b0458b1d5bbf0f2dee4f28aa56744d1eee94cfb3c0242c9b4680"
+  input-imports = [
+    "github.com/caneroj1/stemmer",
+    "github.com/gookit/color",
+    "github.com/gorilla/handlers",
+    "github.com/gorilla/mux",
+    "github.com/neurosnap/sentences",
+    "github.com/olivia-ai/gonn/gonn",
+    "github.com/patrickmn/go-cache",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
