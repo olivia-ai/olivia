@@ -24,12 +24,6 @@
     "context": "action"
   },
   {
-    "tag": "fuck",
-    "patterns": ["Fuck you", "Fuck you bitch"],
-    "responses": ["I am sorry"],
-    "context": ""
-  },
-  {
     "tag": "age",
     "patterns": ["How old are you"],
     "responses": ["I was born the 5th of June 2018"],
@@ -56,13 +50,13 @@
   {
     "tag": "actions",
     "patterns": ["What can you do ?", "What can I ask you ?"],
-    "responses": ["You can ask me:\n - The capital of a country\n - The area of a country\n - The currency of a country\n - A random number"],
+    "responses": ["You can ask me:\n - “What is the capital of France ?”\n - “Give me the area of Monaco”\n - “Which currency is used in Russia ?”\n - “Give me a random number”"],
     "context": ""
   },
   {
     "tag": "women",
     "patterns": ["Are you a girl ?", "You are a women ?"],
-    "responses": ["Yes I am a girl‍", "Sure I am a women"],
+    "responses": ["Sure, I am a women"],
     "context": ""
   },
   {
