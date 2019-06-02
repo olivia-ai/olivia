@@ -1,6 +1,7 @@
 package training
 
 import (
+	"github.com/gookit/color"
 	"github.com/olivia-ai/gonn/gonn"
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/util"
@@ -42,6 +43,7 @@ func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
 		network.Train(trainx, trainy, 1000)
 		gonn.DumpNN(saveFile, &network)
 	} else {
+		color.FgBlue.Println("Loading the neural network from res/training.json")
 		network = *gonn.LoadNN(saveFile)
 	}
 
