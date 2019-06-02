@@ -51,11 +51,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:89afdce867f8b1f4e00770a3d37c920a91217d2e42eec849fe84fbcbb0c3cb31"
+  digest = "1:835175ab04c820e2df8cebbbe864608aaeaa6e9155800c1e9dea358f8da76d91"
   name = "github.com/olivia-ai/gonn"
   packages = ["gonn"]
   pruneopts = "UT"
-  revision = "093ae1e9a6a69e14b23ca83180a213dc0f612171"
+  revision = "d475a7ff1256a39b33d3a27c8a2b218e3daec807"
 
 [[projects]]
   digest = "1:808cdddf087fb64baeae67b8dfaee2069034d9704923a3cb8bd96a995421a625"
@@ -67,11 +67,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3851a6d548ec5a808e396408f03a30b8d05ef4426db7ad8688f639b2d88b47bd"
+  digest = "1:8f5108406bc43c7669b0d67d282e40d05c9f268615fcaf8c1f0f76965aa3f09f"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "61b9204099cb1bebc803c9ffb9b2d3acd9d457d9"
+  revision = "4c4f7f33c9ed00de01c4c741d2177abfcfe19307"
 
 [[projects]]
   digest = "1:d219400f09c151f0ada918bab650ef46f7ebdb1ff4fea923fdcb839481ec7ec1"
