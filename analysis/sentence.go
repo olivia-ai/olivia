@@ -31,18 +31,18 @@ func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
 	tokens := tokenizer.Tokenize(strings.TrimSpace(sentence.Content), false)
 
+	text := sentence.Content
 	// Initialize an array of ignored characters
 	ignoredChars := []string{"?", "-", ".", "!"}
+	for _, ignoredChar := range ignoredChars {
+		text = strings.Replace(text, ignoredChar, " ", -1)
+	}
+
+	text = strings.TrimSpace(text)
 
 	// Get the string token and add it to tokenizedWords
 	for _, tokenizedWord := range tokens {
 		word := strings.ToLower(tokenizedWord.Tok)
-
-		// Remove all ignored characters from the word
-		for _, ignoredChar := range ignoredChars {
-			word = strings.Replace(word, ignoredChar, "", -1)
-		}
-
 		word = stemmer.Stem(word)
 
 		tokenizedWords = append(tokenizedWords, word)
