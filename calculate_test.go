@@ -1,4 +1,4 @@
-package tests
+package main
 
 import (
 	"github.com/olivia-ai/olivia/analysis"
