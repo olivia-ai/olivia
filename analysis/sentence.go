@@ -128,7 +128,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 }
 
 // Respond with the cache or the model
-func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwork, userId string) string {
+func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwork, userId string) (string, string) {
 	tag, found := cache.Get(sentence.Content)
 
 	// If the sentence isn't in the redis database
@@ -137,7 +137,7 @@ func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwo
 		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
 	}
 
-	return RandomizeResponse(sentence.Content, tag.(string), userId)
+	return RandomizeResponse(sentence.Content, tag.(string), userId), tag.(string)
 }
 
 func LogResults(entry string, results []Result) {
