@@ -17,6 +17,7 @@ import (
 
 type Response struct {
 	Content string `json:"content"`
+	Tag     string `json:"tag"`
 }
 
 var (
@@ -43,12 +44,12 @@ func main() {
 }
 
 func PostResponse(w http.ResponseWriter, r *http.Request) {
-	responseSentence := analysis.Sentence{
+	responseSentence, responseTag := analysis.Sentence{
 		Content: r.FormValue("sentence"),
 	}.Calculate(*cache, model, r.FormValue("authorId"))
 
 	// Marshall the response in json
-	response := Response{responseSentence}
+	response := Response{responseSentence, responseTag}
 	bytes, err := json.Marshal(response)
 
 	if err != nil {
