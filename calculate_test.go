@@ -18,6 +18,7 @@ func TestCalculate(t *testing.T) {
 		"What can you do ?":              "actions",
 		"Give me the capital of Namibia": "capital",
 		"What is your name?":             "name",
+		"Where do you live?":             "city",
 	}
 
 	for sentence, tag := range sentences {
