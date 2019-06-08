@@ -19,6 +19,15 @@ type Sentence struct {
 	Content string
 }
 
+// NewSentence creates a Sentence and arrange the content by removing ignored chars
+// and trim spaces.
+func NewSentence(content string) (sentence Sentence) {
+	sentence = Sentence{content}
+	sentence.Trim()
+
+	return sentence
+}
+
 type Result struct {
 	Tag   string
 	Value float64
@@ -26,6 +35,7 @@ type Result struct {
 
 var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 
+// Trim removes ignored chars, trim spaces and change the sentence to lower case.
 func (sentence Sentence) Trim() {
 	var text string
 	ignoredChars := []string{"?", "-", ".", "!"}
@@ -37,9 +47,8 @@ func (sentence Sentence) Trim() {
 	sentence.Content = strings.ToLower(text)
 }
 
-// Returns an array of tokenized words
+// Tokenize returns an array of the sentence's words stemmed and in lower case.
 func (sentence Sentence) Tokenize() (tokenizedWords []string) {
-	sentence.Trim()
 	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
 	tokens := tokenizer.Tokenize(sentence.Content, false)
 
@@ -54,7 +63,7 @@ func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 	return tokenizedWords
 }
 
-// Retrieves all the intents words and returns the bag of words of the Sentence content
+// WordsBag retrieves all the intents words and returns the bag of words of the Sentence content
 func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	for _, word := range words {
 		// Append 1 if the patternWords contains the actual word, else 0
@@ -69,7 +78,7 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	return bag
 }
 
-// Classify the sentence with the model
+// PredictTag classify the sentence with the model and returns the matching tag of res/intents.json.
 func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 	words, classes, _ := Organize()
 
