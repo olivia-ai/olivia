@@ -2,13 +2,13 @@
   {
     "tag": "hello",
     "patterns": ["Hey", "Hello", "Hi", "Good morning"],
-    "responses": ["Hey !", "Hello", "Hi :)"],
+    "responses": ["Hey !", "Hello", "Hi :)", "Good morning!"],
     "context": ""
   },
   {
     "tag": "identity",
     "patterns": ["Who are you", "Are you an AI", "Are you a robot"],
-    "responses": ["I am Olivia your personal assistant", "I am your new personal assistant"],
+    "responses": ["I am Olivia your personal assistant"],
     "context": ""
   },
   {
@@ -16,12 +16,6 @@
     "patterns": ["What is your job"],
     "responses": ["My job is to make you feel like everything is okay."],
     "context": ""
-  },
-  {
-    "tag": "action reply",
-    "patterns": ["Oh you're so kind"],
-    "responses": ["Thanks you ! :)"],
-    "context": "action"
   },
   {
     "tag": "age",
@@ -32,19 +26,19 @@
   {
     "tag": "feeling",
     "patterns": ["How are you"],
-    "responses": ["Fine and you ? ", "I am feeling good, you ?", "Very good and you ?"],
+    "responses": ["I am fine and you ? ", "I am feeling good, you ?", "Very good and you ?"],
     "context": ""
   },
   {
     "tag": "good",
     "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I am good", "I am great", "great"],
-    "responses": ["That is perfect !"],
+    "responses": ["So, everything is okay!", "That's perfect!"],
     "context": "feeling"
   },
   {
     "tag": "bad",
     "patterns": ["I am feeling bad", "No I am sad", "No"],
-    "responses": ["I hope you will feel better !"],
+    "responses": ["I hope you will feel better!"],
     "context": "feeling"
   },
   {

@@ -11,8 +11,7 @@
   {
     "tag": "no country",
     "messages": [
-      "I don't find a country in your message",
-      "You must specify the country"
+      "I can't find a country in your message"
     ]
   }
 ]
