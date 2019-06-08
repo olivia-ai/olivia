@@ -26,19 +26,22 @@ type Result struct {
 
 var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 
-// Returns an array of tokenized words
-func (sentence Sentence) Tokenize() (tokenizedWords []string) {
-	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
-	tokens := tokenizer.Tokenize(strings.TrimSpace(sentence.Content), false)
-
-	text := sentence.Content
-	// Initialize an array of ignored characters
+func (sentence Sentence) Trim() {
+	var text string
 	ignoredChars := []string{"?", "-", ".", "!"}
 	for _, ignoredChar := range ignoredChars {
 		text = strings.Replace(text, ignoredChar, " ", -1)
 	}
 
 	text = strings.TrimSpace(text)
+	sentence.Content = strings.ToLower(text)
+}
+
+// Returns an array of tokenized words
+func (sentence Sentence) Tokenize() (tokenizedWords []string) {
+	sentence.Trim()
+	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
+	tokens := tokenizer.Tokenize(sentence.Content, false)
 
 	// Get the string token and add it to tokenizedWords
 	for _, tokenizedWord := range tokens {
