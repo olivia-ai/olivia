@@ -19,15 +19,6 @@ type Sentence struct {
 	Content string
 }
 
-// NewSentence creates a Sentence and arrange the content by removing ignored chars
-// and trim spaces.
-func NewSentence(content string) (sentence Sentence) {
-	sentence = Sentence{content}
-	sentence.Trim()
-
-	return sentence
-}
-
 type Result struct {
 	Tag   string
 	Value float64
@@ -35,22 +26,19 @@ type Result struct {
 
 var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 
-// Trim removes ignored chars, trim spaces and change the sentence to lower case.
-func (sentence Sentence) Trim() {
-	var text string
+// Returns an array of tokenized words
+func (sentence Sentence) Tokenize() (tokenizedWords []string) {
+	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
+	tokens := tokenizer.Tokenize(strings.TrimSpace(sentence.Content), false)
+
+	text := sentence.Content
+	// Initialize an array of ignored characters
 	ignoredChars := []string{"?", "-", ".", "!"}
 	for _, ignoredChar := range ignoredChars {
 		text = strings.Replace(text, ignoredChar, " ", -1)
 	}
 
 	text = strings.TrimSpace(text)
-	sentence.Content = strings.ToLower(text)
-}
-
-// Tokenize returns an array of the sentence's words stemmed and in lower case.
-func (sentence Sentence) Tokenize() (tokenizedWords []string) {
-	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
-	tokens := tokenizer.Tokenize(sentence.Content, false)
 
 	// Get the string token and add it to tokenizedWords
 	for _, tokenizedWord := range tokens {
@@ -63,7 +51,7 @@ func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 	return tokenizedWords
 }
 
-// WordsBag retrieves all the intents words and returns the bag of words of the Sentence content
+// Retrieves all the intents words and returns the bag of words of the Sentence content
 func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	for _, word := range words {
 		// Append 1 if the patternWords contains the actual word, else 0
@@ -78,7 +66,7 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	return bag
 }
 
-// PredictTag classify the sentence with the model and returns the matching tag of res/intents.json.
+// Classify the sentence with the model
 func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 	words, classes, _ := Organize()
 
@@ -98,7 +86,9 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 
 	LogResults(sentence.Content, resultsTag)
 
-	if resultsTag[0].Value < 0.35 {
+	// TODO: Review the value here, arbitrary choice of 0.50.
+	// If the model is not sure at 50% that it is the right tag returns the "don't understand" tag
+	if resultsTag[0].Value < 0.50 {
 		return "don't understand"
 	}
 
