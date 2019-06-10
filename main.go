@@ -45,7 +45,7 @@ func main() {
 
 func PostResponse(w http.ResponseWriter, r *http.Request) {
 	responseSentence, responseTag := analysis.Sentence{
-		Content: r.FormValue("sentence"),
+		Content: analysis.Arrange(r.FormValue("sentence")),
 	}.Calculate(*cache, model, r.FormValue("authorId"))
 
 	// Marshall the response in json

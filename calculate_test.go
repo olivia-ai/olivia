@@ -23,7 +23,7 @@ func TestCalculate(t *testing.T) {
 
 	for sentence, tag := range sentences {
 		_, responseTag := analysis.Sentence{
-			Content: sentence,
+			Content: analysis.Arrange(sentence),
 		}.Calculate(*cache, model, "1")
 
 		if tag != responseTag {
