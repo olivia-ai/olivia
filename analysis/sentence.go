@@ -26,6 +26,18 @@ type Result struct {
 
 var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 
+//Arrange check the format of a string to normalize it, put the string to lower case, remove question marks.
+func Arrange(text string) string {
+	// Initialize an array of ignored characters
+	ignoredChars := []string{"?", "-", ".", "!"}
+	for _, ignoredChar := range ignoredChars {
+		text = strings.Replace(text, ignoredChar, " ", -1)
+	}
+
+	text = strings.ToLower(text)
+	return strings.TrimSpace(text)
+}
+
 // Returns an array of tokenized words
 func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
