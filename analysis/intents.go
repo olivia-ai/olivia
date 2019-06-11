@@ -29,10 +29,13 @@ func ReadIntents() []byte {
 	return bytes
 }
 
-// Unmarshal the json and return the array of Intents
 func SerializeIntents() []Intent {
 	var intents []Intent
-	json.Unmarshal(ReadIntents(), &intents)
+
+	err := json.Unmarshal(ReadIntents(), &intents)
+	if err != nil {
+		panic(err)
+	}
 
 	return intents
 }

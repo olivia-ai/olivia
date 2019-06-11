@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-// Return the inputs and targets generated from the intents for the neural network
+// TrainData returns the inputs and targets for the neural network
 func TrainData() (inputs, targets [][]float64) {
 	words, classes, documents := analysis.Organize()
 
@@ -27,7 +27,8 @@ func TrainData() (inputs, targets [][]float64) {
 	return inputs, targets
 }
 
-// Returns a new neural network and learn from the TrainData()'s inputs and targets
+// CreateNeuralNetwork returns a new neural network which is loaded from res/training.json or
+// trained from TrainData() inputs and targets.
 func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
 	// Decide if the network is created by the save or is a new one
 	saveFile := "res/training.json"
@@ -41,6 +42,8 @@ func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
 
 		network = *gonn.DefaultNetwork(inputLayers, hiddenLayers, outputLayers, true)
 		network.Train(trainx, trainy, 1000)
+
+		// Save the neural network in res/training.json
 		gonn.DumpNN(saveFile, &network)
 	} else {
 		color.FgBlue.Println("Loading the neural network from res/training.json")
