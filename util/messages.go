@@ -20,12 +20,15 @@ func SerializeMessages() (messages []Message) {
 		fmt.Println(err)
 	}
 
-	json.Unmarshal(bytes, &messages)
+	err = json.Unmarshal(bytes, &messages)
+	if err != nil {
+		panic(err)
+	}
 
 	return messages
 }
 
-// GetMessage returns a random message which have a specified tag
+// GetMessage retrieves a message tag and returns a random message chose from res/messages.json
 func GetMessage(tag string) string {
 	for _, message := range messages {
 		if message.Tag != tag {
