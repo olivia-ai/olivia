@@ -38,7 +38,7 @@
   {
     "tag": "good",
     "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I am good", "I am great", "great"],
-    "responses": ["That is perfect !"],
+    "responses": ["That is perfect !", "Everything's okay!"],
     "context": "feeling"
   },
   {
