@@ -26,7 +26,13 @@ type Result struct {
 
 var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 
-//Arrange check the format of a string to normalize it, put the string to lower case, remove question marks.
+// NewSentence returns a Sentence object where the content has been arranged
+func NewSentence(content string) Sentence {
+	return Sentence{Arrange(content)}
+}
+
+// Arrange check the format of a string to normalize it, put the string to
+// lower case, remove ignored characters
 func Arrange(text string) string {
 	// Initialize an array of ignored characters
 	ignoredChars := []string{"?", "-", ".", "!"}
@@ -38,32 +44,21 @@ func Arrange(text string) string {
 	return strings.TrimSpace(text)
 }
 
-// Returns an array of tokenized words
+// Tokenize returns the sentence split in stemmed words
 func (sentence Sentence) Tokenize() (tokenizedWords []string) {
 	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
 	tokens := tokenizer.Tokenize(strings.TrimSpace(sentence.Content), false)
 
-	text := sentence.Content
-	// Initialize an array of ignored characters
-	ignoredChars := []string{"?", "-", ".", "!"}
-	for _, ignoredChar := range ignoredChars {
-		text = strings.Replace(text, ignoredChar, " ", -1)
-	}
-
-	text = strings.TrimSpace(text)
-
-	// Get the string token and add it to tokenizedWords
+	// Get the string token and push it to tokenizedWords
 	for _, tokenizedWord := range tokens {
-		word := strings.ToLower(tokenizedWord.Tok)
-		word = stemmer.Stem(word)
-
+		word := stemmer.Stem(tokenizedWord.Tok)
 		tokenizedWords = append(tokenizedWords, word)
 	}
 
 	return tokenizedWords
 }
 
-// Retrieves all the intents words and returns the bag of words of the Sentence content
+// WordsBag retrieves the intents words and returns the sentence converted in a bag of words
 func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	for _, word := range words {
 		// Append 1 if the patternWords contains the actual word, else 0
@@ -98,52 +93,53 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 
 	LogResults(sentence.Content, resultsTag)
 
-	// TODO: Review the value here, arbitrary choice of 0.50.
-	// If the model is not sure at 50% that it is the right tag returns the "don't understand" tag
-	if resultsTag[0].Value < 0.50 {
+	// If the model is not sure at 35% that it's the correct tag returns the "don't understand" tag
+	if resultsTag[0].Value < 0.35 {
 		return "don't understand"
 	}
 
 	return resultsTag[0].Tag
 }
 
-// Returns the human readable response
+// RandomizeResponse takes the entry message, the response tag and the userID and returns a random
+// message from res/intents.json where the triggers are applied
 func RandomizeResponse(entry string, tag string, userId string) string {
 	if tag == "don't understand" {
 		return util.GetMessage(tag)
 	}
 
-	// Iterate all the json intents
 	for _, intent := range SerializeIntents() {
 		if intent.Tag != tag {
 			continue
 		}
 
+		// Reply a "don't understand" message if the context isn't correct
 		cacheTag, _ := userCache.Get(userId)
 		if intent.Context != "" && cacheTag != intent.Context {
 			return util.GetMessage("don't understand")
 		}
 
+		// Set the actual context
 		userCache.Set(userId, tag, gocache.DefaultExpiration)
 
+		// Choose a random response in intents
 		response := intent.Responses[0]
-		// Return a random response if there are more than one
 		if len(intent.Responses) > 1 {
 			response = intent.Responses[rand.Intn(len(intent.Responses))]
 		}
 
+		// And then apply the triggers on the message
 		return triggers.ReplaceContent(entry, response)
 	}
 
-	// Error
 	return util.GetMessage("don't understand")
 }
 
-// Respond with the cache or the model
+// Calculate send the sentence content to the neural network and returns a response with the matching tag
 func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwork, userId string) (string, string) {
 	tag, found := cache.Get(sentence.Content)
 
-	// If the sentence isn't in the redis database
+	// Predict tag with the neural network if the sentence isn't in the cache
 	if !found {
 		tag = sentence.PredictTag(network)
 		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
@@ -152,12 +148,14 @@ func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwo
 	return RandomizeResponse(sentence.Content, tag.(string), userId), tag.(string)
 }
 
+// LogResults print in the console the sentence and its tags sorted by prediction
 func LogResults(entry string, results []Result) {
 	green := color.FgGreen.Render
 	yellow := color.FgYellow.Render
 
 	color.FgCyan.Printf("\n\"%s\"\n", entry)
 	for _, result := range results {
+		//Aribtrary choice of 0.05 to have less tags to show
 		if result.Value < 0.05 {
 			continue
 		}

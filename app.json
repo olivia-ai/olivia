@@ -1,6 +1,6 @@
 {
-  "name": "OliviaApi",
-  "description": "Olivia's REST Api ",
+  "name": "olivia",
+  "description": "Your new best friend",
   "keywords": [
     "chatbot",
     "golang",
