@@ -22,14 +22,16 @@ type Country struct {
 
 var countries = SerializeCountries()
 
-// Serialize the countries.json file
 func SerializeCountries() (countries []Country) {
 	bytes, err := ioutil.ReadFile("res/countries.json")
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	json.Unmarshal(bytes, &countries)
+	err = json.Unmarshal(bytes, &countries)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	return countries
 }
