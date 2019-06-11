@@ -16,3 +16,16 @@ func RegisterModule(module Module) {
 func GetModules() []Module {
 	return modules
 }
+
+// ReplaceContent apply the Replacer of the matching module to the response and returns it
+func ReplaceContent(tag, entry, response string) string {
+	for _, module := range modules {
+		if module.Tag != tag {
+			continue
+		}
+
+		return module.Replacer(entry, response)
+	}
+
+	return response
+}
