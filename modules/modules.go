@@ -13,6 +13,6 @@ func RegisterModule(module Module) {
 	modules = append(modules, module)
 }
 
-func GetModulesIntents() []Module {
+func GetModules() []Module {
 	return modules
 }

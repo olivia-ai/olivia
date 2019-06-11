@@ -3,6 +3,7 @@ package analysis
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/olivia-ai/olivia/modules"
 	"github.com/olivia-ai/olivia/util"
 	"io/ioutil"
 	"sort"
@@ -40,10 +41,30 @@ func SerializeIntents() []Intent {
 	return intents
 }
 
+// SerializeModulesIntents retrieves all the registered modules and returns an array of Intents
+func SerializeModulesIntents() []Intent {
+	registeredModules := modules.GetModules()
+	intents := make([]Intent, len(registeredModules))
+
+	for _, module := range registeredModules {
+		intents = append(intents, Intent{
+			Tag:       module.Tag,
+			Patterns:  module.Patterns,
+			Responses: module.Responses,
+			Context:   "",
+		})
+	}
+
+	return intents
+}
+
 // Organize intents with an array of all words, an array with a representative word of each tag
 // and an array of Documents which contains a word list associated with a tag
 func Organize() (words, classes []string, documents []Document) {
-	for _, intent := range SerializeIntents() {
+	// Append the modules intents to the intents from res/intents.json
+	intents := append(SerializeIntents(), SerializeModulesIntents()...)
+
+	for _, intent := range intents {
 		for _, pattern := range intent.Patterns {
 			// Tokenize the pattern's sentence
 			patternSentence := Sentence{pattern}
