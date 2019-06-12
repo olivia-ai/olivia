@@ -7,6 +7,7 @@ import (
 )
 
 func init() {
+	fmt.Println("hey")
 	RegisterModule(Module{
 		Tag: "random_number",
 		Patterns: []string{
@@ -16,10 +17,10 @@ func init() {
 		Responses: []string{
 			"The number is %s",
 		},
-		Replacer: Replacer,
+		Replacer: RandomNumberReplacer,
 	})
 }
 
-func Replacer(_, response string) string {
+func RandomNumberReplacer(_, response string) string {
 	return fmt.Sprintf(response, strconv.Itoa(rand.Intn(100)))
 }
