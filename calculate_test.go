@@ -20,6 +20,7 @@ func TestCalculate(t *testing.T) {
 		"What is your name ?":            "name",
 		"What's your name ?":             "name",
 		"Where do you live?":             "city",
+		"What are you doing ?":           "action",
 	}
 
 	for sentence, tag := range sentences {
