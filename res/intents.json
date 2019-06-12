@@ -88,23 +88,5 @@
     "patterns": ["Where do you live ?"],
     "responses": ["I live in a server somewhere in the world"],
     "context": ""
-  },
-  {
-    "tag": "capital",
-    "patterns": ["What is the capital of ", "Give me the capital of "],
-    "responses": ["The capital of ${COUNTRY} is ${CAPITAL}"],
-    "context": ""
-  },
-  {
-    "tag": "area",
-    "patterns": ["What is the area of ", "Give me the area of "],
-    "responses": ["The area of ${COUNTRY} is ${AREA}km²"],
-    "context": ""
-  },
-  {
-    "tag": "currency",
-    "patterns": ["Which currency is used in ", "Give me the used currency of ", "Give me the currency of ", "What is the currency of "],
-    "responses": ["The currency of ${COUNTRY} is ${CURRENCY}"],
-    "context": ""
   }
 ]
