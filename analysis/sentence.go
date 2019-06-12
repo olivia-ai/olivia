@@ -6,7 +6,7 @@ import (
 	"github.com/gookit/color"
 	"github.com/neurosnap/sentences"
 	"github.com/olivia-ai/gonn/gonn"
-	"github.com/olivia-ai/olivia/triggers"
+	"github.com/olivia-ai/olivia/modules"
 	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
 	"math/rand"
@@ -108,7 +108,10 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 		return util.GetMessage(tag)
 	}
 
-	for _, intent := range SerializeIntents() {
+	// Append the modules intents to the intents from res/intents.json
+	intents := append(SerializeIntents(), SerializeModulesIntents()...)
+
+	for _, intent := range intents {
 		if intent.Tag != tag {
 			continue
 		}
@@ -129,7 +132,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 		}
 
 		// And then apply the triggers on the message
-		return triggers.ReplaceContent(entry, response)
+		return modules.ReplaceContent(tag, entry, response)
 	}
 
 	return util.GetMessage("don't understand")
