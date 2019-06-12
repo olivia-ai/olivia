@@ -90,12 +90,6 @@
     "context": ""
   },
   {
-    "tag": "random number",
-    "patterns": ["Give me a random number", "Generate a random number"],
-    "responses": ["The number is ${RANDOM_NUMBER}"],
-    "context": ""
-  },
-  {
     "tag": "capital",
     "patterns": ["What is the capital of ", "Give me the capital of "],
     "responses": ["The capital of ${COUNTRY} is ${CAPITAL}"],
