@@ -26,6 +26,8 @@ type Result struct {
 
 var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 
+const DontUnderstand = "don't understand"
+
 // NewSentence returns a Sentence object where the content has been arranged
 func NewSentence(content string) Sentence {
 	return Sentence{Arrange(content)}
@@ -95,7 +97,7 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 
 	// If the model is not sure at 35% that it's the correct tag returns the "don't understand" tag
 	if resultsTag[0].Value < 0.35 {
-		return "don't understand"
+		return DontUnderstand
 	}
 
 	return resultsTag[0].Tag
@@ -104,7 +106,7 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 // RandomizeResponse takes the entry message, the response tag and the userID and returns a random
 // message from res/intents.json where the triggers are applied
 func RandomizeResponse(entry string, tag string, userId string) string {
-	if tag == "don't understand" {
+	if tag == DontUnderstand {
 		return util.GetMessage(tag)
 	}
 
@@ -119,7 +121,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 		// Reply a "don't understand" message if the context isn't correct
 		cacheTag, _ := userCache.Get(userId)
 		if intent.Context != "" && cacheTag != intent.Context {
-			return util.GetMessage("don't understand")
+			return util.GetMessage(DontUnderstand)
 		}
 
 		// Set the actual context
@@ -135,7 +137,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 		return modules.ReplaceContent(tag, entry, response)
 	}
 
-	return util.GetMessage("don't understand")
+	return util.GetMessage(DontUnderstand)
 }
 
 // Calculate send the sentence content to the neural network and returns a response with the matching tag
