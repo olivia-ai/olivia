@@ -32,7 +32,7 @@ func MathReplacer(entry, response string) string {
 
 	// If there is no operation in the entry message reply with a "don't understand" message
 	if operation == "" {
-		return util.GetMessage("don't understand")
+		return util.GetMessage("math error")
 	}
 
 	res, err := mathcat.Eval(operation)
