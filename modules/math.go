@@ -7,7 +7,7 @@ import (
 	"regexp"
 )
 
-const MathExpression = `((\()?(((\d+|pi)(\^\d+|!|.)?)|sqrt|cos|sin|tan|acos|asin|atan|log|ln|abs)[+*\/\-]?(\))?[+*\/\-]?)+`
+const MathExpression = `((\()?(((\d+|pi)(\^\d+|!|.)?)|sqrt|cos|sin|tan|acos|asin|atan|log|ln|abs)( )?[+*\/\-]?( )?(\))?[+*\/\-]?)+`
 
 func init() {
 	RegisterModule(Module{
