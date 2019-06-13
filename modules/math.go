@@ -30,6 +30,11 @@ func MathReplacer(entry, response string) string {
 	mathRegex := regexp.MustCompile(MathExpression)
 	operation := mathRegex.FindString(entry)
 
+	// If there is no operation in the entry message reply with a "don't understand" message
+	if operation == "" {
+		return util.GetMessage("don't understand")
+	}
+
 	res, err := mathcat.Eval(operation)
 	// If the expression isn't valid reply with a message from res/messages.json
 	if err != nil {
