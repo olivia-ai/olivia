@@ -39,7 +39,7 @@ func GetMessage(tag string) string {
 			return message.Messages[0]
 		}
 
-		return message.Messages[rand.Intn(len(message.Messages)-1)]
+		return message.Messages[rand.Intn(len(message.Messages))]
 	}
 
 	return messages[0].Messages[0]
