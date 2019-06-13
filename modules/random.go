@@ -7,7 +7,6 @@ import (
 )
 
 func init() {
-	fmt.Println("hey")
 	RegisterModule(Module{
 		Tag: "random_number",
 		Patterns: []string{

@@ -14,5 +14,12 @@
       "I don't find a country in your message",
       "You must specify the country"
     ]
+  },
+  {
+    "tag": "math not valid",
+    "messages": [
+      "Your math expression is not valid",
+      "Please review your math expression"
+    ]
   }
 ]
