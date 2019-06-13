@@ -67,11 +67,19 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:8f5108406bc43c7669b0d67d282e40d05c9f268615fcaf8c1f0f76965aa3f09f"
+  digest = "1:a7a5b5a298f1f1fa93b30cfc0f8d7424c63264563c0219b0521fd625a2120802"
+  name = "github.com/soudy/mathcat"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f636e7f09e6ce0431f5a4195fddca50674cc493e"
+
+[[projects]]
+  branch = "master"
+  digest = "1:010311506e3917b54487c35a4277e2709678a40c1587d82492c40b78b6a0a01d"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "301114b31cced3624480dfb114ca1b495ec69aa5"
+  revision = "5ed2794edfdc1c54dfb61d619c5944285f35d444"
 
 [[projects]]
   digest = "1:d219400f09c151f0ada918bab650ef46f7ebdb1ff4fea923fdcb839481ec7ec1"
@@ -92,6 +100,7 @@
     "github.com/neurosnap/sentences",
     "github.com/olivia-ai/gonn/gonn",
     "github.com/patrickmn/go-cache",
+    "github.com/soudy/mathcat",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
