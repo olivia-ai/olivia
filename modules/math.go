@@ -5,6 +5,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 	"github.com/soudy/mathcat"
 	"regexp"
+	"strconv"
 )
 
 const MathExpression = `((\()?(((\d+|pi)(\^\d+|!|.)?)|sqrt|cos|sin|tan|acos|asin|atan|log|ln|abs)( )?[+*\/\-]?( )?(\))?[+*\/\-]?)+`
@@ -26,9 +27,7 @@ func init() {
 }
 
 func MathReplacer(entry, response string) string {
-	// Find the math operation in the entry
-	mathRegex := regexp.MustCompile(MathExpression)
-	operation := mathRegex.FindString(entry)
+	operation := FindMathOperation(entry)
 
 	// If there is no operation in the entry message reply with a "don't understand" message
 	if operation == "" {
@@ -40,12 +39,34 @@ func MathReplacer(entry, response string) string {
 	if err != nil {
 		return util.GetMessage("math not valid")
 	}
-	// Arbitrary choice of 6 decimals
-	result := res.FloatString(6)
+	// Use number of decimals from the query
+	decimals := FindNumberOfDecimals(entry)
+	if decimals == 0 {
+		decimals = 6
+	}
+
+	result := res.FloatString(decimals)
 
 	// Remove trailing zeros of the result with a Regex
 	trailingZerosRegex := regexp.MustCompile(`\.?0+$`)
 	result = trailingZerosRegex.ReplaceAllString(result, "")
 
 	return fmt.Sprintf(response, result)
+}
+
+// Find a math operation in a string an returns it
+func FindMathOperation(entry string) string {
+	mathRegex := regexp.MustCompile(MathExpression)
+	return mathRegex.FindString(entry)
+}
+
+// Find the number of decimals asked in the query
+func FindNumberOfDecimals(entry string) int {
+	decimalsRegex := regexp.MustCompile(`\d+ decim`)
+	numberRegex := regexp.MustCompile(`\d+`)
+
+	decimals := numberRegex.FindString(decimalsRegex.FindString(entry))
+	decimalsInt, _ := strconv.Atoi(decimals)
+
+	return decimalsInt
 }
