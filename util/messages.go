@@ -3,7 +3,6 @@ package util
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"math/rand"
 )
 
@@ -15,14 +14,9 @@ type Message struct {
 var messages = SerializeMessages()
 
 func SerializeMessages() (messages []Message) {
-	bytes, err := ioutil.ReadFile("res/messages.json")
+	err := json.Unmarshal(ReadFile("res/messages.json"), &messages)
 	if err != nil {
 		fmt.Println(err)
-	}
-
-	err = json.Unmarshal(bytes, &messages)
-	if err != nil {
-		panic(err)
 	}
 
 	return messages

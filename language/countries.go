@@ -3,7 +3,7 @@ package language
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"github.com/olivia-ai/olivia/util"
 	"strings"
 )
 
@@ -23,12 +23,7 @@ type Country struct {
 var countries = SerializeCountries()
 
 func SerializeCountries() (countries []Country) {
-	bytes, err := ioutil.ReadFile("res/countries.json")
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	err = json.Unmarshal(bytes, &countries)
+	err := json.Unmarshal(util.ReadFile("res/countries.json"), &countries)
 	if err != nil {
 		fmt.Println(err)
 	}

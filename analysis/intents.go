@@ -2,10 +2,8 @@ package analysis
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/olivia-ai/olivia/modules"
 	"github.com/olivia-ai/olivia/util"
-	"io/ioutil"
 	"sort"
 )
 
@@ -21,19 +19,10 @@ type Document struct {
 	Tag      string
 }
 
-func ReadIntents() []byte {
-	bytes, err := ioutil.ReadFile("res/intents.json")
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	return bytes
-}
-
 func SerializeIntents() []Intent {
 	var intents []Intent
 
-	err := json.Unmarshal(ReadIntents(), &intents)
+	err := json.Unmarshal(util.ReadFile("res/intents.json"), &intents)
 	if err != nil {
 		panic(err)
 	}
