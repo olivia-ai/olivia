@@ -14,7 +14,7 @@ func init() {
 			"Give me the area of ",
 		},
 		Responses: []string{
-			"The area of %s is %dkm²",
+			"The area of %s is %gkm²",
 		},
 		Replacer: AreaReplacer,
 	})
