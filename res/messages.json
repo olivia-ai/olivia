@@ -21,11 +21,5 @@
       "Your math expression is not valid",
       "Please review your math expression"
     ]
-  },
-  {
-    "tag": "math error",
-    "messages": [
-      "An error occured in the evaluation of your math expression, sorry"
-    ]
   }
 ]
