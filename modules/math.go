@@ -6,9 +6,8 @@ import (
 	"github.com/soudy/mathcat"
 	"regexp"
 	"strconv"
+	"strings"
 )
-
-const MathExpression = `((\()?(((\d+|pi)(\^\d+|!|.)?)|sqrt|cos|sin|tan|acos|asin|atan|log|ln|abs)( )?[+*\/\-]?( )?(\))?[+*\/\-]?)+`
 
 func init() {
 	RegisterModule(Module{
@@ -56,13 +55,19 @@ func MathReplacer(entry, response string) string {
 
 // Find a math operation in a string an returns it
 func FindMathOperation(entry string) string {
-	mathRegex := regexp.MustCompile(MathExpression)
-	return mathRegex.FindString(entry)
+	mathRegex := regexp.MustCompile(
+		`((\()?(((\d+|pi)(\^\d+|!|.)?)|sqrt|cos|sin|tan|acos|asin|atan|log|ln|abs)( )?[+*\/\-]?( )?(\))?[+*\/\-]?)+`,
+	)
+
+	operation := mathRegex.FindString(entry)
+	return strings.TrimSpace(operation)
 }
 
 // Find the number of decimals asked in the query
 func FindNumberOfDecimals(entry string) int {
-	decimalsRegex := regexp.MustCompile(`\d+ decim`)
+	decimalsRegex := regexp.MustCompile(
+		`(\d+( |-)decimal(s)?)|(number (of )?decimal(s)? (is )?\d+)`,
+	)
 	numberRegex := regexp.MustCompile(`\d+`)
 
 	decimals := numberRegex.FindString(decimalsRegex.FindString(entry))
