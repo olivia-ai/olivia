@@ -37,7 +37,7 @@ func NewSentence(content string) Sentence {
 // lower case, remove ignored characters
 func Arrange(text string) string {
 	// Initialize an array of ignored characters
-	ignoredChars := []string{"?", "-"}
+	ignoredChars := []string{"?", "-", "!"}
 	for _, ignoredChar := range ignoredChars {
 		text = strings.Replace(text, ignoredChar, " ", -1)
 	}
