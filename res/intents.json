@@ -27,6 +27,12 @@
     "context": ""
   },
   {
+    "tag": "brain",
+    "patterns": ["Do you have a brain?", "Can you think like a human?"],
+    "responses": ["I'm using a neural network to think"],
+    "context": ""
+  },
+  {
     "tag": "feeling",
     "patterns": ["How are you"],
     "responses": ["I am feeling good, you ?", "Very good and you ?", "Actually, I'm okay and you?"],
