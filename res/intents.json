@@ -22,26 +22,20 @@
   },
   {
     "tag": "age",
-    "patterns": ["How old are you ?", "When were you born ?"],
+    "patterns": ["How old are you?", "When were you born?"],
     "responses": ["I was born in 2017"],
-    "context": ""
-  },
-  {
-    "tag": "brain",
-    "patterns": ["Do you have a brain?", "Can you think like a human?"],
-    "responses": ["I'm using a neural network to think"],
     "context": ""
   },
   {
     "tag": "feeling",
     "patterns": ["How are you"],
-    "responses": ["I am feeling good, you ?", "Very good and you ?", "Actually, I'm okay and you?"],
+    "responses": ["I am feeling good, you?", "Very good and you?", "Actually, I'm okay and you?"],
     "context": ""
   },
   {
     "tag": "good",
-    "patterns": ["I am good too", "I feel fine", "Good !", "Fine", "I am good", "I am great", "great"],
-    "responses": ["That is perfect !", "So, everything's okay!"],
+    "patterns": ["I am good too", "I feel fine", "Good!", "Fine", "I am good", "I am great", "great"],
+    "responses": ["That is perfect!", "So, everything's okay!"],
     "context": "feeling"
   },
   {
@@ -52,19 +46,19 @@
   },
   {
     "tag": "actions",
-    "patterns": ["What can you do ?", "What can I ask you ?"],
+    "patterns": ["What can you do?", "What can I ask you?"],
     "responses": ["I can do a lot of things but here are some of my skills, you can ask me: the capital of a country, its currency and its area. A random number. To calculate a math operation."],
     "context": ""
   },
   {
     "tag": "women",
-    "patterns": ["Are you a girl ?", "You are a women ?"],
+    "patterns": ["Are you a girl?", "You are a women?"],
     "responses": ["Sure, I am a women"],
     "context": ""
   },
   {
     "tag": "men",
-    "patterns": ["Are you a men ?", "Are you a boy ?"],
+    "patterns": ["Are you a men?", "Are you a boy?"],
     "responses": ["No, I am a women"],
     "context": ""
   },
@@ -76,25 +70,25 @@
   },
   {
     "tag": "name",
-    "patterns": ["What is your name ?", "How can I call you"],
+    "patterns": ["What is your name?", "How can I call you"],
     "responses": ["My name is Olivia", "You can call me Olivia", "I'm Olivia"],
     "context": ""
   },
   {
     "tag": "goodbye",
-    "patterns": ["Goodbye !", "Good afternoon", "Bye"],
-    "responses": ["Goodbye !", "See you soon !"],
+    "patterns": ["Goodbye!", "Good afternoon", "Bye"],
+    "responses": ["Goodbye!", "See you soon !"],
     "context": ""
   },
   {
     "tag": "city",
-    "patterns": ["Where do you live ?"],
+    "patterns": ["Where do you live?"],
     "responses": ["I live in a server located in Europe!"],
     "context": ""
   },
   {
     "tag": "action",
-    "patterns": ["What are you doing ?"],
+    "patterns": ["What are you doing?"],
     "responses": ["Actually, I'm speaking to somebody"],
     "context": ""
   }

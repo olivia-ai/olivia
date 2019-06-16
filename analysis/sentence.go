@@ -95,8 +95,8 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 
 	LogResults(sentence.Content, resultsTag)
 
-	// If the model is not sure at 35% that it's the correct tag returns the "don't understand" tag
-	if resultsTag[0].Value < 0.35 {
+	// If the model is not sure at 45% that it's the correct tag returns the "don't understand" tag
+	if resultsTag[0].Value < 0.45 {
 		return DontUnderstand
 	}
 
