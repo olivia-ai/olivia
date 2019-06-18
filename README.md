@@ -13,6 +13,7 @@
 
 <p align="center">
   <a href="https://docs.olivia-ai.org">Getting started</a> •
+  <a href="https://github.com/orgs/olivia-ai/projects">Projects</a> •
   <a href="https://www.youtube.com/watch?v=JmJZi9gmKvI">Video</a> •
   <a href="#license">License</a>
 </p>
