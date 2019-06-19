@@ -8,6 +8,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/training"
+	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
 	"log"
 	"net/http"
@@ -44,9 +45,18 @@ func main() {
 }
 
 func PostResponse(w http.ResponseWriter, r *http.Request) {
-	responseSentence, responseTag := analysis.NewSentence(
-		r.FormValue("sentence"),
-	).Calculate(*cache, model, r.FormValue("authorId"))
+	var responseSentence, responseTag string
+
+	sentence := r.FormValue("sentence")
+	// Send a message from res/messages.json if it is too long
+	if len(sentence) > 500 {
+		responseTag = "too long"
+		responseSentence = util.GetMessage(responseTag)
+	} else {
+		responseSentence, responseTag = analysis.NewSentence(
+			sentence,
+		).Calculate(*cache, model, r.FormValue("authorId"))
+	}
 
 	// Marshall the response in json
 	response := Response{responseSentence, responseTag}
