@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/olivia-ai/Api.svg?branch=master)](https://travis-ci.org/olivia-ai/Api)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_shield)
 
 # Olivia
 
@@ -44,3 +45,7 @@ The API responds with this:
 ## Contributors
 
 - [ananagame](https://github.com/ananagame) - creator, maintainer
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_large)
