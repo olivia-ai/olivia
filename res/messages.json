@@ -9,6 +9,12 @@
     ]
   },
   {
+    "tag": "too long",
+    "messages": [
+      "Please reduce the size of your message to less than 500"
+    ]
+  },
+  {
     "tag": "no country",
     "messages": [
       "I don't find a country in your message",
