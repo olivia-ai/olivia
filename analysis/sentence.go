@@ -10,6 +10,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
 	"math/rand"
+	"regexp"
 	"sort"
 	"strings"
 	"time"
@@ -36,11 +37,12 @@ func NewSentence(content string) Sentence {
 // Arrange check the format of a string to normalize it, put the string to
 // lower case, remove ignored characters
 func Arrange(text string) string {
-	// Initialize an array of ignored characters
-	ignoredChars := []string{"?", "-", "!"}
-	for _, ignoredChar := range ignoredChars {
-		text = strings.Replace(text, ignoredChar, " ", -1)
-	}
+	// Remove punctuation after letters
+	punctuationRegex := regexp.MustCompile(`[a-zA-Z]( )?(\.|\?|!)`)
+	text = punctuationRegex.ReplaceAllStringFunc(text, func(s string) string {
+		punctuation := regexp.MustCompile(`(\.|\?|!)`)
+		return punctuation.ReplaceAllString(s, "")
+	})
 
 	text = strings.ToLower(text)
 	return strings.TrimSpace(text)
