@@ -1,7 +1,7 @@
 [
   {
     "tag": "hello",
-    "patterns": ["Hey", "Hello", "Hi", "Good morning"],
+    "patterns": ["Hey", "Hello", "Hi", "Good morning", "What's up"],
     "responses": ["Hey!", "Hello", "Hi!", "Good morning!"],
     "context": ""
   },
@@ -46,7 +46,7 @@
   },
   {
     "tag": "actions",
-    "patterns": ["What can you do", "What can I ask you"],
+    "patterns": ["What can you do", "What can I ask you", "Can you help me"],
     "responses": ["I can do a lot of things but here are some of my skills, you can ask me: the capital of a country, its currency and its area. A random number. To calculate a math operation."],
     "context": ""
   },
