@@ -17,7 +17,6 @@
   <a href="https://docs.olivia-ai.org">Documentation</a> •
   <a href="https://github.com/orgs/olivia-ai/projects">Projects</a> •
   <a href="https://www.youtube.com/watch?v=JmJZi9gmKvI">Video</a> •
-  <a href="#donate">Donate</a> •
   <a href="#contributors">Contributors</a> •
   <a href="#license">License</a>
 </p>
@@ -71,12 +70,6 @@ The response arrives in this format
   "tag": "hello"
 }
 ```
-
-## Donate
-
-<a href="https://opencollective.com/olivia-ai#backer" target="_blank"><img src="https://opencollective.com/olivia-ai/tiers/backer.svg?width=890"></a>
-
-<a href="https://opencollective.com/olivia-ai/sponsor/0/website" target="_blank"><img src="https://opencollective.com/olivia-ai/sponsor/0/avatar.svg"></a>
 
 ## Contributors
 - [ananagame](https://github.com/ananagame) - creator, maintainer
