@@ -17,6 +17,7 @@
   <a href="https://docs.olivia-ai.org">Documentation</a> •
   <a href="https://github.com/orgs/olivia-ai/projects">Projects</a> •
   <a href="https://www.youtube.com/watch?v=JmJZi9gmKvI">Video</a> •
+  <a href="https://twitter.com/olivia_ai_org">Twitter</a> •
   <a href="#contributors">Contributors</a> •
   <a href="#license">License</a>
 </p>
