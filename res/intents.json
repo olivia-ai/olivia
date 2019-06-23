@@ -1,7 +1,7 @@
 [
   {
     "tag": "hello",
-    "patterns": ["Hey", "Hello", "Hi", "Good morning", "What's up"],
+    "patterns": ["Hey", "Hello", "Hi there", "Good morning", "What's up"],
     "responses": ["Hey!", "Hello", "Hi!", "Good morning!"],
     "context": ""
   },
@@ -72,6 +72,12 @@
     "tag": "name",
     "patterns": ["What is your name", "How can I call you"],
     "responses": ["My name is Olivia", "You can call me Olivia", "I'm Olivia"],
+    "context": ""
+  },
+  {
+    "tag": "why name",
+    "patterns": ["Why is Olivia your name", "Why your name is Olivia"],
+    "responses": ["My name is Olivia because my author thought is was cool, isn't it?"],
     "context": ""
   },
   {

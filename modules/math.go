@@ -56,10 +56,12 @@ func MathReplacer(entry, response string) string {
 // Find a math operation in a string an returns it
 func FindMathOperation(entry string) string {
 	mathRegex := regexp.MustCompile(
-		`((\()?(((\d+|pi)(\^\d+|!|.)?)|sqrt|cos|sin|tan|acos|asin|atan|log|ln|abs)( )?[+*\/\-]?( )?(\))?[+*\/\-]?)+`,
+		`((\()?(((\d+|pi)(\^\d+|!|.)?)|sqrt|cos|sin|tan|acos|asin|atan|log|ln|abs)( )?[+*\/\-x]?( )?(\))?[+*\/\-]?)+`,
 	)
 
 	operation := mathRegex.FindString(entry)
+	// Replace "x" symbol by "*"
+	operation = strings.Replace(operation, "x", "*", -1)
 	return strings.TrimSpace(operation)
 }
 

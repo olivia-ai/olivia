@@ -7,6 +7,7 @@ func TestFindMathOperation(t *testing.T) {
 		"Calculate cos(0.5)*2.2+(4^24) please":                  "cos(0.5)*2.2+(4^24)",
 		"What's sqrt(tan(1.2)) plz":                             "sqrt(tan(1.2))",
 		"Give me the result of log(34)*17/(842+1.23232) please": "log(34)*17/(842+1.23232)",
+		"What's 4 x 3 ?":                                        "4 * 3",
 	}
 
 	for sentence, operation := range sentencesOperations {
