@@ -4,35 +4,41 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gookit/color"
-	"github.com/gorilla/handlers"
-	"github.com/gorilla/mux"
+	"github.com/gorilla/websocket"
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/training"
 	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
-	"log"
 	"net/http"
 	"os"
 	"time"
 )
 
-type Response struct {
-	Content string `json:"content"`
-	Tag     string `json:"tag"`
-}
-
 var (
 	model = training.CreateNeuralNetwork()
 	cache = gocache.New(5*time.Minute, 5*time.Minute)
+	clients = make(map[*websocket.Conn]bool)
 )
 
-func main() {
-	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/api/response", PostResponse).Methods("POST")
+// Configure the upgrader
+var upgrader = websocket.Upgrader{
+	CheckOrigin: func(r *http.Request) bool {
+		return true
+	},
+}
 
-	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"})
-	originsOk := handlers.AllowedOrigins([]string{"*"})
-	methodsOk := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"})
+type RequestMessage struct {
+	Content string `json:"content"`
+	AuthorID string `json:"authorid"`
+}
+
+type ResponseMessage struct {
+	Content string `json:"content"`
+	Tag string `json:"tag"`
+}
+
+func main() {
+	http.HandleFunc("/", Handle)
 
 	port := "8080"
 	if os.Getenv("PORT") != "" {
@@ -41,30 +47,59 @@ func main() {
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nListening on the port %s...\n", magenta(port))
-	log.Fatal(http.ListenAndServe(":"+port, handlers.CORS(originsOk, headersOk, methodsOk)(router)))
+	err := http.ListenAndServe(":" + port, nil)
+	if err != nil {
+		panic(err)
+	}
 }
 
-func PostResponse(w http.ResponseWriter, r *http.Request) {
+func Handle(w http.ResponseWriter, r *http.Request) {
+	conn, _ := upgrader.Upgrade(w, r, nil)
+
+	for {
+		// Read message from browser
+		msgType, msg, err := conn.ReadMessage()
+		if err != nil {
+			return
+		}
+
+		// Unserialize the json content of the message
+		var request RequestMessage
+		if err = json.Unmarshal(msg, &request); err != nil {
+			return
+		}
+
+		// Write message back to browser
+		response := Reply(request)
+		if err = conn.WriteMessage(msgType, response); err != nil {
+			return
+		}
+	}
+}
+
+func Reply(request RequestMessage) []byte {
 	var responseSentence, responseTag string
 
-	sentence := r.FormValue("sentence")
 	// Send a message from res/messages.json if it is too long
-	if len(sentence) > 500 {
+	if len(request.Content) > 500 {
 		responseTag = "too long"
 		responseSentence = util.GetMessage(responseTag)
 	} else {
 		responseSentence, responseTag = analysis.NewSentence(
-			sentence,
-		).Calculate(*cache, model, r.FormValue("authorId"))
+			request.Content,
+		).Calculate(*cache, model, request.AuthorID)
 	}
 
 	// Marshall the response in json
-	response := Response{responseSentence, responseTag}
-	bytes, err := json.Marshal(response)
-
-	if err != nil {
-		fmt.Println(err)
+	response := ResponseMessage{
+		Content: responseSentence,
+		Tag: responseTag,
 	}
 
-	fmt.Fprint(w, string(bytes))
+	bytes, err := json.Marshal(response)
+	if err != nil {
+		panic(err)
+	}
+
+	return bytes
 }

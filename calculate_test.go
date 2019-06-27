@@ -16,6 +16,7 @@ func TestCalculate(t *testing.T) {
 		"Hello":                          "hello",
 		"How are you ?":                  "feeling",
 		"What can you do ?":              "actions",
+		"what's the capital of France":   "capital",
 		"Give me the capital of Namibia": "capital",
 		"What is your name ?":            "name",
 		"What's your name ?":             "name",
