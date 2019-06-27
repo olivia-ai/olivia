@@ -85,7 +85,7 @@ func Reply(request RequestMessage) []byte {
 		responseTag = "too long"
 		responseSentence = util.GetMessage(responseTag)
 	} else {
-		responseSentence, responseTag = analysis.NewSentence(
+		responseTag, responseSentence = analysis.NewSentence(
 			request.Content,
 		).Calculate(*cache, model, request.AuthorID)
 	}

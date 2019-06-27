@@ -28,7 +28,7 @@ func TestCalculate(t *testing.T) {
 	}
 
 	for sentence, tag := range sentences {
-		_, responseTag := analysis.NewSentence(sentence).Calculate(*cache, model, "1")
+		responseTag, _ := analysis.NewSentence(sentence).Calculate(*cache, model, "1")
 
 		if tag != responseTag {
 			t.Errorf("Expected \"%s\" tag for \"%s\", found \"%s\"", tag, sentence, responseTag)

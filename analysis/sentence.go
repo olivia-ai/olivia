@@ -107,9 +107,9 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 
 // RandomizeResponse takes the entry message, the response tag and the userID and returns a random
 // message from res/intents.json where the triggers are applied
-func RandomizeResponse(entry string, tag string, userId string) string {
+func RandomizeResponse(entry string, tag string, userId string) (string, string) {
 	if tag == DontUnderstand {
-		return util.GetMessage(tag)
+		return DontUnderstand, util.GetMessage(tag)
 	}
 
 	// Append the modules intents to the intents from res/intents.json
@@ -123,7 +123,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 		// Reply a "don't understand" message if the context isn't correct
 		cacheTag, _ := userCache.Get(userId)
 		if intent.Context != "" && cacheTag != intent.Context {
-			return util.GetMessage(DontUnderstand)
+			return DontUnderstand, util.GetMessage(DontUnderstand)
 		}
 
 		// Set the actual context
@@ -139,7 +139,7 @@ func RandomizeResponse(entry string, tag string, userId string) string {
 		return modules.ReplaceContent(tag, entry, response)
 	}
 
-	return util.GetMessage(DontUnderstand)
+	return DontUnderstand, util.GetMessage(DontUnderstand)
 }
 
 // Calculate send the sentence content to the neural network and returns a response with the matching tag
@@ -152,7 +152,7 @@ func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwo
 		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
 	}
 
-	return RandomizeResponse(sentence.Content, tag.(string), userId), tag.(string)
+	return RandomizeResponse(sentence.Content, tag.(string), userId)
 }
 
 // LogResults print in the console the sentence and its tags sorted by prediction

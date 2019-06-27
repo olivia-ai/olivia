@@ -6,9 +6,11 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
+var capitalTag = "capital"
+
 func init() {
 	RegisterModule(Module{
-		Tag: "capital",
+		Tag: capitalTag,
 		Patterns: []string{
 			"What is the capital of ",
 			"What's the capital of ",
@@ -21,13 +23,14 @@ func init() {
 	})
 }
 
-func CapitalReplacer(entry, response string) string {
+func CapitalReplacer(entry, response string) (string, string) {
 	country := language.FindCountry(entry)
 
 	// If there isn't a country respond with a message from res/messages.json
 	if country.Code == "" {
-		return util.GetMessage("no country")
+		responseTag := "no country"
+		return responseTag, util.GetMessage(responseTag)
 	}
 
-	return fmt.Sprintf(response, country.CommonName, country.Capital)
+	return capitalTag, fmt.Sprintf(response, country.CommonName, country.Capital)
 }

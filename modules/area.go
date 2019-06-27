@@ -6,9 +6,11 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
+var areaTag = "area"
+
 func init() {
 	RegisterModule(Module{
-		Tag: "area",
+		Tag: areaTag,
 		Patterns: []string{
 			"What is the area of ",
 			"Give me the area of ",
@@ -20,13 +22,14 @@ func init() {
 	})
 }
 
-func AreaReplacer(entry, response string) string {
+func AreaReplacer(entry, response string) (string, string) {
 	country := language.FindCountry(entry)
 
 	// If there isn't a country respond with a message from res/messages.json
 	if country.Code == "" {
-		return util.GetMessage("no country")
+		responseTag := "no country"
+		return responseTag, util.GetMessage(responseTag)
 	}
 
-	return fmt.Sprintf(response, country.CommonName, country.Area)
+	return areaTag, fmt.Sprintf(response, country.CommonName, country.Area)
 }
