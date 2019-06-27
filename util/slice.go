@@ -19,3 +19,8 @@ func Index(slice []string, text string) int {
 
 	return 0
 }
+
+func Remove(slice []string, s string) []string {
+	index := Index(slice, s)
+	return append(slice[:index], slice[index+1:]...)
+}
