@@ -15,8 +15,8 @@ import (
 )
 
 var (
-	model = training.CreateNeuralNetwork()
-	cache = gocache.New(5*time.Minute, 5*time.Minute)
+	model   = training.CreateNeuralNetwork()
+	cache   = gocache.New(5*time.Minute, 5*time.Minute)
 	clients = make(map[*websocket.Conn]bool)
 )
 
@@ -28,13 +28,13 @@ var upgrader = websocket.Upgrader{
 }
 
 type RequestMessage struct {
-	Content string `json:"content"`
+	Content  string `json:"content"`
 	AuthorID string `json:"authorid"`
 }
 
 type ResponseMessage struct {
 	Content string `json:"content"`
-	Tag string `json:"tag"`
+	Tag     string `json:"tag"`
 }
 
 func main() {
@@ -47,7 +47,7 @@ func main() {
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nListening on the port %s...\n", magenta(port))
-	err := http.ListenAndServe(":" + port, nil)
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -93,7 +93,7 @@ func Reply(request RequestMessage) []byte {
 	// Marshall the response in json
 	response := ResponseMessage{
 		Content: responseSentence,
-		Tag: responseTag,
+		Tag:     responseTag,
 	}
 
 	bytes, err := json.Marshal(response)
