@@ -11,6 +11,7 @@ func init() {
 		Tag: "capital",
 		Patterns: []string{
 			"What is the capital of ",
+			"What's the capital of ",
 			"Give me the capital of ",
 		},
 		Responses: []string{

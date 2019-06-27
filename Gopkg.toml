@@ -36,6 +36,9 @@
   version = "1.6.2"
 
 [[constraint]]
+  name = "github.com/gorilla/websocket"
+
+[[constraint]]
   name = "github.com/neurosnap/sentences"
   version = "1.0.6"
 
