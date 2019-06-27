@@ -23,7 +23,7 @@
 
 ## Getting started
 ### Installation
-Clone Olivia's REST Api from the master branch of Github repository
+Clone Olivia from the master branch of Github repository
 
 ```bash
 git clone https://github.com/olivia-ai/olivia.git
@@ -44,26 +44,23 @@ And run the application
 go run main.go
 ```
 
-The REST Api is now listening on the port `8080`, to change it just set it inside the environment variable `PORT`
+The Websocket is now listening on the port `8080`, to change it just set it inside the environment variable `PORT`
 
 The app will automatically check for `res/training.json` file which contains the save of the neural network.
 By default when you clone the repository from Github you have a stable save.
 If you want to train a new model just delete this file and rerun the app.
 
 ### How to use
-To use the REST Api you must establish `POST` request to `/api/response` with two parameters:
-- `sentence` which is the message you want to send to Olivia
-- `authorId` which is an arbitrary ID to identify the user for having a contextual chat
+Connect to `wss://olivia-api.herokuapp.com/` and send a JSON message like this
 
-The latest release is online at `https://olivia-api.herokuapp.com`
-
-#### Example with curl
-```bash
-curl -X POST 'https://olivia-api.herokuapp.com/api/response' --data "sentence=Hello" --data "authorId=81278329032"
+```json
+{
+  "content": "Hello!",
+  "authorid": "129390230"
+}
 ```
 
-The response arrives in this format
-
+and the websocket will respond you with 
 ```json
 {
   "content": "Good morning!",
