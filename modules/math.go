@@ -9,6 +9,8 @@ import (
 	"strings"
 )
 
+var mathTag = "math"
+
 func init() {
 	RegisterModule(Module{
 		Tag: "math",
@@ -25,18 +27,20 @@ func init() {
 	})
 }
 
-func MathReplacer(entry, response string) string {
+func MathReplacer(entry, response string) (string, string) {
 	operation := FindMathOperation(entry)
 
 	// If there is no operation in the entry message reply with a "don't understand" message
 	if operation == "" {
-		return util.GetMessage("don't understand")
+		responseTag := "don't understand"
+		return responseTag, util.GetMessage(responseTag)
 	}
 
 	res, err := mathcat.Eval(operation)
 	// If the expression isn't valid reply with a message from res/messages.json
 	if err != nil {
-		return util.GetMessage("math not valid")
+		responseTag := "math not valid"
+		return responseTag, util.GetMessage(responseTag)
 	}
 	// Use number of decimals from the query
 	decimals := FindNumberOfDecimals(entry)
@@ -50,7 +54,7 @@ func MathReplacer(entry, response string) string {
 	trailingZerosRegex := regexp.MustCompile(`\.?0+$`)
 	result = trailingZerosRegex.ReplaceAllString(result, "")
 
-	return fmt.Sprintf(response, result)
+	return mathTag, fmt.Sprintf(response, result)
 }
 
 // Find a math operation in a string an returns it

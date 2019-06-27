@@ -6,9 +6,11 @@ import (
 	"strconv"
 )
 
+var randomTag = "random_number"
+
 func init() {
 	RegisterModule(Module{
-		Tag: "random_number",
+		Tag: randomTag,
 		Patterns: []string{
 			"Give me a random number",
 			"Generate a random number",
@@ -20,6 +22,6 @@ func init() {
 	})
 }
 
-func RandomNumberReplacer(_, response string) string {
-	return fmt.Sprintf(response, strconv.Itoa(rand.Intn(100)))
+func RandomNumberReplacer(_, response string) (string, string) {
+	return randomTag, fmt.Sprintf(response, strconv.Itoa(rand.Intn(100)))
 }

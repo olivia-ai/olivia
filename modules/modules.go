@@ -4,7 +4,7 @@ type Module struct {
 	Tag       string
 	Patterns  []string
 	Responses []string
-	Replacer  func(string, string) string
+	Replacer  func(string, string) (string, string)
 }
 
 var modules []Module
@@ -18,7 +18,7 @@ func GetModules() []Module {
 }
 
 // ReplaceContent apply the Replacer of the matching module to the response and returns it
-func ReplaceContent(tag, entry, response string) string {
+func ReplaceContent(tag, entry, response string) (string, string) {
 	for _, module := range modules {
 		if module.Tag != tag {
 			continue
@@ -27,5 +27,5 @@ func ReplaceContent(tag, entry, response string) string {
 		return module.Replacer(entry, response)
 	}
 
-	return response
+	return tag, response
 }
