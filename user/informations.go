@@ -19,14 +19,17 @@ func ChangeUserInformations(token string, changer func (Informations) Informatio
 	userInformationsUpdates = append(userInformationsUpdates, token)
 }
 
-// GetUserInformations returns the informations of a user with his token, returns an empty information
-// if there were no modifications since.
-func GetUserInformations(token string) Informations {
-	if !util.Contains(userInformationsUpdates, token) {
-		return Informations{}
+// HasChanges returns if the user informations has been updated
+func HasChanges(token string) bool {
+	hasChanges := util.Contains(userInformationsUpdates, token)
+	if hasChanges {
+		userInformationsUpdates = util.Remove(userInformationsUpdates, token)
 	}
 
-	userInformationsUpdates = util.Remove(userInformationsUpdates, token)
+	return hasChanges
+}
 
+// GetUserInformations returns the informations of a user with his token
+func GetUserInformations(token string) Informations {
 	return userInformations[token]
 }
