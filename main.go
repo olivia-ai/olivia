@@ -34,9 +34,9 @@ type RequestMessage struct {
 }
 
 type ResponseMessage struct {
-	Content     string            `json:"content"`
-	Tag         string            `json:"tag"`
-	Information user.Informations `json:"information"`
+	Content     string           `json:"content"`
+	Tag         string           `json:"tag"`
+	Information user.Information `json:"information"`
 }
 
 func main() {
