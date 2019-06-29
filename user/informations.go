@@ -1,35 +1,18 @@
 package user
 
-import "github.com/olivia-ai/olivia/util"
-
-type Informations struct {
+type Information struct {
 	Name string `json:"name"`
 }
 
-var (
-	userInformations         = map[string]Informations{}
-	userInformationsUpdates []string
-)
+var userInformation = map[string]Information{}
 
 // ChangeUserInformations requires the token of the user and a function which gives the actual
 // informations and returns the new informations.
-func ChangeUserInformations(token string, changer func (Informations) Informations) {
-	userInformations[token] = changer(userInformations[token])
-	// Add the user's token to userInformationsUpdates to
-	userInformationsUpdates = append(userInformationsUpdates, token)
-}
-
-// HasChanges returns if the user informations has been updated
-func HasChanges(token string) bool {
-	hasChanges := util.Contains(userInformationsUpdates, token)
-	if hasChanges {
-		userInformationsUpdates = util.Remove(userInformationsUpdates, token)
-	}
-
-	return hasChanges
+func ChangeUserInformations(token string, changer func (Information) Information) {
+	userInformation[token] = changer(userInformation[token])
 }
 
 // GetUserInformations returns the informations of a user with his token
-func GetUserInformations(token string) Informations {
-	return userInformations[token]
+func GetUserInformations(token string) Information {
+	return userInformation[token]
 }

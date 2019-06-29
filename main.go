@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/training"
+	"github.com/olivia-ai/olivia/user"
 	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
 	"net/http"
@@ -28,13 +29,14 @@ var upgrader = websocket.Upgrader{
 }
 
 type RequestMessage struct {
-	Content  string `json:"content"`
-	AuthorID string `json:"authorid"`
+	Content     string            `json:"content"`
+	Token       string            `json:"user_token"`
 }
 
 type ResponseMessage struct {
 	Content string `json:"content"`
 	Tag     string `json:"tag"`
+	Information user.Informations `json:"information"`
 }
 
 func main() {
@@ -87,13 +89,16 @@ func Reply(request RequestMessage) []byte {
 	} else {
 		responseTag, responseSentence = analysis.NewSentence(
 			request.Content,
-		).Calculate(*cache, model, request.AuthorID)
+		).Calculate(*cache, model, request.Token)
 	}
 
 	// Marshall the response in json
 	response := ResponseMessage{
 		Content: responseSentence,
 		Tag:     responseTag,
+	}
+	if user.HasChanges(request.Token) {
+		response.Information = user.GetUserInformations(request.Token)
 	}
 
 	bytes, err := json.Marshal(response)
