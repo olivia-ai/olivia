@@ -8,7 +8,7 @@ var userInformation = map[string]Information{}
 
 // ChangeUserInformations requires the token of the user and a function which gives the actual
 // informations and returns the new informations.
-func ChangeUserInformations(token string, changer func (Information) Information) {
+func ChangeUserInformations(token string, changer func(Information) Information) {
 	userInformation[token] = changer(userInformation[token])
 }
 

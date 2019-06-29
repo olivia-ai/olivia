@@ -29,13 +29,13 @@ var upgrader = websocket.Upgrader{
 }
 
 type RequestMessage struct {
-	Content     string            `json:"content"`
-	Token       string            `json:"user_token"`
+	Content string `json:"content"`
+	Token   string `json:"user_token"`
 }
 
 type ResponseMessage struct {
-	Content string `json:"content"`
-	Tag     string `json:"tag"`
+	Content     string            `json:"content"`
+	Tag         string            `json:"tag"`
 	Information user.Informations `json:"information"`
 }
 
@@ -94,11 +94,9 @@ func Reply(request RequestMessage) []byte {
 
 	// Marshall the response in json
 	response := ResponseMessage{
-		Content: responseSentence,
-		Tag:     responseTag,
-	}
-	if user.HasChanges(request.Token) {
-		response.Information = user.GetUserInformations(request.Token)
+		Content:     responseSentence,
+		Tag:         responseTag,
+		Information: user.GetUserInformations(request.Token),
 	}
 
 	bytes, err := json.Marshal(response)
