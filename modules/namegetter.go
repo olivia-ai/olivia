@@ -3,6 +3,7 @@ package modules
 import (
 	"fmt"
 	"github.com/olivia-ai/olivia/user"
+	"github.com/olivia-ai/olivia/util"
 	"strings"
 )
 
@@ -24,5 +25,11 @@ func init() {
 
 func NameGetterReplacer(_, response, token string) (string, string) {
 	name := user.GetUserInformations(token).Name
+
+	if name == "" {
+		responseTag := "don't know name"
+		return responseTag, util.GetMessage(responseTag)
+	}
+
 	return nameGetterTag, fmt.Sprintf(response, strings.Title(name))
 }
