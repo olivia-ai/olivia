@@ -17,7 +17,6 @@
   <a href="https://docs.olivia-ai.org">Documentation</a> •
   <a href="https://github.com/orgs/olivia-ai/projects">Projects</a> •
   <a href="https://www.youtube.com/watch?v=JmJZi9gmKvI">Video</a> •
-  <a href="#contributors">Contributors</a> •
   <a href="#license">License</a>
 </p>
 
@@ -68,9 +67,11 @@ and the websocket will respond you with
 }
 ```
 
-## Contributors
-- [ananagame](https://github.com/ananagame) - creator, maintainer
-
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_large)
 
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/ananagame">Hugo Lageneste</a>
+</p>
+
+![Olivia's wave](https://olivia-ai.org/img/background-olivia.png)
