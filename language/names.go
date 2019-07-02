@@ -21,7 +21,8 @@ func SerializeNames() (names []string) {
 // FindName returns a name found in the given sentence or an empty string if no name has been found
 func FindName(sentence string) string {
 	for _, name := range names {
-		if !strings.Contains(sentence, name) {
+
+		if !strings.Contains(strings.ToLower(sentence + " "), name + " ") {
 			continue
 		}
 

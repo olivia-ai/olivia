@@ -94,7 +94,9 @@ func Reply(request RequestMessage) []byte {
 	}
 
 	// Set the informations from the client into the cache
-	user.SetUserInformations(request.Token, request.Information)
+	if user.GetUserInformations(request.Token) == (user.Information{}) {
+		user.SetUserInformations(request.Token, request.Information)
+	}
 
 	// Marshall the response in json
 	response := ResponseMessage{

@@ -25,6 +25,8 @@ func TestCalculate(t *testing.T) {
 		"Calculate cos(0.5)":             "math",
 		"Can you help me ?":              "actions",
 		"Why is your name Olivia?":       "why name",
+		"You can call me Hugo":           "name setter",
+		"What is my name?":               "name getter",
 	}
 
 	for sentence, tag := range sentences {

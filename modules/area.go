@@ -22,7 +22,7 @@ func init() {
 	})
 }
 
-func AreaReplacer(entry, response string) (string, string) {
+func AreaReplacer(entry, response, _ string) (string, string) {
 	country := language.FindCountry(entry)
 
 	// If there isn't a country respond with a message from res/messages.json
