@@ -24,7 +24,5 @@ func init() {
 
 func NameGetterReplacer(_, response, token string) (string, string) {
 	name := user.GetUserInformations(token).Name
-
-
 	return nameGetterTag, fmt.Sprintf(response, strings.Title(name))
 }
