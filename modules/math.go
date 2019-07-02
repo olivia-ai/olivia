@@ -15,7 +15,6 @@ func init() {
 	RegisterModule(Module{
 		Tag: "math",
 		Patterns: []string{
-			"What is ",
 			"Give me the result of ",
 			"Calculate ",
 		},
@@ -27,7 +26,7 @@ func init() {
 	})
 }
 
-func MathReplacer(entry, response string) (string, string) {
+func MathReplacer(entry, response, _ string) (string, string) {
 	operation := FindMathOperation(entry)
 
 	// If there is no operation in the entry message reply with a "don't understand" message

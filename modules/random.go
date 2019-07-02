@@ -22,6 +22,6 @@ func init() {
 	})
 }
 
-func RandomNumberReplacer(_, response string) (string, string) {
+func RandomNumberReplacer(_, response, _ string) (string, string) {
 	return randomTag, fmt.Sprintf(response, strconv.Itoa(rand.Intn(100)))
 }

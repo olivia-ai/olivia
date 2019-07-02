@@ -23,7 +23,7 @@ func init() {
 	})
 }
 
-func CapitalReplacer(entry, response string) (string, string) {
+func CapitalReplacer(entry, response, _ string) (string, string) {
 	country := language.FindCountry(entry)
 
 	// If there isn't a country respond with a message from res/messages.json

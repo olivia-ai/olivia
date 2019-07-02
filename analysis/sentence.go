@@ -105,9 +105,9 @@ func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
 	return resultsTag[0].Tag
 }
 
-// RandomizeResponse takes the entry message, the response tag and the userID and returns a random
+// RandomizeResponse takes the entry message, the response tag and the token and returns a random
 // message from res/intents.json where the triggers are applied
-func RandomizeResponse(entry string, tag string, userId string) (string, string) {
+func RandomizeResponse(entry string, tag string, token string) (string, string) {
 	if tag == DontUnderstand {
 		return DontUnderstand, util.GetMessage(tag)
 	}
@@ -121,13 +121,13 @@ func RandomizeResponse(entry string, tag string, userId string) (string, string)
 		}
 
 		// Reply a "don't understand" message if the context isn't correct
-		cacheTag, _ := userCache.Get(userId)
+		cacheTag, _ := userCache.Get(token)
 		if intent.Context != "" && cacheTag != intent.Context {
 			return DontUnderstand, util.GetMessage(DontUnderstand)
 		}
 
 		// Set the actual context
-		userCache.Set(userId, tag, gocache.DefaultExpiration)
+		userCache.Set(token, tag, gocache.DefaultExpiration)
 
 		// Choose a random response in intents
 		response := intent.Responses[0]
@@ -136,14 +136,14 @@ func RandomizeResponse(entry string, tag string, userId string) (string, string)
 		}
 
 		// And then apply the triggers on the message
-		return modules.ReplaceContent(tag, entry, response)
+		return modules.ReplaceContent(tag, entry, response, token)
 	}
 
 	return DontUnderstand, util.GetMessage(DontUnderstand)
 }
 
 // Calculate send the sentence content to the neural network and returns a response with the matching tag
-func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwork, userId string) (string, string) {
+func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwork, token string) (string, string) {
 	tag, found := cache.Get(sentence.Content)
 
 	// Predict tag with the neural network if the sentence isn't in the cache
@@ -152,7 +152,7 @@ func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwo
 		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
 	}
 
-	return RandomizeResponse(sentence.Content, tag.(string), userId)
+	return RandomizeResponse(sentence.Content, tag.(string), token)
 }
 
 // LogResults print in the console the sentence and its tags sorted by prediction

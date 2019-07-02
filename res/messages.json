@@ -27,5 +27,11 @@
       "Your math expression is not valid",
       "Please review your math expression"
     ]
+  },
+  {
+    "tag": "don't know name",
+    "messages": [
+      "I'm sorry but I don't know your name yet"
+    ]
   }
 ]
