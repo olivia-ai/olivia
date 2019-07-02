@@ -29,8 +29,9 @@ var upgrader = websocket.Upgrader{
 }
 
 type RequestMessage struct {
-	Content string `json:"content"`
-	Token   string `json:"user_token"`
+	Content     string           `json:"content"`
+	Token       string           `json:"user_token"`
+	Information user.Information `json:"information"`
 }
 
 type ResponseMessage struct {
@@ -91,6 +92,9 @@ func Reply(request RequestMessage) []byte {
 			request.Content,
 		).Calculate(*cache, model, request.Token)
 	}
+
+	// Set the informations from the client into the cache
+	user.SetUserInformations(request.Token, request.Information)
 
 	// Marshall the response in json
 	response := ResponseMessage{
