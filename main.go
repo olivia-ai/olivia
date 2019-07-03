@@ -83,6 +83,11 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 func Reply(request RequestMessage) []byte {
 	var responseSentence, responseTag string
 
+	// Set the informations from the client into the cache
+	if user.GetUserInformations(request.Token) == (user.Information{}) {
+		user.SetUserInformations(request.Token, request.Information)
+	}
+
 	// Send a message from res/messages.json if it is too long
 	if len(request.Content) > 500 {
 		responseTag = "too long"
@@ -91,11 +96,6 @@ func Reply(request RequestMessage) []byte {
 		responseTag, responseSentence = analysis.NewSentence(
 			request.Content,
 		).Calculate(*cache, model, request.Token)
-	}
-
-	// Set the informations from the client into the cache
-	if user.GetUserInformations(request.Token) == (user.Information{}) {
-		user.SetUserInformations(request.Token, request.Information)
 	}
 
 	// Marshall the response in json
