@@ -2,11 +2,10 @@ package modules
 
 import (
 	"fmt"
+	"github.com/olivia-ai/olivia/language"
 	"github.com/olivia-ai/olivia/util"
 	"github.com/soudy/mathcat"
 	"regexp"
-	"strconv"
-	"strings"
 )
 
 var mathTag = "math"
@@ -27,7 +26,7 @@ func init() {
 }
 
 func MathReplacer(entry, response, _ string) (string, string) {
-	operation := FindMathOperation(entry)
+	operation := language.FindMathOperation(entry)
 
 	// If there is no operation in the entry message reply with a "don't understand" message
 	if operation == "" {
@@ -42,7 +41,7 @@ func MathReplacer(entry, response, _ string) (string, string) {
 		return responseTag, util.GetMessage(responseTag)
 	}
 	// Use number of decimals from the query
-	decimals := FindNumberOfDecimals(entry)
+	decimals := language.FindNumberOfDecimals(entry)
 	if decimals == 0 {
 		decimals = 6
 	}
@@ -54,29 +53,4 @@ func MathReplacer(entry, response, _ string) (string, string) {
 	result = trailingZerosRegex.ReplaceAllString(result, "")
 
 	return mathTag, fmt.Sprintf(response, result)
-}
-
-// Find a math operation in a string an returns it
-func FindMathOperation(entry string) string {
-	mathRegex := regexp.MustCompile(
-		`((\()?(((\d+|pi)(\^\d+|!|.)?)|sqrt|cos|sin|tan|acos|asin|atan|log|ln|abs)( )?[+*\/\-x]?( )?(\))?[+*\/\-]?)+`,
-	)
-
-	operation := mathRegex.FindString(entry)
-	// Replace "x" symbol by "*"
-	operation = strings.Replace(operation, "x", "*", -1)
-	return strings.TrimSpace(operation)
-}
-
-// Find the number of decimals asked in the query
-func FindNumberOfDecimals(entry string) int {
-	decimalsRegex := regexp.MustCompile(
-		`(\d+( |-)decimal(s)?)|(number (of )?decimal(s)? (is )?\d+)`,
-	)
-	numberRegex := regexp.MustCompile(`\d+`)
-
-	decimals := numberRegex.FindString(decimalsRegex.FindString(entry))
-	decimalsInt, _ := strconv.Atoi(decimals)
-
-	return decimalsInt
 }
