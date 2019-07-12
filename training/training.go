@@ -46,7 +46,7 @@ func CreateNeuralNetwork() (network gonn.NeuralNetwork) {
 		// Save the neural network in res/training.json
 		gonn.DumpNN(saveFile, &network)
 	} else {
-		color.FgBlue.Println("Loading the neural network from res/training.json")
+		color.FgBlue.Println("Loading the neural network from " + saveFile)
 		network = *gonn.LoadNN(saveFile)
 	}
 
