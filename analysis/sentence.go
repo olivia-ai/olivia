@@ -5,8 +5,8 @@ import (
 	"github.com/caneroj1/stemmer"
 	"github.com/gookit/color"
 	"github.com/neurosnap/sentences"
-	"github.com/olivia-ai/gonn/gonn"
 	"github.com/olivia-ai/olivia/modules"
+	"github.com/olivia-ai/olivia/neuralnet"
 	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
 	"math/rand"
@@ -78,11 +78,11 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 }
 
 // Classify the sentence with the model
-func (sentence Sentence) PredictTag(n gonn.NeuralNetwork) string {
+func (sentence Sentence) PredictTag(network neuralnet.NeuralNetwork) string {
 	words, classes, _ := Organize()
 
 	// Predict with the model
-	predict := n.Forward(sentence.WordsBag(words))
+	predict := network.Forward(sentence.WordsBag(words))
 
 	// Enumerate the results with the intent tags
 	var resultsTag []Result
@@ -143,7 +143,7 @@ func RandomizeResponse(entry string, tag string, token string) (string, string) 
 }
 
 // Calculate send the sentence content to the neural network and returns a response with the matching tag
-func (sentence Sentence) Calculate(cache gocache.Cache, network gonn.NeuralNetwork, token string) (string, string) {
+func (sentence Sentence) Calculate(cache gocache.Cache, network neuralnet.NeuralNetwork, token string) (string, string) {
 	tag, found := cache.Get(sentence.Content)
 
 	// Predict tag with the neural network if the sentence isn't in the cache
