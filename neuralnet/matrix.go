@@ -32,10 +32,10 @@ func RandomMatrix(rows, columns int, lower, upper float64) [][]float64 {
 
 // ApplyWeights returns the next layer where the weights have been applied to the values of the
 // previous layer.
-func ApplyWeights(layer []float64, weights [][]float64) (output []float64) {
+func ApplyWeights(length int, layer []float64, weights [][]float64) (output []float64) {
 	output = make([]float64, len(weights))
 
-	for i := 0; i < len(weights); i++ {
+	for i := 0; i < length; i++ {
 		sum := 0.0
 		for j := 0; j < len(layer); j++ {
 			sum += layer[j] * weights[i][j]
