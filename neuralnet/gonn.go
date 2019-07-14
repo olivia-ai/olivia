@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/gookit/color"
 	"gopkg.in/cheggaaa/pb.v1"
-	"math"
 	"math/rand"
 	"os"
 	"time"
@@ -21,20 +20,11 @@ type NeuralNetwork struct {
 	ErrHidden        []float64
 	LastChangeHidden [][]float64
 	LastChangeOutput [][]float64
-	Regression       bool
-	Rate1            float64 //learning rate
+	Rate1            float64
 	Rate2            float64
 }
 
 const errorMessage = "The amount of input variable doesn't match."
-
-func sigmoid(X float64) float64 {
-	return 1.0 / (1.0 + math.Pow(math.E, -float64(X)))
-}
-
-func dsigmoid(Y float64) float64 {
-	return Y * (1.0 - Y)
-}
 
 func DumpNN(fileName string, nn *NeuralNetwork) {
 	out_f, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR, 0777)
@@ -65,63 +55,47 @@ func LoadNN(fileName string) *NeuralNetwork {
 	return nn
 }
 
-// Returns the value of a neural network where *iRate1* is equal to `0.25` and *iRate2* to `0.1`
-func DefaultNetwork(iInputCount, iHiddenCount, iOutputCount int, iRegression bool) *NeuralNetwork {
-	return NewNetwork(iInputCount, iHiddenCount, iOutputCount, iRegression, 0.25, 0.1)
+// Returns the value of a neural network where rate1 is equal to 0.25 and rate2 to 0.1
+func DefaultNetwork(input, hidden, output int) *NeuralNetwork {
+	return NewNetwork(input, hidden, output, 0.25, 0.1)
 }
 
-func NewNetwork(iInputCount, iHiddenCount, iOutputCount int, iRegression bool, iRate1, iRate2 float64) *NeuralNetwork {
-	iInputCount += 1
-	iHiddenCount += 1
+func NewNetwork(input, hidden, output int, rate1, rate2 float64) *NeuralNetwork {
 	rand.Seed(time.Now().UnixNano())
-	network := &NeuralNetwork{}
-	network.Regression = iRegression
-	network.Rate1 = iRate1
-	network.Rate2 = iRate2
-	network.InputLayer = make([]float64, iInputCount)
-	network.HiddenLayer = make([]float64, iHiddenCount)
-	network.OutputLayer = make([]float64, iOutputCount)
-	network.ErrOutput = make([]float64, iOutputCount)
-	network.ErrHidden = make([]float64, iHiddenCount)
 
-	network.WeightHidden = RandomMatrix(iHiddenCount, iInputCount, -1.0, 1.0)
-	network.WeightOutput = RandomMatrix(iOutputCount, iHiddenCount, -1.0, 1.0)
-
-	network.LastChangeHidden = MakeMatrix(iHiddenCount, iInputCount, 0.0)
-	network.LastChangeOutput = MakeMatrix(iOutputCount, iHiddenCount, 0.0)
-
-	return network
+	return &NeuralNetwork{
+		Rate1:            rate1,
+		Rate2:            rate2,
+		InputLayer:       make([]float64, input),
+		HiddenLayer:      make([]float64, hidden),
+		OutputLayer:      make([]float64, output),
+		ErrOutput:        make([]float64, output),
+		ErrHidden:        make([]float64, hidden),
+		WeightHidden:     RandomMatrix(hidden, input, -1.0, 1.0),
+		WeightOutput:     RandomMatrix(hidden, input, -1.0, 1.0),
+		LastChangeHidden: MakeMatrix(hidden, input, 0.0),
+		LastChangeOutput: MakeMatrix(output, hidden, 0.0),
+	}
 }
 
 func (network *NeuralNetwork) Forward(input []float64) (output []float64) {
-	if len(input)+1 != len(network.InputLayer) {
+	// The length of input values must match the number of input layers
+	if len(input) != len(network.InputLayer) {
 		panic(errorMessage)
 	}
-	for i := 0; i < len(input); i++ {
-		network.InputLayer[i] = input[i]
-	}
-	network.InputLayer[len(network.InputLayer)-1] = 1.0 //bias node for input layer
 
-	for i := 0; i < len(network.HiddenLayer)-1; i++ {
-		sum := 0.0
-		for j := 0; j < len(network.InputLayer); j++ {
-			sum += network.InputLayer[j] * network.WeightHidden[i][j]
-		}
-		network.HiddenLayer[i] = sigmoid(sum)
-	}
+	// Set the first layer
+	network.InputLayer = input
+	network.InputLayer[len(network.InputLayer)] = 1.0 // Bias node for input layer
 
-	network.HiddenLayer[len(network.HiddenLayer)-1] = 1.0 //bias node for hidden layer
-	for i := 0; i < len(network.OutputLayer); i++ {
-		sum := 0.0
-		for j := 0; j < len(network.HiddenLayer); j++ {
-			sum += network.HiddenLayer[j] * network.WeightOutput[i][j]
-		}
-		if network.Regression {
-			network.OutputLayer[i] = sum
-		} else {
-			network.OutputLayer[i] = sigmoid(sum)
-		}
-	}
+	// Apply the weights to the input layer to give the hidden layer
+	hiddenLayer := ApplyWeights(network.InputLayer, network.WeightHidden)
+	network.HiddenLayer = ApplyFunc(hiddenLayer, Sigmoid)
+
+	network.HiddenLayer[len(network.HiddenLayer)] = 1.0 // Bias node for hidden layer
+	// Apply weights to the hidden layer to give the output layer
+	network.OutputLayer = ApplyWeights(network.HiddenLayer, network.WeightOutput)
+
 	return network.OutputLayer[:]
 }
 
@@ -133,12 +107,7 @@ func (network *NeuralNetwork) Feedback(target []float64) {
 	for i := 0; i < len(network.HiddenLayer)-1; i++ {
 		err := 0.0
 		for j := 0; j < len(network.OutputLayer); j++ {
-			if network.Regression {
-				err += network.ErrOutput[j] * network.WeightOutput[j][i]
-			} else {
-				err += network.ErrOutput[j] * network.WeightOutput[j][i] * dsigmoid(network.OutputLayer[j])
-			}
-
+			err += network.ErrOutput[j] * network.WeightOutput[j][i]
 		}
 		network.ErrHidden[i] = err
 	}

@@ -45,3 +45,12 @@ func ApplyWeights(layer []float64, weights [][]float64) (output []float64) {
 
 	return
 }
+
+// ApplyFunc returns an array of the same size than x where all values have been modified by fn
+func ApplyFunc(x []float64, fn func(x float64) float64) []float64 {
+	for i, y := range x {
+		x[i] = fn(y)
+	}
+
+	return x
+}
