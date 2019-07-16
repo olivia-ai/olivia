@@ -24,19 +24,14 @@ type NeuralNetwork struct {
 	Rate2            float64
 }
 
-const errorMessage = "The amount of input variable doesn't match."
-
 func DumpNN(fileName string, nn *NeuralNetwork) {
 	out_f, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR, 0777)
 	if err != nil {
 		panic("Failed to dump the network to " + fileName)
 	}
-	fmt.Println("hey")
 	defer out_f.Close()
 	encoder := json.NewEncoder(out_f)
-	fmt.Println("hey2")
 	err = encoder.Encode(nn)
-	fmt.Println(nn)
 	if err != nil {
 		panic(err)
 	}
@@ -152,38 +147,27 @@ func (network *NeuralNetwork) Feedback(target []float64) {
 	}
 }
 
-func (network *NeuralNetwork) CalculateError(target []float64) (errSum float64) {
-	for i := 0; i < len(network.OutputLayer); i++ {
-		err := network.OutputLayer[i] - target[i]
-		errSum += 0.5 * err * err
+func RandomIndexes(n int) []int {
+	indexes := make([]int, n)
+	for i := 0; i < n; i++ {
+		j := i + int(rand.Float64() * float64(n - i))
+		indexes[i], indexes[j] = indexes[j], indexes[i]
 	}
 
-	return errSum
+	return indexes
 }
 
-func RandomIdx(n int) []int {
-	A := make([]int, n)
-	for i := 0; i < n; i++ {
-		A[i] = i
-	}
-
-	for i := 0; i < n; i++ {
-		j := i + int(rand.Float64()*float64(n-i))
-		A[i], A[j] = A[j], A[i]
-	}
-	return A
-}
-
-func (network *NeuralNetwork) Train(inputs [][]float64, targets [][]float64, iteration int) {
+func (network *NeuralNetwork) Train(inputs [][]float64, targets [][]float64, iterations int) {
 	if len(inputs[0]) + 1 != len(network.InputLayer) {
-		panic(errorMessage)
+		panic("The length of input values must match the number of input neurons.")
 	}
 	if len(targets[0]) != len(network.OutputLayer) {
-		panic(errorMessage)
+		panic("The length of target values must match the number of output neurons.")
 	}
 
 	blue := color.FgBlue.Render
 
+	// Build the progress bar
 	count := 100
 	bar := pb.New(count).Postfix(fmt.Sprintf(" - %s", blue("Creating the neural network")))
 	bar.Format("(██ )")
@@ -191,23 +175,17 @@ func (network *NeuralNetwork) Train(inputs [][]float64, targets [][]float64, ite
 	bar.ShowCounters = false
 	bar.Start()
 
-	iterFlag := -1
-	for i := 0; i < iteration; i++ {
-		idxAry := RandomIdx(len(inputs))
-		curErr := 0.0
+	for i := 0; i < iterations; i++ {
+		indexesArray := RandomIndexes(len(inputs))
+
+		// Feed forward and back beginning by random nodes
 		for j := 0; j < len(inputs); j++ {
-			network.Forward(inputs[idxAry[j]])
-			network.Feedback(targets[idxAry[j]])
-			curErr += network.CalculateError(targets[idxAry[j]])
-			if (j+1)%1000 == 0 {
-				if iterFlag != i {
-					fmt.Println("")
-					iterFlag = i
-				}
-			}
+			network.Forward(inputs[indexesArray[j]])
+			network.Feedback(targets[indexesArray[j]])
 		}
 
-		if (iteration >= count && (i+1)%(iteration/count) == 0) || iteration < count {
+		// Increment the progress bar
+		if i % (iterations / count) == 0 {
 			bar.Increment()
 		}
 	}
