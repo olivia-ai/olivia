@@ -4,6 +4,7 @@ import (
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/training"
 	gocache "github.com/patrickmn/go-cache"
+	"regexp"
 	"testing"
 	"time"
 )
@@ -26,13 +27,13 @@ func TestCalculate(t *testing.T) {
 		"Can you help me ?":              "actions",
 		"Why is your name Olivia?":       "why name",
 		"You can call me Hugo":           "name setter",
-		"What is my name?":               "name getter",
+		"What is my name?":               "don't know name|name getter",
 	}
 
 	for sentence, tag := range sentences {
 		responseTag, _ := analysis.NewSentence(sentence).Calculate(*cache, model, "1")
 
-		if tag != responseTag {
+		if !regexp.MustCompile(tag).MatchString(responseTag) {
 			t.Errorf("Expected \"%s\" tag for \"%s\", found \"%s\"", tag, sentence, responseTag)
 		}
 	}
