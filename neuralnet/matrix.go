@@ -1,6 +1,9 @@
 package neuralnet
 
-import "math/rand"
+import (
+	"math/rand"
+	"time"
+)
 
 // Returns the value of a matrix of *rows* and *columns* dimensions where all the
 // values are equals to *value*.
@@ -20,7 +23,7 @@ func MakeMatrix(rows, columns int, value float64) [][]float64 {
 // where the values are between *lower* and *upper*.
 func RandomMatrix(rows, columns int, lower, upper float64) [][]float64 {
 	mat := make([][]float64, rows)
-
+	rand.Seed(time.Now().UnixNano())
 	for i := 0; i < rows; i++ {
 		mat[i] = make([]float64, columns)
 		for j := 0; j < columns; j++ {
