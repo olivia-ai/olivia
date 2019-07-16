@@ -24,33 +24,22 @@ type NeuralNetwork struct {
 	Rate2            float64
 }
 
-func DumpNN(fileName string, nn *NeuralNetwork) {
-	out_f, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR, 0777)
-	if err != nil {
-		panic("Failed to dump the network to " + fileName)
-	}
-	defer out_f.Close()
-	encoder := json.NewEncoder(out_f)
-	err = encoder.Encode(nn)
-	if err != nil {
-		panic(err)
-	}
-}
-
-func LoadNN(fileName string) *NeuralNetwork {
-	in_f, err := os.Open(fileName)
+// LoadNetwork returns a NeuralNetwork loaded from a save in a JSON file
+func LoadNetwork(fileName string) *NeuralNetwork {
+	inF, err := os.Open(fileName)
 	if err != nil {
 		panic("Failed to load " + fileName)
 	}
-	defer in_f.Close()
-	decoder := json.NewDecoder(in_f)
-	nn := &NeuralNetwork{}
-	err = decoder.Decode(nn)
+	defer inF.Close()
+
+	decoder := json.NewDecoder(inF)
+	network := &NeuralNetwork{}
+	err = decoder.Decode(network)
 	if err != nil {
 		panic(err)
 	}
-	//fmt.Println(nn)
-	return nn
+
+	return network
 }
 
 // Returns the value of a neural network where rate1 is equal to 0.25 and rate2 to 0.1
@@ -191,4 +180,19 @@ func (network *NeuralNetwork) Train(inputs [][]float64, targets [][]float64, ite
 	}
 
 	bar.Finish()
+}
+
+// Save creates a file with a save of the neural network in JSON
+func (network NeuralNetwork) Save(fileName string) {
+	outF, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR, 0777)
+	if err != nil {
+		panic("Failed to save the network in " + fileName + ".")
+	}
+	defer outF.Close()
+
+	encoder := json.NewEncoder(outF)
+	err = encoder.Encode(network)
+	if err != nil {
+		panic(err)
+	}
 }
