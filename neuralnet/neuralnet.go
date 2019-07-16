@@ -69,7 +69,7 @@ func NewNetwork(input, hidden, output int, rate1, rate2 float64) *NeuralNetwork 
 }
 
 func (network *NeuralNetwork) Forward(input []float64) (output []float64) {
-	if len(input) + 1 != len(network.InputLayer) {
+	if len(input)+1 != len(network.InputLayer) {
 		panic("The length of input values must match the number of input layers.")
 	}
 
@@ -77,17 +77,17 @@ func (network *NeuralNetwork) Forward(input []float64) (output []float64) {
 	for i := 0; i < len(input); i++ {
 		network.InputLayer[i] = input[i]
 	}
-	network.InputLayer[len(network.InputLayer) - 1] = 1.0 // Bias node for input layer
+	network.InputLayer[len(network.InputLayer)-1] = 1.0 // Bias node for input layer
 
 	// Apply the weights to the input layer to give the hidden layer
 	hiddenLayer := ApplyWeights(
-		len(network.WeightHidden) - 1,
+		len(network.WeightHidden)-1,
 		network.InputLayer,
 		network.WeightHidden,
 	)
 	network.HiddenLayer = ApplyFunc(hiddenLayer, Sigmoid)
 
-	network.HiddenLayer[len(network.HiddenLayer) - 1] = 1.0 // Bias node for hidden layer
+	network.HiddenLayer[len(network.HiddenLayer)-1] = 1.0 // Bias node for hidden layer
 	// Apply weights to the hidden layer to give the output layer
 	network.OutputLayer = ApplyWeights(
 		len(network.WeightOutput),
@@ -117,7 +117,7 @@ func (network *NeuralNetwork) Feedback(target []float64) {
 	for i := 0; i < len(network.OutputLayer); i++ {
 		for j := 0; j < len(network.HiddenLayer); j++ {
 			delta := network.ErrOutput[i]
-			change := network.Rate1 * delta * network.HiddenLayer[j] + network.Rate2 * network.LastChangeOutput[i][j]
+			change := network.Rate1*delta*network.HiddenLayer[j] + network.Rate2*network.LastChangeOutput[i][j]
 
 			network.WeightOutput[i][j] -= change
 			network.LastChangeOutput[i][j] = change
@@ -128,7 +128,7 @@ func (network *NeuralNetwork) Feedback(target []float64) {
 	for i := 0; i < len(network.HiddenLayer)-1; i++ {
 		for j := 0; j < len(network.InputLayer); j++ {
 			delta := network.ErrHidden[i] * SigmoidDerivative(network.HiddenLayer[i])
-			change := network.Rate1 * delta * network.InputLayer[j] + network.Rate2 * network.LastChangeHidden[i][j]
+			change := network.Rate1*delta*network.InputLayer[j] + network.Rate2*network.LastChangeHidden[i][j]
 
 			network.WeightHidden[i][j] -= change
 			network.LastChangeHidden[i][j] = change
@@ -139,7 +139,7 @@ func (network *NeuralNetwork) Feedback(target []float64) {
 func RandomIndexes(n int) []int {
 	indexes := make([]int, n)
 	for i := 0; i < n; i++ {
-		j := i + int(rand.Float64() * float64(n - i))
+		j := i + int(rand.Float64()*float64(n-i))
 		indexes[i], indexes[j] = indexes[j], indexes[i]
 	}
 
@@ -147,7 +147,7 @@ func RandomIndexes(n int) []int {
 }
 
 func (network *NeuralNetwork) Train(inputs [][]float64, targets [][]float64, iterations int) {
-	if len(inputs[0]) + 1 != len(network.InputLayer) {
+	if len(inputs[0])+1 != len(network.InputLayer) {
 		panic("The length of input values must match the number of input neurons.")
 	}
 	if len(targets[0]) != len(network.OutputLayer) {
@@ -174,7 +174,7 @@ func (network *NeuralNetwork) Train(inputs [][]float64, targets [][]float64, ite
 		}
 
 		// Increment the progress bar
-		if i % (iterations / count) == 0 {
+		if i%(iterations/count) == 0 {
 			bar.Increment()
 		}
 	}
