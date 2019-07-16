@@ -44,10 +44,10 @@ func CreateNeuralNetwork() (network neuralnet.NeuralNetwork) {
 		network.Train(trainx, trainy, 1000)
 
 		// Save the neural network in res/training.json
-		neuralnet.DumpNN(saveFile, &network)
+		network.Save(saveFile)
 	} else {
 		color.FgBlue.Println("Loading the neural network from " + saveFile)
-		network = *neuralnet.LoadNN(saveFile)
+		network = *neuralnet.LoadNetwork(saveFile)
 	}
 
 	return network
