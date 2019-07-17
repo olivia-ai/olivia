@@ -24,33 +24,21 @@ type NeuralNetwork struct {
 	Rate2            float64
 }
 
-func DumpNN(fileName string, nn *NeuralNetwork) {
-	out_f, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR, 0777)
-	if err != nil {
-		panic("failed to dump the network to " + fileName)
-	}
-	defer out_f.Close()
-	encoder := json.NewEncoder(out_f)
-	err = encoder.Encode(nn)
-	if err != nil {
-		panic(err)
-	}
-}
-
-func LoadNN(fileName string) *NeuralNetwork {
-	in_f, err := os.Open(fileName)
+func LoadNeuralNetwork(fileName string) *NeuralNetwork {
+	inF, err := os.Open(fileName)
 	if err != nil {
 		panic("failed to load " + fileName)
 	}
-	defer in_f.Close()
-	decoder := json.NewDecoder(in_f)
-	nn := &NeuralNetwork{}
-	err = decoder.Decode(nn)
+	defer inF.Close()
+
+	decoder := json.NewDecoder(inF)
+	neuralNetwork := &NeuralNetwork{}
+	err = decoder.Decode(neuralNetwork)
 	if err != nil {
 		panic(err)
 	}
-	//fmt.Println(nn)
-	return nn
+
+	return neuralNetwork
 }
 
 // CreateNetwork returns a new network where layers are built with number of input, hidden and output
@@ -73,6 +61,20 @@ func CreateNetwork(input, hidden, output int, rate1, rate2 float64) *NeuralNetwo
 		WeightOutput:     RandomMatrix(output, hidden, -1.0, 1.0),
 		LastChangeHidden: MakeMatrix(hidden, input, 0.0),
 		LastChangeOutput: MakeMatrix(output, hidden, 0.0),
+	}
+}
+
+func (neuralNetwork NeuralNetwork) Save(fileName string) {
+	outF, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR, 0777)
+	if err != nil {
+		panic("failed to dump the network to " + fileName)
+	}
+	defer outF.Close()
+
+	encoder := json.NewEncoder(outF)
+	err = encoder.Encode(neuralNetwork)
+	if err != nil {
+		panic(err)
 	}
 }
 
@@ -147,7 +149,7 @@ func (neuralNetwork *NeuralNetwork) FeedBack(target []float64) {
 	}
 }
 
-func (neuralNetwork *NeuralNetwork) CalcError(target []float64) float64 {
+func (neuralNetwork *NeuralNetwork) CalculateError(target []float64) float64 {
 	errSum := 0.0
 	for i := 0; i < len(neuralNetwork.OutputLayer); i++ {
 		err := neuralNetwork.OutputLayer[i] - target[i]
@@ -157,17 +159,18 @@ func (neuralNetwork *NeuralNetwork) CalcError(target []float64) float64 {
 	return errSum
 }
 
-func genRandomIdx(N int) []int {
-	A := make([]int, N)
-	for i := 0; i < N; i++ {
-		A[i] = i
+func RandomIndexes(length int) []int {
+	indexes := make([]int, length)
+	for i := range indexes {
+		indexes[i] = i
 	}
-	//randomize
-	for i := 0; i < N; i++ {
-		j := i + int(rand.Float64()*float64(N-i))
-		A[i], A[j] = A[j], A[i]
+
+	for i := 0; i < length; i++ {
+		j := i + int(rand.Float64()*float64(length-i))
+		indexes[i], indexes[j] = indexes[j], indexes[i]
 	}
-	return A
+
+	return indexes
 }
 
 func (neuralNetwork *NeuralNetwork) Train(inputs [][]float64, targets [][]float64, iterations int) {
@@ -188,14 +191,14 @@ func (neuralNetwork *NeuralNetwork) Train(inputs [][]float64, targets [][]float6
 
 	currentError := 0.0
 	for i := 0; i < iterations; i++ {
-		indexesArray := genRandomIdx(len(inputs))
+		indexesArray := RandomIndexes(len(inputs))
 
 		for j := 0; j < len(inputs); j++ {
 			neuralNetwork.FeedForward(inputs[indexesArray[j]])
 			neuralNetwork.FeedBack(targets[indexesArray[j]])
 			// Sum the error to the current error
 			if i == iterations-1 {
-				currentError += neuralNetwork.CalcError(targets[indexesArray[j]])
+				currentError += neuralNetwork.CalculateError(targets[indexesArray[j]])
 			}
 		}
 		// Increment the progress bar
@@ -204,7 +207,7 @@ func (neuralNetwork *NeuralNetwork) Train(inputs [][]float64, targets [][]float6
 
 	bar.Finish()
 
-	arrangedError := fmt.Sprintf("%.5f", currentError / float64(len(inputs)))
+	arrangedError := fmt.Sprintf("%.5f", currentError/float64(len(inputs)))
 	red := color.FgGreen.Render
 	fmt.Printf("The error rate is %s.", red(arrangedError))
 }
