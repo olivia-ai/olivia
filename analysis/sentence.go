@@ -82,7 +82,7 @@ func (sentence Sentence) PredictTag(network neuralnet.NeuralNetwork) string {
 	words, classes, _ := Organize()
 
 	// Predict with the model
-	predict := network.Forward(sentence.WordsBag(words))
+	predict := network.FeedForward(sentence.WordsBag(words))
 
 	// Enumerate the results with the intent tags
 	var resultsTag []Result
