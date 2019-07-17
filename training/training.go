@@ -40,8 +40,8 @@ func CreateNeuralNetwork() (network neuralnet.NeuralNetwork) {
 		inputLayers, outputLayers := len(trainx[0]), len(trainy[0])
 		hiddenLayers := 100
 
-		network = *neuralnet.DefaultNetwork(inputLayers, hiddenLayers, outputLayers, true)
-		network.Train(trainx, trainy, 1000)
+		network = *neuralnet.CreateNetwork(inputLayers, hiddenLayers, outputLayers, 0.25, 0.1)
+		network.Train(trainx, trainy, 2000)
 
 		// Save the neural network in res/training.json
 		neuralnet.DumpNN(saveFile, &network)
