@@ -2,10 +2,11 @@ package modules
 
 import (
 	"fmt"
+	"regexp"
+
 	"github.com/olivia-ai/olivia/language"
 	"github.com/olivia-ai/olivia/util"
 	"github.com/soudy/mathcat"
-	"regexp"
 )
 
 var mathTag = "math"

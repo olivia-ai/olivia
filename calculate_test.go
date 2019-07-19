@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/olivia-ai/olivia/analysis"
-	"github.com/olivia-ai/olivia/training"
-	gocache "github.com/patrickmn/go-cache"
 	"regexp"
 	"testing"
 	"time"
+
+	"github.com/olivia-ai/olivia/analysis"
+	"github.com/olivia-ai/olivia/training"
+	gocache "github.com/patrickmn/go-cache"
 )
 
 func TestCalculate(t *testing.T) {

@@ -1,11 +1,12 @@
 package training
 
 import (
+	"os"
+
 	"github.com/gookit/color"
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/neuralnet"
 	"github.com/olivia-ai/olivia/util"
-	"os"
 )
 
 // TrainData returns the inputs and targets for the neural network
