@@ -162,7 +162,7 @@ func LogResults(entry string, results []Result) {
 
 	color.FgCyan.Printf("\n\"%s\"\n", entry)
 	for _, result := range results {
-		// Aribtrary choice of 0.05 to have less tags to show
+		// Arbitrary choice of 0.05 to have less tags to show
 		if result.Value < 0.05 {
 			continue
 		}
