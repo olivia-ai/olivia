@@ -1,6 +1,7 @@
 version: 2
 jobs:
   check_format:
+    machine: true
     steps:
       - checkout
       - run: go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
