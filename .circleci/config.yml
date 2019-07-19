@@ -13,7 +13,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      check_format:
-        branches:
-          only:
-            - master
+      - check_format
