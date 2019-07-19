@@ -43,7 +43,7 @@ func init() {
 func NameGetterReplacer(_, response, token string) (string, string) {
 	name := user.GetUserInformations(token).Name
 
-	if name == "" {
+	if strings.TrimSpace(name) == "" {
 		responseTag := "don't know name"
 		return responseTag, util.GetMessage(responseTag)
 	}

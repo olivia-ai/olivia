@@ -75,12 +75,6 @@
     "context": ""
   },
   {
-    "tag": "why name",
-    "patterns": ["Why is Olivia your name", "Why your name is Olivia"],
-    "responses": ["My name is Olivia because my author thought is was cool, isn't it?"],
-    "context": ""
-  },
-  {
     "tag": "goodbye",
     "patterns": ["Goodbye", "Good afternoon", "Bye"],
     "responses": ["Goodbye!", "See you soon!"],
