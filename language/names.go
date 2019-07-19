@@ -11,10 +11,7 @@ func SerializeNames() (names []string) {
 	namesFile := string(util.ReadFile("res/names.txt"))
 
 	// Iterate each line of the file
-	for _, name := range strings.Split(strings.TrimSuffix(namesFile, "\n"), "\n") {
-		names = append(names, name)
-	}
-
+	names = append(names, strings.Split(strings.TrimSuffix(namesFile, "\n"), "\n")...)
 	return
 }
 
