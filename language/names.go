@@ -1,8 +1,9 @@
 package language
 
 import (
-	"github.com/olivia-ai/olivia/util"
 	"strings"
+
+	"github.com/olivia-ai/olivia/util"
 )
 
 var names = SerializeNames()

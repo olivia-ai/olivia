@@ -3,8 +3,9 @@ package language
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/olivia-ai/olivia/util"
 	"strings"
+
+	"github.com/olivia-ai/olivia/util"
 )
 
 type Country struct {

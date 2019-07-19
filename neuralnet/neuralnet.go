@@ -3,11 +3,12 @@ package neuralnet
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gookit/color"
-	"gopkg.in/cheggaaa/pb.v1"
 	"math/rand"
 	"os"
 	"time"
+
+	"github.com/gookit/color"
+	"gopkg.in/cheggaaa/pb.v1"
 )
 
 type NeuralNetwork struct {
