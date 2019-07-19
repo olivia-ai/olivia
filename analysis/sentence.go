@@ -2,6 +2,12 @@ package analysis
 
 import (
 	"fmt"
+	"math/rand"
+	"regexp"
+	"sort"
+	"strings"
+	"time"
+
 	"github.com/caneroj1/stemmer"
 	"github.com/gookit/color"
 	"github.com/neurosnap/sentences"
@@ -9,11 +15,6 @@ import (
 	"github.com/olivia-ai/olivia/neuralnet"
 	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
-	"math/rand"
-	"regexp"
-	"sort"
-	"strings"
-	"time"
 )
 
 type Sentence struct {
