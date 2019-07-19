@@ -85,9 +85,7 @@ func (neuralNetwork *NeuralNetwork) FeedForward(input []float64) (output []float
 		panic("amount of input variable doesn't match")
 	}
 
-	for i, inputValue := range input {
-		neuralNetwork.InputLayer[i] = inputValue
-	}
+	copy(neuralNetwork.InputLayer, input)
 	neuralNetwork.InputLayer[len(neuralNetwork.InputLayer)-1] = 1.0 // Bias node for input layer
 
 	// Apply weights on the input layer to give the hidden layer
