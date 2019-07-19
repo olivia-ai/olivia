@@ -3,6 +3,9 @@ version: 2
 jobs:
   check_format:
     machine: true
+    branches:
+      only:
+        - master
     steps:
       - checkout
       - run: go fmt
