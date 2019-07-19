@@ -105,7 +105,7 @@ func (neuralNetwork *NeuralNetwork) FeedForward(input []float64) (output []float
 		neuralNetwork.WeightOutput,
 	)
 
-	return neuralNetwork.OutputLayer[:]
+	return neuralNetwork.OutputLayer
 }
 
 // FeedBack makes back propagation for a single target
