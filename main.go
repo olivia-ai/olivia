@@ -16,9 +16,8 @@ import (
 )
 
 var (
-	model   = training.CreateNeuralNetwork()
-	cache   = gocache.New(5*time.Minute, 5*time.Minute)
-	clients = make(map[*websocket.Conn]bool)
+	model = training.CreateNeuralNetwork()
+	cache = gocache.New(5*time.Minute, 5*time.Minute)
 )
 
 // Configure the upgrader
