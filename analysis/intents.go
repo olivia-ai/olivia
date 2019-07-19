@@ -2,9 +2,10 @@ package analysis
 
 import (
 	"encoding/json"
+	"sort"
+
 	"github.com/olivia-ai/olivia/modules"
 	"github.com/olivia-ai/olivia/util"
-	"sort"
 )
 
 type Intent struct {

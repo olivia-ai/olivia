@@ -3,6 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
+	"os"
+	"time"
+
 	"github.com/gookit/color"
 	"github.com/gorilla/websocket"
 	"github.com/olivia-ai/olivia/analysis"
@@ -10,9 +14,6 @@ import (
 	"github.com/olivia-ai/olivia/user"
 	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
-	"net/http"
-	"os"
-	"time"
 )
 
 var (
