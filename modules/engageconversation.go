@@ -11,10 +11,10 @@ import (
 )
 
 func EngageConversation(userToken string) (responses []string) {
-	userInformations := user.GetUserInformations(userToken)
+	userInformation := user.GetUserInformations(userToken)
 
 	// Add the hello message
-	if strings.TrimSpace(userInformations.Name) == "" {
+	if strings.TrimSpace(userInformation.Name) == "" {
 		responses = append(
 			responses,
 			"Hello!",
@@ -22,7 +22,7 @@ func EngageConversation(userToken string) (responses []string) {
 			"You can tell me your name by simply telling 'My name is John'",
 		)
 	} else {
-		responses = append(responses, fmt.Sprintf("Hey back, %s!", userInformations.Name))
+		responses = append(responses, fmt.Sprintf("Hey back, %s!", userInformation.Name))
 	}
 
 	fmt.Println(responses)
