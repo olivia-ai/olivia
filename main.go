@@ -7,6 +7,8 @@ import (
 	"os"
 	"time"
 
+	"github.com/olivia-ai/olivia/modules"
+
 	"github.com/gookit/color"
 	"github.com/gorilla/websocket"
 	"github.com/olivia-ai/olivia/analysis"
@@ -29,6 +31,7 @@ var upgrader = websocket.Upgrader{
 }
 
 type RequestMessage struct {
+	Type        int              `json:"type"` // 0 is for a "handshake" to send informations, 1 is for chat
 	Content     string           `json:"content"`
 	Token       string           `json:"user_token"`
 	Information user.Information `json:"information"`
@@ -77,15 +80,19 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 			user.SetUserInformations(request.Token, request.Information)
 		}
 
-		// Returns if the content is empty
-		if request.Content == "" {
-			continue
-		}
-
-		// Write message back to browser
-		response := Reply(request)
-		if err = conn.WriteMessage(msgType, response); err != nil {
-			continue
+		if request.Type == 0 {
+			// Engage the conversation with the user
+			for _, bytes := range Engage(request.Token) {
+				if err = conn.WriteMessage(msgType, bytes); err != nil {
+					continue
+				}
+			}
+		} else if request.Type == 1 {
+			// Write message back to browser
+			response := Reply(request)
+			if err = conn.WriteMessage(msgType, response); err != nil {
+				continue
+			}
 		}
 	}
 }
@@ -116,4 +123,23 @@ func Reply(request RequestMessage) []byte {
 	}
 
 	return bytes
+}
+
+func Engage(userToken string) (output [][]byte) {
+	for _, engageContent := range modules.EngageConversation(userToken) {
+		response := ResponseMessage{
+			Content:     engageContent,
+			Tag:         "engage conversation",
+			Information: user.GetUserInformations(userToken),
+		}
+
+		bytes, err := json.Marshal(response)
+		if err != nil {
+			panic(err)
+		}
+
+		output = append(output, bytes)
+	}
+
+	return
 }
