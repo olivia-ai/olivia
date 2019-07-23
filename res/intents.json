@@ -91,5 +91,17 @@
     "patterns": ["What are you doing"],
     "responses": ["Actually, I'm speaking to somebody"],
     "context": ""
+  },
+  {
+    "tag": "wait",
+    "patterns": ["Can you wait 2 minutes", "Please wait", "Wait 2 secs please"],
+    "responses": ["Sure! I wait."],
+    "context": ""
+  },
+  {
+    "tag": "still there",
+    "patterns": ["Are you still there?", "Are you here?"],
+    "responses": ["Of course! Always at your service."],
+    "context": ""
   }
 ]

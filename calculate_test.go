@@ -29,6 +29,8 @@ func TestCalculate(t *testing.T) {
 		"You can call me Hugo":           "name setter",
 		"What is my name?":               "don't know name|name getter",
 		"hfeal":                          "don't understand",
+		"Please wait 2 minutes":          "wait",
+		"Are you still here?":            "still there",
 	}
 
 	for sentence, tag := range sentences {
