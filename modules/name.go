@@ -48,16 +48,26 @@ func NameGetterReplacer(_, response, token string) (string, string) {
 		return responseTag, util.GetMessage(responseTag)
 	}
 
-	return nameGetterTag, fmt.Sprintf(response, strings.Title(name))
+	return nameGetterTag, fmt.Sprintf(response, name)
 }
 
 func NameSetterReplacer(entry, response, token string) (string, string) {
 	name := language.FindName(entry)
+
+	// If there is no name in the entry string
+	if name == "" {
+		responseTag := "no name"
+		return responseTag, util.GetMessage(responseTag)
+	}
+
+	// Capitalize the name
+	name = strings.Title(name)
+
 	// Change the name inside the user information
 	user.ChangeUserInformations(token, func(information user.Information) user.Information {
 		information.Name = name
 		return information
 	})
 
-	return nameSetterTag, fmt.Sprintf(response, strings.Title(name))
+	return nameSetterTag, fmt.Sprintf(response, name)
 }

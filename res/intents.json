@@ -69,12 +69,6 @@
     "context": ""
   },
   {
-    "tag": "name",
-    "patterns": ["What is your name", "How can I call you"],
-    "responses": ["My name is Olivia", "You can call me Olivia", "I'm Olivia"],
-    "context": ""
-  },
-  {
     "tag": "goodbye",
     "patterns": ["Goodbye", "Good afternoon", "Bye"],
     "responses": ["Goodbye!", "See you soon!"],
