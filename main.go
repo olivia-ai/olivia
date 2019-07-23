@@ -63,30 +63,35 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		// Read message from browser
 		msgType, msg, err := conn.ReadMessage()
 		if err != nil {
-			return
+			continue
 		}
 
 		// Unserialize the json content of the message
 		var request RequestMessage
 		if err = json.Unmarshal(msg, &request); err != nil {
-			return
+			continue
+		}
+
+		// Set the informations from the client into the cache
+		if user.GetUserInformations(request.Token) == (user.Information{}) {
+			user.SetUserInformations(request.Token, request.Information)
+		}
+
+		// Returns if the content is empty
+		if request.Content == "" {
+			continue
 		}
 
 		// Write message back to browser
 		response := Reply(request)
 		if err = conn.WriteMessage(msgType, response); err != nil {
-			return
+			continue
 		}
 	}
 }
 
 func Reply(request RequestMessage) []byte {
 	var responseSentence, responseTag string
-
-	// Set the informations from the client into the cache
-	if user.GetUserInformations(request.Token) == (user.Information{}) {
-		user.SetUserInformations(request.Token, request.Information)
-	}
 
 	// Send a message from res/messages.json if it is too long
 	if len(request.Content) > 500 {
