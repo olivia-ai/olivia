@@ -1,13 +1,18 @@
 package modules
 
 import (
+	"fmt"
+
 	"github.com/olivia-ai/olivia/user"
 	"github.com/olivia-ai/olivia/util"
 
 	"github.com/olivia-ai/olivia/language"
 )
 
-var genresTag = "movies genres"
+var (
+	genresTag = "movies genres"
+	moviesTag = "movies search"
+)
 
 func init() {
 	RegisterModule(Module{
@@ -21,6 +26,19 @@ func init() {
 			"Understood, I send these informations to your client.",
 		},
 		Replacer: GenresReplacer,
+	})
+
+	RegisterModule(Module{
+		Tag: moviesTag,
+		Patterns: []string{
+			"Can you find me a movie of",
+			"I would like to watch a movie of",
+		},
+		Responses: []string{
+			"I found this for you %s which is rated %.02f/5",
+			"Sure, I found this movie %s rated %.02f/5",
+		},
+		Replacer: MovieSearchReplacer,
 	})
 }
 
@@ -47,4 +65,18 @@ func GenresReplacer(entry, response, token string) (string, string) {
 	})
 
 	return genresTag, response
+}
+
+func MovieSearchReplacer(entry, response, token string) (string, string) {
+	genres := language.FindMoviesGenres(entry)
+
+	// If there is no genres then reply with a message from res/messages.json
+	if len(genres) == 0 {
+		responseTag := "no genres"
+		return responseTag, util.GetMessage(responseTag)
+	}
+
+	movie := language.SearchMovie(genres[0], token)
+
+	return moviesTag, fmt.Sprintf(response, movie.Name, movie.Rating)
 }
