@@ -19,6 +19,7 @@ func init() {
 		Tag: nameGetterTag,
 		Patterns: []string{
 			"What is my name?",
+			"What's my name?",
 			"Do you know my name?",
 		},
 		Responses: []string{
