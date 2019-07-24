@@ -6,8 +6,13 @@ import (
 	"io"
 	"log"
 	"os"
+	"reflect"
 	"strconv"
 	"strings"
+
+	"github.com/olivia-ai/olivia/user"
+
+	"github.com/olivia-ai/olivia/util"
 )
 
 type Movie struct {
@@ -16,10 +21,13 @@ type Movie struct {
 	Rating float64
 }
 
-var genres = []string{
-	"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
-	"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western",
-}
+var (
+	genres = []string{
+		"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
+		"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western",
+	}
+	movies = SerializeMovies()
+)
 
 func SerializeMovies() (movies []Movie) {
 	path := "res/movies.csv"
@@ -46,6 +54,28 @@ func SerializeMovies() (movies []Movie) {
 			Rating: rating,
 		})
 	}
+
+	return
+}
+
+func SearchMovie(genre, userToken string) (output Movie) {
+	for _, movie := range movies {
+		userMovieBlacklist := user.GetUserInformations(userToken).MovieBlacklist
+		// Continue if the movie is not from the request genre or if this movie has already been suggested
+		if !util.Contains(movie.Genres, genre) || util.Contains(userMovieBlacklist, movie.Name) {
+			continue
+		}
+
+		if reflect.DeepEqual(output, Movie{}) || movie.Rating > output.Rating {
+			output = movie
+		}
+	}
+
+	// Add the found movie to the user blacklist
+	user.ChangeUserInformations(userToken, func(information user.Information) user.Information {
+		information.MovieBlacklist = append(information.MovieBlacklist, output.Name)
+		return information
+	})
 
 	return
 }
