@@ -35,7 +35,14 @@ func GenresReplacer(entry, response, token string) (string, string) {
 
 	// Change the user information to add the new genres
 	user.ChangeUserInformations(token, func(information user.Information) user.Information {
-		information.MovieGenres = append(information.MovieGenres, genres...)
+		for _, genre := range genres {
+			// Append the genre only is it isn't already in the information
+			if util.Contains(information.MovieGenres, genre) {
+				continue
+			}
+
+			information.MovieGenres = append(information.MovieGenres, genre)
+		}
 		return information
 	})
 
