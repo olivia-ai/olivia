@@ -15,19 +15,20 @@ func TestCalculate(t *testing.T) {
 	cache := gocache.New(5*time.Minute, 5*time.Minute)
 
 	sentences := map[string]string{
-		"Hello":                          "hello",
-		"How are you ?":                  "feeling",
-		"What can you do ?":              "actions",
-		"what's the capital of France":   "capital",
-		"Give me the capital of Namibia": "capital",
-		"Where do you live?":             "city",
-		"What are you doing ?":           "action",
-		"Calculate cos(0.5)":             "math",
-		"Can you help me ?":              "actions",
-		"My name is Hugo":                "name setter",
-		"What is my name?":               "don't know name|name getter",
-		"Please wait 2 minutes":          "wait",
-		"Are you still here?":            "still there",
+		"Hello":                                    "hello",
+		"How are you ?":                            "feeling",
+		"What can you do ?":                        "actions",
+		"what's the capital of France":             "capital",
+		"Give me the capital of Namibia":           "capital",
+		"Where do you live?":                       "city",
+		"What are you doing ?":                     "action",
+		"Calculate cos(0.5)":                       "math",
+		"Can you help me ?":                        "actions",
+		"My name is Hugo":                          "name setter",
+		"What's my name?":                          "don't know name|name getter",
+		"Please wait 2 minutes":                    "wait",
+		"Are you still here?":                      "still there",
+		"I like movies of adventure and animation": "movies genres",
 	}
 
 	for sentence, tag := range sentences {

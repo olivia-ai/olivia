@@ -25,7 +25,5 @@ func EngageConversation(userToken string) (responses []string) {
 		responses = append(responses, fmt.Sprintf("Hey back, %s!", userInformation.Name))
 	}
 
-	fmt.Println(responses)
-
 	return
 }

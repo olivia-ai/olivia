@@ -1,7 +1,8 @@
 package user
 
 type Information struct {
-	Name string `json:"name"`
+	Name        string   `json:"name"`
+	MovieGenres []string `json:"movie_genres"`
 }
 
 var userInformation = map[string]Information{}

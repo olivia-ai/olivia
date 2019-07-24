@@ -16,6 +16,11 @@ type Movie struct {
 	Rating float64
 }
 
+var genres = []string{
+	"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
+	"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western",
+}
+
 func SerializeMovies() (movies []Movie) {
 	path := "res/movies.csv"
 	bytes, err := os.Open(path)
@@ -40,6 +45,17 @@ func SerializeMovies() (movies []Movie) {
 			Genres: strings.Split(line[2], "|"),
 			Rating: rating,
 		})
+	}
+
+	return
+}
+
+// FindMoviesGenres returns an array of genres found in the entry string
+func FindMoviesGenres(content string) (output []string) {
+	for _, genre := range genres {
+		if strings.Contains(strings.ToUpper(content), strings.ToUpper(genre)) {
+			output = append(output, genre)
+		}
 	}
 
 	return

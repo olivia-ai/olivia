@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"reflect"
 	"time"
 
 	"github.com/olivia-ai/olivia/modules"
@@ -76,7 +77,7 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Set the informations from the client into the cache
-		if user.GetUserInformations(request.Token) == (user.Information{}) {
+		if reflect.DeepEqual(user.GetUserInformations(request.Token), user.Information{}) {
 			user.SetUserInformations(request.Token, request.Information)
 		}
 

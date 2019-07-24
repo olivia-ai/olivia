@@ -38,5 +38,11 @@
     "messages": [
       "I am sorry I can't find a name in your message."
     ]
+  },
+  {
+    "tag": "no genres",
+    "messages": [
+      "Sorry I can't find any movie genre in your message, try with them: Action, Adventure, Animation, Children, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, Musical, Mystery, Romance, Sci-Fi, Thriller, War and Western"
+    ]
   }
 ]
