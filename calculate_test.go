@@ -25,10 +25,10 @@ func TestCalculate(t *testing.T) {
 		"Calculate cos(0.5)":                       "math",
 		"Can you help me ?":                        "actions",
 		"My name is Hugo":                          "name setter",
-		"What's my name?":                          "don't know name|name getter",
 		"Please wait 2 minutes":                    "wait",
-		"Are you still here?":                      "still there",
+		"Are you still there?":                     "still there",
 		"I like movies of adventure and animation": "movies genres",
+		"Can you find me a movie of adventure":     "movies search",
 	}
 
 	for sentence, tag := range sentences {
