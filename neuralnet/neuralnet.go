@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/gookit/color"
+
 	"gopkg.in/cheggaaa/pb.v1"
 )
 
@@ -45,24 +46,27 @@ func LoadNeuralNetwork(fileName string) *NeuralNetwork {
 // CreateNetwork returns a new network where layers are built with number of input, hidden and output
 // layers and the learning rates.
 func CreateNetwork(input, hidden, output int, rate1, rate2 float64) *NeuralNetwork {
-	input++
-	hidden++
+	input += 1
+	hidden += 1
 
 	rand.Seed(time.Now().UnixNano())
 
-	return &NeuralNetwork{
-		Rate1:            rate1,
-		Rate2:            rate2,
-		InputLayer:       make([]float64, input),
-		HiddenLayer:      make([]float64, hidden),
-		OutputLayer:      make([]float64, output),
-		ErrOutput:        make([]float64, output),
-		ErrHidden:        make([]float64, hidden),
-		WeightHidden:     RandomMatrix(hidden, input, -1.0, 1.0),
-		WeightOutput:     RandomMatrix(output, hidden, -1.0, 1.0),
-		LastChangeHidden: MakeMatrix(hidden, input, 0.0),
-		LastChangeOutput: MakeMatrix(output, hidden, 0.0),
-	}
+	network := &NeuralNetwork{}
+	network.Rate1 = rate1
+	network.Rate2 = rate2
+	network.InputLayer = make([]float64, input)
+	network.HiddenLayer = make([]float64, hidden)
+	network.OutputLayer = make([]float64, output)
+	network.ErrOutput = make([]float64, output)
+	network.ErrHidden = make([]float64, hidden)
+
+	network.WeightHidden = RandomMatrix(hidden, input, -1.0, 1.0)
+	network.WeightOutput = RandomMatrix(output, hidden, -1.0, 1.0)
+
+	network.LastChangeHidden = MakeMatrix(hidden, input, 0.0)
+	network.LastChangeOutput = MakeMatrix(output, hidden, 0.0)
+
+	return network
 }
 
 func (neuralNetwork NeuralNetwork) Save(fileName string) {
@@ -82,27 +86,35 @@ func (neuralNetwork NeuralNetwork) Save(fileName string) {
 // FeedForward makes forward propagation for a single input
 func (neuralNetwork *NeuralNetwork) FeedForward(input []float64) (output []float64) {
 	if len(input)+1 != len(neuralNetwork.InputLayer) {
-		panic("amount of input variable doesn't match")
+		panic("Amount of input variable doesn't match.")
 	}
 
-	copy(neuralNetwork.InputLayer, input)
+	for i := 0; i < len(input); i++ {
+		neuralNetwork.InputLayer[i] = input[i]
+	}
 	neuralNetwork.InputLayer[len(neuralNetwork.InputLayer)-1] = 1.0 // Bias node for input layer
 
 	// Apply weights on the input layer to give the hidden layer
-	hiddenLayer := ApplyWeights(
-		len(neuralNetwork.HiddenLayer)-1,
-		neuralNetwork.InputLayer,
-		neuralNetwork.WeightHidden,
-	)
-	neuralNetwork.HiddenLayer = ApplyFunc(hiddenLayer, Sigmoid)
+	for i := 0; i < len(neuralNetwork.HiddenLayer)-1; i++ {
+		sum := 0.0
+		for j := 0; j < len(neuralNetwork.InputLayer); j++ {
+			sum += neuralNetwork.InputLayer[j] * neuralNetwork.WeightHidden[i][j]
+		}
+
+		neuralNetwork.HiddenLayer[i] = Sigmoid(sum)
+	}
+
 	neuralNetwork.HiddenLayer[len(neuralNetwork.HiddenLayer)-1] = 1.0 // Bias node for hidden layer
 
 	// Apply weights on the hidden layer to give the output layer
-	neuralNetwork.OutputLayer = ApplyWeights(
-		len(neuralNetwork.OutputLayer),
-		neuralNetwork.HiddenLayer,
-		neuralNetwork.WeightOutput,
-	)
+	for i := 0; i < len(neuralNetwork.OutputLayer); i++ {
+		sum := 0.0
+		for j := 0; j < len(neuralNetwork.HiddenLayer); j++ {
+			sum += neuralNetwork.HiddenLayer[j] * neuralNetwork.WeightOutput[i][j]
+		}
+
+		neuralNetwork.OutputLayer[i] = sum
+	}
 
 	return neuralNetwork.OutputLayer
 }
@@ -120,6 +132,7 @@ func (neuralNetwork *NeuralNetwork) FeedBack(target []float64) {
 		for j := 0; j < len(neuralNetwork.OutputLayer); j++ {
 			err += neuralNetwork.ErrOutput[j] * neuralNetwork.WeightOutput[j][i]
 		}
+
 		neuralNetwork.ErrHidden[i] = err
 	}
 
@@ -127,8 +140,7 @@ func (neuralNetwork *NeuralNetwork) FeedBack(target []float64) {
 	for i := 0; i < len(neuralNetwork.OutputLayer); i++ {
 		for j := 0; j < len(neuralNetwork.HiddenLayer); j++ {
 			delta := neuralNetwork.ErrOutput[i]
-			change := neuralNetwork.Rate1*delta*neuralNetwork.HiddenLayer[j] +
-				neuralNetwork.Rate2*neuralNetwork.LastChangeOutput[i][j]
+			change := neuralNetwork.Rate1*delta*neuralNetwork.HiddenLayer[j] + neuralNetwork.Rate2*neuralNetwork.LastChangeOutput[i][j]
 
 			neuralNetwork.WeightOutput[i][j] -= change
 			neuralNetwork.LastChangeOutput[i][j] = change
@@ -139,8 +151,7 @@ func (neuralNetwork *NeuralNetwork) FeedBack(target []float64) {
 	for i := 0; i < len(neuralNetwork.HiddenLayer)-1; i++ {
 		for j := 0; j < len(neuralNetwork.InputLayer); j++ {
 			delta := neuralNetwork.ErrHidden[i] * SigmoidDerivative(neuralNetwork.HiddenLayer[i])
-			change := neuralNetwork.Rate1*delta*neuralNetwork.InputLayer[j] +
-				neuralNetwork.Rate2*neuralNetwork.LastChangeHidden[i][j]
+			change := neuralNetwork.Rate1*delta*neuralNetwork.InputLayer[j] + neuralNetwork.Rate2*neuralNetwork.LastChangeHidden[i][j]
 
 			neuralNetwork.WeightHidden[i][j] -= change
 			neuralNetwork.LastChangeHidden[i][j] = change
@@ -180,10 +191,11 @@ func (neuralNetwork *NeuralNetwork) Train(inputs [][]float64, targets [][]float6
 		panic("The amount of output variable doesn't match.")
 	}
 
-	blue := color.FgBlue.Render
-
-	bar := pb.New(iterations).Postfix(fmt.Sprintf(" - %s", blue("Creating the neural network")))
-	bar.Format("(██ )")
+	bar := pb.New(iterations).Postfix(fmt.Sprintf(
+		" - %s",
+		color.FgBlue.Render("Creating the neural network"),
+	))
+	bar.Format("(██░)")
 	bar.SetMaxWidth(60)
 	bar.ShowCounters = false
 	bar.Start()
@@ -191,22 +203,19 @@ func (neuralNetwork *NeuralNetwork) Train(inputs [][]float64, targets [][]float6
 	currentError := 0.0
 	for i := 0; i < iterations; i++ {
 		indexesArray := RandomIndexes(len(inputs))
+		currentError = 0.0
 
 		for j := 0; j < len(inputs); j++ {
 			neuralNetwork.FeedForward(inputs[indexesArray[j]])
 			neuralNetwork.FeedBack(targets[indexesArray[j]])
-			// Sum the error to the current error
-			if i == iterations-1 {
-				currentError += neuralNetwork.CalculateError(targets[indexesArray[j]])
-			}
+
+			currentError += neuralNetwork.CalculateError(targets[indexesArray[j]])
 		}
-		// Increment the progress bar
+
 		bar.Increment()
 	}
 
 	bar.Finish()
-
 	arrangedError := fmt.Sprintf("%.5f", currentError/float64(len(inputs)))
-	red := color.FgGreen.Render
-	fmt.Printf("The error rate is %s.", red(arrangedError))
+	fmt.Printf("The error rate is %s.", color.FgGreen.Render(arrangedError))
 }

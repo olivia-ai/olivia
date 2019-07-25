@@ -10,8 +10,9 @@ import (
 )
 
 var (
-	genresTag = "movies genres"
-	moviesTag = "movies search"
+	genresTag        = "movies genres"
+	moviesTag        = "movies search"
+	moviesAlreadyTag = "already seen movie"
 )
 
 func init() {
@@ -35,8 +36,21 @@ func init() {
 			"I would like to watch a movie of",
 		},
 		Responses: []string{
-			"I found this for you %s which is rated %.02f/5",
-			"Sure, I found this movie %s rated %.02f/5",
+			"I found this for you “%s” which is rated %.02f/5",
+			"Sure, I found this movie “%s” rated %.02f/5",
+		},
+		Replacer: MovieSearchReplacer,
+	})
+
+	RegisterModule(Module{
+		Tag: moviesAlreadyTag,
+		Patterns: []string{
+			"I've already seen this movie",
+			"Oh I have already watched this movie",
+		},
+		Responses: []string{
+			"Oh I see, here's another one “%s” which is rated %.02f/5",
+			"Sure, I found this movie “%s” rated %.02f/5",
 		},
 		Replacer: MovieSearchReplacer,
 	})
