@@ -33,6 +33,7 @@ func init() {
 		Tag: moviesTag,
 		Patterns: []string{
 			"Can you find me a movie of",
+			"Give me a movie of",
 			"I would like to watch a movie of",
 		},
 		Responses: []string{
