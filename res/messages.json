@@ -44,5 +44,12 @@
     "messages": [
       "Sorry I can't find any movie genre in your message, try with them: Action, Adventure, Animation, Children, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, Musical, Mystery, Romance, Sci-Fi, Thriller, War and Western"
     ]
+  },
+  {
+    "tag": "hey back",
+    "messages": [
+      "Hey back, %s!",
+      "Hello %s!"
+    ]
   }
 ]

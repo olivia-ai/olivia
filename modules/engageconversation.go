@@ -7,6 +7,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/olivia-ai/olivia/util"
+
 	"github.com/olivia-ai/olivia/user"
 )
 
@@ -22,7 +24,7 @@ func EngageConversation(userToken string) (responses []string) {
 			"You can tell me your name by simply telling 'My name is John'",
 		)
 	} else {
-		responses = append(responses, fmt.Sprintf("Hey back, %s!", userInformation.Name))
+		responses = append(responses, fmt.Sprintf(util.GetMessage("hey back"), userInformation.Name))
 	}
 
 	return

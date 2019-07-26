@@ -45,12 +45,11 @@ func init() {
 	RegisterModule(Module{
 		Tag: moviesAlreadyTag,
 		Patterns: []string{
-			"I've already seen this movie",
+			"I already saw this movie",
 			"Oh I have already watched this movie",
 		},
 		Responses: []string{
 			"Oh I see, here's another one “%s” which is rated %.02f/5",
-			"Sure, I found this movie “%s” rated %.02f/5",
 		},
 		Replacer: MovieSearchReplacer,
 	})
