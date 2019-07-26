@@ -29,7 +29,7 @@ type NeuralNetwork struct {
 func LoadNeuralNetwork(fileName string) *NeuralNetwork {
 	inF, err := os.Open(fileName)
 	if err != nil {
-		panic("failed to load " + fileName)
+		panic("Failed to load " + fileName + ".")
 	}
 	defer inF.Close()
 
@@ -46,33 +46,30 @@ func LoadNeuralNetwork(fileName string) *NeuralNetwork {
 // CreateNetwork returns a new network where layers are built with number of input, hidden and output
 // layers and the learning rates.
 func CreateNetwork(input, hidden, output int, rate1, rate2 float64) *NeuralNetwork {
-	input += 1
-	hidden += 1
+	input++
+	hidden++
 
 	rand.Seed(time.Now().UnixNano())
 
-	network := &NeuralNetwork{}
-	network.Rate1 = rate1
-	network.Rate2 = rate2
-	network.InputLayer = make([]float64, input)
-	network.HiddenLayer = make([]float64, hidden)
-	network.OutputLayer = make([]float64, output)
-	network.ErrOutput = make([]float64, output)
-	network.ErrHidden = make([]float64, hidden)
-
-	network.WeightHidden = RandomMatrix(hidden, input, -1.0, 1.0)
-	network.WeightOutput = RandomMatrix(output, hidden, -1.0, 1.0)
-
-	network.LastChangeHidden = MakeMatrix(hidden, input, 0.0)
-	network.LastChangeOutput = MakeMatrix(output, hidden, 0.0)
-
-	return network
+	return &NeuralNetwork{
+		Rate1:            rate1,
+		Rate2:            rate2,
+		InputLayer:       make([]float64, input),
+		HiddenLayer:      make([]float64, hidden),
+		OutputLayer:      make([]float64, output),
+		ErrOutput:        make([]float64, output),
+		ErrHidden:        make([]float64, hidden),
+		WeightHidden:     RandomMatrix(hidden, input, -1.0, 1.0),
+		WeightOutput:     RandomMatrix(output, hidden, -1.0, 1.0),
+		LastChangeHidden: MakeMatrix(hidden, input, 0.0),
+		LastChangeOutput: MakeMatrix(output, hidden, 0.0),
+	}
 }
 
 func (neuralNetwork NeuralNetwork) Save(fileName string) {
 	outF, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR, 0777)
 	if err != nil {
-		panic("failed to dump the network to " + fileName)
+		panic("Failed to save the network to " + fileName + ".")
 	}
 	defer outF.Close()
 
