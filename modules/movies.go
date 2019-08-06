@@ -2,6 +2,8 @@ package modules
 
 import (
 	"fmt"
+	"math/rand"
+	"strings"
 
 	"github.com/olivia-ai/olivia/user"
 	"github.com/olivia-ai/olivia/util"
@@ -13,6 +15,7 @@ var (
 	genresTag        = "movies genres"
 	moviesTag        = "movies search"
 	moviesAlreadyTag = "already seen movie"
+	moviesDataTag    = "movies search from data"
 )
 
 func init() {
@@ -34,6 +37,7 @@ func init() {
 		Patterns: []string{
 			"Can you find me a movie of",
 			"Give me a movie of",
+			"Find me a film of",
 			"I would like to watch a movie of",
 		},
 		Responses: []string{
@@ -47,12 +51,25 @@ func init() {
 		Tag: moviesAlreadyTag,
 		Patterns: []string{
 			"I already saw this movie",
+			"I have already watched this film",
 			"Oh I have already watched this movie",
 		},
 		Responses: []string{
 			"Oh I see, here's another one “%s” which is rated %.02f/5",
 		},
 		Replacer: MovieSearchReplacer,
+	})
+
+	RegisterModule(Module{
+		Tag: moviesAlreadyTag,
+		Patterns: []string{
+			"I'm bored",
+			"I don't know what to do",
+		},
+		Responses: []string{
+			"I propose you a movie of %s “%s” which is rated %.02f/5",
+		},
+		Replacer: MovieSearchFromInformationReplacer,
 	})
 }
 
@@ -93,4 +110,17 @@ func MovieSearchReplacer(entry, response, token string) (string, string) {
 	movie := language.SearchMovie(genres[0], token)
 
 	return moviesTag, fmt.Sprintf(response, movie.Name, movie.Rating)
+}
+
+func MovieSearchFromInformationReplacer(_, response, token string) (string, string) {
+	// If there is no genres then reply with a message from res/messages.json
+	genres := user.GetUserInformations(token).MovieGenres
+	if len(genres) == 0 {
+		responseTag := "no genres saved"
+		return responseTag, util.GetMessage(responseTag)
+	}
+
+	movie := language.SearchMovie(genres[rand.Intn(len(genres))], token)
+	genresJoined := strings.Join(genres, ", ")
+	return moviesDataTag, fmt.Sprintf(response, genresJoined, movie.Name, movie.Rating)
 }
