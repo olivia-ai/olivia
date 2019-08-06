@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"reflect"
 	"time"
 
 	"github.com/gookit/color"
@@ -73,7 +74,9 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Set the informations from the client into the cache
-		user.SetUserInformations(request.Token, request.Information)
+		if reflect.DeepEqual(user.GetUserInformations(request.Token), user.Information{}) {
+			user.SetUserInformations(request.Token, request.Information)
+		}
 
 		// Write message back to browser
 		response := Reply(request)
