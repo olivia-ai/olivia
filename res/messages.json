@@ -48,14 +48,7 @@
   {
     "tag": "no genres saved",
     "messages": [
-      "Sorry I can't find any movie genre in your data, try with: “I like movies of Action, Adventure, Animation, Children, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, Musical, Mystery, Romance, Sci-Fi, Thriller, War and Western”"
-    ]
-  },
-  {
-    "tag": "hey back",
-    "messages": [
-      "Hey back, %s!",
-      "Hello %s!"
+      "Sorry I can't find any movie genre in your data, try to set your preferences with “I like movies of adventure”"
     ]
   }
 ]
