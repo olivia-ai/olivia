@@ -61,7 +61,7 @@ func init() {
 	})
 
 	RegisterModule(Module{
-		Tag: moviesAlreadyTag,
+		Tag: moviesDataTag,
 		Patterns: []string{
 			"I'm bored",
 			"I don't know what to do",
