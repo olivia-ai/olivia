@@ -27,7 +27,7 @@ func init() {
 		},
 		Responses: []string{
 			"Great choices! I save them into your client.",
-			"Understood, I send these informations to your client.",
+			"Understood, I send this information to your client.",
 		},
 		Replacer: GenresReplacer,
 	})
