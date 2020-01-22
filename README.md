@@ -17,7 +17,7 @@
   <a href="https://olivia-ai.org">Website</a> •
   <a href="#getting-started">Getting started</a> •
   <a href="https://docs.olivia-ai.org">Documentation</a> •
-  <a href="https://github.com/orgs/olivia-ai/projects">Projects</a> •
+  <a href="https://trello.com/b/azB6r2IC/olivia">Trello</a> •
   <a href="https://www.youtube.com/watch?v=JmJZi9gmKvI">Video</a> •
   <a href="#license">License</a>
 </p>
