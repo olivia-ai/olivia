@@ -41,22 +41,23 @@ func (matrix Matrix) Columns() int {
 }
 
 func (matrix Matrix) DotProduct(matrix2 Matrix) Matrix {
-	var resultRows [][]float64
-
-	for row := 0; row < matrix.Rows(); row++ {
-		var resultRow []float64
-
-		for row2 := 0; row2 < matrix.Rows(); row2++ {
-			var sum float64
-			for column := 0; column < matrix.Columns(); column++ {
-				sum += matrix.value[row][column] * matrix2.value[column][row2]
-			}
-
-			resultRow = append(resultRow, sum)
-		}
-
-		resultRows = append(resultRows, resultRow)
+	if matrix.Columns() != matrix2.Rows() {
+		panic("Cannot make dot product between these two matrix.")
 	}
 
-	return Matrix{resultRows}
+	resultMatrix := CreateMatrix(matrix.Rows(), matrix2.Columns())
+
+	for i := 0; i < matrix.Rows(); i++ {
+		for j := 0; j < matrix2.Columns(); j++ {
+			var sum float64
+
+			for k := 0; k < matrix.Columns(); k++ {
+				sum += matrix.value[i][k] * matrix2.value[k][j]
+			}
+
+			resultMatrix.value[i][j] = sum
+		}
+	}
+
+	return resultMatrix
 }

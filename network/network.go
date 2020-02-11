@@ -25,10 +25,10 @@ func CreateNetwork(input, output [][]float64, hiddensNodes ...int) Network {
 	var biases []Matrix
 
 	for i := 0; i < weightsNumber; i++ {
-		rows, columns := layers[i+1].Rows(), layers[i].Rows()
+		rows, columns := layers[i].Columns(), layers[i].Columns()
 		weights = append(weights, RandomMatrix(rows, columns))
 
-		biases = append(biases, RandomMatrix(layers[i].Rows(), layers[i+1].Rows()))
+		biases = append(biases, RandomMatrix(layers[i].Rows(), columns))
 	}
 
 	return Network{
@@ -38,9 +38,10 @@ func CreateNetwork(input, output [][]float64, hiddensNodes ...int) Network {
 	}
 }
 
-func (network *Network) FeedForward(input Matrix) {
-	if input.Rows() != network.layers[0].Rows() {
-		panic("Amount of input variable does not match.")
-	}
+func (network *Network) FeedForward() {
+	for i := 0; i < len(network.layers)-1; i++ {
+		layer, weights := network.layers[i], network.weights[i]
 
+		layer.DotProduct(weights)
+	}
 }
