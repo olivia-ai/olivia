@@ -38,8 +38,9 @@ func CreateNetwork(input, output [][]float64, hiddensNodes ...int) Network {
 	}
 }
 
-func (network *Network) FeedForward(input [][]float64) {
-	if len(input) != network.layers[0].Rows() {
+func (network *Network) FeedForward(input Matrix) {
+	if input.Rows() != network.layers[0].Rows() {
 		panic("Amount of input variable does not match.")
 	}
+
 }

@@ -1,6 +1,8 @@
 package network
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 type Matrix struct {
 	value [][]float64
@@ -30,10 +32,31 @@ func CreateMatrix(rows, columns int) Matrix {
 	return Matrix{matrix}
 }
 
-func (matrix *Matrix) Rows() int {
+func (matrix Matrix) Rows() int {
 	return len(matrix.value)
 }
 
-func (matrix *Matrix) Transpose() {
+func (matrix Matrix) Columns() int {
+	return len(matrix.value[0])
+}
 
+func (matrix Matrix) DotProduct(matrix2 Matrix) Matrix {
+	var resultRows [][]float64
+
+	for row := 0; row < matrix.Rows(); row++ {
+		var resultRow []float64
+
+		for row2 := 0; row2 < matrix.Rows(); row2++ {
+			var sum float64
+			for column := 0; column < matrix.Columns(); column++ {
+				sum += matrix.value[row][column] * matrix2.value[column][row2]
+			}
+
+			resultRow = append(resultRow, sum)
+		}
+
+		resultRows = append(resultRows, resultRow)
+	}
+
+	return Matrix{resultRows}
 }
