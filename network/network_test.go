@@ -18,7 +18,8 @@ func TestCreateNetwork(t *testing.T) {
 		{1, 1},
 	}
 
-	fmt.Println(CreateNetwork(input, output, 4))
+	net := CreateNetwork(input, output, 4)
+	net.FeedForward()
 }
 
 func TestMatrix_DotProduct(t *testing.T) {
