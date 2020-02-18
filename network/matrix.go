@@ -61,3 +61,23 @@ func (matrix Matrix) DotProduct(matrix2 Matrix) Matrix {
 
 	return resultMatrix
 }
+
+func (matrix *Matrix) Add(matrix2 Matrix) {
+	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
+		panic("Cannot add these two matrix.")
+	}
+
+	for i := 0; i < matrix.Rows(); i++ {
+		for j := 0; j < matrix.Columns(); j++ {
+			matrix.value[i][j] += matrix2.value[i][j]
+		}
+	}
+}
+
+func (matrix *Matrix) ApplyFunction(fn func(x float64) float64) {
+	for i := 0; i < matrix.Rows(); i++ {
+		for j := 0; j < matrix.Columns(); j++ {
+			matrix.value[i][j] = fn(matrix.value[i][j])
+		}
+	}
+}
