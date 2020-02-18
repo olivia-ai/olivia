@@ -25,7 +25,7 @@ func CreateNetwork(input, output [][]float64, hiddensNodes ...int) Network {
 	var biases []Matrix
 
 	for i := 0; i < weightsNumber; i++ {
-		rows, columns := layers[i].Columns(), layers[i].Columns()
+		rows, columns := layers[i].Columns(), layers[i+1].Columns()
 		weights = append(weights, RandomMatrix(rows, columns))
 
 		biases = append(biases, RandomMatrix(layers[i].Rows(), columns))
@@ -40,8 +40,15 @@ func CreateNetwork(input, output [][]float64, hiddensNodes ...int) Network {
 
 func (network *Network) FeedForward() {
 	for i := 0; i < len(network.layers)-1; i++ {
-		layer, weights := network.layers[i], network.weights[i]
+		layer, weights, biases := network.layers[i], network.weights[i], network.biases[i]
+		productMatrix := layer.DotProduct(weights)
+		productMatrix.Add(biases)
+		productMatrix.ApplyFunction(Sigmoid)
 
-		layer.DotProduct(weights)
+		network.layers[i+1] = productMatrix
 	}
+}
+
+func (network *Network) FeedBackward() {
+
 }
