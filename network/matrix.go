@@ -62,7 +62,7 @@ func (matrix Matrix) DotProduct(matrix2 Matrix) Matrix {
 	return resultMatrix
 }
 
-func (matrix *Matrix) Add(matrix2 Matrix) {
+func (matrix Matrix) Add(matrix2 Matrix) Matrix {
 	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
 		panic("Cannot add these two matrix.")
 	}
@@ -72,12 +72,56 @@ func (matrix *Matrix) Add(matrix2 Matrix) {
 			matrix.value[i][j] += matrix2.value[i][j]
 		}
 	}
+
+	return matrix
 }
 
-func (matrix *Matrix) ApplyFunction(fn func(x float64) float64) {
+func (matrix Matrix) Remove(matrix2 Matrix) Matrix {
+	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
+		panic("Cannot make the difference of these two matrix.")
+	}
+
+	for i := 0; i < matrix.Rows(); i++ {
+		for j := 0; j < matrix.Columns(); j++ {
+			matrix.value[i][j] -= matrix2.value[i][j]
+		}
+	}
+
+	return matrix
+}
+
+func (matrix Matrix) ApplyFunction(fn func(x float64) float64) Matrix {
 	for i := 0; i < matrix.Rows(); i++ {
 		for j := 0; j < matrix.Columns(); j++ {
 			matrix.value[i][j] = fn(matrix.value[i][j])
 		}
 	}
+
+	return matrix
+}
+
+func (matrix Matrix) Multiply(matrix2 Matrix) Matrix {
+	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
+		panic("Cannot multiply these two matrix.")
+	}
+
+	for i := 0; i < matrix.Rows(); i++ {
+		for j := 0; j < matrix.Columns(); j++ {
+			matrix.value[i][j] *= matrix2.value[i][j]
+		}
+	}
+
+	return matrix
+}
+
+func (matrix *Matrix) Transpose() {
+	response := CreateMatrix(matrix.Columns(), matrix.Rows())
+
+	for i := 0; i < matrix.Rows(); i++ {
+		for j := 0; j < matrix.Columns(); j++ {
+			response.value[j][i] = matrix.value[i][j]
+		}
+	}
+
+	matrix.value = response.value
 }
