@@ -18,5 +18,8 @@ func TestCreateNetwork(t *testing.T) {
 	}
 
 	net := CreateNetwork(input, output, 4)
-	net.FeedForward()
+	for i := 0; i < 1000; i++ {
+		net.FeedForward()
+		net.FeedBackward()
+	}
 }

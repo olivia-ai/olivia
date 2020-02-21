@@ -75,3 +75,22 @@ func TestMatrix_DotProduct(t *testing.T) {
 		t.Errorf("DotProduct(%v, %v) failed, excepted %v, got %v", a, b, r, p)
 	}
 }
+
+func TestMatrix_Transpose(t *testing.T) {
+	a := Matrix{[][]float64{
+		{1, 2, 3},
+		{4, 5, 6},
+	}}
+
+	a.Transpose()
+
+	r := Matrix{[][]float64{
+		{1, 4},
+		{2, 5},
+		{3, 6},
+	}}
+
+	if !reflect.DeepEqual(a.value, r.value) {
+		t.Errorf("Transpose failed, excepted %v, got %v", r, a)
+	}
+}
