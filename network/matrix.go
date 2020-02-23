@@ -23,6 +23,7 @@ func RandomMatrix(rows, columns int) Matrix {
 	return Matrix{mat}
 }
 
+// CreateMatrix returns an empty matrix which is the size of rows and columns
 func CreateMatrix(rows, columns int) Matrix {
 	matrix := make([][]float64, rows)
 	for i := 0; i < rows; i++ {
@@ -32,96 +33,97 @@ func CreateMatrix(rows, columns int) Matrix {
 	return Matrix{matrix}
 }
 
+// Rows returns number of matrix's rows
 func (matrix Matrix) Rows() int {
 	return len(matrix.value)
 }
 
+// Columns returns number of matrix's columns
 func (matrix Matrix) Columns() int {
 	return len(matrix.value[0])
 }
 
-func (matrix Matrix) DotProduct(matrix2 Matrix) Matrix {
+// ApplyFunctionWithIndex returns a matrix where fn has been applied with the indexes provided
+func (matrix Matrix) ApplyFunctionWithIndex(fn func(i, j int, x float64) float64) (resultMatrix Matrix) {
+	resultMatrix = matrix
+
+	for i := 0; i < resultMatrix.Rows(); i++ {
+		for j := 0; j < resultMatrix.Columns(); j++ {
+			resultMatrix.value[i][j] = fn(i, j, resultMatrix.value[i][j])
+		}
+	}
+
+	return
+}
+
+// ApplyFunction returns a matrix where fn has been applied
+func (matrix Matrix) ApplyFunction(fn func(x float64) float64) Matrix {
+	return matrix.ApplyFunctionWithIndex(func(i, j int, x float64) float64 {
+		return fn(x)
+	})
+}
+
+// DotProduct returns a matrix which is the result of the dot product between matrix and matrix2
+func (matrix Matrix) DotProduct(matrix2 Matrix) (resultMatrix Matrix) {
 	if matrix.Columns() != matrix2.Rows() {
 		panic("Cannot make dot product between these two matrix.")
 	}
 
-	resultMatrix := CreateMatrix(matrix.Rows(), matrix2.Columns())
-
-	for i := 0; i < matrix.Rows(); i++ {
-		for j := 0; j < matrix2.Columns(); j++ {
+	resultMatrix = CreateMatrix(matrix.Rows(), matrix2.Columns()).
+		ApplyFunctionWithIndex(func(i, j int, x float64) float64 {
 			var sum float64
 
 			for k := 0; k < matrix.Columns(); k++ {
 				sum += matrix.value[i][k] * matrix2.value[k][j]
 			}
 
-			resultMatrix.value[i][j] = sum
+			return sum
+		})
+
+	return
+}
+
+// Add returns the sum of matrix and matrix2
+func (matrix Matrix) Add(matrix2 Matrix) Matrix {
+	ErrorNotSameSize(matrix, matrix2)
+
+	return matrix.ApplyFunctionWithIndex(func(i, j int, x float64) float64 {
+		return matrix.value[i][j] + matrix2.value[i][j]
+	})
+}
+
+// Substract returns the difference between matrix and matrix2
+func (matrix Matrix) Substract(matrix2 Matrix) Matrix {
+	ErrorNotSameSize(matrix, matrix2)
+
+	return matrix.ApplyFunctionWithIndex(func(i, j int, x float64) float64 {
+		return matrix.value[i][j] - matrix2.value[i][j]
+	})
+}
+
+// Substract returns the multiplication of matrix and matrix2
+func (matrix Matrix) Multiply(matrix2 Matrix) Matrix {
+	ErrorNotSameSize(matrix, matrix2)
+
+	return matrix.ApplyFunctionWithIndex(func(i, j int, x float64) float64 {
+		return matrix.value[i][j] * matrix2.value[i][j]
+	})
+}
+
+func (matrix Matrix) Transpose() (resultMatrix Matrix) {
+	resultMatrix = CreateMatrix(matrix.Columns(), matrix.Rows())
+
+	for i := 0; i < matrix.Rows(); i++ {
+		for j := 0; j < matrix.Columns(); j++ {
+			resultMatrix.value[j][i] = matrix.value[i][j]
 		}
 	}
 
 	return resultMatrix
 }
 
-func (matrix Matrix) Add(matrix2 Matrix) Matrix {
-	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
-		panic("Cannot add these two matrix.")
+func ErrorNotSameSize(matrix1, matrix2 Matrix) {
+	if matrix1.Rows() != matrix2.Rows() && matrix2.Columns() != matrix2.Columns() {
+		panic("These two matrices must have the same dimension.")
 	}
-
-	for i := 0; i < matrix.Rows(); i++ {
-		for j := 0; j < matrix.Columns(); j++ {
-			matrix.value[i][j] += matrix2.value[i][j]
-		}
-	}
-
-	return matrix
-}
-
-func (matrix Matrix) Remove(matrix2 Matrix) Matrix {
-	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
-		panic("Cannot make the difference of these two matrix.")
-	}
-
-	for i := 0; i < matrix.Rows(); i++ {
-		for j := 0; j < matrix.Columns(); j++ {
-			matrix.value[i][j] -= matrix2.value[i][j]
-		}
-	}
-
-	return matrix
-}
-
-func (matrix Matrix) ApplyFunction(fn func(x float64) float64) Matrix {
-	for i := 0; i < matrix.Rows(); i++ {
-		for j := 0; j < matrix.Columns(); j++ {
-			matrix.value[i][j] = fn(matrix.value[i][j])
-		}
-	}
-
-	return matrix
-}
-
-func (matrix Matrix) Multiply(matrix2 Matrix) Matrix {
-	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
-		panic("Cannot multiply these two matrix.")
-	}
-
-	for i := 0; i < matrix.Rows(); i++ {
-		for j := 0; j < matrix.Columns(); j++ {
-			matrix.value[i][j] *= matrix2.value[i][j]
-		}
-	}
-
-	return matrix
-}
-
-func (matrix *Matrix) Transpose() {
-	response := CreateMatrix(matrix.Columns(), matrix.Rows())
-
-	for i := 0; i < matrix.Rows(); i++ {
-		for j := 0; j < matrix.Columns(); j++ {
-			response.value[j][i] = matrix.value[i][j]
-		}
-	}
-
-	matrix.value = response.value
 }

@@ -1,93 +1,107 @@
 package network
 
+type Layer struct {
+	Inputs  Matrix
+	Outputs Matrix
+}
+
 type Network struct {
-	layers       []Matrix
-	zLayers      []Matrix
-	weights      []Matrix
-	biases       []Matrix
-	actualOutput Matrix
+	Layers  []Layer
+	Weights []Matrix
+	Biases  []Matrix
+	Output  Matrix
+	Rate    float64
 }
 
 // CreateNetwork creates the network by generating the layers, weights and biases
-func CreateNetwork(input, output [][]float64, hiddensNodes ...int) Network {
-	layers := []Matrix{
-		{input},
-	}
-	zLayers := []Matrix{
-		{input},
+func CreateNetwork(rate float64, input, output [][]float64, hiddensNodes ...int) Network {
+	// Create the layers arrays and add the input values
+	inputMatrix := Matrix{input}
+	layers := []Layer{
+		{
+			inputMatrix,
+			inputMatrix,
+		},
 	}
 
 	// Generate the hidden layers
 	for _, hiddenNodes := range hiddensNodes {
-		layers = append(layers, CreateMatrix(len(input), hiddenNodes))
-		zLayers = append(zLayers, CreateMatrix(len(input), hiddenNodes))
+		hiddenMatrix := CreateMatrix(len(input), hiddenNodes)
+		hiddenLayer := Layer{
+			hiddenMatrix,
+			hiddenMatrix,
+		}
+
+		layers = append(layers, hiddenLayer)
 	}
 
-	layers = append(layers, Matrix{output})
-	zLayers = append(layers, Matrix{output})
+	// Add the output values to the layers arrays
+	outputMatrix := Matrix{output}
+	layers = append(layers, Layer{
+		outputMatrix,
+		outputMatrix,
+	})
 
-	// Generate the weights
+	// Generate the weights and biases
 	weightsNumber := 1 + len(hiddensNodes)
 	var weights []Matrix
 	var biases []Matrix
 
 	for i := 0; i < weightsNumber; i++ {
-		rows, columns := layers[i].Columns(), layers[i+1].Columns()
-		weights = append(weights, RandomMatrix(rows, columns))
+		rows, columns := layers[i].Inputs.Columns(), layers[i+1].Inputs.Columns()
 
-		biases = append(biases, RandomMatrix(layers[i].Rows(), columns))
+		weights = append(weights, RandomMatrix(rows, columns))
+		biases = append(biases, RandomMatrix(layers[i].Inputs.Rows(), columns))
 	}
 
 	return Network{
-		layers:       layers,
-		zLayers:      layers,
-		actualOutput: Matrix{output},
-		weights:      weights,
-		biases:       biases,
+		Layers:  layers,
+		Weights: weights,
+		Biases:  biases,
+		Output:  Matrix{output},
+		Rate:    rate,
 	}
 }
 
+// FeedForward executes forward propagation for the given inputs in the network
 func (network *Network) FeedForward() {
-	for i := 0; i < len(network.layers)-1; i++ {
-		layer, weights, biases := network.layers[i], network.weights[i], network.biases[i]
+	for i := 0; i < len(network.Layers)-1; i++ {
+		layer, weights, biases := network.Layers[i].Outputs, network.Weights[i], network.Biases[i]
+
 		productMatrix := layer.DotProduct(weights)
 		productMatrix.Add(biases)
-		network.zLayers[i+1] = productMatrix
+
+		// Replace the input values
+		network.Layers[i+1].Inputs = productMatrix
 		productMatrix.ApplyFunction(Sigmoid)
 
-		network.layers[i+1] = productMatrix
+		// Replace the output values
+		network.Layers[i+1].Outputs = productMatrix
 	}
 }
 
+// FeedBackward executes back propagation to adjust the weights for all the layers
 func (network *Network) FeedBackward() {
-	input := network.layers[len(network.layers)-1]
-	lastInput := network.layers[len(network.layers)-2]
-	error := network.actualOutput.Remove(input)
-	z := network.zLayers[len(network.zLayers)-1]
+	output := Matrix{
+		[][]float64{
+			{1},
+			{1},
+			{0},
+			{1},
+			{1},
+			{0},
+		},
+	}
 
-	error = error.ApplyFunction(Twice)
-	z = z.ApplyFunction(SigmoidDerivative)
-	lastInput.Transpose()
+	z := output.Substract(network.Layers[2].Outputs).ApplyFunction(Twice).Multiply(
+		network.Layers[2].Outputs.Multiply(network.Layers[2].Outputs.ApplyFunction(RemoveOne)),
+	)
+	w := network.Layers[1].Outputs.Transpose().DotProduct(z)
+	network.Weights[1] = network.Weights[1].Add(w)
 
-	product := lastInput.DotProduct(error.Multiply(z))
-
-	network.weights[len(network.weights)-1] = network.weights[len(network.weights)-1].Add(product)
-
-	Test(network)
-}
-
-func Test(network *Network) {
-	input := network.layers[len(network.layers)-1]
-	error := network.actualOutput.Remove(input)
-	z := network.zLayers[len(network.zLayers)-1]
-
-	error = error.ApplyFunction(Twice)
-	z = z.ApplyFunction(SigmoidDerivative)
-
-	m := error.Multiply(z)
-	m.Transpose()
-
-	product := network.weights[len(network.weights)-1].DotProduct(m)
-
-	network.weights[len(network.weights)-1] = network.weights[len(network.weights)-1].Add(product)
+	network.Weights[0] = network.Weights[0].Add(
+		z.DotProduct(
+			network.Weights[1].Transpose(),
+		).Multiply(network.Layers[1].Outputs.Multiply(network.Layers[1].Outputs.ApplyFunction(RemoveOne))),
+	)
 }
