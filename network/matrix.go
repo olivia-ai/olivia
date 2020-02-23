@@ -78,7 +78,7 @@ func DotProduct(matrix, matrix2 [][]float64) [][]float64 {
 	)
 }
 
-// Add returns the sum of matrix and matrix2
+// Sum returns the sum of matrix and matrix2
 func Sum(matrix, matrix2 [][]float64) [][]float64 {
 	ErrorNotSameSize(matrix, matrix2)
 
@@ -87,16 +87,18 @@ func Sum(matrix, matrix2 [][]float64) [][]float64 {
 	})
 }
 
-// Substract returns the difference between matrix and matrix2
-func Difference(matrix, matrix2 [][]float64) [][]float64 {
+// Difference returns the difference between matrix and matrix2
+func Difference(matrix, matrix2 [][]float64) (resultMatrix [][]float64) {
 	ErrorNotSameSize(matrix, matrix2)
 
-	return ApplyFunctionWithIndex(matrix, func(i, j int, x float64) float64 {
+	resultMatrix = CreateMatrix(Rows(matrix), Columns(matrix))
+
+	return ApplyFunctionWithIndex(resultMatrix, func(i, j int, x float64) float64 {
 		return matrix[i][j] - matrix2[i][j]
 	})
 }
 
-// Substract returns the multiplication of matrix and matrix2
+// Multiplication returns the multiplication of matrix and matrix2
 func Multiplication(matrix, matrix2 [][]float64) [][]float64 {
 	ErrorNotSameSize(matrix, matrix2)
 

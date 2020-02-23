@@ -29,8 +29,6 @@ func TestCreateNetwork(t *testing.T) {
 		net.Output = output
 		net.FeedForward()
 		net.FeedBackward()
-		fmt.Println(net.Output)
-
 	}
 
 	net.FeedForward()

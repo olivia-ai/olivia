@@ -1,7 +1,9 @@
 package network
 
+type Matrix [][]float64
+
 type Network struct {
-	Layers  [][][]float64
+	Layers  []Matrix
 	Weights [][][]float64
 	Biases  [][][]float64
 	Output  [][]float64
@@ -12,7 +14,7 @@ type Network struct {
 func CreateNetwork(rate float64, input, output [][]float64, hiddensNodes ...int) Network {
 	// Create the layers arrays and add the input values
 	inputMatrix := input
-	layers := [][][]float64{inputMatrix}
+	layers := []Matrix{inputMatrix}
 
 	// Generate the hidden layers
 	for _, hiddenNodes := range hiddensNodes {
