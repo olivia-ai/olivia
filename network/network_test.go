@@ -24,13 +24,9 @@ func TestCreateNetwork(t *testing.T) {
 		{0},
 	}
 
-	net := CreateNetwork(0.25, input, output, 4)
-	for i := 0; i < 1000; i++ {
-		net.Output = output
-		net.FeedForward()
-		net.FeedBackward()
-	}
+	network := CreateNetwork(0.25, input, output, 4)
+	network.Train(1000)
 
-	net.FeedForward()
-	fmt.Println(net.Layers[2])
+	network.FeedForward()
+	fmt.Println(network.Layers[2])
 }

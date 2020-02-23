@@ -9,22 +9,17 @@ type Network struct {
 }
 
 // CreateNetwork creates the network by generating the layers, weights and biases
-func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Network {
+func CreateNetwork(rate float64, input, output Matrix, hiddenNodes int) Network {
 	// Create the layers arrays and add the input values
 	inputMatrix := input
 	layers := []Matrix{inputMatrix}
-
-	// Generate the hidden layers
-	for _, hiddenNodes := range hiddensNodes {
-		hiddenMatrix := CreateMatrix(len(input), hiddenNodes)
-		layers = append(layers, hiddenMatrix)
-	}
-
+	// Generate the hidden layer
+	layers = append(layers, CreateMatrix(len(input), hiddenNodes))
 	// Add the output values to the layers arrays
 	layers = append(layers, output)
 
 	// Generate the weights and biases
-	weightsNumber := 1 + len(hiddensNodes)
+	weightsNumber := len(layers) - 1
 	var weights []Matrix
 	var biases []Matrix
 
@@ -64,14 +59,23 @@ func (network *Network) FeedForward() {
 // FeedBackward executes back propagation to adjust the weights for all the layers
 func (network *Network) FeedBackward() {
 	output := network.Output
+
+	// Compute derivative for the last layer of weights and biases
+	lastLayer := network.Layers[2]
+	error := Difference(output, lastLayer)
+	sigmoidDerivative := Multiplication(lastLayer, ApplyFunction(lastLayer, SubstractOne))
+
 	z := Multiplication(
-		ApplyFunction(Difference(output, network.Layers[2]), MultiplyByTwo),
-		Multiplication(network.Layers[2], ApplyFunction(network.Layers[2], SubstractOne)),
+		ApplyFunction(error, MultiplyByTwo),
+		sigmoidDerivative,
 	)
-	w := DotProduct(Transpose(network.Layers[1]), z)
-	network.Weights[1] = Sum(network.Weights[1], w)
+	weights := DotProduct(Transpose(network.Layers[1]), z)
+
+	// Adjust the weights and biases
+	network.Weights[1] = Sum(network.Weights[1], weights)
 	network.Biases[1] = Sum(network.Biases[1], z)
 
+	// Compute derivative for the first layer of weights and biases
 	z = Multiplication(
 		DotProduct(
 			z,
@@ -83,6 +87,7 @@ func (network *Network) FeedBackward() {
 		),
 	)
 
+	// Adjust the weights and biases
 	network.Weights[0] = Sum(
 		network.Weights[0],
 		DotProduct(
@@ -91,4 +96,13 @@ func (network *Network) FeedBackward() {
 		),
 	)
 	network.Biases[0] = Sum(network.Biases[0], z)
+}
+
+// Train trains the neural network with a given number of iterations by executing
+// forward and back propagation
+func (network *Network) Train(iterations int) {
+	for i := 0; i < iterations; i++ {
+		network.FeedForward()
+		network.FeedBackward()
+	}
 }
