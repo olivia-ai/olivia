@@ -82,7 +82,7 @@ func TestMatrix_Transpose(t *testing.T) {
 		{4, 5, 6},
 	}}
 
-	a.Transpose()
+	aT := a.Transpose()
 
 	r := Matrix{[][]float64{
 		{1, 4},
@@ -90,7 +90,7 @@ func TestMatrix_Transpose(t *testing.T) {
 		{3, 6},
 	}}
 
-	if !reflect.DeepEqual(a.value, r.value) {
-		t.Errorf("Transpose failed, excepted %v, got %v", r, a)
+	if !reflect.DeepEqual(aT.value, r.value) {
+		t.Errorf("Transpose failed, excepted %v, got %v", r, aT)
 	}
 }
