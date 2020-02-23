@@ -1,4 +1,4 @@
-package network
+package neuralnet
 
 import (
 	"fmt"
@@ -23,16 +23,8 @@ func TestCreateNetwork(t *testing.T) {
 		{1},
 		{0},
 	}
+	network := CreateNetwork(3, 4, 1, 0.25, 0.1)
+	network.Train(input, output, 1000)
 
-	net := CreateNetwork(0.25, input, output, 4)
-	for i := 0; i < 1000; i++ {
-		net.Output = output
-		net.FeedForward()
-		net.FeedBackward()
-		fmt.Println(net.Output)
-
-	}
-
-	net.FeedForward()
-	fmt.Println(net.Layers[2])
+	fmt.Println(network.FeedForward([]float64{1, 1, 1}))
 }
