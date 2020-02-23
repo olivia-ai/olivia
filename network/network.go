@@ -1,64 +1,45 @@
 package network
 
-type Layer struct {
-	Inputs  Matrix
-	Outputs Matrix
-}
-
 type Network struct {
-	Layers  []Layer
-	Weights []Matrix
-	Biases  []Matrix
-	Output  Matrix
+	Layers  [][][]float64
+	Weights [][][]float64
+	Biases  [][][]float64
+	Output  [][]float64
 	Rate    float64
 }
 
 // CreateNetwork creates the network by generating the layers, weights and biases
 func CreateNetwork(rate float64, input, output [][]float64, hiddensNodes ...int) Network {
 	// Create the layers arrays and add the input values
-	inputMatrix := Matrix{input}
-	layers := []Layer{
-		{
-			inputMatrix,
-			inputMatrix,
-		},
-	}
+	inputMatrix := input
+	layers := [][][]float64{inputMatrix}
 
 	// Generate the hidden layers
 	for _, hiddenNodes := range hiddensNodes {
 		hiddenMatrix := CreateMatrix(len(input), hiddenNodes)
-		hiddenLayer := Layer{
-			hiddenMatrix,
-			hiddenMatrix,
-		}
-
-		layers = append(layers, hiddenLayer)
+		layers = append(layers, hiddenMatrix)
 	}
 
 	// Add the output values to the layers arrays
-	outputMatrix := Matrix{output}
-	layers = append(layers, Layer{
-		outputMatrix,
-		outputMatrix,
-	})
+	layers = append(layers, output)
 
 	// Generate the weights and biases
 	weightsNumber := 1 + len(hiddensNodes)
-	var weights []Matrix
-	var biases []Matrix
+	var weights [][][]float64
+	var biases [][][]float64
 
 	for i := 0; i < weightsNumber; i++ {
-		rows, columns := layers[i].Inputs.Columns(), layers[i+1].Inputs.Columns()
+		rows, columns := Columns(layers[i]), Columns(layers[i+1])
 
 		weights = append(weights, RandomMatrix(rows, columns))
-		biases = append(biases, RandomMatrix(layers[i].Inputs.Rows(), columns))
+		biases = append(biases, RandomMatrix(Rows(layers[i]), columns))
 	}
 
 	return Network{
 		Layers:  layers,
 		Weights: weights,
 		Biases:  biases,
-		Output:  Matrix{output},
+		Output:  output,
 		Rate:    rate,
 	}
 }
@@ -66,42 +47,48 @@ func CreateNetwork(rate float64, input, output [][]float64, hiddensNodes ...int)
 // FeedForward executes forward propagation for the given inputs in the network
 func (network *Network) FeedForward() {
 	for i := 0; i < len(network.Layers)-1; i++ {
-		layer, weights, biases := network.Layers[i].Outputs, network.Weights[i], network.Biases[i]
+		layer, weights, biases := network.Layers[i], network.Weights[i], network.Biases[i]
 
-		productMatrix := layer.DotProduct(weights)
-		productMatrix.Add(biases)
+		productMatrix := DotProduct(layer, weights)
+		Sum(productMatrix, biases)
 
 		// Replace the input values
-		network.Layers[i+1].Inputs = productMatrix
-		productMatrix.ApplyFunction(Sigmoid)
+		network.Layers[i+1] = productMatrix
+		ApplyFunction(productMatrix, Sigmoid)
 
 		// Replace the output values
-		network.Layers[i+1].Outputs = productMatrix
+		network.Layers[i+1] = productMatrix
 	}
 }
 
 // FeedBackward executes back propagation to adjust the weights for all the layers
 func (network *Network) FeedBackward() {
-	output := Matrix{
-		[][]float64{
-			{1},
-			{1},
-			{0},
-			{1},
-			{1},
-			{0},
-		},
-	}
-
-	z := output.Substract(network.Layers[2].Outputs).ApplyFunction(Twice).Multiply(
-		network.Layers[2].Outputs.Multiply(network.Layers[2].Outputs.ApplyFunction(RemoveOne)),
+	output := network.Output
+	z := Multiplication(
+		ApplyFunction(Difference(output, network.Layers[2]), Twice),
+		Multiplication(network.Layers[2], ApplyFunction(network.Layers[2], RemoveOne)),
 	)
-	w := network.Layers[1].Outputs.Transpose().DotProduct(z)
-	network.Weights[1] = network.Weights[1].Add(w)
+	w := DotProduct(Transpose(network.Layers[1]), z)
+	network.Weights[1] = Sum(network.Weights[1], w)
+	network.Biases[1] = Sum(network.Biases[1], z)
 
-	network.Weights[0] = network.Weights[0].Add(
-		z.DotProduct(
-			network.Weights[1].Transpose(),
-		).Multiply(network.Layers[1].Outputs.Multiply(network.Layers[1].Outputs.ApplyFunction(RemoveOne))),
+	z = Multiplication(
+		DotProduct(
+			z,
+			Transpose(network.Weights[1]),
+		),
+		Multiplication(
+			network.Layers[1],
+			ApplyFunction(network.Layers[1], RemoveOne),
+		),
 	)
+
+	network.Weights[0] = Sum(
+		network.Weights[0],
+		DotProduct(
+			Transpose(network.Layers[0]),
+			z,
+		),
+	)
+	network.Biases[0] = Sum(network.Biases[0], z)
 }

@@ -6,22 +6,22 @@ import (
 )
 
 func TestMatrix_ApplyFunction(t *testing.T) {
-	a := Matrix{[][]float64{
+	a := [][]float64{
 		{1, 2, 3},
 		{4, 5, 6},
-	}}
+	}
 
-	a.ApplyFunction(func(x float64) float64 {
+	ApplyFunction(a, func(x float64) float64 {
 		return x + 1
 	})
 
 	// Excepted value
-	r := Matrix{[][]float64{
+	r := [][]float64{
 		{2, 3, 4},
 		{5, 6, 7},
-	}}
+	}
 
-	if !reflect.DeepEqual(a.value, r.value) {
+	if !reflect.DeepEqual(a, r) {
 		t.Errorf("ApplyFunction(fn(x)=x+1) failed, excepted %v, got %v", r, a)
 	}
 }
@@ -47,6 +47,30 @@ func TestMatrix_Add(t *testing.T) {
 
 	if !reflect.DeepEqual(a.value, r.value) {
 		t.Errorf("Add(%v) failed, excepted %v, got %v", b, r, a)
+	}
+}
+
+func TestMatrix_Substract(t *testing.T) {
+	a := Matrix{[][]float64{
+		{1, 2, 3},
+		{4, 5, 6},
+	}}
+
+	b := Matrix{[][]float64{
+		{1, 2, 3},
+		{4, 5, 6},
+	}}
+
+	a.Substract(b)
+
+	// Excepted value
+	r := Matrix{[][]float64{
+		{0, 0, 0},
+		{0, 0, 0},
+	}}
+
+	if !reflect.DeepEqual(a.value, r.value) {
+		t.Errorf("Remove(%v) failed, excepted %v, got %v", b, r, a)
 	}
 }
 
