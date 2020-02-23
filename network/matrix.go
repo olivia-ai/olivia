@@ -4,10 +4,12 @@ import (
 	"math/rand"
 )
 
+type Matrix [][]float64
+
 // RandomMatrix returns the value of a random matrix of *rows* and *columns* dimensions and
 // where the values are between *lower* and *upper*.
-func RandomMatrix(rows, columns int) (matrix [][]float64) {
-	matrix = make([][]float64, rows)
+func RandomMatrix(rows, columns int) (matrix Matrix) {
+	matrix = make(Matrix, rows)
 
 	for i := 0; i < rows; i++ {
 		matrix[i] = make([]float64, columns)
@@ -20,8 +22,8 @@ func RandomMatrix(rows, columns int) (matrix [][]float64) {
 }
 
 // CreateMatrix returns an empty matrix which is the size of rows and columns
-func CreateMatrix(rows, columns int) (matrix [][]float64) {
-	matrix = make([][]float64, rows)
+func CreateMatrix(rows, columns int) (matrix Matrix) {
+	matrix = make(Matrix, rows)
 
 	for i := 0; i < rows; i++ {
 		matrix[i] = make([]float64, columns)
@@ -31,17 +33,17 @@ func CreateMatrix(rows, columns int) (matrix [][]float64) {
 }
 
 // Rows returns number of matrix's rows
-func Rows(matrix [][]float64) int {
+func Rows(matrix Matrix) int {
 	return len(matrix)
 }
 
 // Columns returns number of matrix's columns
-func Columns(matrix [][]float64) int {
+func Columns(matrix Matrix) int {
 	return len(matrix[0])
 }
 
 // ApplyFunctionWithIndex returns a matrix where fn has been applied with the indexes provided
-func ApplyFunctionWithIndex(matrix [][]float64, fn func(i, j int, x float64) float64) [][]float64 {
+func ApplyFunctionWithIndex(matrix Matrix, fn func(i, j int, x float64) float64) Matrix {
 	for i := 0; i < Rows(matrix); i++ {
 		for j := 0; j < Columns(matrix); j++ {
 			matrix[i][j] = fn(i, j, matrix[i][j])
@@ -52,14 +54,14 @@ func ApplyFunctionWithIndex(matrix [][]float64, fn func(i, j int, x float64) flo
 }
 
 // ApplyFunction returns a matrix where fn has been applied
-func ApplyFunction(matrix [][]float64, fn func(x float64) float64) [][]float64 {
+func ApplyFunction(matrix Matrix, fn func(x float64) float64) Matrix {
 	return ApplyFunctionWithIndex(matrix, func(i, j int, x float64) float64 {
 		return fn(x)
 	})
 }
 
 // DotProduct returns a matrix which is the result of the dot product between matrix and matrix2
-func DotProduct(matrix, matrix2 [][]float64) [][]float64 {
+func DotProduct(matrix, matrix2 Matrix) Matrix {
 	if Columns(matrix) != Rows(matrix2) {
 		panic("Cannot make dot product between these two matrix.")
 	}
@@ -79,7 +81,7 @@ func DotProduct(matrix, matrix2 [][]float64) [][]float64 {
 }
 
 // Sum returns the sum of matrix and matrix2
-func Sum(matrix, matrix2 [][]float64) [][]float64 {
+func Sum(matrix, matrix2 Matrix) Matrix {
 	ErrorNotSameSize(matrix, matrix2)
 
 	return ApplyFunctionWithIndex(matrix, func(i, j int, x float64) float64 {
@@ -88,7 +90,7 @@ func Sum(matrix, matrix2 [][]float64) [][]float64 {
 }
 
 // Difference returns the difference between matrix and matrix2
-func Difference(matrix, matrix2 [][]float64) (resultMatrix [][]float64) {
+func Difference(matrix, matrix2 Matrix) (resultMatrix Matrix) {
 	ErrorNotSameSize(matrix, matrix2)
 
 	resultMatrix = CreateMatrix(Rows(matrix), Columns(matrix))
@@ -99,7 +101,7 @@ func Difference(matrix, matrix2 [][]float64) (resultMatrix [][]float64) {
 }
 
 // Multiplication returns the multiplication of matrix and matrix2
-func Multiplication(matrix, matrix2 [][]float64) [][]float64 {
+func Multiplication(matrix, matrix2 Matrix) Matrix {
 	ErrorNotSameSize(matrix, matrix2)
 
 	return ApplyFunctionWithIndex(matrix, func(i, j int, x float64) float64 {
@@ -107,7 +109,8 @@ func Multiplication(matrix, matrix2 [][]float64) [][]float64 {
 	})
 }
 
-func Transpose(matrix [][]float64) (resultMatrix [][]float64) {
+// Transpose returns the matrix transposed
+func Transpose(matrix Matrix) (resultMatrix Matrix) {
 	resultMatrix = CreateMatrix(Columns(matrix), Rows(matrix))
 
 	for i := 0; i < Rows(matrix); i++ {
@@ -119,7 +122,7 @@ func Transpose(matrix [][]float64) (resultMatrix [][]float64) {
 	return resultMatrix
 }
 
-func ErrorNotSameSize(matrix, matrix2 [][]float64) {
+func ErrorNotSameSize(matrix, matrix2 Matrix) {
 	if Rows(matrix) != Rows(matrix2) && Columns(matrix) != Columns(matrix2) {
 		panic("These two matrices must have the same dimension.")
 	}

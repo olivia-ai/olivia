@@ -1,17 +1,15 @@
 package network
 
-type Matrix [][]float64
-
 type Network struct {
 	Layers  []Matrix
-	Weights [][][]float64
-	Biases  [][][]float64
-	Output  [][]float64
+	Weights []Matrix
+	Biases  []Matrix
+	Output  Matrix
 	Rate    float64
 }
 
 // CreateNetwork creates the network by generating the layers, weights and biases
-func CreateNetwork(rate float64, input, output [][]float64, hiddensNodes ...int) Network {
+func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Network {
 	// Create the layers arrays and add the input values
 	inputMatrix := input
 	layers := []Matrix{inputMatrix}
@@ -27,8 +25,8 @@ func CreateNetwork(rate float64, input, output [][]float64, hiddensNodes ...int)
 
 	// Generate the weights and biases
 	weightsNumber := 1 + len(hiddensNodes)
-	var weights [][][]float64
-	var biases [][][]float64
+	var weights []Matrix
+	var biases []Matrix
 
 	for i := 0; i < weightsNumber; i++ {
 		rows, columns := Columns(layers[i]), Columns(layers[i+1])
@@ -67,8 +65,8 @@ func (network *Network) FeedForward() {
 func (network *Network) FeedBackward() {
 	output := network.Output
 	z := Multiplication(
-		ApplyFunction(Difference(output, network.Layers[2]), Twice),
-		Multiplication(network.Layers[2], ApplyFunction(network.Layers[2], RemoveOne)),
+		ApplyFunction(Difference(output, network.Layers[2]), MultiplyByTwo),
+		Multiplication(network.Layers[2], ApplyFunction(network.Layers[2], SubstractOne)),
 	)
 	w := DotProduct(Transpose(network.Layers[1]), z)
 	network.Weights[1] = Sum(network.Weights[1], w)
@@ -81,7 +79,7 @@ func (network *Network) FeedBackward() {
 		),
 		Multiplication(
 			network.Layers[1],
-			ApplyFunction(network.Layers[1], RemoveOne),
+			ApplyFunction(network.Layers[1], SubstractOne),
 		),
 	)
 
