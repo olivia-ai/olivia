@@ -24,9 +24,9 @@ func TestCreateNetwork(t *testing.T) {
 		{0},
 	}
 
-	network := CreateNetwork(0.25, input, output, 4)
+	network := CreateNetwork(0.25, input, output, 4, 4)
 	network.Train(1000)
 
 	network.FeedForward()
-	fmt.Println(network.Layers[2])
+	fmt.Println(network.Layers[3])
 }

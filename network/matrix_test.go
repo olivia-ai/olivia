@@ -6,7 +6,7 @@ import (
 )
 
 func TestApplyFunction(t *testing.T) {
-	a := [][]float64{
+	a := Matrix{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
@@ -16,7 +16,7 @@ func TestApplyFunction(t *testing.T) {
 	})
 
 	// Excepted value
-	r := [][]float64{
+	r := Matrix{
 		{2, 3, 4},
 		{5, 6, 7},
 	}
@@ -27,12 +27,12 @@ func TestApplyFunction(t *testing.T) {
 }
 
 func TestSum(t *testing.T) {
-	a := [][]float64{
+	a := Matrix{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
 
-	b := [][]float64{
+	b := Matrix{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
@@ -40,7 +40,7 @@ func TestSum(t *testing.T) {
 	Sum(a, b)
 
 	// Excepted value
-	r := [][]float64{
+	r := Matrix{
 		{2, 4, 6},
 		{8, 10, 12},
 	}
@@ -51,20 +51,20 @@ func TestSum(t *testing.T) {
 }
 
 func TestDifference(t *testing.T) {
-	a := [][]float64{
+	a := Matrix{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
 
-	b := [][]float64{
+	b := Matrix{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
 
-	Difference(a, b)
+	a = Difference(a, b)
 
 	// Excepted value
-	r := [][]float64{
+	r := Matrix{
 		{0, 0, 0},
 		{0, 0, 0},
 	}
@@ -75,12 +75,12 @@ func TestDifference(t *testing.T) {
 }
 
 func TestDotProduct(t *testing.T) {
-	a := [][]float64{
+	a := Matrix{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
 
-	b := [][]float64{
+	b := Matrix{
 		{7, 8},
 		{9, 10},
 		{11, 12},
@@ -90,7 +90,7 @@ func TestDotProduct(t *testing.T) {
 	p := DotProduct(a, b)
 
 	// Excepted value
-	r := [][]float64{
+	r := Matrix{
 		{58, 64},
 		{139, 154},
 	}
@@ -101,14 +101,14 @@ func TestDotProduct(t *testing.T) {
 }
 
 func TestTranspose(t *testing.T) {
-	a := [][]float64{
+	a := Matrix{
 		{1, 2, 3},
 		{4, 5, 6},
 	}
 
-	Transpose(a)
+	a = Transpose(a)
 
-	r := [][]float64{
+	r := Matrix{
 		{1, 4},
 		{2, 5},
 		{3, 6},
