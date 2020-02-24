@@ -1,5 +1,12 @@
 package network
 
+import (
+	"fmt"
+
+	"github.com/gookit/color"
+	"gopkg.in/cheggaaa/pb.v1"
+)
+
 type Network struct {
 	Layers  []Matrix
 	Weights []Matrix
@@ -9,12 +16,14 @@ type Network struct {
 }
 
 // CreateNetwork creates the network by generating the layers, weights and biases
-func CreateNetwork(rate float64, input, output Matrix, hiddenNodes int) Network {
+func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Network {
 	// Create the layers arrays and add the input values
 	inputMatrix := input
 	layers := []Matrix{inputMatrix}
 	// Generate the hidden layer
-	layers = append(layers, CreateMatrix(len(input), hiddenNodes))
+	for _, hiddenNodes := range hiddensNodes {
+		layers = append(layers, CreateMatrix(len(input), hiddenNodes))
+	}
 	// Add the output values to the layers arrays
 	layers = append(layers, output)
 
@@ -61,7 +70,8 @@ func (network *Network) FeedBackward() {
 	output := network.Output
 
 	// Compute derivative for the last layer of weights and biases
-	lastLayer := network.Layers[2]
+	l := len(network.Layers) - 1
+	lastLayer := network.Layers[l]
 	error := Difference(output, lastLayer)
 	sigmoidDerivative := Multiplication(lastLayer, ApplyFunction(lastLayer, SubstractOne))
 
@@ -69,40 +79,84 @@ func (network *Network) FeedBackward() {
 		ApplyFunction(error, MultiplyByTwo),
 		sigmoidDerivative,
 	)
-	weights := DotProduct(Transpose(network.Layers[1]), z)
+	weights := DotProduct(Transpose(network.Layers[l-1]), z)
 
 	// Adjust the weights and biases
-	network.Weights[1] = Sum(network.Weights[1], weights)
-	network.Biases[1] = Sum(network.Biases[1], z)
+	network.Weights[l-1] = Sum(network.Weights[l-1], weights)
+	network.Biases[l-1] = Sum(network.Biases[l-1], z)
 
-	// Compute derivative for the first layer of weights and biases
-	z = Multiplication(
-		DotProduct(
-			z,
-			Transpose(network.Weights[1]),
-		),
-		Multiplication(
-			network.Layers[1],
-			ApplyFunction(network.Layers[1], SubstractOne),
-		),
-	)
+	for i := 0; i < len(network.Layers)-2; i++ {
+		l = len(network.Layers) - 2 - i
 
-	// Adjust the weights and biases
-	network.Weights[0] = Sum(
-		network.Weights[0],
-		DotProduct(
-			Transpose(network.Layers[0]),
-			z,
-		),
-	)
-	network.Biases[0] = Sum(network.Biases[0], z)
+		// Compute derivative for the layer of weights and biases
+		z = Multiplication(
+			DotProduct(
+				z,
+				Transpose(network.Weights[l]),
+			),
+			Multiplication(
+				network.Layers[l],
+				ApplyFunction(network.Layers[l], SubstractOne),
+			),
+		)
+
+		// Adjust the weights and biases
+		network.Weights[l-1] = Sum(
+			network.Weights[l-1],
+			DotProduct(
+				Transpose(network.Layers[l-1]),
+				z,
+			),
+		)
+		network.Biases[l-1] = Sum(network.Biases[l-1], z)
+	}
+}
+
+// ComputeError returns the average of all the errors after the training
+func (network *Network) ComputeError() float64 {
+	// Feed forward to compute the last layer's values
+	network.FeedForward()
+	lastLayer := network.Layers[len(network.Layers)-1]
+	errors := Difference(network.Output, lastLayer)
+
+	// Make the sum of all the errors
+	var i int
+	var sum float64
+	for _, a := range errors {
+		for _, e := range a {
+			sum += e
+			i++
+		}
+	}
+
+	// Compute the average
+	return sum / float64(i)
 }
 
 // Train trains the neural network with a given number of iterations by executing
 // forward and back propagation
 func (network *Network) Train(iterations int) {
+	// Create the progress bar
+	bar := pb.New(iterations).Postfix(fmt.Sprintf(
+		" - %s",
+		color.FgBlue.Render("Creating the neural network"),
+	))
+	bar.Format("(██░)")
+	bar.SetMaxWidth(60)
+	bar.ShowCounters = false
+	bar.Start()
+
+	// Train the network
 	for i := 0; i < iterations; i++ {
 		network.FeedForward()
 		network.FeedBackward()
+
+		// Increment the progress bar
+		bar.Increment()
 	}
+
+	bar.Finish()
+	// Print the error
+	arrangedError := fmt.Sprintf("%.5f", network.ComputeError())
+	fmt.Printf("The error rate is %s.\n", color.FgGreen.Render(arrangedError))
 }
