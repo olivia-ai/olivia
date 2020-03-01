@@ -59,6 +59,7 @@ func main() {
 
 func Handle(w http.ResponseWriter, r *http.Request) {
 	conn, _ := upgrader.Upgrade(w, r, nil)
+	fmt.Println(color.FgGreen.Render("A new connection has been opened"))
 
 	for {
 		// Read message from browser
