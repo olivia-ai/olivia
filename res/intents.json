@@ -1,17 +1,17 @@
 [
   {
-    "tag": "hello",
-    "patterns": ["Hey", "Hello", "Hi there", "Good morning", "What's up"],
-    "responses": ["Hey!", "Hello", "Hi!", "Good morning!"],
-    "context": ""
-  },
-  {
     "tag": "identity",
     "patterns": ["Who are you", "Are you an AI", "Are you a robot"],
     "responses": [
       "I am Olivia, your new personal assistant",
       "I am an open source artificial intelligence, my name is Olivia"
     ],
+    "context": ""
+  },
+  {
+    "tag": "hello",
+    "patterns": ["Hello", "Hi there", "Good morning", "What's up"],
+    "responses": ["Hey!", "Hello", "Hi!", "Good morning!"],
     "context": ""
   },
   {
