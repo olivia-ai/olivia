@@ -15,6 +15,11 @@ type Network struct {
 	Rate    float64
 }
 
+type Derivative struct {
+	Delta      Matrix
+	Adjustment Matrix
+}
+
 // CreateNetwork creates the network by generating the layers, weights and biases
 func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Network {
 	// Create the layers arrays and add the input values
@@ -49,7 +54,7 @@ func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Netw
 }
 
 // FeedForward executes forward propagation for the given inputs in the network
-func (network *Network) FeedForward() Matrix {
+func (network *Network) FeedForward() {
 	for i := 0; i < len(network.Layers)-1; i++ {
 		layer, weights, biases := network.Layers[i], network.Weights[i], network.Biases[i]
 
@@ -60,18 +65,12 @@ func (network *Network) FeedForward() Matrix {
 		// Replace the output values
 		network.Layers[i+1] = productMatrix
 	}
-
-	return network.Layers[len(network.Layers)-1]
 }
 
-func (network *Network) FeedForwardWithValue(input []float64) Matrix {
+func (network *Network) Predict(input []float64) []float64 {
 	network.Layers[0] = Matrix{input}
-	return network.FeedForward()
-}
-
-type Derivative struct {
-	Delta        Matrix
-	Adjustements Matrix
+	network.FeedForward()
+	return network.Layers[len(network.Layers)-1][0]
 }
 
 // FeedBackward executes back propagation to adjust the weights for all the layers
@@ -92,8 +91,8 @@ func (network *Network) FeedBackward() {
 	weights := DotProduct(Transpose(network.Layers[l-1]), delta)
 
 	derivatives = append(derivatives, Derivative{
-		Delta:        delta,
-		Adjustements: weights,
+		Delta:      delta,
+		Adjustment: weights,
 	})
 
 	for i := 0; i < len(network.Layers)-2; i++ {
@@ -114,14 +113,14 @@ func (network *Network) FeedBackward() {
 		weights = DotProduct(Transpose(network.Layers[l-1]), delta)
 
 		derivatives = append(derivatives, Derivative{
-			Delta:        delta,
-			Adjustements: weights,
+			Delta:      delta,
+			Adjustment: weights,
 		})
 	}
 
 	for i, derivative := range derivatives {
 		l = len(derivatives) - i
-		network.Weights[l-1] = Sum(network.Weights[l-1], ApplyRate(derivative.Adjustements, network.Rate))
+		network.Weights[l-1] = Sum(network.Weights[l-1], ApplyRate(derivative.Adjustment, network.Rate))
 		network.Biases[l-1] = Sum(network.Biases[l-1], ApplyRate(derivative.Delta, network.Rate))
 	}
 }

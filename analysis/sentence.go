@@ -12,7 +12,7 @@ import (
 	"github.com/gookit/color"
 	"github.com/neurosnap/sentences"
 	"github.com/olivia-ai/olivia/modules"
-	"github.com/olivia-ai/olivia/neuralnet"
+	"github.com/olivia-ai/olivia/network"
 	"github.com/olivia-ai/olivia/util"
 	gocache "github.com/patrickmn/go-cache"
 )
@@ -79,11 +79,11 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 }
 
 // Classify the sentence with the model
-func (sentence Sentence) PredictTag(network neuralnet.NeuralNetwork) string {
+func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 	words, classes, _ := Organize()
 
 	// Predict with the model
-	predict := network.FeedForward(sentence.WordsBag(words))
+	predict := neuralNetwork.Predict(sentence.WordsBag(words))
 
 	// Enumerate the results with the intent tags
 	var resultsTag []Result
@@ -97,7 +97,7 @@ func (sentence Sentence) PredictTag(network neuralnet.NeuralNetwork) string {
 	})
 
 	// If the model is not sure at 45% that it's the correct tag returns the "don't understand" tag
-	if resultsTag[0].Value < 0.45 {
+	if resultsTag[0].Value < 0.05 {
 		resultsTag = append([]Result{{DontUnderstand, 1.0}}, resultsTag...)
 	}
 
@@ -144,12 +144,12 @@ func RandomizeResponse(entry string, tag string, token string) (string, string) 
 }
 
 // Calculate send the sentence content to the neural network and returns a response with the matching tag
-func (sentence Sentence) Calculate(cache gocache.Cache, network neuralnet.NeuralNetwork, token string) (string, string) {
+func (sentence Sentence) Calculate(cache gocache.Cache, neuralNetwork network.Network, token string) (string, string) {
 	tag, found := cache.Get(sentence.Content)
 
 	// Predict tag with the neural network if the sentence isn't in the cache
 	if !found {
-		tag = sentence.PredictTag(network)
+		tag = sentence.PredictTag(neuralNetwork)
 		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
 	}
 
@@ -163,8 +163,8 @@ func LogResults(entry string, results []Result) {
 
 	color.FgCyan.Printf("\n\"%s\"\n", entry)
 	for _, result := range results {
-		// Arbitrary choice of 0.05 to have less tags to show
-		if result.Value < 0.05 {
+		// Arbitrary choice of 0.005 to have less tags to show
+		if result.Value < 0.005 {
 			continue
 		}
 
