@@ -31,7 +31,7 @@ func CreateNeuralNetwork() (neuralNetwork network.Network) {
 	// Train the model if there is no training file
 	trainx, trainy := TrainData()
 
-	neuralNetwork = network.CreateNetwork(0.1, trainx, trainy, 50)
+	neuralNetwork = network.CreateNetwork(0.1, trainx, trainy, 100)
 	neuralNetwork.Train(1000)
 
 	return
