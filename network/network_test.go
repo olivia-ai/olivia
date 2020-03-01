@@ -3,30 +3,31 @@ package network
 import (
 	"fmt"
 	"testing"
+
+	"github.com/olivia-ai/olivia/analysis"
+	"github.com/olivia-ai/olivia/training"
 )
 
 func TestCreateNetwork(t *testing.T) {
-	input := [][]float64{
-		{1, 1, 1},
-		{0, 1, 1},
-		{0, 0, 1},
-		{1, 0, 1},
-		{1, 1, 0},
-		{0, 0, 0},
-	}
+	input, output := training.TrainData()
+	words, classes, _ := analysis.Organize()
 
-	output := [][]float64{
-		{1},
-		{1},
-		{0},
-		{1},
-		{1},
-		{0},
-	}
-
-	network := CreateNetwork(0.25, input, output, 4, 4)
+	network := CreateNetwork(0.1, input, output, 50)
 	network.Train(1000)
 
-	network.FeedForward()
-	fmt.Println(network.Layers[3])
+	a := network.FeedForwardWithValue(
+		analysis.NewSentence("what is the capital of france").WordsBag(words),
+	)[0]
+
+	var max string
+	var maxi float64 = 0
+	for i := 0; i < len(a); i++ {
+		if a[i] > maxi {
+			maxi = a[i]
+			max = classes[i]
+		}
+	}
+
+	fmt.Println(max)
+	fmt.Println(maxi)
 }

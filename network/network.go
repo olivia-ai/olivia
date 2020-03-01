@@ -49,67 +49,66 @@ func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Netw
 }
 
 // FeedForward executes forward propagation for the given inputs in the network
-func (network *Network) FeedForward() {
+func (network *Network) FeedForward() Matrix {
 	for i := 0; i < len(network.Layers)-1; i++ {
 		layer, weights, biases := network.Layers[i], network.Weights[i], network.Biases[i]
 
 		productMatrix := DotProduct(layer, weights)
 		Sum(productMatrix, biases)
-
-		// Replace the input values
-		network.Layers[i+1] = productMatrix
 		ApplyFunction(productMatrix, Sigmoid)
 
 		// Replace the output values
 		network.Layers[i+1] = productMatrix
 	}
+
+	return network.Layers[len(network.Layers)-1]
+}
+
+func (network *Network) FeedForwardWithValue(input []float64) Matrix {
+	network.Layers[0] = Matrix{input}
+	return network.FeedForward()
 }
 
 // FeedBackward executes back propagation to adjust the weights for all the layers
 func (network *Network) FeedBackward() {
 	output := network.Output
-
-	// Compute derivative for the last layer of weights and biases
 	l := len(network.Layers) - 1
 	lastLayer := network.Layers[l]
-	error := Difference(output, lastLayer)
-	sigmoidDerivative := Multiplication(lastLayer, ApplyFunction(lastLayer, SubstractOne))
 
-	z := Multiplication(
+	// Compute derivative for the last layer of weights and biases
+	error := Difference(output, lastLayer)
+	sigmoidDerivative := Multiplication(
+		lastLayer,
+		ApplyFunction(lastLayer, SubstractOne),
+	)
+
+	delta := Multiplication(
 		ApplyFunction(error, MultiplyByTwo),
 		sigmoidDerivative,
 	)
-	weights := DotProduct(Transpose(network.Layers[l-1]), z)
+	weights := DotProduct(Transpose(network.Layers[l-1]), delta)
+
+	l -= 1
+
+	sigmoidDerivative2 := Multiplication(
+		network.Layers[l],
+		ApplyFunction(network.Layers[l], SubstractOne),
+	)
+	delta2 := Multiplication(
+		DotProduct(
+			delta,
+			Transpose(network.Weights[l]),
+		),
+		sigmoidDerivative2,
+	)
+
+	weights2 := DotProduct(Transpose(network.Layers[l-1]), delta2)
 
 	// Adjust the weights and biases
-	network.Weights[l-1] = Sum(network.Weights[l-1], weights)
-	network.Biases[l-1] = Sum(network.Biases[l-1], z)
-
-	for i := 0; i < len(network.Layers)-2; i++ {
-		l = len(network.Layers) - 2 - i
-
-		// Compute derivative for the layer of weights and biases
-		z = Multiplication(
-			DotProduct(
-				z,
-				Transpose(network.Weights[l]),
-			),
-			Multiplication(
-				network.Layers[l],
-				ApplyFunction(network.Layers[l], SubstractOne),
-			),
-		)
-
-		// Adjust the weights and biases
-		network.Weights[l-1] = Sum(
-			network.Weights[l-1],
-			DotProduct(
-				Transpose(network.Layers[l-1]),
-				z,
-			),
-		)
-		network.Biases[l-1] = Sum(network.Biases[l-1], z)
-	}
+	network.Weights[l] = Sum(network.Weights[l], ApplyRate(weights, network.Rate))
+	network.Biases[l] = Sum(network.Biases[l], ApplyRate(delta, network.Rate))
+	network.Weights[l-1] = Sum(network.Weights[l-1], ApplyRate(weights2, network.Rate))
+	network.Biases[l-1] = Sum(network.Biases[l-1], ApplyRate(delta2, network.Rate))
 }
 
 // ComputeError returns the average of all the errors after the training
