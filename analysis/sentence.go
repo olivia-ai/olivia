@@ -97,7 +97,7 @@ func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 	})
 
 	// If the model is not sure at 45% that it's the correct tag returns the "don't understand" tag
-	if resultsTag[0].Value < 0.05 {
+	if resultsTag[0].Value < 0.01 {
 		resultsTag = append([]Result{{DontUnderstand, 1.0}}, resultsTag...)
 	}
 
