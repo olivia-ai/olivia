@@ -15,9 +15,9 @@ func TestCreateNetwork(t *testing.T) {
 	network := CreateNetwork(0.1, input, output, 50)
 	network.Train(1000)
 
-	a := network.FeedForwardWithValue(
+	a := network.Predict(
 		analysis.NewSentence("what is the capital of france").WordsBag(words),
-	)[0]
+	)
 
 	var max string
 	var maxi float64 = 0

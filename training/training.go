@@ -1,6 +1,9 @@
 package training
 
 import (
+	"os"
+
+	"github.com/gookit/color"
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/network"
 	"github.com/olivia-ai/olivia/util"
@@ -28,11 +31,23 @@ func TrainData() (inputs, targets [][]float64) {
 // CreateNeuralNetwork returns a new neural network which is loaded from res/training.json or
 // trained from TrainData() inputs and targets.
 func CreateNeuralNetwork() (neuralNetwork network.Network) {
-	// Train the model if there is no training file
-	trainx, trainy := TrainData()
+	// Decide if the network is created by the save or is a new one
+	saveFile := "res/training.json"
 
-	neuralNetwork = network.CreateNetwork(0.1, trainx, trainy, 100)
-	neuralNetwork.Train(1000)
+	_, err := os.Open(saveFile)
+	if err != nil {
+		// Train the model if there is no training file
+		trainx, trainy := TrainData()
+
+		neuralNetwork = network.CreateNetwork(0.1, trainx, trainy, 50)
+		neuralNetwork.Train(1000)
+
+		// Save the neural network in res/training.json
+		neuralNetwork.Save(saveFile)
+	} else {
+		color.FgBlue.Println("Loading the neural network from " + saveFile)
+		neuralNetwork = *network.LoadNetwork(saveFile)
+	}
 
 	return
 }
