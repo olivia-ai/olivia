@@ -60,6 +60,12 @@ func ApplyFunction(matrix Matrix, fn func(x float64) float64) Matrix {
 	})
 }
 
+func ApplyRate(matrix Matrix, rate float64) Matrix {
+	return ApplyFunction(matrix, func(x float64) float64 {
+		return rate * x
+	})
+}
+
 // DotProduct returns a matrix which is the result of the dot product between matrix and matrix2
 func DotProduct(matrix, matrix2 Matrix) Matrix {
 	if Columns(matrix) != Rows(matrix2) {
