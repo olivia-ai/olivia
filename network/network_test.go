@@ -29,5 +29,5 @@ func TestCreateNetwork(t *testing.T) {
 	}
 
 	fmt.Println(max)
-	fmt.Println(maxi)
+	fmt.Println(maxi / 0.1)
 }
