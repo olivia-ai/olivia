@@ -17,11 +17,6 @@ type Network struct {
 	Rate    float64
 }
 
-type Derivative struct {
-	Delta      Matrix
-	Adjustment Matrix
-}
-
 func LoadNetwork(fileName string) *Network {
 	inF, err := os.Open(fileName)
 	if err != nil {
@@ -115,54 +110,16 @@ func (network *Network) Predict(input []float64) []float64 {
 
 // FeedBackward executes back propagation to adjust the weights for all the layers
 func (network *Network) FeedBackward() {
-	output := network.Output
-	l := len(network.Layers) - 1
-	lastLayer := network.Layers[l]
 	var derivatives []Derivative
+	derivatives = append(derivatives, network.ComputeLastLayerDerivatives())
 
-	// Compute derivative for the last layer of weights and biases
-	error := Difference(output, lastLayer)
-	sigmoidDerivative := Multiplication(lastLayer, ApplyFunction(lastLayer, SubstractOne))
-
-	delta := Multiplication(
-		ApplyFunction(error, MultiplyByTwo),
-		sigmoidDerivative,
-	)
-	weights := DotProduct(Transpose(network.Layers[l-1]), delta)
-
-	derivatives = append(derivatives, Derivative{
-		Delta:      delta,
-		Adjustment: weights,
-	})
-
+	// Compute the derivatives of the hidden layers
 	for i := 0; i < len(network.Layers)-2; i++ {
-		l = len(network.Layers) - 2 - i
-
-		// Compute derivative for the layer of weights and biases
-		delta = Multiplication(
-			DotProduct(
-				derivatives[i].Delta,
-				Transpose(network.Weights[l]),
-			),
-			Multiplication(
-				network.Layers[l],
-				ApplyFunction(network.Layers[l], SubstractOne),
-			),
-		)
-
-		weights = DotProduct(Transpose(network.Layers[l-1]), delta)
-
-		derivatives = append(derivatives, Derivative{
-			Delta:      delta,
-			Adjustment: weights,
-		})
+		derivatives = append(derivatives, network.ComputeDerivatives(i, derivatives))
 	}
 
-	for i, derivative := range derivatives {
-		l = len(derivatives) - i
-		network.Weights[l-1] = Sum(network.Weights[l-1], ApplyRate(derivative.Adjustment, network.Rate))
-		network.Biases[l-1] = Sum(network.Biases[l-1], ApplyRate(derivative.Delta, network.Rate))
-	}
+	// Then adjust the weights and biases
+	network.Adjust(derivatives)
 }
 
 // ComputeError returns the average of all the errors after the training
