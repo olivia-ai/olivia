@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://olivia-ai.org/img/icons/olivia-with-text.png" alt="Olivia's character" width="500">
+  <img src="https://olivia-ai.org/img/icons/olivia-with-text.png" alt="Olivia's character" width="400">
   <br>
 </h1>
 
