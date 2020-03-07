@@ -1,23 +1,24 @@
 <h1 align="center">
   <br>
-  <img src="https://olivia-ai.org/img/repository-open-graph-template.png" alt="Olivia's character" width="500">
+  <img src="https://olivia-ai.org/img/icons/olivia-with-text.png" alt="Olivia's character" width="500">
   <br>
 </h1>
 
-<h4 align="center">💁‍♀️ Your new best friend built with an artificial neural network</h4>
-<h5 align="center">Inspired by <a href="https://github.com/leon-ai/leon">leon-ai/leon</a> :)</h5>
+<h4 align="center">💁‍♀️ Your new best friend</h4>
 
 <p align="center">
   <a href="https://goreportcard.com/report/github.com/olivia-ai/olivia"><img src="https://goreportcard.com/badge/github.com/olivia-ai/olivia"></a>
-  <a href="https://travis-ci.org/olivia-ai/olivia"><img src="https://travis-ci.org/olivia-ai/olivia.svg?branch=master"></a>
   <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=shield"></a>
-  <img src="https://circleci.com/gh/olivia-ai/olivia/tree/master.svg?style=svg">
+  <a href="https://travis-ci.org/olivia-ai/olivia"><img src="https://travis-ci.org/olivia-ai/olivia.svg?branch=master"></a>
+  <a href="https://circleci.com/gh/olivia-ai/olivia"><img src="https://circleci.com/gh/olivia-ai/olivia/tree/master.svg?style=svg"></a>
 </p>
 
 <p align="center">
   <a href="https://olivia-ai.org">Website</a> —
+  <a href="https://olivia-ai.org/chat">Chat online</a> —
   <a href="#getting-started">Getting started</a> —
-  <a href="https://docs.olivia-ai.org">Documentation</a> —
+  <a href="https://olivia-ai.org/blog">Blog</a> —
+  <a href="https://olivia-ai.org/changelog">Changelog</a> —
   <a href="https://trello.com/b/azB6r2IC/olivia">Trello</a> —
   <a href="#license">License</a>
 </p>
@@ -60,7 +61,7 @@ If you want to train a new model just delete this file and rerun the app.
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_large)
 
 <p align="center">
-  <img width="100" src="https://olivia-ai.org/img/icons/olivia-with-text.png">
+  <img width="60" src="https://olivia-ai.org/img/icons/olivia.png">
 <p>
 
 <p align="center">
