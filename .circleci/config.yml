@@ -1,6 +1,12 @@
 version: 2
 
 jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: docker build -t olivia .
+      - run: docker run -d -p 8080:8080 olivia
   check_format:
     machine: true
     steps:
