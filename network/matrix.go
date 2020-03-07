@@ -60,6 +60,7 @@ func ApplyFunction(matrix Matrix, fn func(x float64) float64) Matrix {
 	})
 }
 
+// ApplyRate returns a matrix where the learning rate has been multiplies
 func ApplyRate(matrix Matrix, rate float64) Matrix {
 	return ApplyFunction(matrix, func(x float64) float64 {
 		return rate * x
@@ -132,6 +133,7 @@ func Transpose(matrix Matrix) (resultMatrix Matrix) {
 	return resultMatrix
 }
 
+// ErrorNotSameSize panics if the matrices do not have the same dimension
 func ErrorNotSameSize(matrix, matrix2 Matrix) {
 	if Rows(matrix) != Rows(matrix2) && Columns(matrix) != Columns(matrix2) {
 		panic("These two matrices must have the same dimension.")

@@ -21,6 +21,7 @@ type Sentence struct {
 	Content string
 }
 
+// Result contains a predicted value with its tag and its value
 type Result struct {
 	Tag   string
 	Value float64
@@ -28,6 +29,7 @@ type Result struct {
 
 var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 
+// DontUnderstand contains the tag for the don't understand messages
 const DontUnderstand = "don't understand"
 
 // NewSentence returns a Sentence object where the content has been arranged
@@ -78,7 +80,7 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	return bag
 }
 
-// Classify the sentence with the model
+// PredictTag classifies the sentence with the model
 func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 	words, classes, _ := Organize()
 

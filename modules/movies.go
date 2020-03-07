@@ -83,7 +83,7 @@ func GenresReplacer(entry, response, token string) (string, string) {
 	}
 
 	// Change the user information to add the new genres
-	user.ChangeUserInformations(token, func(information user.Information) user.Information {
+	user.ChangeUserInformation(token, func(information user.Information) user.Information {
 		for _, genre := range genres {
 			// Append the genre only is it isn't already in the information
 			if util.Contains(information.MovieGenres, genre) {
@@ -114,7 +114,7 @@ func MovieSearchReplacer(entry, response, token string) (string, string) {
 
 func MovieSearchFromInformationReplacer(_, response, token string) (string, string) {
 	// If there is no genres then reply with a message from res/messages.json
-	genres := user.GetUserInformations(token).MovieGenres
+	genres := user.GetUserInformation(token).MovieGenres
 	if len(genres) == 0 {
 		responseTag := "no genres saved"
 		return responseTag, util.GetMessage(responseTag)

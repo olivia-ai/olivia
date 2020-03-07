@@ -75,8 +75,8 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// Set the informations from the client into the cache
-		if reflect.DeepEqual(user.GetUserInformations(request.Token), user.Information{}) {
-			user.SetUserInformations(request.Token, request.Information)
+		if reflect.DeepEqual(user.GetUserInformation(request.Token), user.Information{}) {
+			user.SetUserInformation(request.Token, request.Information)
 		}
 
 		// Write message back to browser
@@ -104,7 +104,7 @@ func Reply(request RequestMessage) []byte {
 	response := ResponseMessage{
 		Content:     responseSentence,
 		Tag:         responseTag,
-		Information: user.GetUserInformations(request.Token),
+		Information: user.GetUserInformation(request.Token),
 	}
 
 	bytes, err := json.Marshal(response)

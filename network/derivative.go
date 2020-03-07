@@ -12,11 +12,11 @@ func (network Network) ComputeLastLayerDerivatives() Derivative {
 
 	// Compute derivative for the last layer of weights and biases
 	cost := Difference(network.Output, lastLayer)
-	sigmoidDerivative := Multiplication(lastLayer, ApplyFunction(lastLayer, SubstractOne))
+	sigmoidDerivative := Multiplication(lastLayer, ApplyFunction(lastLayer, SubstractsOne))
 
 	// Compute delta and the weights' adjustment
 	delta := Multiplication(
-		ApplyFunction(cost, MultiplyByTwo),
+		ApplyFunction(cost, MultipliesByTwo),
 		sigmoidDerivative,
 	)
 	weights := DotProduct(Transpose(network.Layers[l-1]), delta)
@@ -39,7 +39,7 @@ func (network Network) ComputeDerivatives(i int, derivatives []Derivative) Deriv
 		),
 		Multiplication(
 			network.Layers[l],
-			ApplyFunction(network.Layers[l], SubstractOne),
+			ApplyFunction(network.Layers[l], SubstractsOne),
 		),
 	)
 	weights := DotProduct(Transpose(network.Layers[l-1]), delta)

@@ -33,7 +33,7 @@ func SerializeMovies() (movies []Movie) {
 	path := "res/movies.csv"
 	bytes, err := os.Open(path)
 	if err != nil {
-		bytes, err = os.Open("../" + path)
+		bytes, _ = os.Open("../" + path)
 	}
 
 	reader := csv.NewReader(bufio.NewReader(bytes))
@@ -60,7 +60,7 @@ func SerializeMovies() (movies []Movie) {
 
 func SearchMovie(genre, userToken string) (output Movie) {
 	for _, movie := range movies {
-		userMovieBlacklist := user.GetUserInformations(userToken).MovieBlacklist
+		userMovieBlacklist := user.GetUserInformation(userToken).MovieBlacklist
 		// Continue if the movie is not from the request genre or if this movie has already been suggested
 		if !util.Contains(movie.Genres, genre) || util.Contains(userMovieBlacklist, movie.Name) {
 			continue
@@ -72,7 +72,7 @@ func SearchMovie(genre, userToken string) (output Movie) {
 	}
 
 	// Add the found movie to the user blacklist
-	user.ChangeUserInformations(userToken, func(information user.Information) user.Information {
+	user.ChangeUserInformation(userToken, func(information user.Information) user.Information {
 		information.MovieBlacklist = append(information.MovieBlacklist, output.Name)
 		return information
 	})
