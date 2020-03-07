@@ -1,5 +1,6 @@
 package network
 
+// Derivative contains the derivatives of `z` and the adjustments
 type Derivative struct {
 	Delta      Matrix
 	Adjustment Matrix
