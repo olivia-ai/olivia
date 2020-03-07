@@ -40,7 +40,7 @@ func init() {
 }
 
 func NameGetterReplacer(_, response, token string) (string, string) {
-	name := user.GetUserInformations(token).Name
+	name := user.GetUserInformation(token).Name
 
 	if strings.TrimSpace(name) == "" {
 		responseTag := "don't know name"
@@ -63,7 +63,7 @@ func NameSetterReplacer(entry, response, token string) (string, string) {
 	name = strings.Title(name)
 
 	// Change the name inside the user information
-	user.ChangeUserInformations(token, func(information user.Information) user.Information {
+	user.ChangeUserInformation(token, func(information user.Information) user.Information {
 		information.Name = name
 		return information
 	})

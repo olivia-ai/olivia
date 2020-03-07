@@ -17,6 +17,7 @@ type Network struct {
 	Rate    float64
 }
 
+// LoadNetwork returns a Network from a specified file
 func LoadNetwork(fileName string) *Network {
 	inF, err := os.Open(fileName)
 	if err != nil {
@@ -74,6 +75,7 @@ func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Netw
 	}
 }
 
+// Save saves the neural network in a specified file which can be retrieved with LoadNetwork
 func (network Network) Save(fileName string) {
 	outF, err := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR, 0777)
 	if err != nil {

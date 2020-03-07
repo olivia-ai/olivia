@@ -8,17 +8,17 @@ type Information struct {
 
 var userInformation = map[string]Information{}
 
-// ChangeUserInformations requires the token of the user and a function which gives the actual
-// informations and returns the new informations.
-func ChangeUserInformations(token string, changer func(Information) Information) {
+// ChangeUserInformation requires the token of the user and a function which gives the actual
+// information and returns the new information.
+func ChangeUserInformation(token string, changer func(Information) Information) {
 	userInformation[token] = changer(userInformation[token])
 }
 
-func SetUserInformations(token string, information Information) {
+func SetUserInformation(token string, information Information) {
 	userInformation[token] = information
 }
 
-// GetUserInformations returns the informations of a user with his token
-func GetUserInformations(token string) Information {
+// GetUserInformation returns the information of a user with his token
+func GetUserInformation(token string) Information {
 	return userInformation[token]
 }

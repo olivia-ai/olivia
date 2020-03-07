@@ -20,6 +20,7 @@ type Document struct {
 	Tag      string
 }
 
+// SerializeIntents returns a list of intents retrieved from `res/intents.json`
 func SerializeIntents() []Intent {
 	var intents []Intent
 

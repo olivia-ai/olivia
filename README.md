@@ -8,17 +8,17 @@
 <h5 align="center">Inspired by <a href="https://github.com/leon-ai/leon">leon-ai/leon</a> :)</h5>
 
 <p align="center">
+  <a href="https://goreportcard.com/report/github.com/olivia-ai/olivia"><img src="https://goreportcard.com/badge/github.com/olivia-ai/olivia"></a>
   <a href="https://travis-ci.org/olivia-ai/olivia"><img src="https://travis-ci.org/olivia-ai/olivia.svg?branch=master"></a>
   <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=shield"></a>
   <img src="https://circleci.com/gh/olivia-ai/olivia/tree/master.svg?style=svg">
 </p>
 
 <p align="center">
-  <a href="https://olivia-ai.org">Website</a> •
-  <a href="#getting-started">Getting started</a> •
-  <a href="https://docs.olivia-ai.org">Documentation</a> •
-  <a href="https://trello.com/b/azB6r2IC/olivia">Trello</a> •
-  <a href="https://www.youtube.com/watch?v=JmJZi9gmKvI">Video</a> •
+  <a href="https://olivia-ai.org">Website</a> —
+  <a href="#getting-started">Getting started</a> —
+  <a href="https://docs.olivia-ai.org">Documentation</a> —
+  <a href="https://trello.com/b/azB6r2IC/olivia">Trello</a> —
   <a href="#license">License</a>
 </p>
 

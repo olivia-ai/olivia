@@ -6,6 +6,7 @@ import (
 	"math/rand"
 )
 
+// Message contains the message's tag and its contained matched sentences
 type Message struct {
 	Tag      string   `json:"tag"`
 	Messages []string `json:"messages"`
@@ -13,6 +14,7 @@ type Message struct {
 
 var messages = SerializeMessages()
 
+// SerializeMessages serializes the content of `res/messages.json` in JSON
 func SerializeMessages() (messages []Message) {
 	err := json.Unmarshal(ReadFile("res/messages.json"), &messages)
 	if err != nil {
