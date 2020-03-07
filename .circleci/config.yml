@@ -20,3 +20,4 @@ workflows:
   workflow:
     jobs:
       - check_format
+      - build
