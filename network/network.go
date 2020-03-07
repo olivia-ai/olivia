@@ -9,6 +9,8 @@ import (
 	"gopkg.in/cheggaaa/pb.v1"
 )
 
+// Network contains the Layers, Weights, Biases of a neural network then the actual output values
+// and the learning rate.
 type Network struct {
 	Layers  []Matrix
 	Weights []Matrix

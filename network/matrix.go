@@ -4,6 +4,7 @@ import (
 	"math/rand"
 )
 
+// Matrix is an alias for [][]float64
 type Matrix [][]float64
 
 // RandomMatrix returns the value of a random matrix of *rows* and *columns* dimensions and
