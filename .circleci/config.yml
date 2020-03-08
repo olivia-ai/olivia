@@ -6,7 +6,12 @@ jobs:
     steps:
       - checkout
       - run: docker build -t olivia .
-      - run: docker run -d -p 8080:8080 olivia
+      - run: docker save -o image.tar olivia
+  run:
+    machine: true
+    steps:
+      - checkout
+      - run: docker run -d -p 8080:8080 image.tar
   check_format:
     machine: true
     steps:
@@ -21,3 +26,4 @@ workflows:
     jobs:
       - check_format
       - build
+      - run
