@@ -29,7 +29,6 @@ func TestCalculate(t *testing.T) {
 		"Are you still there?":                     "still there",
 		"I like movies of adventure and animation": "movies genres",
 		"Can you find me a movie of adventure":     "movies search",
-		"I'm bored":                                "no genres",
 	}
 
 	for sentence, tag := range sentences {

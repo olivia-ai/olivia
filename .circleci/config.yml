@@ -11,7 +11,15 @@ jobs:
     machine: true
     steps:
       - checkout
+      - run: docker load -i image.tar
       - run: docker run -d -p 8080:8080 olivia
+  publish:
+    machine: true
+    steps:
+      - checkout
+      - run: docker load -i image.tar
+      - run: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+      - run: docker push olivia:latest
   check_format:
     machine: true
     steps:
@@ -25,6 +33,11 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - check_format
       - build
-      - run
+      - check_format
+      - run:
+          requires:
+            - build
+      - publish:
+          requires:
+            - build
