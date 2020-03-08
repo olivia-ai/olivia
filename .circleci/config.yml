@@ -40,10 +40,19 @@ workflows:
   workflow:
     jobs:
       - build
+        branches:
+          only:
+            - master
       - check_format
       - run:
+          branches:
+            only:
+              - master
           requires:
             - build
       - publish:
+          branches:
+            only:
+              - master
           requires:
             - build
