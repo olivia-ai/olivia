@@ -7,16 +7,22 @@ jobs:
       - checkout
       - run: docker build -t olivia .
       - run: docker save -o image.tar olivia
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./image.tar
   run:
     machine: true
     steps:
-      - checkout
+      - attach_workspace:
+          at: /tmp/workspace
       - run: docker load -i image.tar
       - run: docker run -d -p 8080:8080 olivia
   publish:
     machine: true
     steps:
-      - checkout
+      - attach_workspace:
+          at: /tmp/workspace
       - run: docker load -i image.tar
       - run: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
       - run: docker push olivia:latest
