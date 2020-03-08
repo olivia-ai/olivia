@@ -39,7 +39,7 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build
+      - build:
           branches:
             only:
               - master
