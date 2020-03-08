@@ -11,14 +11,15 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: docker run -d -p 8080:8080 image.tar
+      - run: docker run -d -p 8080:8080 olivia
   check_format:
     machine: true
     steps:
       - checkout
-      - run: go fmt
       - run: go get golang.org/x/tools/cmd/goimports
       - run: goimports
+      - run: go fmt
+      - run: go vet
 
 workflows:
   version: 2
