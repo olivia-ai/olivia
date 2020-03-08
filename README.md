@@ -27,14 +27,14 @@
 ### Installation
 We will use Docker to setup the project
 
-Build the image
+Pull the image from GitHub Packages
 ```bash
-$ docker build -t olivia .
+$ docker pull docker.pkg.github.com/olivia-ai/olivia/olivia:latest
 ```
 
 Then start it
 ```bash
-$ docker run -d -p 8080:8080 olivia
+$ docker run -d -p 8080:8080 docker.pkg.github.com/olivia-ai/olivia/olivia:latest
 ```
 
 You can just use the websocket of Olivia now.
