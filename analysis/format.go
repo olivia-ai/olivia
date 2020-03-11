@@ -21,29 +21,29 @@ func (sentence *Sentence) Arrange() {
 }
 
 // Tokenize returns a list of words that have been lower-cased
-func (sentence Sentence) Tokenize() []string {
+func (sentence Sentence) Tokenize() (tokens []string) {
 	// Split the sentence in words
-	tokens := strings.Fields(sentence.Content)
+	tokens = strings.Fields(sentence.Content)
 
 	// Lower case each word
 	for i, token := range tokens {
 		tokens[i] = strings.ToLower(token)
 	}
 
-	return tokens
+	return
 }
 
 // Stem returns the sentence split in stemmed words
-func (sentence Sentence) Stem() (tokenizedWords []string) {
+func (sentence Sentence) Stem() (tokenizeWords []string) {
 	tokens := sentence.Tokenize()
 
-	// Get the string token and push it to tokenizedWords
-	for _, tokenizedWord := range tokens {
-		word := stemmer.Stem(tokenizedWord)
-		tokenizedWords = append(tokenizedWords, word)
+	// Get the string token and push it to tokenizeWord
+	for _, tokenizeWord := range tokens {
+		word := stemmer.Stem(tokenizeWord)
+		tokenizeWords = append(tokenizeWords, word)
 	}
 
-	return tokenizedWords
+	return
 }
 
 // WordsBag retrieves the intents words and returns the sentence converted in a bag of words
