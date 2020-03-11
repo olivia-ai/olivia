@@ -51,7 +51,7 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	for _, word := range words {
 		// Append 1 if the patternWords contains the actual word, else 0
 		var valueToAppend float64 = 0
-		if util.Contains(sentence.Tokenize(), word) {
+		if util.Contains(sentence.Stem(), word) {
 			valueToAppend = 1
 		}
 
