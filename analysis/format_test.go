@@ -5,6 +5,18 @@ import (
 	"testing"
 )
 
+func TestSentence_WordsBag(t *testing.T) {
+	sentence := Sentence{"Hi how are you"}
+	words := []string{"hi", "hello", "good", "morning", "are", "is", "were", "you", "seven"}
+
+	wordsBag := sentence.WordsBag(words)
+	excepted := []float64{1, 0, 0, 0, 1, 0, 0, 1, 0}
+
+	if !reflect.DeepEqual(excepted, wordsBag) {
+		t.Errorf("sentence.WordsBag() failed, excepted %v, got %v", excepted, wordsBag)
+	}
+}
+
 func TestSentence_Arrange(t *testing.T) {
 	sentence := Sentence{"Hello. how are you!   "}
 	sentence.Arrange()
