@@ -61,7 +61,7 @@ func Organize() (words, classes []string, documents []Document) {
 			patternSentence := Sentence{pattern}
 
 			// Add each word to response
-			for _, word := range patternSentence.Tokenize() {
+			for _, word := range patternSentence.Stem() {
 
 				if !util.Contains(words, word) {
 					words = append(words, word)

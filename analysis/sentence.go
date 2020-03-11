@@ -29,8 +29,11 @@ var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 const DontUnderstand = "don't understand"
 
 // NewSentence returns a Sentence object where the content has been arranged
-func NewSentence(content string) Sentence {
-	return Sentence{Arrange(content)}
+func NewSentence(content string) (sentence Sentence) {
+	sentence = Sentence{content}
+	sentence.Arrange()
+
+	return
 }
 
 // PredictTag classifies the sentence with the model

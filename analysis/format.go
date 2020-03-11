@@ -5,32 +5,41 @@ import (
 	"strings"
 
 	"github.com/caneroj1/stemmer"
-	"github.com/neurosnap/sentences"
 	"github.com/olivia-ai/olivia/util"
 )
 
-// Arrange check the format of a string to normalize it, put the string to
-// lower case, remove ignored characters
-func Arrange(text string) string {
+// Arrange checks the format of a string to normalize it, remove ignored characters
+func (sentence *Sentence) Arrange() {
 	// Remove punctuation after letters
 	punctuationRegex := regexp.MustCompile(`[a-zA-Z]( )?(\.|\?|!)`)
-	text = punctuationRegex.ReplaceAllStringFunc(text, func(s string) string {
+	sentence.Content = punctuationRegex.ReplaceAllStringFunc(sentence.Content, func(s string) string {
 		punctuation := regexp.MustCompile(`(\.|\?|!)`)
 		return punctuation.ReplaceAllString(s, "")
 	})
 
-	text = strings.ToLower(text)
-	return strings.TrimSpace(text)
+	sentence.Content = strings.TrimSpace(sentence.Content)
 }
 
-// Tokenize returns the sentence split in stemmed words
-func (sentence Sentence) Tokenize() (tokenizedWords []string) {
-	tokenizer := sentences.NewWordTokenizer(sentences.NewPunctStrings())
-	tokens := tokenizer.Tokenize(strings.TrimSpace(sentence.Content), false)
+// Tokenize returns a list of words that have been lower-cased
+func (sentence Sentence) Tokenize() []string {
+	// Split the sentence in words
+	tokens := strings.Fields(sentence.Content)
+
+	// Lower case each word
+	for i, token := range tokens {
+		tokens[i] = strings.ToLower(token)
+	}
+
+	return tokens
+}
+
+// Stem returns the sentence split in stemmed words
+func (sentence Sentence) Stem() (tokenizedWords []string) {
+	tokens := sentence.Tokenize()
 
 	// Get the string token and push it to tokenizedWords
 	for _, tokenizedWord := range tokens {
-		word := stemmer.Stem(tokenizedWord.Tok)
+		word := stemmer.Stem(tokenizedWord)
 		tokenizedWords = append(tokenizedWords, word)
 	}
 
