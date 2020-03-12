@@ -7,7 +7,7 @@ import (
 
 func TestSentence_WordsBag(t *testing.T) {
 	sentence := Sentence{"Hi how are you"}
-	words := []string{"hi", "hello", "good", "morning", "are", "is", "were", "you", "seven"}
+	words := Sentence{"hi hello good morning are is were you seven"}.Stem()
 
 	wordsBag := sentence.WordsBag(words)
 	excepted := []float64{1, 0, 0, 0, 1, 0, 0, 1, 0}
