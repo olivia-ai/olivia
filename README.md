@@ -26,8 +26,7 @@
 
 ## Getting started
 ### Installation
-We will use Docker to setup the project
-
+#### Docker
 Pull the image from GitHub Packages
 ```bash
 $ docker pull docker.pkg.github.com/olivia-ai/olivia/olivia:latest
@@ -57,6 +56,24 @@ $ docker container stop 311b3abb963a
 The app will automatically check for `res/training.json` file which contains the save of the neural network.
 By default when you clone the repository from Github you have a stable save.
 If you want to train a new model just delete this file and rerun the app.
+
+#### Go
+Clone the project:
+
+```bash 
+$ git clone git@github.com:olivia-ai/olivia.git
+```
+
+Then download the dependencies
+```bash
+$ go mod download
+```
+
+And run it
+```bash
+$ go run main.go
+```
+
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_large)
