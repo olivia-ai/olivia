@@ -1,0 +1,19 @@
+name: Docker CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the image
+      run: docker build -t docker.pkg.github.com/olivia-ai/olivia/olivia:latest .
+    - name: Login to docker.pkg.github.com
+      run: echo "$TOKEN" | docker login -u "$USERNAME" --password-stdin docker.pkg.github.com
+    - name: Publish the image
+      run: docker push docker.pkg.github.com/olivia-ai/olivia/olivia:latest
