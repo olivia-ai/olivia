@@ -30,6 +30,11 @@
 ## Getting started
 ### Installation
 #### Docker
+
+<p align="center">
+  <img alt="docker installation" height="100" src="https://i.imgur.com/5NDCfF3.png">
+</p>
+
 Pull the image from GitHub Packages
 ```bash
 $ docker pull docker.pkg.github.com/olivia-ai/olivia/olivia:latest
@@ -78,6 +83,11 @@ $ go run main.go
 ```
 
 ## Contributors
+
+<p align="center">
+  <img alt="docker installation" height="90" src="https://i.imgur.com/6xr2zdp.png">
+</p>
+  
 ### Code Contributors
 Thanks to the people who contribute to Olivia. 
 
