@@ -22,6 +22,7 @@ jobs:
           path: image.tar
         
   publish:
+    needs: build
     runs-on: [ubuntu-latest]
     steps:
       - name: Download the image from artifacts
