@@ -119,6 +119,11 @@ Your logo will show up here with a link to your website.
 
 
 ## License
+
+<p align="center">
+  <img src="https://i.imgur.com/9Xxtchv.png" height="90">
+</p>
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_large)
 
 <p align="center">
