@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: Builds the Docker image
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
@@ -22,6 +23,7 @@ jobs:
           path: image.tar
         
   publish:
+    name: Publish the Docker image
     needs: build
     runs-on: [ubuntu-latest]
     steps:
@@ -30,7 +32,7 @@ jobs:
         with:
           name: image
       - name: Load the image
-        run: docker load -i image.tar
+        run: docker load -i image/image.tar
       - name: Login to docker.pkg.github.com
         run: echo ${{ secrets.TOKEN }} | docker login docker.pkg.github.com --username ${{ secrets.USERNAME }} --password-stdin
       - name: Publish the image
