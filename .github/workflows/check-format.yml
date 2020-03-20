@@ -1,4 +1,4 @@
-name: CI
+name: Format checker
 
 on:
   push:
@@ -15,10 +15,6 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v2
-    - name: Download goimports
-      run: go get golang.org/x/tools/cmd/goimports
-    - name: Check imports
-      run: goimports
     - name: Check go fmt
       run: go fmt
     - name: Check go vet
