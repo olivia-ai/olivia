@@ -79,7 +79,7 @@ $ go run main.go
 
 ## Contributors
 ### Code Contributors
-Thanks to the people who contributes to Olivia. 
+Thanks to the people who contribute to Olivia. 
 
 [Contribute](CONTRIBUTING.md)
 <a href="https://github.com/olivia-ai/olivia/graphs/contributors"><img src="https://opencollective.com/olivia-ai/contributors.svg?width=890&button=false" /></a>
