@@ -1,18 +1,12 @@
-package dashboard
+package server
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
-	"github.com/gookit/color"
-
-	"github.com/gorilla/mux"
 	"github.com/olivia-ai/olivia/network"
 )
-
-var neuralNetwork network.Network
 
 type Dashboard struct {
 	Layers   Layers   `json:"layers"`
@@ -29,23 +23,6 @@ type Training struct {
 	Rate  float64 `json:"rate"`
 	Error float64 `json:"error"`
 	Time  float64 `json:"time"`
-}
-
-// Serve serves the dashboard REST API on the port 8081 by default.
-func Serve(_neuralNetwork network.Network, port string) {
-	// Set the current global network as a global variable
-	neuralNetwork = _neuralNetwork
-
-	router := mux.NewRouter()
-
-	// Create the routes
-	router.HandleFunc("/dashboard", GetDashboardData).Methods("GET")
-
-	magenta := color.FgMagenta.Render
-	fmt.Printf("Dashboard API listening on the port %s...\n", magenta(port))
-
-	// Serves the dashboard
-	log.Fatal(http.ListenAndServe(":"+port, router))
 }
 
 // GetDashboardData encodes the json for the dashboard data

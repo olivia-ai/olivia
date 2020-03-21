@@ -1,27 +1,16 @@
-package chat
+package server
 
 import (
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"reflect"
-	"time"
-
-	"github.com/olivia-ai/olivia/network"
 
 	"github.com/gookit/color"
 	"github.com/gorilla/websocket"
 	"github.com/olivia-ai/olivia/analysis"
 	"github.com/olivia-ai/olivia/user"
 	"github.com/olivia-ai/olivia/util"
-	gocache "github.com/patrickmn/go-cache"
-)
-
-var (
-	// Create the neural network variable to use it everywhere
-	neuralNetwork network.Network
-	// Initiatizes the cache with a 5 minute lifetime
-	cache = gocache.New(5*time.Minute, 5*time.Minute)
 )
 
 // Configure the upgrader
@@ -45,25 +34,8 @@ type ResponseMessage struct {
 	Information user.Information `json:"information"`
 }
 
-// Serve serves the websocket in the given port
-func Serve(_neuralNetwork network.Network, port string) {
-	// Set the current global network as a global variable
-	neuralNetwork = _neuralNetwork
-
-	http.HandleFunc("/", Handle)
-
-	magenta := color.FgMagenta.Render
-	fmt.Printf("\nChat Websocket listening on the port %s...\n", magenta(port))
-
-	// Serves the chat
-	err := http.ListenAndServe(":"+port, nil)
-	if err != nil {
-		panic(err)
-	}
-}
-
-// Handle manages the entry connections and reply with the neural network
-func Handle(w http.ResponseWriter, r *http.Request) {
+// SocketHandle manages the entry connections and reply with the neural network
+func SocketHandle(w http.ResponseWriter, r *http.Request) {
 	conn, _ := upgrader.Upgrade(w, r, nil)
 	fmt.Println(color.FgGreen.Render("A new connection has been opened"))
 
