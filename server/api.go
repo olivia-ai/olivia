@@ -8,21 +8,24 @@ import (
 	"github.com/olivia-ai/olivia/network"
 )
 
+// Dashboard contains the data sent for the dashboard
 type Dashboard struct {
 	Layers   Layers   `json:"layers"`
 	Training Training `json:"training"`
 }
 
+// Layers contains the data of the network's layers
 type Layers struct {
 	InputNodes   int `json:"input"`
 	HiddenLayers int `json:"hidden"`
 	OutputNodes  int `json:"output"`
 }
 
+// Training contains the data related to the training of the network
 type Training struct {
-	Rate  float64 `json:"rate"`
-	Error float64 `json:"error"`
-	Time  float64 `json:"time"`
+	Rate   float64   `json:"rate"`
+	Errors []float64 `json:"errors"`
+	Time   float64   `json:"time"`
 }
 
 // GetDashboardData encodes the json for the dashboard data
@@ -56,8 +59,8 @@ func GetLayers() Layers {
 func GetTraining() Training {
 	// Retrieve the information from the neural network
 	return Training{
-		Rate:  neuralNetwork.Rate,
-		Error: neuralNetwork.Error,
-		Time:  neuralNetwork.Time,
+		Rate:   neuralNetwork.Rate,
+		Errors: neuralNetwork.Errors,
+		Time:   neuralNetwork.Time,
 	}
 }
