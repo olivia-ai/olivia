@@ -23,12 +23,10 @@ func Serve(_neuralNetwork network.Network, port string) {
 	// Set the current global network as a global variable
 	neuralNetwork = _neuralNetwork
 
-	// Initializes the websocket
-	http.HandleFunc("/", SocketHandle)
-
 	// Initializes the router
 	router := mux.NewRouter()
 	router.HandleFunc("/dashboard", GetDashboardData).Methods("GET")
+	router.HandleFunc("/", SocketHandle)
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
