@@ -12,15 +12,20 @@ import (
 var neuralNetwork network.Network
 
 type Dashboard struct {
-	Layers       Layers  `json:"layers"`
-	LearningRate float64 `json:"learning_rate"`
-	ErrorLoss    float64 `json:"error_loss"`
+	Layers   Layers   `json:"layers"`
+	Training Training `json:"training"`
 }
 
 type Layers struct {
 	InputNodes   int `json:"input"`
 	HiddenLayers int `json:"hidden"`
 	OutputNodes  int `json:"output"`
+}
+
+type Training struct {
+	Rate  float64 `json:"rate"`
+	Error float64 `json:"error"`
+	Time  float64 `json:"time"`
 }
 
 // Serve serves the dashboard REST API on the port 8081 by default.
@@ -41,9 +46,8 @@ func GetDashboardData(w http.ResponseWriter, _ *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	dashboard := Dashboard{
-		Layers:       GetLayers(),
-		LearningRate: neuralNetwork.Rate,
-		ErrorLoss:    neuralNetwork.Error,
+		Layers:   GetLayers(),
+		Training: GetTraining(),
 	}
 
 	err := json.NewEncoder(w).Encode(dashboard)
@@ -52,7 +56,7 @@ func GetDashboardData(w http.ResponseWriter, _ *http.Request) {
 	}
 }
 
-// GetLayers returns the number of input, hidden and output layers
+// GetLayers returns the number of input, hidden and output layers of the network
 func GetLayers() Layers {
 	return Layers{
 		// Get the number of rows of the first layer to get the count of input nodes
@@ -61,5 +65,15 @@ func GetLayers() Layers {
 		HiddenLayers: len(neuralNetwork.Layers) - 2,
 		// Get the number of rows of the latest layer to get the count of output nodes
 		OutputNodes: network.Columns(neuralNetwork.Output),
+	}
+}
+
+// GetTraining returns the learning rate, training time and error loss for the network
+func GetTraining() Training {
+	// Retrieve the information from the neural network
+	return Training{
+		Rate:  neuralNetwork.Rate,
+		Error: neuralNetwork.Error,
+		Time:  neuralNetwork.Time,
 	}
 }
