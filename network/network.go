@@ -153,7 +153,7 @@ func (network *Network) Train(iterations int) {
 	// Create the progress bar
 	bar := pb.New(iterations).Postfix(fmt.Sprintf(
 		" - %s",
-		color.FgBlue.Render("Creating the neural network"),
+		color.FgBlue.Render("Training the neural network"),
 	))
 	bar.Format("(██░)")
 	bar.SetMaxWidth(60)

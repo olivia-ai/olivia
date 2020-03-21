@@ -8,6 +8,8 @@ import (
 	"reflect"
 	"time"
 
+	"github.com/olivia-ai/olivia/dashboard"
+
 	"github.com/gookit/color"
 	"github.com/gorilla/websocket"
 	"github.com/olivia-ai/olivia/analysis"
@@ -50,7 +52,18 @@ func main() {
 	}
 
 	magenta := color.FgMagenta.Render
-	fmt.Printf("\nListening on the port %s...\n", magenta(port))
+
+	// Serve the REST API inside a go routine
+	go func() {
+		fmt.Printf("Dashboard API listening on the port %s...\n", magenta(8081))
+
+		// Serve the API
+		dashboard.Serve(model)
+	}()
+
+	fmt.Printf("\nChat Websocket listening on the port %s...\n", magenta(port))
+
+	// Serves the websocket
 	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		panic(err)
