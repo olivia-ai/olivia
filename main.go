@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/olivia-ai/olivia/chat"
-	"github.com/olivia-ai/olivia/dashboard"
+	"os"
+
+	"github.com/olivia-ai/olivia/server"
 	"github.com/olivia-ai/olivia/training"
 )
 
@@ -12,11 +13,12 @@ var (
 )
 
 func main() {
-	// Serve the REST API inside a go routine
-	go func() {
-		dashboard.Serve(neuralNetwork, "8081")
-	}()
+	port := "8080"
+	// Get port from environment variables if there is
+	if os.Getenv("PORT") != "" {
+		port = os.Getenv("PORT")
+	}
 
-	// Serves the chat
-	chat.Serve(neuralNetwork, "8080")
+	// Serves the server
+	server.Serve(neuralNetwork, port)
 }
