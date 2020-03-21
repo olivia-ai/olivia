@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strconv"
 
 	"github.com/gookit/color"
 	"gopkg.in/cheggaaa/pb.v1"
@@ -17,6 +18,7 @@ type Network struct {
 	Biases  []Matrix
 	Output  Matrix
 	Rate    float64
+	Error   float64
 }
 
 // LoadNetwork returns a Network from a specified file
@@ -172,5 +174,10 @@ func (network *Network) Train(iterations int) {
 	bar.Finish()
 	// Print the error
 	arrangedError := fmt.Sprintf("%.5f", network.ComputeError())
+
+	// Set the error inside the network struct
+	errorLoss, _ := strconv.ParseFloat(arrangedError, 5)
+	network.Error = errorLoss
+
 	fmt.Printf("The error rate is %s.\n", color.FgGreen.Render(arrangedError))
 }

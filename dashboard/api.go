@@ -14,6 +14,7 @@ var neuralNetwork network.Network
 type Dashboard struct {
 	Layers       Layers  `json:"layers"`
 	LearningRate float64 `json:"learning_rate"`
+	ErrorLoss    float64 `json:"error_loss"`
 }
 
 type Layers struct {
@@ -42,6 +43,7 @@ func GetDashboardData(w http.ResponseWriter, _ *http.Request) {
 	dashboard := Dashboard{
 		Layers:       GetLayers(),
 		LearningRate: neuralNetwork.Rate,
+		ErrorLoss:    neuralNetwork.Error,
 	}
 
 	err := json.NewEncoder(w).Encode(dashboard)
