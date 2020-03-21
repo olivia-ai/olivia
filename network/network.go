@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"math"
 	"os"
-	"strconv"
 	"time"
 
 	"github.com/gookit/color"
@@ -20,7 +19,7 @@ type Network struct {
 	Biases  []Matrix
 	Output  Matrix
 	Rate    float64
-	Error   float64
+	Errors  []float64
 	Time    float64
 }
 
@@ -173,6 +172,15 @@ func (network *Network) Train(iterations int) {
 		network.FeedForward()
 		network.FeedBackward()
 
+		// Append errors for dashboard data
+		if i%(iterations/20) == 0 {
+			network.Errors = append(
+				network.Errors,
+				// Round the error to two decimals
+				network.ComputeError(),
+			)
+		}
+
 		// Increment the progress bar
 		bar.Increment()
 	}
@@ -180,10 +188,6 @@ func (network *Network) Train(iterations int) {
 	bar.Finish()
 	// Print the error
 	arrangedError := fmt.Sprintf("%.5f", network.ComputeError())
-
-	// Set the error inside the network struct
-	errorLoss, _ := strconv.ParseFloat(arrangedError, 5)
-	network.Error = errorLoss
 
 	// Calculate elapsed time
 	elapsed := time.Since(start)
