@@ -3,8 +3,10 @@ package network
 import (
 	"encoding/json"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/gookit/color"
 	"gopkg.in/cheggaaa/pb.v1"
@@ -19,6 +21,7 @@ type Network struct {
 	Output  Matrix
 	Rate    float64
 	Error   float64
+	Time    float64
 }
 
 // LoadNetwork returns a Network from a specified file
@@ -152,6 +155,9 @@ func (network *Network) ComputeError() float64 {
 // Train trains the neural network with a given number of iterations by executing
 // forward and back propagation
 func (network *Network) Train(iterations int) {
+	// Initialize the start time
+	start := time.Now()
+
 	// Create the progress bar
 	bar := pb.New(iterations).Postfix(fmt.Sprintf(
 		" - %s",
@@ -178,6 +184,11 @@ func (network *Network) Train(iterations int) {
 	// Set the error inside the network struct
 	errorLoss, _ := strconv.ParseFloat(arrangedError, 5)
 	network.Error = errorLoss
+
+	// Calculate elapsed time
+	elapsed := time.Since(start)
+	// Round the elapsed time at two decimals
+	network.Time = math.Floor(elapsed.Seconds()*100) / 100
 
 	fmt.Printf("The error rate is %s.\n", color.FgGreen.Render(arrangedError))
 }
