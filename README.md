@@ -19,10 +19,9 @@
   <a href="https://olivia-ai.org">Website</a> —
   <a href="https://olivia-ai.org/chat">Chat online</a> —
   <a href="https://olivia-ai.org/blog">Blog</a> —
-  <a href="https://olivia-ai.org/changelog">Changelog</a>
-  <br>
+  <a href="https://olivia-ai.org/changelog">Changelog</a> —
   <a href="#getting-started">Getting started</a> —
-  <a href="https://trello.com/b/azB6r2IC/olivia">Trello</a> —
+  <a href="https://trello.com/b/azB6r2IC/olivia">Projects</a> —
   <a href="#contributors">Contributors</a> —
   <a href="#license">License</a>
 </p>
@@ -65,8 +64,12 @@ The app will automatically check for `res/training.json` file which contains the
 By default when you clone the repository from Github you have a stable save.
 If you want to train a new model just delete this file and rerun the app.
 
-#### Go
-Clone the project:
+#### GitHub
+<p align="center">
+  <img height="100" src="https://i.imgur.com/RRPoP69.png">
+</p>
+
+Clone the project via GitHub:
 
 ```bash 
 $ git clone git@github.com:olivia-ai/olivia.git
@@ -85,7 +88,7 @@ $ go run main.go
 ## Contributors
 
 <p align="center">
-  <img alt="docker installation" height="90" src="https://i.imgur.com/6xr2zdp.png">
+  <img alt="docker installation" height="85" src="https://i.imgur.com/6xr2zdp.png">
 </p>
   
 ### Code Contributors
