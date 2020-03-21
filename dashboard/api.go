@@ -40,7 +40,7 @@ func GetLayers(w http.ResponseWriter, _ *http.Request) {
 		// Get the number of hidden layers by removing the count of the input and output layers
 		HiddenLayers: len(neuralNetwork.Layers) - 2,
 		// Get the number of rows of the latest layer to get the count of output nodes
-		OutputNodes: network.Rows(neuralNetwork.Layers[len(neuralNetwork.Layers[0])-1]),
+		OutputNodes: network.Rows(neuralNetwork.Output),
 	}
 
 	err := json.NewEncoder(w).Encode(layers)
