@@ -73,12 +73,10 @@ func Organize() (words, classes []string, documents []Document) {
 				patternSentence,
 				intent.Tag,
 			})
-
-			// Add the intent tag to class if it doesn't exists
-			if !util.Contains(classes, intent.Tag) {
-				classes = append(classes, intent.Tag)
-			}
 		}
+
+		// Add the intent tag to classes
+		classes = append(classes, intent.Tag)
 	}
 
 	sort.Strings(words)
