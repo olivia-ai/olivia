@@ -8,6 +8,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
+// Country is the serializer of the countries.json file in the res folder
 type Country struct {
 	OfficialName string   `json:"official_name"`
 	CommonName   string   `json:"common_name"`
@@ -36,13 +37,16 @@ func SerializeCountries() (countries []Country) {
 // FindCountry returns the country found in the sentence and if no country is found, returns an empty Country struct
 func FindCountry(sentence string) Country {
 	for _, country := range countries {
+		// If the actual country isn't contained in the sentence, continue
 		if !strings.Contains(strings.ToLower(sentence), strings.ToLower(country.CommonName)) &&
 			!strings.Contains(strings.ToLower(sentence), strings.ToLower(country.OfficialName)) {
 			continue
 		}
 
+		// Returns the right country
 		return country
 	}
 
+	// Returns an empty country if none has been found
 	return Country{}
 }
