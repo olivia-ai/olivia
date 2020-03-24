@@ -110,6 +110,7 @@ func (network *Network) FeedForward() {
 	}
 }
 
+// Predict returns the predicted value for a training example
 func (network *Network) Predict(input []float64) []float64 {
 	network.Layers[0] = Matrix{input}
 	network.FeedForward()
