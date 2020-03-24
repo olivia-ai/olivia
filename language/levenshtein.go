@@ -31,9 +31,11 @@ func LevenshteinDistance(first, second string) int {
 	return a + 1
 }
 
+// LevenshteinContains checks for a given matching string in a given sentence with a minimum rate for Levenshtein.
 func LevenshteinContains(sentence, matching string, rate int) bool {
 	words := strings.Split(sentence, " ")
 	for _, word := range words {
+		// Returns true if the distance is below the rate
 		if LevenshteinDistance(word, matching) <= rate {
 			return true
 		}
