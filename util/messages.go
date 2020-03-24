@@ -27,14 +27,17 @@ func SerializeMessages() (messages []Message) {
 // GetMessage retrieves a message tag and returns a random message chose from res/messages.json
 func GetMessage(tag string) string {
 	for _, message := range messages {
+		// Find the message with the right tag
 		if message.Tag != tag {
 			continue
 		}
 
+		// Returns the only element if there aren't more
 		if len(message.Messages) == 1 {
 			return message.Messages[0]
 		}
 
+		// Returns a random sentence
 		return message.Messages[rand.Intn(len(message.Messages))]
 	}
 
