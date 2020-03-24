@@ -12,7 +12,7 @@ func MultipliesByTwo(x float64) float64 {
 	return 2 * x
 }
 
-// SubstractsOne takes a float and returns the float subtracted by one
-func SubstractsOne(x float64) float64 {
+// SubtractsOne takes a float and returns the float subtracted by one
+func SubtractsOne(x float64) float64 {
 	return x - 1
 }
