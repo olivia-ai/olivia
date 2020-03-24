@@ -9,8 +9,8 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
-// TrainData returns the inputs and targets for the neural network
-func TrainData() (inputs, targets [][]float64) {
+// TrainData returns the inputs and outputs for the neural network
+func TrainData() (inputs, outputs [][]float64) {
 	words, classes, documents := analysis.Organize()
 
 	for _, document := range documents {
@@ -20,12 +20,12 @@ func TrainData() (inputs, targets [][]float64) {
 		// Change value to 1 where there is the document Tag
 		outputRow[util.Index(classes, document.Tag)] = 1
 
-		// Append data to trainx and trainy
+		// Append data to inputs and outputs
 		inputs = append(inputs, bag)
-		targets = append(targets, outputRow)
+		outputs = append(outputs, outputRow)
 	}
 
-	return inputs, targets
+	return inputs, outputs
 }
 
 // CreateNeuralNetwork returns a new neural network which is loaded from res/training.json or
@@ -35,11 +35,11 @@ func CreateNeuralNetwork() (neuralNetwork network.Network) {
 	saveFile := "res/training.json"
 
 	_, err := os.Open(saveFile)
+	// Train the model if there is no training file
 	if err != nil {
-		// Train the model if there is no training file
-		trainx, trainy := TrainData()
+		inputs, outputs := TrainData()
 
-		neuralNetwork = network.CreateNetwork(0.1, trainx, trainy, 50)
+		neuralNetwork = network.CreateNetwork(0.1, inputs, outputs, 50)
 		neuralNetwork.Train(1000)
 
 		// Save the neural network in res/training.json
