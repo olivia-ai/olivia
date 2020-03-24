@@ -1,11 +1,13 @@
 package user
 
+// Information is the user's information retrieved from the client
 type Information struct {
 	Name           string   `json:"name"`
 	MovieGenres    []string `json:"movie_genres"`
 	MovieBlacklist []string `json:"movie_blacklist"`
 }
 
+// userInformation is a map which is the cache for user information
 var userInformation = map[string]Information{}
 
 // ChangeUserInformation requires the token of the user and a function which gives the actual
