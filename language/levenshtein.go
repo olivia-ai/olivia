@@ -1,5 +1,9 @@
 package language
 
+import (
+	"strings"
+)
+
 // LevenshteinDistance calculates the Levenshtein Distance between two given words and returns it.
 // Please see https://en.wikipedia.org/wiki/Levenshtein_distance.
 func LevenshteinDistance(first, second string) int {
@@ -25,4 +29,15 @@ func LevenshteinDistance(first, second string) int {
 	}
 
 	return a + 1
+}
+
+func LevenshteinContains(sentence, matching string, rate int) bool {
+	words := strings.Split(sentence, " ")
+	for _, word := range words {
+		if LevenshteinDistance(word, matching) <= rate {
+			return true
+		}
+	}
+
+	return false
 }
