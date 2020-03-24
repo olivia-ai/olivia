@@ -15,6 +15,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
+// Movie is the serializer from res/movies.csv
 type Movie struct {
 	Name   string
 	Genres []string
@@ -22,6 +23,7 @@ type Movie struct {
 }
 
 var (
+	// Initializes movies genres
 	genres = []string{
 		"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
 		"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western",
@@ -29,6 +31,7 @@ var (
 	movies = SerializeMovies()
 )
 
+// SerializeMovies retrieves the content of res/movies.csv and serialize it
 func SerializeMovies() (movies []Movie) {
 	path := "res/movies.csv"
 	bytes, err := os.Open(path)
@@ -58,6 +61,7 @@ func SerializeMovies() (movies []Movie) {
 	return
 }
 
+// SearchMovie search a movie for a given genre
 func SearchMovie(genre, userToken string) (output Movie) {
 	for _, movie := range movies {
 		userMovieBlacklist := user.GetUserInformation(userToken).MovieBlacklist
