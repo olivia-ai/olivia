@@ -17,14 +17,33 @@
 
 <p align="center">
   <a href="https://olivia-ai.org">Website</a> —
-  <a href="https://olivia-ai.org/chat">Chat online</a> —
   <a href="https://olivia-ai.org/blog">Blog</a> —
-  <a href="https://olivia-ai.org/changelog">Changelog</a> —
   <a href="#getting-started">Getting started</a> —
+  <a href="#introduction">Introduction</a> —
   <a href="https://trello.com/b/azB6r2IC/olivia">Projects</a> —
   <a href="#contributors">Contributors</a> —
   <a href="#license">License</a>
 </p>
+
+## Introduction
+<p align="center">
+  <img alt="introduction" height="100" src="https://i.imgur.com/Ygm9CMc.png">
+</p>
+
+### Description
+Olivia is an open-source chatbot built in Golang using Machine Learning technologies.
+Its goal is to provide a free and open-source alternative to big services like DialogFlow. 
+
+You can chat with her by speaking (STT) or writing, she replies with a text message but you can enable her voice (TTS).
+
+You can clone the project and customize it as you want using [GitHub](https://github.com/olivia-ai/olivia)
+Try it on [her website!](https://olivia-ai.org)
+
+### Why Olivia?
+- The only chatbot project in Go that could be modulable and customizable.
+- Using daily a privacy-friendly chatbot is great.
+- The Website is a Progessive Web Application, which means you can add it to your phone and it seems like a native app!
+
 
 ## Getting started
 ### Installation
