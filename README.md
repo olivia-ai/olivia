@@ -17,10 +17,9 @@
 
 <p align="center">
   <a href="https://olivia-ai.org">Website</a> —
-  <a href="https://olivia-ai.org/blog">Blog</a> —
+  <a href="https://docs.olivia-ai.org">Documentation</a> —
   <a href="#getting-started">Getting started</a> —
   <a href="#introduction">Introduction</a> —
-  <a href="https://trello.com/b/azB6r2IC/olivia">Projects</a> —
   <a href="#contributors">Contributors</a> —
   <a href="#license">License</a>
 </p>
