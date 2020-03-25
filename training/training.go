@@ -10,8 +10,8 @@ import (
 )
 
 // TrainData returns the inputs and outputs for the neural network
-func TrainData() (inputs, outputs [][]float64) {
-	words, classes, documents := analysis.Organize()
+func TrainData(intentsPath string) (inputs, outputs [][]float64) {
+	words, classes, documents := analysis.Organize(intentsPath)
 
 	for _, document := range documents {
 		outputRow := make([]float64, len(classes))
@@ -30,14 +30,14 @@ func TrainData() (inputs, outputs [][]float64) {
 
 // CreateNeuralNetwork returns a new neural network which is loaded from res/training.json or
 // trained from TrainData() inputs and targets.
-func CreateNeuralNetwork() (neuralNetwork network.Network) {
+func CreateNeuralNetwork(intentsPath string) (neuralNetwork network.Network) {
 	// Decide if the network is created by the save or is a new one
 	saveFile := "res/training.json"
 
 	_, err := os.Open(saveFile)
 	// Train the model if there is no training file
 	if err != nil {
-		inputs, outputs := TrainData()
+		inputs, outputs := TrainData(intentsPath)
 
 		neuralNetwork = network.CreateNetwork(0.1, inputs, outputs, 50)
 		neuralNetwork.Train(1000)

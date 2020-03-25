@@ -37,8 +37,8 @@ func NewSentence(content string) (sentence Sentence) {
 }
 
 // PredictTag classifies the sentence with the model
-func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
-	words, classes, _ := Organize()
+func (sentence Sentence) PredictTag(neuralNetwork network.Network, intentsPath string) string {
+	words, classes, _ := Organize(intentsPath)
 
 	// Predict with the model
 	predict := neuralNetwork.Predict(sentence.WordsBag(words))
@@ -61,13 +61,13 @@ func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 
 // RandomizeResponse takes the entry message, the response tag and the token and returns a random
 // message from res/intents.json where the triggers are applied
-func RandomizeResponse(entry string, tag string, token string) (string, string) {
+func RandomizeResponse(intentsPath, entry, tag, token string) (string, string) {
 	if tag == DontUnderstand {
 		return DontUnderstand, util.GetMessage(tag)
 	}
 
 	// Append the modules intents to the intents from res/intents.json
-	intents := append(SerializeIntents(), SerializeModulesIntents()...)
+	intents := append(SerializeIntents(intentsPath), SerializeModulesIntents()...)
 
 	for _, intent := range intents {
 		if intent.Tag != tag {
@@ -97,16 +97,16 @@ func RandomizeResponse(entry string, tag string, token string) (string, string) 
 }
 
 // Calculate send the sentence content to the neural network and returns a response with the matching tag
-func (sentence Sentence) Calculate(cache gocache.Cache, neuralNetwork network.Network, token string) (string, string) {
+func (sentence Sentence) Calculate(cache gocache.Cache, neuralNetwork network.Network, intentsPath, token string) (string, string) {
 	tag, found := cache.Get(sentence.Content)
 
 	// Predict tag with the neural network if the sentence isn't in the cache
 	if !found {
-		tag = sentence.PredictTag(neuralNetwork)
+		tag = sentence.PredictTag(neuralNetwork, intentsPath)
 		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
 	}
 
-	return RandomizeResponse(sentence.Content, tag.(string), token)
+	return RandomizeResponse(intentsPath, sentence.Content, tag.(string), token)
 }
 
 // LogResults print in the console the sentence and its tags sorted by prediction

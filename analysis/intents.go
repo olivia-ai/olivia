@@ -24,10 +24,10 @@ type Document struct {
 }
 
 // SerializeIntents returns a list of intents retrieved from `res/intents.json`
-func SerializeIntents() []Intent {
+func SerializeIntents(intentsPath string) []Intent {
 	var intents []Intent
 
-	err := json.Unmarshal(util.ReadFile("res/intents.json"), &intents)
+	err := json.Unmarshal(util.ReadFile(intentsPath), &intents)
 	if err != nil {
 		panic(err)
 	}
@@ -54,9 +54,9 @@ func SerializeModulesIntents() []Intent {
 
 // Organize intents with an array of all words, an array with a representative word of each tag
 // and an array of Documents which contains a word list associated with a tag
-func Organize() (words, classes []string, documents []Document) {
+func Organize(intentsPath string) (words, classes []string, documents []Document) {
 	// Append the modules intents to the intents from res/intents.json
-	intents := append(SerializeIntents(), SerializeModulesIntents()...)
+	intents := append(SerializeIntents(intentsPath), SerializeModulesIntents()...)
 
 	for _, intent := range intents {
 		for _, pattern := range intent.Patterns {
