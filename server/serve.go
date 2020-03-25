@@ -14,14 +14,17 @@ import (
 var (
 	// Create the neural network variable to use it everywhere
 	neuralNetwork network.Network
-	// Initiatizes the cache with a 5 minute lifetime
+	// Initializes the cache with a 5 minute lifetime
 	cache = gocache.New(5*time.Minute, 5*time.Minute)
+	// Set the intents file path
+	intentsPath string
 )
 
 // Serve serves the server in the given port
-func Serve(_neuralNetwork network.Network, port string) {
+func Serve(_neuralNetwork network.Network, port, _intentsPath string) {
 	// Set the current global network as a global variable
 	neuralNetwork = _neuralNetwork
+	intentsPath = _intentsPath
 
 	// Initializes the router
 	router := mux.NewRouter()
