@@ -17,6 +17,7 @@ var neuralNetwork network.Network
 
 func main() {
 	intentsPath := flag.String("intents", "res/intents.json", "The path for intents file.")
+	port := flag.String("port", "8080", "The port for the API and WebSocket.")
 	flag.Parse()
 
 	magenta := color.FgMagenta.Render
@@ -24,12 +25,11 @@ func main() {
 
 	neuralNetwork = training.CreateNeuralNetwork(*intentsPath)
 
-	port := "8080"
 	// Get port from environment variables if there is
 	if os.Getenv("PORT") != "" {
-		port = os.Getenv("PORT")
+		*port = os.Getenv("PORT")
 	}
 
 	// Serves the server
-	server.Serve(neuralNetwork, port, *intentsPath)
+	server.Serve(neuralNetwork, *port, *intentsPath)
 }
