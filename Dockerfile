@@ -8,6 +8,6 @@ RUN go mod download
 COPY . .
 RUN go test
 RUN go build -o main .
-EXPOSE 8080
+EXPOSE $PORT
 
-CMD ["./main"]
+CMD ["./main", "-port=$PORT"]
