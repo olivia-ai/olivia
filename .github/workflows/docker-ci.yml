@@ -37,18 +37,4 @@ jobs:
         run: echo ${{ secrets.TOKEN }} | docker login docker.pkg.github.com --username ${{ secrets.USERNAME }} --password-stdin
       - name: Publish the image
         run: docker push docker.pkg.github.com/olivia-ai/olivia/olivia:latest
-  
-  compose-up:
-    name: Tests the docker-compose
-    needs: publish
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Login to docker.pkg.github.com
-        run: echo ${{ secrets.TOKEN }} | docker login docker.pkg.github.com --username ${{ secrets.USERNAME }} --password-stdin
-      - name: Pull the images 
-        run: docker-compose pull
-      - name: Start the services
-        run: docker-compose start
-        
         
