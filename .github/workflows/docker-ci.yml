@@ -48,7 +48,7 @@ jobs:
         run: echo ${{ secrets.TOKEN }} | docker login docker.pkg.github.com --username ${{ secrets.USERNAME }} --password-stdin
       - name: Pull the images 
         run: docker-compose pull
-      - name: Launch the compose
-        run: docker-compose up
+      - name: Start the services
+        run: docker-compose start
         
         
