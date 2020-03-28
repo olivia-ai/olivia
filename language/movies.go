@@ -87,7 +87,7 @@ func SearchMovie(genre, userToken string) (output Movie) {
 // FindMoviesGenres returns an array of genres found in the entry string
 func FindMoviesGenres(content string) (output []string) {
 	for _, genre := range genres {
-		if LevenshteinContains(strings.ToUpper(content), strings.ToUpper(genre), 3) {
+		if LevenshteinContains(strings.ToUpper(content), strings.ToUpper(genre), 2) {
 			output = append(output, genre)
 		}
 	}
