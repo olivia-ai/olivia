@@ -10,7 +10,9 @@
   <a href="https://goreportcard.com/report/github.com/olivia-ai/olivia"><img src="https://goreportcard.com/badge/github.com/olivia-ai/olivia"></a>
   <a href="https://godoc.org/github.com/olivia-ai/olivia"><img src="https://godoc.org/github.com/olivia-ai/olivia?status.svg" alt="GoDoc"></a>
   <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=shield"></a>
+  <a href="https://codecov.io/gh/olivia-ai/olivia"><img src="https://codecov.io/gh/olivia-ai/olivia/branch/master/graph/badge.svg" /></a>
   <br>
+  <img src="https://github.com/olivia-ai/olivia/workflows/Code%20coverage/badge.svg">
   <img src="https://github.com/olivia-ai/olivia/workflows/Docker%20CI/badge.svg">
   <img src="https://github.com/olivia-ai/olivia/workflows/Format%20checker/badge.svg">
 </p>
