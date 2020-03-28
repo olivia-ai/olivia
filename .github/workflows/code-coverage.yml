@@ -1,0 +1,17 @@
+name: Code coverage
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Generate coverage
+      run: go test ./... -race -coverprofile=coverage.txt -covermode=atomic
+    - name: Upload coverage
+      run: bash <(curl -s https://codecov.io/bash)
