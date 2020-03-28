@@ -16,6 +16,7 @@ func ChangeUserInformation(token string, changer func(Information) Information) 
 	userInformation[token] = changer(userInformation[token])
 }
 
+// SetUserInformation sets the user's information by its token.
 func SetUserInformation(token string, information Information) {
 	userInformation[token] = information
 }

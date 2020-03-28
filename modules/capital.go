@@ -24,6 +24,9 @@ func init() {
 	})
 }
 
+// CapitalReplacer replaces the pattern contained inside the response by the capital of the country
+// specified in the message.
+// See modules/modules.go#Module.Replacer() for more details.
 func CapitalReplacer(entry, response, _ string) (string, string) {
 	country := language.FindCountry(entry)
 
