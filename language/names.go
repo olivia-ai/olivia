@@ -8,6 +8,7 @@ import (
 
 var names = SerializeNames()
 
+// SerializeNames retrieves all the names from res/names.txt and returns an array of names
 func SerializeNames() (names []string) {
 	namesFile := string(util.ReadFile("res/names.txt"))
 

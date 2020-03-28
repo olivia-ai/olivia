@@ -23,6 +23,9 @@ func init() {
 	})
 }
 
+// AreaReplacer replaces the pattern contained inside the response by the area of the country
+// specified in the message.
+// See modules/modules.go#Module.Replacer() for more details.
 func AreaReplacer(entry, response, _ string) (string, string) {
 	country := language.FindCountry(entry)
 

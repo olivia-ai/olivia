@@ -39,6 +39,8 @@ func init() {
 	})
 }
 
+// NameGetterReplacer replaces the pattern contained inside the response by the user's name.
+// See modules/modules.go#Module.Replacer() for more details.
 func NameGetterReplacer(_, response, token string) (string, string) {
 	name := user.GetUserInformation(token).Name
 
@@ -50,6 +52,8 @@ func NameGetterReplacer(_, response, token string) (string, string) {
 	return nameGetterTag, fmt.Sprintf(response, name)
 }
 
+// NameSetterReplacer gets the name specified in the message and save it in the user's information.
+// See modules/modules.go#Module.Replacer() for more details.
 func NameSetterReplacer(entry, response, token string) (string, string) {
 	name := language.FindName(entry)
 

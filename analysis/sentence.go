@@ -13,6 +13,7 @@ import (
 	gocache "github.com/patrickmn/go-cache"
 )
 
+// A Sentence represents simply a sentence with its content as a string
 type Sentence struct {
 	Content string
 }

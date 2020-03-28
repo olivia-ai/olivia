@@ -26,6 +26,9 @@ func init() {
 	})
 }
 
+// MathReplacer replaces the pattern contained inside the response by the answer of the math
+// expression specified in the message.
+// See modules/modules.go#Module.Replacer() for more details.
 func MathReplacer(entry, response, _ string) (string, string) {
 	operation := language.FindMathOperation(entry)
 

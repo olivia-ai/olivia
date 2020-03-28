@@ -25,6 +25,9 @@ func init() {
 	})
 }
 
+// CurrencyReplacer replaces the pattern contained inside the response by the currency of the country
+// specified in the message.
+// See modules/modules.go#Module.Replacer() for more details.
 func CurrencyReplacer(entry, response, _ string) (string, string) {
 	country := language.FindCountry(entry)
 

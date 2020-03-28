@@ -22,6 +22,8 @@ func init() {
 	})
 }
 
+// RandomNumberReplacer replaces the pattern contained inside the response by a random number.
+// See modules/modules.go#Module.Replacer() for more details.
 func RandomNumberReplacer(_, response, _ string) (string, string) {
 	return randomTag, fmt.Sprintf(response, strconv.Itoa(rand.Intn(100)))
 }
