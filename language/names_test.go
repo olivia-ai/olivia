@@ -1,6 +1,17 @@
 package language
 
-import "testing"
+import (
+	"testing"
+)
+
+func TestSerializeNames(t *testing.T) {
+	names := SerializeNames()
+	excepted := "a'isha"
+
+	if names[1] != excepted {
+		t.Errorf("SerializeNames() failed, excepted %s got %s.", excepted, names[0])
+	}
+}
 
 func TestFindName(t *testing.T) {
 	sentence := "My name is Hugo"
