@@ -1,7 +1,9 @@
 package date
 
 import (
+	"fmt"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -21,6 +23,7 @@ var daysOfWeek = map[string]time.Weekday{
 func init() {
 	// Register the rules
 	RegisterRule(RuleTomorrow)
+	RegisterRule(RuleDayOfWeek)
 }
 
 // RuleTomorrow checks for "tomorrow" and "after tomorrow" dates in the given sentence, then
@@ -82,4 +85,50 @@ func RuleDayOfWeek(sentence string) time.Time {
 
 	// Then add the calculated number of day to the actual date
 	return time.Now().Add(day * time.Duration(calculatedDate))
+}
+
+// RuleDayOfWeek checks for the dates written in natural language in the given sentence,
+// then it returns the date parsed.
+func RuleNaturalDate(sentence string) time.Time {
+	naturalMonthRegex := regexp.MustCompile(
+		`january|february|march|april|may|june|july|august|september|october|november|december`,
+	)
+	naturalDayRegex := regexp.MustCompile(`\d{2}|\d`)
+
+	month := naturalMonthRegex.FindString(sentence)
+	day := naturalDayRegex.FindString(sentence)
+
+	parsedMonth, _ := time.Parse("January", month)
+	parsedDay, _ := strconv.Atoi(day)
+
+	// Returns an empty date struct if no date has been found
+	if day == "" && month == "" {
+		return time.Time{}
+	}
+
+	// If only the month is specified
+	if day == "" {
+		// Calculate the number of months to add
+		calculatedMonth := parsedMonth.Month() - time.Now().Month()
+		// Add a year if the month is passed
+		if calculatedMonth <= 0 {
+			calculatedMonth += 12
+		}
+
+		return time.Now().AddDate(0, int(calculatedMonth), 0)
+	}
+
+	// Parse the date
+	parsedDate := fmt.Sprintf("%d-%02d-%02d", time.Now().Year(), parsedMonth.Month(), parsedDay)
+	date, err := time.Parse("2006-01-02", parsedDate)
+	if err != nil {
+		return time.Time{}
+	}
+
+	// If the date has been passed, add a year
+	if time.Now().After(date) {
+		date = date.AddDate(1, 0, 0)
+	}
+
+	return date
 }
