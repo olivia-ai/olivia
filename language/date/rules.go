@@ -1,4 +1,4 @@
-package language
+package date
 
 import (
 	"regexp"
@@ -6,9 +6,9 @@ import (
 	"time"
 )
 
-// SearchTime returns the time found in the given sentence
-func SearchTime(sentence string) {
-
+func init() {
+	// Register the rules
+	RegisterRule(RuleTomorrow)
 }
 
 // RuleTomorrow checks for "tomorrow" and "after tomorrow" dates in the given sentence, then
@@ -17,7 +17,7 @@ func RuleTomorrow(sentence string) (result time.Time) {
 	tomorrowRegex := regexp.MustCompile(`(after )?tomorrow`)
 	date := tomorrowRegex.FindString(sentence)
 
-	// Returns an empty time struct if no date has been found
+	// Returns an empty date struct if no date has been found
 	if date == "" {
 		return time.Time{}
 	}
