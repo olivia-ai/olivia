@@ -25,7 +25,7 @@ type Layers struct {
 type Training struct {
 	Rate   float64   `json:"rate"`
 	Errors []float64 `json:"errors"`
-	Time   float64   `json:"time"`
+	Time   float64   `json:"date"`
 }
 
 // GetDashboardData encodes the json for the dashboard data
@@ -55,7 +55,7 @@ func GetLayers() Layers {
 	}
 }
 
-// GetTraining returns the learning rate, training time and error loss for the network
+// GetTraining returns the learning rate, training date and error loss for the network
 func GetTraining() Training {
 	// Retrieve the information from the neural network
 	return Training{
