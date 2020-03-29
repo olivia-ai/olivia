@@ -58,17 +58,20 @@ func RuleDayOfWeek(sentence string) time.Time {
 	var foundDayOfWeek int
 	// Find the integer value of the found day of the week
 	for _, dayOfWeek := range daysOfWeek {
-		if strings.Contains(date, dayOfWeek.String()) {
+		// Down case the day of the week to match the found date
+		stringDayOfWeek := strings.ToLower(dayOfWeek.String())
+
+		if strings.Contains(date, stringDayOfWeek) {
 			foundDayOfWeek = int(dayOfWeek)
 		}
 	}
 
 	currentDay := int(time.Now().Weekday())
 	// Calculate the date of the found day
-	calculatedDate := currentDay - foundDayOfWeek
+	calculatedDate := foundDayOfWeek - currentDay
 
 	// If the day is already passed in the current week, then we add another week to the count
-	if calculatedDate < 0 {
+	if calculatedDate <= 0 {
 		calculatedDate += 7
 	}
 
