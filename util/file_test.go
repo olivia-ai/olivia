@@ -5,9 +5,9 @@ import (
 )
 
 func TestReadFile(t *testing.T) {
-	bytes := ReadFile(".env")
+	bytes := ReadFile("res/test/test.txt")
 
-	if string(bytes) != "PORT=8080" {
+	if string(bytes) != "test" {
 		t.Errorf("file.ReadFile() failed.")
 	}
 }

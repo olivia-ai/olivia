@@ -155,7 +155,7 @@ func (network *Network) ComputeError() float64 {
 // Train trains the neural network with a given number of iterations by executing
 // forward and back propagation
 func (network *Network) Train(iterations int) {
-	// Initialize the start time
+	// Initialize the start date
 	start := time.Now()
 
 	// Create the progress bar
@@ -190,9 +190,9 @@ func (network *Network) Train(iterations int) {
 	// Print the error
 	arrangedError := fmt.Sprintf("%.5f", network.ComputeError())
 
-	// Calculate elapsed time
+	// Calculate elapsed date
 	elapsed := time.Since(start)
-	// Round the elapsed time at two decimals
+	// Round the elapsed date at two decimals
 	network.Time = math.Floor(elapsed.Seconds()*100) / 100
 
 	fmt.Printf("The error rate is %s.\n", color.FgGreen.Render(arrangedError))
