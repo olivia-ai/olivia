@@ -24,6 +24,7 @@ func init() {
 	// Register the rules
 	RegisterRule(RuleTomorrow)
 	RegisterRule(RuleDayOfWeek)
+	RegisterRule(RuleNaturalDate)
 }
 
 // RuleTomorrow checks for "tomorrow" and "after tomorrow" dates in the given sentence, then
