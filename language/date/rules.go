@@ -115,7 +115,8 @@ func RuleNaturalDate(sentence string) time.Time {
 			calculatedMonth += 12
 		}
 
-		return time.Now().AddDate(0, int(calculatedMonth), 0)
+		// Remove the number of days elapsed in the month to reach the first
+		return time.Now().AddDate(0, int(calculatedMonth), -time.Now().Day()+1)
 	}
 
 	// Parse the date
