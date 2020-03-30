@@ -63,6 +63,23 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 		// If the type of requests is a handshake then execute the start modules
 		if request.Type == 0 {
 			start.ExecuteModules(request.Token)
+
+			// Generate the response to send to the user
+			response := ResponseMessage{
+				Content:     start.GetMessage(),
+				Tag:         "start module",
+				Information: user.GetUserInformation(request.Token),
+			}
+
+			bytes, err := json.Marshal(response)
+			if err != nil {
+				panic(err)
+			}
+
+			if err = conn.WriteMessage(msgType, bytes); err != nil {
+				continue
+			}
+
 			continue
 		}
 

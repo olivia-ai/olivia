@@ -11,11 +11,24 @@ type Module struct {
 	Action func(string)
 }
 
-var modules []Module
+var (
+	modules []Module
+	message string
+)
 
 // RegisterModule registers the given module in the array
 func RegisterModule(module Module) {
 	modules = append(modules, module)
+}
+
+// SendMessage register the message which will be sent to the client
+func SendMessage(_message string) {
+	message = _message
+}
+
+// GetMessages returns the messages that needs to be sent
+func GetMessage() string {
+	return message
 }
 
 // ExecuteModules will execute all the registered start modules with the user token
