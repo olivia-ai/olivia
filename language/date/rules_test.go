@@ -61,10 +61,10 @@ func TestRuleNaturalDate(t *testing.T) {
 }
 
 func TestRuleDate(t *testing.T) {
-	sentence := "Remind me that I have an exam the 04/12"
+	sentence := "Remind me that I have an exam the 12/04"
 	date := RuleDate(sentence)
 
-	if date.Day() != 12 || date.Month() != 4 {
+	if date.Day() != 4 || date.Month() != 12 {
 		t.Errorf("RuleData() failed, excepted 04/12 got %s.", date)
 	}
 }
