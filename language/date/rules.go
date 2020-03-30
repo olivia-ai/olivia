@@ -22,11 +22,11 @@ var daysOfWeek = map[string]time.Weekday{
 
 func init() {
 	// Register the rules
+	RegisterRule(RuleToday)
 	RegisterRule(RuleTomorrow)
 	RegisterRule(RuleDayOfWeek)
 	RegisterRule(RuleNaturalDate)
 	RegisterRule(RuleDate)
-	RegisterRule(RuleToday)
 }
 
 // RuleToday checks for today, tonight, this afternoon dates in the given sentence, then
