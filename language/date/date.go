@@ -14,6 +14,7 @@ func SearchTime(sentence string) (string, time.Time) {
 
 		// If the current rule found a date
 		if date != (time.Time{}) {
+			sentence = DeleteTimes(sentence)
 			return DeleteDates(sentence), date
 		}
 	}
@@ -30,6 +31,17 @@ func DeleteDates(sentence string) string {
 
 	// Replace the dates by empty string
 	sentence = datePatterns.ReplaceAllString(sentence, "")
+	// Trim the spaces and return
+	return strings.TrimSpace(sentence)
+}
+
+// DeleteTimes removes the times of the given sentence and returns it
+func DeleteTimes(sentence string) string {
+	// Create a regex to match the patterns of times to remove them.
+	timePatterns := regexp.MustCompile(`(at )?(\d{2}|\d)(:\d{2}|\d)?( )?(pm|am)`)
+
+	// Replace the times by empty string
+	sentence = timePatterns.ReplaceAllString(sentence, "")
 	// Trim the spaces and return
 	return strings.TrimSpace(sentence)
 }
