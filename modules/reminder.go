@@ -2,6 +2,7 @@ package modules
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/olivia-ai/olivia/user"
 
@@ -10,7 +11,10 @@ import (
 	"github.com/olivia-ai/olivia/language/date"
 )
 
-var reminderSetterTag = "reminder setter"
+var (
+	reminderSetterTag = "reminder setter"
+	reminderGetterTag = "reminder getter"
+)
 
 func init() {
 	RegisterModule(Module{
@@ -23,6 +27,20 @@ func init() {
 			"Noted! I will remind you: “%s” for the %s",
 		},
 		Replacer: ReminderSetterReplacer,
+	})
+
+	RegisterModule(Module{
+		Tag: reminderGetterTag,
+		Patterns: []string{
+			"What are my reminders",
+			"What did I ask for you to remember",
+			"Could you list my reminders",
+			"Didn't I ask you to remember something",
+		},
+		Responses: []string{
+			"You asked me to remember those things:\n%s",
+		},
+		Replacer: ReminderGetterReplacer,
 	})
 }
 
@@ -47,5 +65,26 @@ func ReminderSetterReplacer(entry, response, token string) (string, string) {
 		return information
 	})
 
-	return areaTag, fmt.Sprintf(response, reason, formattedDate)
+	return reminderSetterTag, fmt.Sprintf(response, reason, formattedDate)
+}
+
+// ReminderSetterReplacer gets the reminders in the user's information and replaces the pattern in the
+// response patterns by the current reminders
+// See modules/modules.go#Module.Replacer() for more details.
+func ReminderGetterReplacer(_, response, token string) (string, string) {
+	reminders := user.GetUserInformation(token).Reminders
+	var formattedReminders []string
+
+	// Iterate through the reminders and parse them
+	for _, reminder := range reminders {
+		formattedReminder := fmt.Sprintf("- “%s” for the %s", reminder.Reason, reminder.Date)
+		formattedReminders = append(formattedReminders, formattedReminder)
+	}
+
+	// If no reminder has been found
+	if len(formattedReminders) == 0 {
+		return reminderGetterTag, "You have no reminders saved."
+	}
+
+	return reminderGetterTag, fmt.Sprintf(response, strings.Join(formattedReminders, " "))
 }
