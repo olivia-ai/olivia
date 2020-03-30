@@ -19,7 +19,7 @@ func TestRuleTomorrow(t *testing.T) {
 	}
 
 	for sentence, date := range sentences {
-		foundDate := SearchTime(sentence)
+		foundDate := RuleTomorrow(sentence)
 		if !CheckEquality(date, foundDate) {
 			t.Errorf("SearchTime() failed, excepted %s got %s.", date, foundDate)
 		}
