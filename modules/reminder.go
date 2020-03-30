@@ -20,9 +20,10 @@ func init() {
 	RegisterModule(Module{
 		Tag: reminderSetterTag,
 		Patterns: []string{
-			"Remind me to call mom",
+			"Remind me to cook a breakfast at 8pm",
+			"Remind me to call mom tuesday",
 			"Note that I have an exam",
-			"Remind me that I have to  tomorrow at 9pm",
+			"Remind me that I have a conference call tomorrow at 9pm",
 		},
 		Responses: []string{
 			"Noted! I will remind you: “%s” for the %s",
