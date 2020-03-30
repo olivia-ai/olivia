@@ -9,11 +9,19 @@ import (
 // SearchTime returns the found date in the given sentence and the sentence without the date, if no date has
 // been found, it returns an empty date and the given sentence.
 func SearchTime(sentence string) (string, time.Time) {
+	_time := RuleTime(sentence)
+	// Set the time to 12am if no time has been found
+	if _time == (time.Time{}) {
+		_time = time.Date(0, 0, 0, 12, 0, 0, 0, time.UTC)
+	}
+
 	for _, rule := range rules {
 		date := rule(sentence)
 
 		// If the current rule found a date
 		if date != (time.Time{}) {
+			date = time.Date(date.Year(), date.Month(), date.Day(), _time.Hour(), _time.Minute(), 0, 0, time.UTC)
+
 			sentence = DeleteTimes(sentence)
 			return DeleteDates(sentence), date
 		}
