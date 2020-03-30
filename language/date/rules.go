@@ -134,3 +134,30 @@ func RuleNaturalDate(sentence string) time.Time {
 
 	return date
 }
+
+// RuleDate checks for dates written like mm/dd
+func RuleDate(sentence string) time.Time {
+	dateRegex := regexp.MustCompile(`(\d{2}|\d)/(\d{2}|\d)`)
+	date := dateRegex.FindString(sentence)
+
+	// Returns an empty date struct if no date has been found
+	if date == "" {
+		return time.Time{}
+	}
+
+	// Parse the found date
+	parsedDate, err := time.Parse("01/02", date)
+	if err != nil {
+		return time.Time{}
+	}
+
+	// Add the current year to the date
+	parsedDate = parsedDate.AddDate(time.Now().Year(), 0, 0)
+
+	// Add another year if the date is passed
+	if time.Now().After(parsedDate) {
+		parsedDate = parsedDate.AddDate(1, 0, 0)
+	}
+
+	return parsedDate
+}
