@@ -16,14 +16,25 @@ func init() {
 func CheckReminders(token string) {
 	reminders := user.GetUserInformation(token).Reminders
 
+	// Iterate through the reminders to check if they are outdated
 	for i, reminder := range reminders {
-		date, _ := time.Parse("01-02-2006", reminder.Date)
+		date, _ := time.Parse("01/02/2006", reminder.Date)
 
 		// If the date of the reminder has already been passed
 		if time.Now().After(date) {
-			// Change the user information to remove the current reminder
 			user.ChangeUserInformation(token, func(information user.Information) user.Information {
-				information.Reminders = append(information.Reminders[:i], information.Reminders[i+1:]...)
+				reminders := information.Reminders
+
+				// Removes the element from the reminders slice
+				if len(reminders) == 1 {
+					reminders = []user.Reminder{}
+				} else {
+					reminders[i] = reminders[len(reminders)-1]
+					reminders = reminders[:len(reminders)-1]
+				}
+
+				// Set the updated slice
+				information.Reminders = reminders
 
 				return information
 			})

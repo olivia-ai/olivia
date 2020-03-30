@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"reflect"
 
+	"github.com/olivia-ai/olivia/modules/start"
+
 	"github.com/gookit/color"
 	"github.com/gorilla/websocket"
 	"github.com/olivia-ai/olivia/analysis"
@@ -22,6 +24,7 @@ var upgrader = websocket.Upgrader{
 
 // RequestMessage is the structure that uses entry connections to chat with the websocket
 type RequestMessage struct {
+	Type        int              `json:"type"` // 0 for handshakes and 1 for messages
 	Content     string           `json:"content"`
 	Token       string           `json:"user_token"`
 	Information user.Information `json:"information"`
@@ -57,8 +60,9 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 			user.SetUserInformation(request.Token, request.Information)
 		}
 
-		// Continue if the content is empty
-		if request.Content == "" {
+		// If the type of requests is a handshake then execute the start modules
+		if request.Type == 0 {
+			start.ExecuteModules(request.Token)
 			continue
 		}
 
