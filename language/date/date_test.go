@@ -19,3 +19,18 @@ func TestDeleteDates(t *testing.T) {
 		}
 	}
 }
+
+func TestDeleteTimes(t *testing.T) {
+	sentences := map[string]string{
+		"Remind me to call mom tomorrow at 9:30pm":       "Remind me to call mom tomorrow",
+		"Remind me to cook eggs after tomorrow at 12 am": "Remind me to cook eggs after tomorrow",
+	}
+
+	for sentence, excepted := range sentences {
+		deleteTimesSentence := DeleteTimes(sentence)
+
+		if excepted != deleteTimesSentence {
+			t.Errorf("DeleteTimes() failed, excepted %s got %s.", excepted, deleteTimesSentence)
+		}
+	}
+}

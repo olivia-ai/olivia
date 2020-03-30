@@ -162,3 +162,40 @@ func RuleDate(sentence string) time.Time {
 
 	return parsedDate
 }
+
+// RuleTime checks for an hour written like 9pm
+func RuleTime(sentence string) time.Time {
+	timeRegex := regexp.MustCompile(`(\d{2}|\d)(:\d{2}|\d)?( )?(pm|am)`)
+	foundTime := timeRegex.FindString(sentence)
+
+	// Returns an empty date struct if no date has been found
+	if foundTime == "" {
+		return time.Time{}
+	}
+
+	// Initialize the part of the day asked
+	part := "am"
+	if strings.Contains(foundTime, "pm") {
+		part = "pm"
+	}
+
+	if strings.Contains(foundTime, ":") {
+		// Get the hours and minutes of the given time
+		hoursAndMinutesRegex := regexp.MustCompile(`(\d{2}|\d):(\d{2}|\d)`)
+		timeVariables := strings.Split(hoursAndMinutesRegex.FindString(foundTime), ":")
+
+		// Format the time with 2 digits for each
+		formattedTime := fmt.Sprintf("%02s:%02s %s", timeVariables[0], timeVariables[1], part)
+		response, _ := time.Parse("03:04 pm", formattedTime)
+
+		return response
+	}
+
+	digitsRegex := regexp.MustCompile(`\d{2}|\d`)
+	foundDigits := digitsRegex.FindString(foundTime)
+
+	formattedTime := fmt.Sprintf("%02s %s", foundDigits, part)
+	response, _ := time.Parse("03 pm", formattedTime)
+
+	return response
+}

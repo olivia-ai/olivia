@@ -68,3 +68,12 @@ func TestRuleDate(t *testing.T) {
 		t.Errorf("RuleData() failed, excepted 04/12 got %s.", date)
 	}
 }
+
+func TestRuleTime(t *testing.T) {
+	sentence := "Remind me that I have an exam the 12/04 at 9:30 pm"
+	time := RuleTime(sentence)
+
+	if time.Hour() != 21 || time.Minute() != 30 {
+		t.Errorf("RuleTime() failed, excepted 21:30 got %s.", time)
+	}
+}
