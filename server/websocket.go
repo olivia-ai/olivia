@@ -57,6 +57,11 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 			user.SetUserInformation(request.Token, request.Information)
 		}
 
+		// Continue if the content is empty
+		if request.Content == "" {
+			continue
+		}
+
 		// Write message back to browser
 		response := Reply(request)
 		if err = conn.WriteMessage(msgType, response); err != nil {
