@@ -10,6 +10,15 @@ func CheckEquality(a, b time.Time) bool {
 	return a.Day() == b.Day() || a.Year() == b.Year() || a.Month() == b.Month()
 }
 
+func TestRuleToday(t *testing.T) {
+	sentence := "Remind me that I have an exam today"
+	date := RuleToday(sentence)
+
+	if !CheckEquality(time.Now(), RuleToday(sentence)) {
+		t.Errorf("RuleToday() failed, excepted %s got %s.", time.Now(), date)
+	}
+}
+
 func TestRuleTomorrow(t *testing.T) {
 	day := time.Hour * 24
 

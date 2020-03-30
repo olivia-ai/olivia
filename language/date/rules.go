@@ -26,6 +26,21 @@ func init() {
 	RegisterRule(RuleDayOfWeek)
 	RegisterRule(RuleNaturalDate)
 	RegisterRule(RuleDate)
+	RegisterRule(RuleToday)
+}
+
+// RuleToday checks for today, tonight, this afternoon dates in the given sentence, then
+// it returns the date parsed.
+func RuleToday(sentence string) (result time.Time) {
+	todayRegex := regexp.MustCompile("today|tonight")
+	today := todayRegex.FindString(sentence)
+
+	// Returns an empty date struct if no date has been found
+	if today == "" {
+		return time.Time{}
+	}
+
+	return time.Now()
 }
 
 // RuleTomorrow checks for "tomorrow" and "after tomorrow" dates in the given sentence, then

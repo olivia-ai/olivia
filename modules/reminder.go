@@ -22,6 +22,7 @@ func init() {
 		Patterns: []string{
 			"Remind me to call mom",
 			"Note that I have an exam",
+			"Remind me that I have to cook tomorrow at 9pm",
 		},
 		Responses: []string{
 			"Noted! I will remind you: “%s” for the %s",
@@ -53,7 +54,7 @@ func ReminderSetterReplacer(entry, response, token string) (string, string) {
 	reason := language.SearchReason(sentence)
 
 	// Format the date
-	formattedDate := date.Format("01/02/2006")
+	formattedDate := date.Format("01/02/2006 03:04")
 
 	// Add the reminder inside the user's information
 	user.ChangeUserInformation(token, func(information user.Information) user.Information {
