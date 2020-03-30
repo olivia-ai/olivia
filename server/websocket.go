@@ -46,13 +46,13 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 
-		// Unserialize the json content of the message
+		// Unmarshal the json content of the message
 		var request RequestMessage
 		if err = json.Unmarshal(msg, &request); err != nil {
 			continue
 		}
 
-		// Set the informations from the client into the cache
+		// Set the information from the client into the cache
 		if reflect.DeepEqual(user.GetUserInformation(request.Token), user.Information{}) {
 			user.SetUserInformation(request.Token, request.Information)
 		}
