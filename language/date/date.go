@@ -34,7 +34,7 @@ func SearchTime(sentence string) (string, time.Time) {
 func DeleteDates(sentence string) string {
 	// Create a regex to match the patterns of dates to remove them.
 	datePatterns := regexp.MustCompile(
-		`(of )?(the )?((after )?tomorrow|((next )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday))|(\d{2}|\d)(th|rd|st|nd)? (of )?(january|february|march|april|may|june|july|august|september|october|november|december)|((\d{2}|\d)/(\d{2}|\d)))`,
+		`(of )?(the )?((after )?tomorrow|((today|tonight)|(next )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday))|(\d{2}|\d)(th|rd|st|nd)? (of )?(january|february|march|april|may|june|july|august|september|october|november|december)|((\d{2}|\d)/(\d{2}|\d)))`,
 	)
 
 	// Replace the dates by empty string

@@ -22,7 +22,7 @@ func init() {
 		Patterns: []string{
 			"Remind me to call mom",
 			"Note that I have an exam",
-			"Remind me that I have to cook tomorrow at 9pm",
+			"Remind me that I have to  tomorrow at 9pm",
 		},
 		Responses: []string{
 			"Noted! I will remind you: “%s” for the %s",
@@ -33,10 +33,8 @@ func init() {
 	RegisterModule(Module{
 		Tag: reminderGetterTag,
 		Patterns: []string{
-			"What are my reminders",
 			"What did I ask for you to remember",
 			"Could you list my reminders",
-			"Didn't I ask you to remember something",
 		},
 		Responses: []string{
 			"You asked me to remember those things:\n%s",
