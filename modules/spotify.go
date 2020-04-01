@@ -20,10 +20,12 @@ var (
 	tokenChannel = make(chan *oauth2.Token)
 	state        = "abc123"
 	auth         = spotify.NewAuthenticator(
-		"http://localhost:8080/callback",
+		"https://olivia-api.herokuapp.com/callback",
 		spotify.ScopeStreaming,
 		spotify.ScopeUserModifyPlaybackState,
 	)
+
+	redirectURL = "https://olivia-ai.org/chat"
 )
 
 func init() {
@@ -116,7 +118,7 @@ func CompleteAuth(w http.ResponseWriter, r *http.Request) {
 	// Use the token to get an authenticated client
 	w.Header().Set("Content-Type", "text/html")
 	// Redirect the user
-	fmt.Fprintf(w, `<meta http-equiv="refresh" content="0; url = http://localhost:8081/chat" />`)
+	fmt.Fprintf(w, `<meta http-equiv="refresh" content="0; url = %s" />`, redirectURL)
 
 	tokenChannel <- token
 }
