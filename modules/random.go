@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-var randomTag = "random_number"
+var randomTag = "random number"
 
 func init() {
 	RegisterModule(Module{

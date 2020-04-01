@@ -22,13 +22,13 @@
   },
   {
     "tag": "age",
-    "patterns": ["How old are you", "When were you born"],
+    "patterns": ["What is your age", "How old are you", "When were you born"],
     "responses": ["I was born in 2017"],
     "context": ""
   },
   {
     "tag": "feeling",
-    "patterns": ["How are you"],
+    "patterns": ["How are you today"],
     "responses": ["I am feeling good, you?", "Very good and you?", "Actually, I'm okay and you?"],
     "context": ""
   },
