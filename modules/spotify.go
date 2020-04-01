@@ -2,7 +2,6 @@ package modules
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/olivia-ai/olivia/user"
@@ -15,12 +14,13 @@ import (
 
 var (
 	spotifySetterTag = "spotify setter"
-	tokenChannel     = make(chan *oauth2.Token)
-	state            = "abc123"
-	auth             = spotify.NewAuthenticator(
+	spotifyPlayerTag = "spotify player"
+
+	tokenChannel = make(chan *oauth2.Token)
+	state        = "abc123"
+	auth         = spotify.NewAuthenticator(
 		"http://localhost:8080/callback",
-		spotify.ScopeUserReadCurrentlyPlaying,
-		spotify.ScopeUserReadPlaybackState,
+		spotify.ScopeStreaming,
 		spotify.ScopeUserModifyPlaybackState,
 	)
 )
@@ -37,6 +37,17 @@ func init() {
 		},
 		Replacer: SpotifySetterReplacer,
 	})
+
+	RegisterModule(Module{
+		Tag: spotifyPlayerTag,
+		Patterns: []string{
+			"Play from on Spotify",
+		},
+		Responses: []string{
+			"Playing %s from %s on Spotify.",
+		},
+		Replacer: SpotifyPlayerReplacer,
+	})
 }
 
 // SpotifySetterReplacer gets the tokens in the user entry and save them into the client's information.
@@ -49,11 +60,7 @@ func SpotifySetterReplacer(entry, response, token string) (string, string) {
 		return spotifySetterTag, "You need to send the two tokens."
 	}
 
-	// If the user if already logged in
-	if user.GetUserInformation(token).SpotifyToken != (oauth2.Token{}) {
-		return spotifySetterTag, "You're already logged in to Spotify."
-	}
-
+	// Generate the authentication url
 	auth.SetAuthInfo(spotifyTokens[0], spotifyTokens[1])
 	url := auth.AuthURL(state)
 
@@ -61,14 +68,34 @@ func SpotifySetterReplacer(entry, response, token string) (string, string) {
 	go func() {
 		authenticationToken := <-tokenChannel
 
-		// Save the token
+		// Save the authentication token
 		user.ChangeUserInformation(token, func(information user.Information) user.Information {
-			information.SpotifyToken = *authenticationToken
+			information.SpotifyToken = authenticationToken
+
 			return information
 		})
 	}()
 
 	return spotifySetterTag, fmt.Sprintf(response, url)
+}
+
+// SpotifyPlayerReplacer plays a specified music on the user's spotify
+// See modules/modules.go#Module.Replacer() for more details.
+func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
+	authenticationToken := user.GetUserInformation(token).SpotifyToken
+	music, artist := language.SearchMusic(entry)
+
+	client := auth.NewClient(authenticationToken)
+
+	results, _ := client.Search(music+" "+artist, spotify.SearchTypeTrack)
+	track := results.Tracks.Tracks[0]
+
+	client.PlayOpt(&spotify.PlayOptions{
+		URIs: []spotify.URI{track.URI},
+	})
+	client.Play()
+
+	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name)
 }
 
 // CompleteAuth completes the Spotify authentication.
@@ -77,12 +104,10 @@ func CompleteAuth(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		http.Error(w, "Couldn't get token", http.StatusForbidden)
-		log.Fatal(err)
 	}
 
 	if st := r.FormValue("state"); st != state {
 		http.NotFound(w, r)
-		fmt.Printf("State mismatch: %s != %s\n", st, state)
 	}
 
 	// Use the token to get an authenticated client

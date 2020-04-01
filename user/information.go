@@ -1,11 +1,14 @@
 package user
 
+import "golang.org/x/oauth2"
+
 // Information is the user's information retrieved from the client
 type Information struct {
-	Name           string     `json:"name"`
-	MovieGenres    []string   `json:"movie_genres"`
-	MovieBlacklist []string   `json:"movie_blacklist"`
-	Reminders      []Reminder `json:"reminders"`
+	Name           string        `json:"name"`
+	MovieGenres    []string      `json:"movie_genres"`
+	MovieBlacklist []string      `json:"movie_blacklist"`
+	Reminders      []Reminder    `json:"reminders"`
+	SpotifyToken   *oauth2.Token `json:"spotify_token"`
 }
 
 // A Reminder is something the user asked for Olivia to remember

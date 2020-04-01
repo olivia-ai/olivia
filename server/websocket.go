@@ -46,7 +46,7 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 		// Read message from browser
 		msgType, msg, err := conn.ReadMessage()
 		if err != nil {
-			continue
+			break
 		}
 
 		// Unmarshal the json content of the message

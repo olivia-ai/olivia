@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/olivia-ai/olivia/modules"
+
 	"github.com/gookit/color"
 	"github.com/gorilla/mux"
 	"github.com/olivia-ai/olivia/network"
@@ -30,6 +32,7 @@ func Serve(_neuralNetwork network.Network, port, _intentsPath string) {
 	router := mux.NewRouter()
 	router.HandleFunc("/dashboard", GetDashboardData).Methods("GET")
 	router.HandleFunc("/", SocketHandle)
+	router.HandleFunc("/callback", modules.CompleteAuth)
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
