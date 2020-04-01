@@ -2,7 +2,7 @@ package language
 
 import "regexp"
 
-// SearchTokens searchs tokens in the given sentence and returns it.
+// SearchToken searchs 2 tokens in the given sentence and returns it.
 func SearchTokens(sentence string) []string {
 	// Search the token with a regex
 	tokenRegex := regexp.MustCompile(`[a-z0-9]{32}`)

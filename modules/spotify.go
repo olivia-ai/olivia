@@ -2,6 +2,7 @@ package modules
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/olivia-ai/olivia/user"
@@ -104,10 +105,12 @@ func CompleteAuth(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		http.Error(w, "Couldn't get token", http.StatusForbidden)
+		log.Fatal(err)
 	}
 
 	if st := r.FormValue("state"); st != state {
 		http.NotFound(w, r)
+		fmt.Printf("State mismatch: %s != %s\n", st, state)
 	}
 
 	// Use the token to get an authenticated client
