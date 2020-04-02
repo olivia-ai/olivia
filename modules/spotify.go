@@ -19,20 +19,31 @@ var (
 	spotifySetterTag = "spotify setter"
 	spotifyPlayerTag = "spotify player"
 
+	redirectURL = os.Getenv("REDIRECT_URL")
+	callbackURL = os.Getenv("CALLBACK_URL")
+
 	tokenChannel = make(chan *oauth2.Token)
 	state        = "abc123"
 	auth         = spotify.NewAuthenticator(
-		os.Getenv("CALLBACK_URL"),
+		callbackURL,
 		spotify.ScopeStreaming,
 		spotify.ScopeUserModifyPlaybackState,
 	)
-
-	redirectURL = os.Getenv("REDIRECT_URL")
 
 	loginMessage = `Login in progress <meta http-equiv="refresh" content="0; url = %s" />`
 )
 
 func init() {
+	// Set default value of the callback url
+	if callbackURL == "" {
+		callbackURL = "https://olivia-api.herokuapp.com/callback"
+	}
+
+	// Set default value of the redirect url
+	if redirectURL == "" {
+		redirectURL = "https://olivia-ai.org/chat"
+	}
+
 	RegisterModule(Module{
 		Tag: spotifySetterTag,
 		Patterns: []string{
