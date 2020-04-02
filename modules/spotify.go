@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
+	"time"
 
 	"github.com/olivia-ai/olivia/user"
 
@@ -20,12 +22,14 @@ var (
 	tokenChannel = make(chan *oauth2.Token)
 	state        = "abc123"
 	auth         = spotify.NewAuthenticator(
-		"https://olivia-api.herokuapp.com/callback",
+		os.Getenv("CALLBACK_URL"),
 		spotify.ScopeStreaming,
 		spotify.ScopeUserModifyPlaybackState,
 	)
 
-	redirectURL = "https://olivia-ai.org/chat"
+	redirectURL = os.Getenv("REDIRECT_URL")
+
+	loginMessage = `Login in progress <meta http-equiv="refresh" content="0; url = %s" />`
 )
 
 func init() {
@@ -36,7 +40,7 @@ func init() {
 			"My spotify secrets",
 		},
 		Responses: []string{
-			`Login in progress <meta http-equiv="refresh" content="0; url = %s" />`,
+			loginMessage,
 		},
 		Replacer: SpotifySetterReplacer,
 	})
@@ -86,13 +90,29 @@ func SpotifySetterReplacer(entry, response, token string) (string, string) {
 // See modules/modules.go#Module.Replacer() for more details.
 func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	authenticationToken := user.GetUserInformation(token).SpotifyToken
-	music, artist := language.SearchMusic(entry)
-
 	client := auth.NewClient(authenticationToken)
 
-	results, _ := client.Search(music+" "+artist, spotify.SearchTypeTrack)
+	// Renew the authentication token
+	if m, _ := time.ParseDuration("5m30s"); time.Until(authenticationToken.Expiry) < m {
+		user.ChangeUserInformation(token, func(information user.Information) user.Information {
+			information.SpotifyToken, _ = client.Token()
+			return information
+		})
+	}
+
+	music, artist := language.SearchMusic(entry)
+	searchContent := music + " " + artist
+
+	results, _ := client.Search(searchContent, spotify.SearchTypeTrack)
+
+	// Return if no music was found
+	if len(results.Tracks.Tracks) == 0 {
+		return spotifyPlayerTag, "Sorry, no music was found."
+	}
+
 	track := results.Tracks.Tracks[0]
 
+	// Play the found track
 	client.PlayOpt(&spotify.PlayOptions{
 		URIs: []spotify.URI{track.URI},
 	})

@@ -27,7 +27,7 @@ func SearchMusic(sentence string) (music, artist string) {
 		}
 
 		// Add the current word if its between play and from
-		if playAppeared && !fromAppeared {
+		if playAppeared && !fromAppeared && !onAppeared {
 			music += word + " "
 		}
 

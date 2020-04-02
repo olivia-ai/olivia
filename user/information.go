@@ -1,6 +1,8 @@
 package user
 
-import "golang.org/x/oauth2"
+import (
+	"golang.org/x/oauth2"
+)
 
 // Information is the user's information retrieved from the client
 type Information struct {
