@@ -92,6 +92,12 @@ func SpotifySetterReplacer(entry, _, token string) (string, string) {
 // SpotifyPlayerReplacer plays a specified music on the user's spotify
 // See modules/modules.go#Module.Replacer() for more details.
 func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
+	information := user.GetUserInformation(token)
+
+	if information.SpotifyID == "" || information.SpotifySecret == "" || !information.SpotifyToken.Valid() {
+		return spotifySetterTag, "You need to log in with your secret."
+	}
+
 	authenticationToken := user.GetUserInformation(token).SpotifyToken
 	client := auth.NewClient(authenticationToken)
 
@@ -108,12 +114,6 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 
 	results, err := client.Search(searchContent, spotify.SearchTypeTrack)
 	if err != nil {
-		information := user.GetUserInformation(token)
-
-		if information.SpotifyID != "" && information.SpotifySecret != "" {
-			return spotifySetterTag, "You need to log in with your secret."
-		}
-
 		return spotifySetterTag, LoginSpotify(token)
 	}
 
