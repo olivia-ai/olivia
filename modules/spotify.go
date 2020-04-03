@@ -108,6 +108,12 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 
 	results, err := client.Search(searchContent, spotify.SearchTypeTrack)
 	if err != nil {
+		information := user.GetUserInformation(token)
+
+		if information.SpotifyID != "" && information.SpotifySecret != "" {
+			return spotifySetterTag, "You need to log in with your secret."
+		}
+
 		return spotifySetterTag, LoginSpotify(token)
 	}
 
