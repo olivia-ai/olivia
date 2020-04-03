@@ -70,7 +70,7 @@ func init() {
 
 // SpotifySetterReplacer gets the tokens in the user entry and save them into the client's information.
 // See modules/modules.go#Module.Replacer() for more details.
-func SpotifySetterReplacer(entry, response, token string) (string, string) {
+func SpotifySetterReplacer(entry, _, token string) (string, string) {
 	spotifyTokens := language.SearchTokens(entry)
 
 	// Returns if the token is empty
@@ -78,23 +78,15 @@ func SpotifySetterReplacer(entry, response, token string) (string, string) {
 		return spotifySetterTag, "You need to send the two tokens."
 	}
 
-	// Generate the authentication url
-	auth.SetAuthInfo(spotifyTokens[0], spotifyTokens[1])
-	url := auth.AuthURL(state)
+	// Save the tokens in the user's information
+	user.ChangeUserInformation(token, func(information user.Information) user.Information {
+		information.SpotifyID = spotifyTokens[0]
+		information.SpotifySecret = spotifyTokens[1]
 
-	// Waits for the authentication to be completed, and save the client in user's information
-	go func() {
-		authenticationToken := <-tokenChannel
+		return information
+	})
 
-		// Save the authentication token
-		user.ChangeUserInformation(token, func(information user.Information) user.Information {
-			information.SpotifyToken = authenticationToken
-
-			return information
-		})
-	}()
-
-	return spotifySetterTag, fmt.Sprintf(response, url)
+	return spotifySetterTag, LoginSpotify(token)
 }
 
 // SpotifyPlayerReplacer plays a specified music on the user's spotify
@@ -114,7 +106,10 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	music, artist := language.SearchMusic(entry)
 	searchContent := music + " " + artist
 
-	results, _ := client.Search(searchContent, spotify.SearchTypeTrack)
+	results, err := client.Search(searchContent, spotify.SearchTypeTrack)
+	if err != nil {
+		return spotifySetterTag, LoginSpotify(token)
+	}
 
 	// Return if no music was found
 	if len(results.Tracks.Tracks) == 0 {
@@ -130,6 +125,29 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	client.Play()
 
 	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name)
+}
+
+// LoginSpotify logins the user with its token to Spotify
+func LoginSpotify(token string) string {
+	information := user.GetUserInformation(token)
+
+	// Generate the authentication url
+	auth.SetAuthInfo(information.SpotifyID, information.SpotifySecret)
+	url := auth.AuthURL(state)
+
+	// Waits for the authentication to be completed, and save the client in user's information
+	go func() {
+		authenticationToken := <-tokenChannel
+
+		// Save the authentication token
+		user.ChangeUserInformation(token, func(information user.Information) user.Information {
+			information.SpotifyToken = authenticationToken
+
+			return information
+		})
+	}()
+
+	return fmt.Sprintf(loginMessage, url)
 }
 
 // CompleteAuth completes the Spotify authentication.

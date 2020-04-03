@@ -11,6 +11,8 @@ type Information struct {
 	MovieBlacklist []string      `json:"movie_blacklist"`
 	Reminders      []Reminder    `json:"reminders"`
 	SpotifyToken   *oauth2.Token `json:"spotify_token"`
+	SpotifyID      string        `json:"spotify_id"`
+	SpotifySecret  string        `json:"spotify_secret"`
 }
 
 // A Reminder is something the user asked for Olivia to remember
