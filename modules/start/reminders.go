@@ -27,26 +27,9 @@ func CheckReminders(token string) {
 		// If the date is today
 		if date.Year() == now.Year() && date.Day() == now.Day() && date.Month() == now.Month() {
 			messages = append(messages, fmt.Sprintf("“%s”", reminder.Reason))
-		}
 
-		// If the date of the reminder has already been passed
-		if time.Now().After(date) {
-			user.ChangeUserInformation(token, func(information user.Information) user.Information {
-				reminders := information.Reminders
-
-				// Removes the element from the reminders slice
-				if len(reminders) == 1 {
-					reminders = []user.Reminder{}
-				} else {
-					reminders[i] = reminders[len(reminders)-1]
-					reminders = reminders[:len(reminders)-1]
-				}
-
-				// Set the updated slice
-				information.Reminders = reminders
-
-				return information
-			})
+			// Removes the current reminder
+			RemoveUserReminder(token, i)
 		}
 	}
 
@@ -57,7 +40,25 @@ func CheckReminders(token string) {
 			user.GetUserInformation(token).Name,
 			strings.Join(messages, ", "),
 		))
-	} else {
-		SendMessage(fmt.Sprintf("Hello %s!", user.GetUserInformation(token).Name))
 	}
+}
+
+// RemoveUserReminder removes the reminder at a specific index in the user's information
+func RemoveUserReminder(token string, index int) {
+	user.ChangeUserInformation(token, func(information user.Information) user.Information {
+		reminders := information.Reminders
+
+		// Removes the element from the reminders slice
+		if len(reminders) == 1 {
+			reminders = []user.Reminder{}
+		} else {
+			reminders[index] = reminders[len(reminders)-1]
+			reminders = reminders[:len(reminders)-1]
+		}
+
+		// Set the updated slice
+		information.Reminders = reminders
+
+		return information
+	})
 }
