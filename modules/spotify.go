@@ -94,7 +94,7 @@ func SpotifySetterReplacer(entry, _, token string) (string, string) {
 func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	information := user.GetUserInformation(token)
 
-	if information.SpotifyID == "" || information.SpotifySecret == "" || !information.SpotifyToken.Valid() {
+	if information.SpotifyID == "" || information.SpotifySecret == "" {
 		return spotifySetterTag, "You need to log in with your secret."
 	}
 
