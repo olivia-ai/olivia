@@ -92,10 +92,9 @@ func SpotifySetterReplacer(entry, _, token string) (string, string) {
 // SpotifyPlayerReplacer plays a specified music on the user's spotify
 // See modules/modules.go#Module.Replacer() for more details.
 func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
-	information := user.GetUserInformation(token)
-
-	if information.SpotifyID == "" || information.SpotifySecret == "" {
-		return spotifySetterTag, "You need to log in with your secret."
+	// Return if the tokens are not set
+	if CheckTokens(token) {
+		return spotifySetterTag, "You need to enter your Spotify credentials."
 	}
 
 	authenticationToken := user.GetUserInformation(token).SpotifyToken
@@ -109,20 +108,12 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 		})
 	}
 
+	// Search for the track
 	music, artist := language.SearchMusic(entry)
-	searchContent := music + " " + artist
-
-	results, err := client.Search(searchContent, spotify.SearchTypeTrack)
+	track, err := SearchTrack(client, music+" "+artist)
 	if err != nil {
 		return spotifySetterTag, LoginSpotify(token)
 	}
-
-	// Return if no music was found
-	if len(results.Tracks.Tracks) == 0 {
-		return spotifyPlayerTag, "Sorry, no music was found."
-	}
-
-	track := results.Tracks.Tracks[0]
 
 	// Play the found track
 	client.PlayOpt(&spotify.PlayOptions{
@@ -131,6 +122,29 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	client.Play()
 
 	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name)
+}
+
+// ChecksTokens returns a check
+func CheckTokens(token string) bool {
+	information := user.GetUserInformation(token)
+	return information.SpotifyID == "" || information.SpotifySecret == ""
+}
+
+// SearchTrack searchs for a given track name and returns the found track and the error
+func SearchTrack(client spotify.Client, content string) (spotify.FullTrack, error) {
+	// Get the results from a track search with the given content
+	results, err := client.Search(content, spotify.SearchTypeTrack)
+	if err != nil {
+		return spotify.FullTrack{}, err
+	}
+
+	// Returns an empty track and empty error if no track was found with this content
+	if len(results.Tracks.Tracks) == 0 {
+		return spotify.FullTrack{}, nil
+	}
+
+	// Return the found
+	return results.Tracks.Tracks[0], nil
 }
 
 // LoginSpotify logins the user with its token to Spotify
