@@ -93,20 +93,12 @@ func SpotifySetterReplacer(entry, _, token string) (string, string) {
 // See modules/modules.go#Module.Replacer() for more details.
 func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	// Return if the tokens are not set
-	if CheckTokens(token) {
+	if CheckTokensPresence(token) {
 		return spotifySetterTag, "You need to enter your Spotify credentials."
 	}
 
-	authenticationToken := user.GetUserInformation(token).SpotifyToken
-	client := auth.NewClient(authenticationToken)
-
-	// Renew the authentication token
-	if m, _ := time.ParseDuration("5m30s"); time.Until(authenticationToken.Expiry) < m {
-		user.ChangeUserInformation(token, func(information user.Information) user.Information {
-			information.SpotifyToken, _ = client.Token()
-			return information
-		})
-	}
+	// Renew the spotify token and get the client
+	client := RenewSpotifyToken(token)
 
 	// Search for the track
 	music, artist := language.SearchMusic(entry)
@@ -124,8 +116,25 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name)
 }
 
-// ChecksTokens returns a check
-func CheckTokens(token string) bool {
+// RenewSpotifyToken renews the spotify token with the user's information token and returns
+// the spotify client.
+func RenewSpotifyToken(token string) spotify.Client {
+	authenticationToken := user.GetUserInformation(token).SpotifyToken
+	client := auth.NewClient(authenticationToken)
+
+	// Renew the authentication token
+	if m, _ := time.ParseDuration("5m30s"); time.Until(authenticationToken.Expiry) < m {
+		user.ChangeUserInformation(token, func(information user.Information) user.Information {
+			information.SpotifyToken, _ = client.Token()
+			return information
+		})
+	}
+
+	return client
+}
+
+// CheckTokensPresence checks if the spotify tokens are present
+func CheckTokensPresence(token string) bool {
 	information := user.GetUserInformation(token)
 	return information.SpotifyID == "" || information.SpotifySecret == ""
 }

@@ -21,8 +21,8 @@ func RegisterModule(module Module) {
 	modules = append(modules, module)
 }
 
-// SendMessage register the message which will be sent to the client
-func SendMessage(_message string) {
+// SetMessage register the message which will be sent to the client
+func SetMessage(_message string) {
 	message = _message
 }
 

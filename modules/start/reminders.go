@@ -33,13 +33,20 @@ func CheckReminders(token string) {
 		}
 	}
 
-	// Send the startup message!
+	// Send the startup message
 	if len(messages) != 0 {
-		SendMessage(fmt.Sprintf(
+		// If the message is already filled in return.
+		if GetMessage() != "" {
+			return
+		}
+
+		// Set the message with the current reminders
+		message := fmt.Sprintf(
 			"Hello %s! For today you have these reminders: %s.",
 			user.GetUserInformation(token).Name,
 			strings.Join(messages, ", "),
-		))
+		)
+		SetMessage(message)
 	}
 }
 
