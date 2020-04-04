@@ -2,7 +2,6 @@ package spotify
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"time"
@@ -52,6 +51,16 @@ func LoginSpotify(token string) string {
 	go func() {
 		authenticationToken := <-tokenChannel
 
+		// If the token is empty reset the credentials of the user
+		if *authenticationToken == (oauth2.Token{}) {
+			user.ChangeUserInformation(token, func(information user.Information) user.Information {
+				information.SpotifyID = ""
+				information.SpotifySecret = ""
+
+				return information
+			})
+		}
+
 		// Save the authentication token
 		user.ChangeUserInformation(token, func(information user.Information) user.Information {
 			information.SpotifyToken = authenticationToken
@@ -92,12 +101,14 @@ func CompleteAuth(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		http.Error(w, "Couldn't get token", http.StatusForbidden)
-		log.Fatal(err)
+		tokenChannel <- &oauth2.Token{}
+		return
 	}
 
 	if st := r.FormValue("state"); st != state {
 		http.NotFound(w, r)
-		fmt.Printf("State mismatch: %s != %s\n", st, state)
+		tokenChannel <- &oauth2.Token{}
+		return
 	}
 
 	// Use the token to get an authenticated client
