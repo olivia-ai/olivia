@@ -65,24 +65,22 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 			start.ExecuteModules(request.Token)
 
 			message := start.GetMessage()
-			if message == "" {
-				message = "What can I do for you?"
-			}
+			if message != "" {
+				// Generate the response to send to the user
+				response := ResponseMessage{
+					Content:     message,
+					Tag:         "start module",
+					Information: user.GetUserInformation(request.Token),
+				}
 
-			// Generate the response to send to the user
-			response := ResponseMessage{
-				Content:     message,
-				Tag:         "start module",
-				Information: user.GetUserInformation(request.Token),
-			}
+				bytes, err := json.Marshal(response)
+				if err != nil {
+					panic(err)
+				}
 
-			bytes, err := json.Marshal(response)
-			if err != nil {
-				panic(err)
-			}
-
-			if err = conn.WriteMessage(msgType, bytes); err != nil {
-				continue
+				if err = conn.WriteMessage(msgType, bytes); err != nil {
+					continue
+				}
 			}
 
 			continue
