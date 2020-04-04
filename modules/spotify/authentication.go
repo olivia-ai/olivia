@@ -41,7 +41,7 @@ func init() {
 }
 
 // LoginSpotify logins the user with its token to Spotify
-func LoginSpotify(token, message string) string {
+func LoginSpotify(token string) string {
 	information := user.GetUserInformation(token)
 
 	// Generate the authentication url
@@ -60,7 +60,7 @@ func LoginSpotify(token, message string) string {
 		})
 	}()
 
-	return fmt.Sprintf(message, url)
+	return fmt.Sprintf(`Login in progress <meta http-equiv="refresh" content="0; url = %s" />`, url)
 }
 
 // RenewSpotifyToken renews the spotify token with the user's information token and returns

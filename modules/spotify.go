@@ -61,7 +61,7 @@ func SpotifySetterReplacer(entry, _, token string) (string, string) {
 		return information
 	})
 
-	return spotifySetterTag, spotifyModule.LoginSpotify(token, loginMessage)
+	return spotifySetterTag, spotifyModule.LoginSpotify(token)
 }
 
 // SpotifyPlayerReplacer plays a specified music on the user's spotify
@@ -79,7 +79,7 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	music, artist := language.SearchMusic(entry)
 	track, err := SearchTrack(client, music+" "+artist)
 	if err != nil {
-		return spotifySetterTag, spotifyModule.LoginSpotify(token, loginMessage)
+		return spotifySetterTag, spotifyModule.LoginSpotify(token)
 	}
 
 	// Play the found track

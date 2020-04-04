@@ -1,7 +1,8 @@
 package start
 
 import (
-	modules2 "github.com/olivia-ai/olivia/modules"
+	_modules "github.com/olivia-ai/olivia/modules"
+	"github.com/olivia-ai/olivia/modules/spotify"
 )
 
 func init() {
@@ -14,16 +15,16 @@ func init() {
 // it logs the user in
 func CheckSpotifyLogin(token string) {
 	// Return if the user was not logged in before
-	if modules2.CheckTokensPresence(token) {
+	if spotify.CheckTokensPresence(token) {
 		return
 	}
 
-	client := modules2.RenewSpotifyToken(token)
+	client := spotify.RenewSpotifyToken(token)
 
 	// Test to search a track to see if the user is well logged in
-	_, err := modules2.SearchTrack(client, "test")
+	_, err := _modules.SearchTrack(client, "test")
 	// If an error is present, login the user to spotify
 	if err != nil {
-		SetMessage(modules2.LoginSpotify(token))
+		SetMessage(spotify.LoginSpotify(token))
 	}
 }
