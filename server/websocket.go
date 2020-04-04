@@ -72,6 +72,7 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 					Tag:         "start module",
 					Information: user.GetUserInformation(request.Token),
 				}
+				fmt.Println(user.GetUserInformation(request.Token))
 
 				bytes, err := json.Marshal(response)
 				if err != nil {

@@ -22,7 +22,8 @@ func CheckSpotifyLogin(token string) {
 	client := spotify.RenewSpotifyToken(token)
 
 	// Test to search a track to see if the user is well logged in
-	_, err := _modules.SearchTrack(client, "test")
+	_, err := _modules.SearchTrack(client, "In Your Eyes")
+
 	// If an error is present, login the user to spotify
 	if err != nil {
 		SetMessage(spotify.LoginSpotify(token))
