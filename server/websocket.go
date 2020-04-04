@@ -64,9 +64,14 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 		if request.Type == 0 {
 			start.ExecuteModules(request.Token)
 
+			message := start.GetMessage()
+			if message == "" {
+				message = "What can I do for you?"
+			}
+
 			// Generate the response to send to the user
 			response := ResponseMessage{
-				Content:     start.GetMessage(),
+				Content:     message,
 				Tag:         "start module",
 				Information: user.GetUserInformation(request.Token),
 			}
