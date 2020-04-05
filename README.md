@@ -114,6 +114,15 @@ $ docker-compose up
 
 And all done!
 
+## Architecture
+<p align="center">
+  <img alt="architecture" height="100" src="https://i.imgur.com/95h8WIU.png">
+  <br>
+  <img src="https://i.imgur.com/G9BYf4Y.png">
+</p>
+
+
+
 ## Contributors
 
 <p align="center">
