@@ -23,7 +23,7 @@ var (
 func init() {
 	// Set default value of the callback url
 	if callbackURL == "" {
-		callbackURL = "https://olivia-api.herokuapp.com/callback"
+		callbackURL = "https://olivia-api.herokuapp.com/api/callback"
 	}
 
 	// Set default value of the redirect url
