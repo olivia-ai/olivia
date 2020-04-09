@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/olivia-ai/olivia/dashboard"
+
 	"github.com/olivia-ai/olivia/modules/spotify"
 
 	"github.com/gookit/color"
@@ -35,6 +37,7 @@ func Serve(_neuralNetwork network.Network, port, _intentsPath string) {
 	router.HandleFunc("/websocket", SocketHandle)
 	// Serve the API
 	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
+	router.HandleFunc("/api/authenticate", dashboard.GetAuthentication).Methods("GET")
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
