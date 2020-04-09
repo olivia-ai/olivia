@@ -30,11 +30,11 @@ func Serve(_neuralNetwork network.Network, port, _intentsPath string) {
 
 	// Initializes the router
 	router := mux.NewRouter()
+	router.HandleFunc("/callback", spotify.CompleteAuth)
 	// Serve the websocket
 	router.HandleFunc("/websocket", SocketHandle)
-
+	// Serve the API
 	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
-	router.HandleFunc("/api/callback", spotify.CompleteAuth)
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
