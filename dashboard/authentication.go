@@ -88,6 +88,7 @@ func HeaderTokenCheck(r *http.Request) (string, Error) {
 	// Get the token from the headers
 	token := r.Header.Get("Olivia-Token")
 
+	// Returns an error if the token isn't present
 	if token == "" {
 		return "", Error{
 			Message: "You need to provide the token in the Headers as 'Olivia-Token: ...'.",
