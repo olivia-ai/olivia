@@ -8,6 +8,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// An AuthorizedUser is a user allowed to do updates on the API
 type AuthorizedUser struct {
 	Token string `json:"token"`
 }
