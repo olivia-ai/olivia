@@ -38,6 +38,7 @@ func Serve(_neuralNetwork network.Network, port, _intentsPath string) {
 	// Serve the API
 	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
 	router.HandleFunc("/api/authenticate", dashboard.GetAuthentication).Methods("GET")
+	router.HandleFunc("/api/intents", dashboard.GetIntents).Methods("GET")
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
