@@ -18,14 +18,9 @@ type AuthorizedUser struct {
 	Token string `json:"token"`
 }
 
-// A Response is what the REST Api replies
-type Response struct {
+// A Error is what the REST Api replies when a problem occurs
+type Error struct {
 	Message string `json:"message"`
-}
-
-// FirstAuthenticationRequest is the content needed to initialize the authentication file at first
-type FirstAuthenticationRequest struct {
-	Name string `json:"name"`
 }
 
 // HashToken returns the hash of the token using bcrypt
@@ -88,25 +83,25 @@ func IsAuthenticated(token string) bool {
 	return false
 }
 
-// HeaderTokenCheck checks if the token is present in the error and returns it with a response
-func HeaderTokenCheck(r *http.Request) (string, Response) {
+// HeaderTokenCheck checks if the token is present in the error and returns it with an error
+func HeaderTokenCheck(r *http.Request) (string, Error) {
 	// Get the token from the headers
 	token := r.Header.Get("Olivia-Token")
 
 	if token == "" {
-		return "", Response{
+		return "", Error{
 			Message: "You need to provide the token in the Headers as 'Olivia-Token: ...'.",
 		}
 	}
 
-	return token, Response{}
+	return token, Error{}
 }
 
 // GetAuthentication is the route for getting if the user is authenticated or not
 func GetAuthentication(w http.ResponseWriter, r *http.Request) {
-	token, response := HeaderTokenCheck(r)
-	if response != (Response{}) {
-		json.NewEncoder(w).Encode(response)
+	token, error := HeaderTokenCheck(r)
+	if error != (Error{}) {
+		json.NewEncoder(w).Encode(error)
 		return
 	}
 
