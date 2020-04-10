@@ -36,6 +36,7 @@ func init() {
 		callbackURL,
 		spotify.ScopeStreaming,
 		spotify.ScopeUserModifyPlaybackState,
+		spotify.ScopeUserReadPlaybackState,
 	)
 }
 

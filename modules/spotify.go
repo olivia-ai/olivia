@@ -2,6 +2,7 @@ package modules
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/olivia-ai/olivia/user"
 
@@ -37,7 +38,7 @@ func init() {
 			"Play from on Spotify",
 		},
 		Responses: []string{
-			"Playing %s from %s on Spotify.",
+			"Playing %s from %s on %s.",
 		},
 		Replacer: SpotifyPlayerReplacer,
 	})
@@ -82,13 +83,22 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 		return spotifySetterTag, spotifyModule.LoginSpotify(token)
 	}
 
-	// Play the found track
-	client.PlayOpt(&spotify.PlayOptions{
+	// Search if there is a device name in the entry
+	device := SearchDevice(client, entry)
+	options := &spotify.PlayOptions{
 		URIs: []spotify.URI{track.URI},
-	})
+	}
+
+	// Add the device ID if a device is contained
+	if device != (spotify.PlayerDevice{}) {
+		options.DeviceID = &device.ID
+	}
+
+	// Play the found track
+	client.PlayOpt(options)
 	client.Play()
 
-	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name)
+	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name, device.Name)
 }
 
 // SearchTrack searchs for a given track name and returns the found track and the error
@@ -106,4 +116,19 @@ func SearchTrack(client spotify.Client, content string) (spotify.FullTrack, erro
 
 	// Return the found
 	return results.Tracks.Tracks[0], nil
+}
+
+// SearchDevice searchs for a device name inside the given sentence and returns it
+func SearchDevice(client spotify.Client, content string) spotify.PlayerDevice {
+	devices, _ := client.PlayerDevices()
+
+	// Iterate through the devices to check if the content contains a device name
+	for _, device := range devices {
+		if strings.Contains(content, strings.ToLower(device.Name)) ||
+			strings.Contains(content, strings.ToLower(device.Type)) {
+			return device
+		}
+	}
+
+	return spotify.PlayerDevice{}
 }
