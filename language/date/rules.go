@@ -190,7 +190,7 @@ func RuleTime(sentence string) time.Time {
 
 	// Initialize the part of the day asked
 	part := "am"
-	if strings.Contains(foundTime, "pm") {
+	if strings.Contains(foundTime, "pm") || strings.Contains(foundTime, "p.m") {
 		part = "pm"
 	}
 

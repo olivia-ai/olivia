@@ -46,7 +46,7 @@ func DeleteDates(sentence string) string {
 // DeleteTimes removes the times of the given sentence and returns it
 func DeleteTimes(sentence string) string {
 	// Create a regex to match the patterns of times to remove them.
-	timePatterns := regexp.MustCompile(`(at )?(\d{2}|\d)(:\d{2}|\d)?( )?(pm|am)`)
+	timePatterns := regexp.MustCompile(`(at )?(\d{2}|\d)(:\d{2}|\d)?( )?(pm|am|p\.m|a\.m)`)
 
 	// Replace the times by empty string
 	sentence = timePatterns.ReplaceAllString(sentence, "")
