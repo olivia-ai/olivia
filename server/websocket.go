@@ -98,7 +98,7 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 func Reply(request RequestMessage) []byte {
 	var responseSentence, responseTag string
 
-	// Send a message from res/messages.json if it is too long
+	// Send a message from res/datasets/messages.json if it is too long
 	if len(request.Content) > 500 {
 		responseTag = "too long"
 		responseSentence = util.GetMessage(responseTag)

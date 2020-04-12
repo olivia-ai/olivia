@@ -14,9 +14,9 @@ type Message struct {
 
 var messages = SerializeMessages()
 
-// SerializeMessages serializes the content of `res/messages.json` in JSON
+// SerializeMessages serializes the content of `res/datasets/messages.json` in JSON
 func SerializeMessages() (messages []Message) {
-	err := json.Unmarshal(ReadFile("res/messages.json"), &messages)
+	err := json.Unmarshal(ReadFile("res/datasets/messages.json"), &messages)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -24,7 +24,7 @@ func SerializeMessages() (messages []Message) {
 	return messages
 }
 
-// GetMessage retrieves a message tag and returns a random message chose from res/messages.json
+// GetMessage retrieves a message tag and returns a random message chose from res/datasets/messages.json
 func GetMessage(tag string) string {
 	for _, message := range messages {
 		// Find the message with the right tag

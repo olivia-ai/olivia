@@ -39,7 +39,7 @@ func MathReplacer(entry, response, _ string) (string, string) {
 	}
 
 	res, err := mathcat.Eval(operation)
-	// If the expression isn't valid reply with a message from res/messages.json
+	// If the expression isn't valid reply with a message from res/datasets/messages.json
 	if err != nil {
 		responseTag := "math not valid"
 		return responseTag, util.GetMessage(responseTag)

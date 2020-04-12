@@ -11,7 +11,7 @@ import (
 )
 
 func TestCalculate(t *testing.T) {
-	intentsPath := "res/intents.json"
+	intentsPath := "res/datasets/intents.json"
 	model := training.CreateNeuralNetwork(intentsPath)
 	cache := gocache.New(5*time.Minute, 5*time.Minute)
 
