@@ -13,6 +13,7 @@ require (
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/soudy/mathcat v0.0.0-20190121135055-f636e7f09e6c
 	github.com/zmb3/spotify v0.0.0-20200331200324-6a9312f5d1de
+	golang.org/x/crypto v0.0.0-20200406173513-056763e48d71
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
 	golang.org/x/sys v0.0.0-20200320181252-af34d8274f85 // indirect
 	gopkg.in/cheggaaa/pb.v1 v1.0.28
