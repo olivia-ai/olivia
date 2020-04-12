@@ -15,7 +15,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
-// Movie is the serializer from res/movies.csv
+// Movie is the serializer from res/datasets/movies.csv
 type Movie struct {
 	Name   string
 	Genres []string
@@ -31,9 +31,9 @@ var (
 	movies = SerializeMovies()
 )
 
-// SerializeMovies retrieves the content of res/movies.csv and serialize it
+// SerializeMovies retrieves the content of res/datasets/movies.csv and serialize it
 func SerializeMovies() (movies []Movie) {
-	path := "res/movies.csv"
+	path := "res/datasets/movies.csv"
 	bytes, err := os.Open(path)
 	if err != nil {
 		bytes, _ = os.Open("../" + path)

@@ -78,7 +78,7 @@ func init() {
 func GenresReplacer(entry, response, token string) (string, string) {
 	genres := language.FindMoviesGenres(entry)
 
-	// If there is no genres then reply with a message from res/messages.json
+	// If there is no genres then reply with a message from res/datasets/messages.json
 	if len(genres) == 0 {
 		responseTag := "no genres"
 		return responseTag, util.GetMessage(responseTag)
@@ -106,7 +106,7 @@ func GenresReplacer(entry, response, token string) (string, string) {
 func MovieSearchReplacer(entry, response, token string) (string, string) {
 	genres := language.FindMoviesGenres(entry)
 
-	// If there is no genres then reply with a message from res/messages.json
+	// If there is no genres then reply with a message from res/datasets/messages.json
 	if len(genres) == 0 {
 		responseTag := "no genres"
 		return responseTag, util.GetMessage(responseTag)
@@ -121,7 +121,7 @@ func MovieSearchReplacer(entry, response, token string) (string, string) {
 // and rating from the genre in the user's information.
 // See modules/modules.go#Module.Replacer() for more details.
 func MovieSearchFromInformationReplacer(_, response, token string) (string, string) {
-	// If there is no genres then reply with a message from res/messages.json
+	// If there is no genres then reply with a message from res/datasets/messages.json
 	genres := user.GetUserInformation(token).MovieGenres
 	if len(genres) == 0 {
 		responseTag := "no genres saved"

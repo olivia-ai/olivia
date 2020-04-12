@@ -8,9 +8,9 @@ import (
 
 var names = SerializeNames()
 
-// SerializeNames retrieves all the names from res/names.txt and returns an array of names
+// SerializeNames retrieves all the names from res/datasets/names.txt and returns an array of names
 func SerializeNames() (names []string) {
-	namesFile := string(util.ReadFile("res/names.txt"))
+	namesFile := string(util.ReadFile("res/datasets/names.txt"))
 
 	// Iterate each line of the file
 	names = append(names, strings.Split(strings.TrimSuffix(namesFile, "\n"), "\n")...)

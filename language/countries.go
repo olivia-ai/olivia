@@ -24,9 +24,9 @@ type Country struct {
 
 var countries = SerializeCountries()
 
-// SerializeCountries returns a list of countries, serialized from `res/countries.json`
+// SerializeCountries returns a list of countries, serialized from `res/datasets/countries.json`
 func SerializeCountries() (countries []Country) {
-	err := json.Unmarshal(util.ReadFile("res/countries.json"), &countries)
+	err := json.Unmarshal(util.ReadFile("res/datasets/countries.json"), &countries)
 	if err != nil {
 		fmt.Println(err)
 	}

@@ -18,7 +18,7 @@ import (
 var neuralNetwork network.Network
 
 func main() {
-	intentsPath := flag.String("intents", "res/intents.json", "The path for intents file.")
+	intentsPath := flag.String("intents", "res/datasets/intents.json", "The path for intents file.")
 	port := flag.String("port", "8080", "The port for the API and WebSocket.")
 	flag.Parse()
 

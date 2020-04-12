@@ -23,7 +23,7 @@ type Document struct {
 	Tag      string
 }
 
-// SerializeIntents returns a list of intents retrieved from `res/intents.json`
+// SerializeIntents returns a list of intents retrieved from `res/datasets/intents.json`
 func SerializeIntents(intentsPath string) []Intent {
 	var intents []Intent
 
@@ -55,7 +55,7 @@ func SerializeModulesIntents() []Intent {
 // Organize intents with an array of all words, an array with a representative word of each tag
 // and an array of Documents which contains a word list associated with a tag
 func Organize(intentsPath string) (words, classes []string, documents []Document) {
-	// Append the modules intents to the intents from res/intents.json
+	// Append the modules intents to the intents from res/datasets/intents.json
 	intents := append(SerializeIntents(intentsPath), SerializeModulesIntents()...)
 
 	for _, intent := range intents {

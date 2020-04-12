@@ -80,7 +80,7 @@ and stop it
 $ docker container stop 311b3abb963a 
 ```
 
-The app will automatically check for `res/training.json` file which contains the save of the neural network.
+The app will automatically check for `res/datasets/training.json` file which contains the save of the neural network.
 By default when you clone the repository from Github you have a stable save.
 If you want to train a new model just delete this file and rerun the app.
 

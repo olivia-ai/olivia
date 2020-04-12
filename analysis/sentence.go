@@ -61,13 +61,13 @@ func (sentence Sentence) PredictTag(neuralNetwork network.Network, intentsPath s
 }
 
 // RandomizeResponse takes the entry message, the response tag and the token and returns a random
-// message from res/intents.json where the triggers are applied
+// message from res/datasets/intents.json where the triggers are applied
 func RandomizeResponse(intentsPath, entry, tag, token string) (string, string) {
 	if tag == DontUnderstand {
 		return DontUnderstand, util.GetMessage(tag)
 	}
 
-	// Append the modules intents to the intents from res/intents.json
+	// Append the modules intents to the intents from res/datasets/intents.json
 	intents := append(SerializeIntents(intentsPath), SerializeModulesIntents()...)
 
 	for _, intent := range intents {
