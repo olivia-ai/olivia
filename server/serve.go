@@ -1,6 +1,7 @@
 package server
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"time"
@@ -51,6 +52,15 @@ func Serve(_neuralNetwork network.Network, port string) {
 
 // Train is the route to re-train the neural network
 func Train(w http.ResponseWriter, r *http.Request) {
+	// Checks if the token present in the headers is the right one
+	token := r.Header.Get("Olivia-Token")
+	if !dashboard.ChecksToken(token) {
+		json.NewEncoder(w).Encode(dashboard.Error{
+			Message: "You don't have the permission to do this.",
+		})
+		return
+	}
+
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nRe-training the %s..\n", magenta("neural network"))
 	neuralNetwork = training.CreateNeuralNetwork(true)
