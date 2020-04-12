@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-// SearchReasons returns the reason found in the given sentence for the reminders,
+// SearchReason returns the reason found in the given sentence for the reminders,
 // here is an example: "Remind me that I need to **call mom** tomorrow".
 func SearchReason(sentence string) string {
 	var response []string

@@ -6,7 +6,7 @@ import (
 	"github.com/gookit/color"
 )
 
-// A start Module is a module that will be executed when a connection is opened by a user
+// A Module is a module that will be executed when a connection is opened by a user
 type Module struct {
 	Action func(string)
 }
@@ -26,7 +26,7 @@ func SetMessage(_message string) {
 	message = _message
 }
 
-// GetMessages returns the messages that needs to be sent
+// GetMessage returns the messages that needs to be sent
 func GetMessage() string {
 	return message
 }

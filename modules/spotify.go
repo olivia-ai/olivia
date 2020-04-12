@@ -101,7 +101,7 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name, device.Name)
 }
 
-// SearchTrack searchs for a given track name and returns the found track and the error
+// SearchTrack searches for a given track name and returns the found track and the error
 func SearchTrack(client spotify.Client, content string) (spotify.FullTrack, error) {
 	// Get the results from a track search with the given content
 	results, err := client.Search(content, spotify.SearchTypeTrack)
@@ -118,7 +118,7 @@ func SearchTrack(client spotify.Client, content string) (spotify.FullTrack, erro
 	return results.Tracks.Tracks[0], nil
 }
 
-// SearchDevice searchs for a device name inside the given sentence and returns it
+// SearchDevice searches for a device name inside the given sentence and returns it
 func SearchDevice(client spotify.Client, content string) spotify.PlayerDevice {
 	devices, _ := client.PlayerDevices()
 

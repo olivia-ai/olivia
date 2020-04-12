@@ -104,7 +104,7 @@ func RuleDayOfWeek(sentence string) time.Time {
 	return time.Now().Add(day * time.Duration(calculatedDate))
 }
 
-// RuleDayOfWeek checks for the dates written in natural language in the given sentence,
+// RuleNaturalDate checks for the dates written in natural language in the given sentence,
 // then it returns the date parsed.
 func RuleNaturalDate(sentence string) time.Time {
 	naturalMonthRegex := regexp.MustCompile(

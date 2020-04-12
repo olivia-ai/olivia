@@ -68,7 +68,7 @@ func ReminderSetterReplacer(entry, response, token string) (string, string) {
 	return reminderSetterTag, fmt.Sprintf(response, reason, formattedDate)
 }
 
-// ReminderSetterReplacer gets the reminders in the user's information and replaces the pattern in the
+// ReminderGetterReplacer gets the reminders in the user's information and replaces the pattern in the
 // response patterns by the current reminders
 // See modules/modules.go#Module.Replacer() for more details.
 func ReminderGetterReplacer(_, response, token string) (string, string) {
