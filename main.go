@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/olivia-ai/olivia/training"
+
 	"github.com/olivia-ai/olivia/dashboard"
 
 	"github.com/olivia-ai/olivia/util"
@@ -14,7 +16,6 @@ import (
 	"github.com/olivia-ai/olivia/network"
 
 	"github.com/olivia-ai/olivia/server"
-	"github.com/olivia-ai/olivia/training"
 )
 
 var neuralNetwork network.Network
@@ -30,7 +31,7 @@ func main() {
 	// Create the authentication token
 	dashboard.Authenticate()
 
-	neuralNetwork = training.CreateNeuralNetwork()
+	neuralNetwork = training.CreateNeuralNetwork(false)
 
 	// Get port from environment variables if there is
 	if os.Getenv("PORT") != "" {
