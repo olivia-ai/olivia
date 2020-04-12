@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/olivia-ai/olivia/dashboard"
+
 	"github.com/olivia-ai/olivia/util"
 
 	"github.com/gookit/color"
@@ -25,6 +27,9 @@ func main() {
 	// Print the Olivia ascii text
 	oliviaAscii := string(util.ReadFile("res/olivia-ascii.txt"))
 	fmt.Println(color.FgLightGreen.Render(oliviaAscii))
+
+	// Create the authentication token
+	dashboard.Authenticate()
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("Using %s as intents file.\n", magenta(*intentsPath))

@@ -16,3 +16,5 @@ generate_model.rb
 .idea/
 vendor
 coverage.txt
+
+res/authentication.txt
