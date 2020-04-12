@@ -38,7 +38,7 @@ func init() {
 			"Play from on Spotify",
 		},
 		Responses: []string{
-			"Playing %s from %s on %s.",
+			"Playing %s from %s on Spotify.",
 		},
 		Replacer: SpotifyPlayerReplacer,
 	})
@@ -98,7 +98,7 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	client.PlayOpt(options)
 	client.Play()
 
-	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name, device.Name)
+	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name)
 }
 
 // SearchTrack searches for a given track name and returns the found track and the error
