@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/olivia-ai/olivia/training"
+
 	"github.com/olivia-ai/olivia/dashboard"
 
 	"github.com/olivia-ai/olivia/modules/spotify"
@@ -35,6 +37,7 @@ func Serve(_neuralNetwork network.Network, port string) {
 	// Serve the API
 	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
 	router.HandleFunc("/api/intent", dashboard.CreateIntent).Methods("POST")
+	router.HandleFunc("/api/train", Train).Methods("POST")
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
@@ -44,4 +47,11 @@ func Serve(_neuralNetwork network.Network, port string) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+// Train is the route to re-train the neural network
+func Train(w http.ResponseWriter, r *http.Request) {
+	magenta := color.FgMagenta.Render
+	fmt.Printf("\nRe-training the %s..\n", magenta("neural network"))
+	neuralNetwork = training.CreateNeuralNetwork(true)
 }
