@@ -11,7 +11,7 @@ import (
 )
 
 func TestCalculate(t *testing.T) {
-	model := training.CreateNeuralNetwork()
+	model := training.CreateNeuralNetwork(true)
 	cache := gocache.New(5*time.Minute, 5*time.Minute)
 
 	sentences := map[string]string{
