@@ -105,7 +105,7 @@ func Reply(request RequestMessage) []byte {
 	} else {
 		responseTag, responseSentence = analysis.NewSentence(
 			request.Content,
-		).Calculate(*cache, neuralNetwork, intentsPath, request.Token)
+		).Calculate(*cache, neuralNetwork, request.Token)
 	}
 
 	// Marshall the response in json

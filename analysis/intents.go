@@ -8,6 +8,8 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
+const intentsFile = "res/datasets/intents.json"
+
 // Intent is a way to group sentences that mean the same thing and link them with a tag which
 // represents what they mean, some responses that the bot can reply and a context
 type Intent struct {
@@ -24,10 +26,10 @@ type Document struct {
 }
 
 // SerializeIntents returns a list of intents retrieved from `res/datasets/intents.json`
-func SerializeIntents(intentsPath string) []Intent {
+func SerializeIntents() []Intent {
 	var intents []Intent
 
-	err := json.Unmarshal(util.ReadFile(intentsPath), &intents)
+	err := json.Unmarshal(util.ReadFile(intentsFile), &intents)
 	if err != nil {
 		panic(err)
 	}
@@ -54,9 +56,9 @@ func SerializeModulesIntents() []Intent {
 
 // Organize intents with an array of all words, an array with a representative word of each tag
 // and an array of Documents which contains a word list associated with a tag
-func Organize(intentsPath string) (words, classes []string, documents []Document) {
+func Organize() (words, classes []string, documents []Document) {
 	// Append the modules intents to the intents from res/datasets/intents.json
-	intents := append(SerializeIntents(intentsPath), SerializeModulesIntents()...)
+	intents := append(SerializeIntents(), SerializeModulesIntents()...)
 
 	for _, intent := range intents {
 		for _, pattern := range intent.Patterns {
