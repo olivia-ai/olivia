@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/olivia-ai/olivia/util"
+
 	"github.com/gookit/color"
 
 	"golang.org/x/crypto/bcrypt"
@@ -23,6 +25,12 @@ func GenerateToken() string {
 func HashToken(token string) string {
 	bytes, _ := bcrypt.GenerateFromPassword([]byte(token), 14)
 	return string(bytes)
+}
+
+// ChecksToken checks if the given token is the good one from the authentication file
+func ChecksToken(token string) bool {
+	err := bcrypt.CompareHashAndPassword(util.ReadFile(fileName), []byte(token))
+	return err == nil
 }
 
 // AuthenticationFileExists checks if the authentication file exists and return the condition
