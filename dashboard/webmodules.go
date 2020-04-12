@@ -51,4 +51,6 @@ func CreateWebModule(w http.ResponseWriter, r *http.Request) {
 
 	// Adds the web module
 	AddWebModule(webModule)
+
+	json.NewEncoder(w).Encode(webModule)
 }

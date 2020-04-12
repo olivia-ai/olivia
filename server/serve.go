@@ -37,7 +37,7 @@ func Serve(_neuralNetwork network.Network, port, _intentsPath string) {
 	router.HandleFunc("/websocket", SocketHandle)
 	// Serve the API
 	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
-	router.HandleFunc("/api/webmodule", dashboard.CreateWebModule).Methods("POST")
+	router.HandleFunc("/api/web-module", dashboard.CreateWebModule).Methods("POST")
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
