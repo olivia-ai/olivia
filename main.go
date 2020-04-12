@@ -20,7 +20,6 @@ import (
 var neuralNetwork network.Network
 
 func main() {
-	intentsPath := flag.String("intents", "res/datasets/intents.json", "The path for intents file.")
 	port := flag.String("port", "8080", "The port for the API and WebSocket.")
 	flag.Parse()
 
@@ -31,10 +30,7 @@ func main() {
 	// Create the authentication token
 	dashboard.Authenticate()
 
-	magenta := color.FgMagenta.Render
-	fmt.Printf("Using %s as intents file.\n", magenta(*intentsPath))
-
-	neuralNetwork = training.CreateNeuralNetwork(*intentsPath)
+	neuralNetwork = training.CreateNeuralNetwork()
 
 	// Get port from environment variables if there is
 	if os.Getenv("PORT") != "" {
@@ -42,5 +38,5 @@ func main() {
 	}
 
 	// Serves the server
-	server.Serve(neuralNetwork, *port, *intentsPath)
+	server.Serve(neuralNetwork, *port)
 }
