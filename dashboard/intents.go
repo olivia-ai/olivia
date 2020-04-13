@@ -58,6 +58,11 @@ func RemoveIntent(tag string) {
 	WriteIntents(intents)
 }
 
+// GetIntents is the route to get the intents
+func GetIntents(w http.ResponseWriter, r *http.Request) {
+	json.NewEncoder(w).Encode(analysis.SerializeIntents())
+}
+
 // CreateWebModule is the route to create a new intent
 func CreateIntent(w http.ResponseWriter, r *http.Request) {
 	// Checks if the token present in the headers is the right one
