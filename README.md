@@ -11,7 +11,6 @@
   <a href="https://godoc.org/github.com/olivia-ai/olivia"><img src="https://godoc.org/github.com/olivia-ai/olivia?status.svg" alt="GoDoc"></a>
   <a href="https://app.fossa.io/projects/git%2Bgithub.com%2Folivia-ai%2Folivia?ref=badge_shield"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Folivia-ai%2Folivia.svg?type=shield"></a>
   <a href="https://codecov.io/gh/olivia-ai/olivia"><img src="https://codecov.io/gh/olivia-ai/olivia/branch/master/graph/badge.svg" /></a>
-  <a href="https://discord.gg/bXv2Wd"><img src="https://img.shields.io/discord/699567909235720224" /></a>
   <br>
   <img src="https://github.com/olivia-ai/olivia/workflows/Code%20coverage/badge.svg">
   <img src="https://github.com/olivia-ai/olivia/workflows/Docker%20CI/badge.svg">
@@ -20,6 +19,7 @@
 
 <p align="center">
   <a href="https://olivia-ai.org">Website</a> —
+  <a href="https://discord.gg/bXv2Wd">Discord</a> —
   <a href="https://docs.olivia-ai.org">Documentation</a> —
   <a href="#getting-started">Getting started</a> —
   <a href="#introduction">Introduction</a> —
