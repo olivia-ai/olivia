@@ -63,13 +63,11 @@ func RemoveIntent(tag string) {
 
 // GetIntents is the route to get the intents
 func GetIntents(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
 	json.NewEncoder(w).Encode(analysis.SerializeIntents())
 }
 
 // CreateWebModule is the route to create a new intent
 func CreateIntent(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Access-Control-Allow-Origin", "*")
 	// Checks if the token present in the headers is the right one
 	token := r.Header.Get("Olivia-Token")
 	if !ChecksToken(token) {
@@ -91,11 +89,6 @@ func CreateIntent(w http.ResponseWriter, r *http.Request) {
 
 // DeleteIntent is the route used to delete an intent
 func DeleteIntent(w http.ResponseWriter, r *http.Request) {
-	allowedHeaders := "Accept, Content-Type, Content-Length, Accept-Encoding, Authorization,X-CSRF-Token,Olivia-Token"
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-	w.Header().Set("Access-Control-Allow-Headers", allowedHeaders)
-	w.Header().Set("Access-Control-Expose-Headers", "Authorization")
 	// Checks if the token present in the headers is the right one
 	token := r.Header.Get("Olivia-Token")
 	if !ChecksToken(token) {
