@@ -25,7 +25,7 @@ type Layers struct {
 type Training struct {
 	Rate   float64   `json:"rate"`
 	Errors []float64 `json:"errors"`
-	Time   float64   `json:"date"`
+	Time   float64   `json:"time"`
 }
 
 // GetDashboardData encodes the json for the dashboard data
