@@ -14,6 +14,8 @@ import (
 
 const fileName = "res/authentication.txt"
 
+var authenticationHash []byte
+
 // GenerateToken generates a random token of 30 characters and returns it
 func GenerateToken() string {
 	b := make([]byte, 30)
@@ -22,14 +24,14 @@ func GenerateToken() string {
 }
 
 // HashToken gets the given tokens and returns its hash using bcrypt
-func HashToken(token string) string {
+func HashToken(token string) []byte {
 	bytes, _ := bcrypt.GenerateFromPassword([]byte(token), 14)
-	return string(bytes)
+	return bytes
 }
 
 // ChecksToken checks if the given token is the good one from the authentication file
 func ChecksToken(token string) bool {
-	err := bcrypt.CompareHashAndPassword(util.ReadFile(fileName), []byte(token))
+	err := bcrypt.CompareHashAndPassword(authenticationHash, []byte(token))
 	return err == nil
 }
 
@@ -55,6 +57,7 @@ func SaveHash(hash string) {
 func Authenticate() {
 	// Do nothing if the authentication file exists
 	if AuthenticationFileExists() {
+		authenticationHash = util.ReadFile(fileName)
 		return
 	}
 
@@ -66,5 +69,7 @@ func Authenticate() {
 
 	// Hash the token and save it
 	hash := HashToken(token)
-	SaveHash(hash)
+	SaveHash(string(hash))
+
+	authenticationHash = hash
 }
