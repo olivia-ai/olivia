@@ -20,6 +20,7 @@ func TestCalculate(t *testing.T) {
 		"Who are you ?":                            "identity",
 		"What is your job?":                        "job",
 		"What is your age":                         "age",
+		"What's your name ?":                       "name",
 		"Where do you live":                        "city",
 		"What can you do ?":                        "actions",
 		"what's the capital of France":             "capital",
