@@ -38,7 +38,7 @@ func Serve(_neuralNetwork network.Network, port string) {
 	// Serve the API
 	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
 	router.HandleFunc("/api/intent", dashboard.CreateIntent).Methods("POST")
-	router.HandleFunc("/api/intent", dashboard.DeleteIntent).Methods("DELETE")
+	router.HandleFunc("/api/intent", dashboard.DeleteIntent).Methods("DELETE", "OPTIONS")
 	router.HandleFunc("/api/train", Train).Methods("POST")
 	router.HandleFunc("/api/intents", dashboard.GetIntents).Methods("GET")
 
