@@ -41,6 +41,8 @@ func AddIntent(intent analysis.Intent) {
 	intents := append(analysis.SerializeIntents(), intent)
 
 	WriteIntents(intents)
+
+	fmt.Printf("Added %s intent.\n", color.FgMagenta.Render(intent.Tag))
 }
 
 // RemoveIntent removes the intent with the given tag from the intents file
@@ -55,7 +57,7 @@ func RemoveIntent(tag string) {
 
 		intents[i] = intents[len(intents)-1]
 		intents = intents[:len(intents)-1]
-		fmt.Printf("The intent %s was deleted.", color.FgMagenta.Render(intent.Tag))
+		fmt.Printf("The intent %s was deleted.\n", color.FgMagenta.Render(intent.Tag))
 	}
 
 	WriteIntents(intents)
@@ -83,6 +85,13 @@ func CreateIntent(w http.ResponseWriter, r *http.Request) {
 	var intent analysis.Intent
 	json.NewDecoder(r.Body).Decode(&intent)
 
+	if intent.Responses == nil || intent.Patterns == nil {
+		json.NewEncoder(w).Encode(Error{
+			Message: "Patterns and responses can't be null",
+		})
+		return
+	}
+
 	// Adds the intent
 	AddIntent(intent)
 
@@ -91,11 +100,12 @@ func CreateIntent(w http.ResponseWriter, r *http.Request) {
 
 // DeleteIntent is the route used to delete an intent
 func DeleteIntent(w http.ResponseWriter, r *http.Request) {
-	allowedHeaders := "Accept, Content-Type, Content-Length, Accept-Encoding, Authorization,X-CSRF-Token,Olivia-Token"
+	allowedHeaders := "Accept, Content-Type, Content-Length, Accept-Encoding, Authorization,Olivia-Token"
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.Header().Set("Access-Control-Allow-Headers", allowedHeaders)
 	w.Header().Set("Access-Control-Expose-Headers", "Authorization")
+
 	// Checks if the token present in the headers is the right one
 	token := r.Header.Get("Olivia-Token")
 	if !ChecksToken(token) {
