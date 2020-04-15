@@ -22,6 +22,8 @@ type DeleteRequest struct {
 
 // WriteIntents writes the given intents to the intents file
 func WriteIntents(intents []analysis.Intent) {
+	analysis.CacheIntents(intents)
+
 	// Encode the json
 	bytes, _ := json.MarshalIndent(intents, "", "  ")
 
@@ -65,7 +67,9 @@ func RemoveIntent(tag string) {
 
 // GetIntents is the route to get the intents
 func GetIntents(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(analysis.SerializeIntents())
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
+	json.NewEncoder(w).Encode(analysis.GetIntents())
 }
 
 // CreateWebModule is the route to create a new intent
@@ -118,5 +122,5 @@ func DeleteIntent(w http.ResponseWriter, r *http.Request) {
 
 	RemoveIntent(deleteRequest.Tag)
 
-	json.NewEncoder(w).Encode(analysis.SerializeIntents())
+	json.NewEncoder(w).Encode(analysis.GetIntents())
 }
