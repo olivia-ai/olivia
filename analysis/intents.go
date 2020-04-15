@@ -10,6 +10,8 @@ import (
 
 const intentsFile = "res/datasets/intents.json"
 
+var intents []Intent
+
 // Intent is a way to group sentences that mean the same thing and link them with a tag which
 // represents what they mean, some responses that the bot can reply and a context
 type Intent struct {
@@ -25,10 +27,18 @@ type Document struct {
 	Tag      string
 }
 
+// CacheIntents set the given intents to the global variable intents
+func CacheIntents(_intents []Intent) {
+	intents = _intents
+}
+
+// GetIntents returns the cached intents
+func GetIntents() []Intent {
+	return intents
+}
+
 // SerializeIntents returns a list of intents retrieved from `res/datasets/intents.json`
 func SerializeIntents() []Intent {
-	var intents []Intent
-
 	err := json.Unmarshal(util.ReadFile(intentsFile), &intents)
 	if err != nil {
 		panic(err)
