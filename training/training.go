@@ -46,6 +46,8 @@ func CreateNeuralNetwork(ignoreTrainingFile bool) (neuralNetwork network.Network
 		neuralNetwork.Save(saveFile)
 	} else {
 		color.FgBlue.Println("Loading the neural network from " + saveFile)
+		// Initialize the intents
+		analysis.SerializeIntents()
 		neuralNetwork = *network.LoadNetwork(saveFile)
 	}
 
