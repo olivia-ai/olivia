@@ -4,8 +4,7 @@
     "patterns": [
       "Who are you",
       "Are you an AI",
-      "Are you a robot",
-      "Tell me something"
+      "Are you a robot"
     ],
     "responses": [
       "I am Olivia, your new personal assistant",

@@ -17,8 +17,6 @@ func init() {
 		Patterns: []string{
 			"Give me the result of ",
 			"Calculate ",
-			"What is 4x3",
-			"What is 82 + 4",
 		},
 		Responses: []string{
 			"The result is %s",
