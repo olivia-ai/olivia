@@ -133,7 +133,7 @@ And all done!
 ### Code Contributors
 Thanks to the people who contribute to Olivia. 
 
-[Contribute](CONTRIBUTING.md)
+[Contribute](.github/CONTRIBUTING.md)
 <a href="https://github.com/olivia-ai/olivia/graphs/contributors"><img src="https://opencollective.com/olivia-ai/contributors.svg?width=890&button=false" /></a>
 
 ### Financial Contributors
