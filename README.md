@@ -130,6 +130,9 @@ And all done!
   <img alt="docker installation" height="85" src="https://i.imgur.com/6xr2zdp.png">
 </p>
   
+### Contributing
+Please refer to the [contributing file](.github/CONTRIBUTING.md)
+  
 ### Code Contributors
 Thanks to the people who contribute to Olivia. 
 
