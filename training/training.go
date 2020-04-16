@@ -40,7 +40,7 @@ func CreateNeuralNetwork(ignoreTrainingFile bool) (neuralNetwork network.Network
 		inputs, outputs := TrainData()
 
 		neuralNetwork = network.CreateNetwork(0.1, inputs, outputs, 50)
-		neuralNetwork.Train(100)
+		neuralNetwork.Train(200)
 
 		// Save the neural network in res/training.json
 		neuralNetwork.Save(saveFile)
