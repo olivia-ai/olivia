@@ -1,0 +1,3 @@
+- Name your PR with the thing you worked on, example: "modules: creating ...".
+- Explain correctly what you worked on and why.
+- If you fixes an issue with your PR please note `fixes #ID` on your PR.
