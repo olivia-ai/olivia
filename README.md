@@ -139,26 +139,7 @@ Thanks to the people who contribute to Olivia.
 ### Financial Contributors
 Become a financial contributor and help Olivia growth. 
 
-[Contribute](https://opencollective.com/olivia-ai/contribute)
-
-#### Individuals
-<a href="https://opencollective.com/olivia-ai"><img src="https://opencollective.com/olivia-ai/individuals.svg?width=890"></a>
-
-#### Organizations
-Support Olivia with your organization. 
-Your logo will show up here with a link to your website. 
-
-<a href="https://opencollective.com/olivia-ai/organization/0/website"><img src="https://opencollective.com/olivia-ai/organization/0/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/1/website"><img src="https://opencollective.com/olivia-ai/organization/1/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/2/website"><img src="https://opencollective.com/olivia-ai/organization/2/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/3/website"><img src="https://opencollective.com/olivia-ai/organization/3/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/4/website"><img src="https://opencollective.com/olivia-ai/organization/4/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/5/website"><img src="https://opencollective.com/olivia-ai/organization/5/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/6/website"><img src="https://opencollective.com/olivia-ai/organization/6/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/7/website"><img src="https://opencollective.com/olivia-ai/organization/7/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/8/website"><img src="https://opencollective.com/olivia-ai/organization/8/avatar.svg"></a>
-<a href="https://opencollective.com/olivia-ai/organization/9/website"><img src="https://opencollective.com/olivia-ai/organization/9/avatar.svg"></a>
-
+Contribute on the GitHub page on [hugolgst](https://github.com/sponsors/hugolgst) ❤️
 
 ## License
 
