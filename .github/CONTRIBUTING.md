@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="docker installation" height="85" src="https://i.imgur.com/6xr2zdp.png">
+</p>
+
 # Contributing 💁‍♀️
 
 ## Finding issues to resolve
