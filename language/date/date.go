@@ -27,7 +27,7 @@ func SearchTime(sentence string) (string, time.Time) {
 		}
 	}
 
-	return sentence, time.Time{}
+	return sentence, time.Now()
 }
 
 // DeleteDates removes the dates of the given sentence and returns it
