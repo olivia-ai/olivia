@@ -22,8 +22,8 @@ func init() {
 	RegisterModule(Module{
 		Tag: genresTag,
 		Patterns: []string{
-			"I like movies of",
-			"I watch movies of",
+			"I like movies of adventure, animation",
+			"I watch movies of sci-fi",
 		},
 		Responses: []string{
 			"Great choices! I save them into your client.",

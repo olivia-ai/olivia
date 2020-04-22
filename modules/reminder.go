@@ -35,7 +35,7 @@ func init() {
 		Tag: reminderGetterTag,
 		Patterns: []string{
 			"What did I ask for you to remember",
-			"Could you list my reminders",
+			"Give me my reminders",
 		},
 		Responses: []string{
 			"You asked me to remember those things:\n%s",
