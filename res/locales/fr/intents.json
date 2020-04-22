@@ -20,8 +20,7 @@
     ],
     "responses": [
       "Hey!",
-      "Bonjour",
-      "Hello!"
+      "Bonjour"
     ],
     "context": ""
   },
@@ -56,7 +55,8 @@
     "responses": [
       "Je me sens bien, et vous?",
       "Très bien et vous?",
-      "Actuellement, je vais bien et vous?"
+      "Actuellement, je vais bien et vous?",
+      "comment ça va?"
     ],
     "context": ""
   },
