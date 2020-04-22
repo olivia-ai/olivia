@@ -9,21 +9,26 @@ type Module struct {
 	Replacer  func(string, string, string) (string, string)
 }
 
-var modules []Module
+var modules = map[string][]Module{}
 
-// RegisterModule registers a module in the list
-func RegisterModule(module Module) {
-	modules = append(modules, module)
+// RegisterModule registers a module into the map
+func RegisterModule(locale string, module Module) {
+	modules[locale] = append(modules[locale], module)
+}
+
+// RegisterModules registers an array of modules into the map
+func RegisterModules(locale string, _modules []Module) {
+	modules[locale] = append(modules[locale], _modules...)
 }
 
 // GetModules returns all the registered modules
-func GetModules() []Module {
-	return modules
+func GetModules(locale string) []Module {
+	return modules[locale]
 }
 
 // ReplaceContent apply the Replacer of the matching module to the response and returns it
-func ReplaceContent(tag, entry, response, token string) (string, string) {
-	for _, module := range modules {
+func ReplaceContent(locale, tag, entry, response, token string) (string, string) {
+	for _, module := range modules[locale] {
 		if module.Tag != tag {
 			continue
 		}

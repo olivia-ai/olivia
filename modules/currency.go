@@ -7,23 +7,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
-var currencyTag = "currency"
-
-func init() {
-	RegisterModule(Module{
-		Tag: currencyTag,
-		Patterns: []string{
-			"Which currency is used in ",
-			"Give me the used currency of ",
-			"Give me the currency of ",
-			"What is the currency of ",
-		},
-		Responses: []string{
-			"The currency of %s is %s",
-		},
-		Replacer: CurrencyReplacer,
-	})
-}
+var CurrencyTag = "currency"
 
 // CurrencyReplacer replaces the pattern contained inside the response by the currency of the country
 // specified in the message.
@@ -37,5 +21,5 @@ func CurrencyReplacer(entry, response, _ string) (string, string) {
 		return responseTag, util.GetMessage(responseTag)
 	}
 
-	return currencyTag, fmt.Sprintf(response, country.CommonName, country.Currency)
+	return CurrencyTag, fmt.Sprintf(response, country.CommonName, country.Currency)
 }

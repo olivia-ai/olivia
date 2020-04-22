@@ -12,37 +12,9 @@ import (
 )
 
 var (
-	reminderSetterTag = "reminder setter"
-	reminderGetterTag = "reminder getter"
+	ReminderSetterTag = "reminder setter"
+	ReminderGetterTag = "reminder getter"
 )
-
-func init() {
-	RegisterModule(Module{
-		Tag: reminderSetterTag,
-		Patterns: []string{
-			"Remind me to cook a breakfast at 8pm",
-			"Remind me to call mom tuesday",
-			"Note that I have an exam",
-			"Remind me that I have a conference call tomorrow at 9pm",
-		},
-		Responses: []string{
-			"Noted! I will remind you: “%s” for the %s",
-		},
-		Replacer: ReminderSetterReplacer,
-	})
-
-	RegisterModule(Module{
-		Tag: reminderGetterTag,
-		Patterns: []string{
-			"What did I ask for you to remember",
-			"Give me my reminders",
-		},
-		Responses: []string{
-			"You asked me to remember those things:\n%s",
-		},
-		Replacer: ReminderGetterReplacer,
-	})
-}
 
 // ReminderSetterReplacer replaces the pattern contained inside the response by the date of the reminder
 // and its reason.
@@ -65,7 +37,7 @@ func ReminderSetterReplacer(entry, response, token string) (string, string) {
 		return information
 	})
 
-	return reminderSetterTag, fmt.Sprintf(response, reason, formattedDate)
+	return ReminderSetterTag, fmt.Sprintf(response, reason, formattedDate)
 }
 
 // ReminderGetterReplacer gets the reminders in the user's information and replaces the pattern in the
@@ -83,8 +55,8 @@ func ReminderGetterReplacer(_, response, token string) (string, string) {
 
 	// If no reminder has been found
 	if len(formattedReminders) == 0 {
-		return reminderGetterTag, "You have no reminders saved."
+		return ReminderGetterTag, "You have no reminders saved."
 	}
 
-	return reminderGetterTag, fmt.Sprintf(response, strings.Join(formattedReminders, " "))
+	return ReminderGetterTag, fmt.Sprintf(response, strings.Join(formattedReminders, " "))
 }

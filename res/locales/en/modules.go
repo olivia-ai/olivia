@@ -1,0 +1,217 @@
+package en
+
+import "github.com/olivia-ai/olivia/modules"
+
+func init() {
+	modules.RegisterModules("en", []modules.Module{
+		// AREA
+		{
+			Tag: modules.AreaTag,
+			Patterns: []string{
+				"What is the area of ",
+				"Give me the area of ",
+			},
+			Responses: []string{
+				"The area of %s is %gkm²",
+			},
+			Replacer: modules.AreaReplacer,
+		},
+
+		// CAPITAL
+		{
+			Tag: modules.CapitalTag,
+			Patterns: []string{
+				"What is the capital of ",
+				"What's the capital of ",
+				"Give me the capital of ",
+			},
+			Responses: []string{
+				"The capital of %s is %s",
+			},
+			Replacer: modules.CapitalReplacer,
+		},
+
+		// CURRENCY
+		{
+			Tag: modules.CurrencyTag,
+			Patterns: []string{
+				"Which currency is used in ",
+				"Give me the used currency of ",
+				"Give me the currency of ",
+				"What is the currency of ",
+			},
+			Responses: []string{
+				"The currency of %s is %s",
+			},
+			Replacer: modules.CurrencyReplacer,
+		},
+
+		// MATH
+		{
+			Tag: modules.MathTag,
+			Patterns: []string{
+				"Give me the result of ",
+				"Calculate ",
+			},
+			Responses: []string{
+				"The result is %s",
+				"That makes %s",
+			},
+			Replacer: modules.MathReplacer,
+		},
+
+		// MOVIES
+		{
+			Tag: modules.GenresTag,
+			Patterns: []string{
+				"I like movies of adventure, animation",
+				"I watch movies of sci-fi",
+			},
+			Responses: []string{
+				"Great choices! I save them into your client.",
+				"Understood, I send this information to your client.",
+			},
+			Replacer: modules.GenresReplacer,
+		},
+
+		{
+			Tag: modules.MoviesTag,
+			Patterns: []string{
+				"Can you find me a movie of",
+				"Give me a movie of",
+				"Find me a film of",
+				"I would like to watch a movie of",
+			},
+			Responses: []string{
+				"I found this for you “%s” which is rated %.02f/5",
+				"Sure, I found this movie “%s” rated %.02f/5",
+			},
+			Replacer: modules.MovieSearchReplacer,
+		},
+
+		{
+			Tag: modules.MoviesAlreadyTag,
+			Patterns: []string{
+				"I already saw this movie",
+				"I have already watched this film",
+				"Oh I have already watched this movie",
+			},
+			Responses: []string{
+				"Oh I see, here's another one “%s” which is rated %.02f/5",
+			},
+			Replacer: modules.MovieSearchReplacer,
+		},
+
+		{
+			Tag: modules.MoviesDataTag,
+			Patterns: []string{
+				"I'm bored",
+				"I don't know what to do",
+			},
+			Responses: []string{
+				"I propose you a movie of %s “%s” which is rated %.02f/5",
+			},
+			Replacer: modules.MovieSearchFromInformationReplacer,
+		},
+
+		// NAME
+		{
+			Tag: modules.NameGetterTag,
+			Patterns: []string{
+				"Do you know my name?",
+			},
+			Responses: []string{
+				"Your name is %s!",
+			},
+			Replacer: modules.NameGetterReplacer,
+		},
+
+		{
+			Tag: modules.NameSetterTag,
+			Patterns: []string{
+				"My name is ",
+				"You can call me ",
+			},
+			Responses: []string{
+				"Great! Hi %s",
+			},
+			Replacer: modules.NameSetterReplacer,
+		},
+
+		{
+			Tag: modules.NameSetterTag,
+			Patterns: []string{
+				"My name is ",
+				"You can call me ",
+			},
+			Responses: []string{
+				"Great! Hi %s",
+			},
+			Replacer: modules.NameSetterReplacer,
+		},
+
+		// RANDOM
+		{
+			Tag: modules.RandomTag,
+			Patterns: []string{
+				"Give me a random number",
+				"Generate a random number",
+			},
+			Responses: []string{
+				"The number is %s",
+			},
+			Replacer: modules.RandomNumberReplacer,
+		},
+
+		// REMINDERS
+		{
+			Tag: modules.ReminderSetterTag,
+			Patterns: []string{
+				"Remind me to cook a breakfast at 8pm",
+				"Remind me to call mom tuesday",
+				"Note that I have an exam",
+				"Remind me that I have a conference call tomorrow at 9pm",
+			},
+			Responses: []string{
+				"Noted! I will remind you: “%s” for the %s",
+			},
+			Replacer: modules.ReminderSetterReplacer,
+		},
+
+		{
+			Tag: modules.ReminderGetterTag,
+			Patterns: []string{
+				"What did I ask for you to remember",
+				"Give me my reminders",
+			},
+			Responses: []string{
+				"You asked me to remember those things:\n%s",
+			},
+			Replacer: modules.ReminderGetterReplacer,
+		},
+
+		// SPOTIFY
+		{
+			Tag: modules.SpotifySetterTag,
+			Patterns: []string{
+				"Here are my spotify tokens",
+				"My spotify secrets",
+			},
+			Responses: []string{
+				modules.LoginMessage,
+			},
+			Replacer: modules.SpotifySetterReplacer,
+		},
+
+		{
+			Tag: modules.SpotifyPlayerTag,
+			Patterns: []string{
+				"Play from on Spotify",
+			},
+			Responses: []string{
+				"Playing %s from %s on Spotify.",
+			},
+			Replacer: modules.SpotifyPlayerReplacer,
+		},
+	})
+}

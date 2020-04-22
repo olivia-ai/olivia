@@ -13,36 +13,11 @@ import (
 )
 
 var (
-	spotifySetterTag = "spotify setter"
-	spotifyPlayerTag = "spotify player"
+	SpotifySetterTag = "spotify setter"
+	SpotifyPlayerTag = "spotify player"
 
-	loginMessage = `Login in progress <meta http-equiv="refresh" content="0; url = %s" />`
+	LoginMessage = `Login in progress <meta http-equiv="refresh" content="0; url = %s" />`
 )
-
-func init() {
-	RegisterModule(Module{
-		Tag: spotifySetterTag,
-		Patterns: []string{
-			"Here are my spotify tokens",
-			"My spotify secrets",
-		},
-		Responses: []string{
-			loginMessage,
-		},
-		Replacer: SpotifySetterReplacer,
-	})
-
-	RegisterModule(Module{
-		Tag: spotifyPlayerTag,
-		Patterns: []string{
-			"Play from on Spotify",
-		},
-		Responses: []string{
-			"Playing %s from %s on Spotify.",
-		},
-		Replacer: SpotifyPlayerReplacer,
-	})
-}
 
 // SpotifySetterReplacer gets the tokens in the user entry and save them into the client's information.
 // See modules/modules.go#Module.Replacer() for more details.
@@ -51,7 +26,7 @@ func SpotifySetterReplacer(entry, _, token string) (string, string) {
 
 	// Returns if the token is empty
 	if len(spotifyTokens) != 2 {
-		return spotifySetterTag, "You need to send the two tokens."
+		return SpotifySetterTag, "You need to send the two tokens."
 	}
 
 	// Save the tokens in the user's information
@@ -62,7 +37,7 @@ func SpotifySetterReplacer(entry, _, token string) (string, string) {
 		return information
 	})
 
-	return spotifySetterTag, spotifyModule.LoginSpotify(token)
+	return SpotifySetterTag, spotifyModule.LoginSpotify(token)
 }
 
 // SpotifyPlayerReplacer plays a specified music on the user's spotify
@@ -70,7 +45,7 @@ func SpotifySetterReplacer(entry, _, token string) (string, string) {
 func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	// Return if the tokens are not set
 	if spotifyModule.CheckTokensPresence(token) {
-		return spotifySetterTag, "You need to enter your Spotify credentials."
+		return SpotifySetterTag, "You need to enter your Spotify credentials."
 	}
 
 	// Renew the spotify token and get the client
@@ -80,7 +55,7 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	music, artist := language.SearchMusic(entry)
 	track, err := SearchTrack(client, music+" "+artist)
 	if err != nil {
-		return spotifySetterTag, spotifyModule.LoginSpotify(token)
+		return SpotifySetterTag, spotifyModule.LoginSpotify(token)
 	}
 
 	// Search if there is a device name in the entry
@@ -98,7 +73,7 @@ func SpotifyPlayerReplacer(entry, response, token string) (string, string) {
 	client.PlayOpt(options)
 	client.Play()
 
-	return spotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name)
+	return SpotifyPlayerTag, fmt.Sprintf(response, track.Name, track.Artists[0].Name)
 }
 
 // SearchTrack searches for a given track name and returns the found track and the error

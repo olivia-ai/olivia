@@ -46,8 +46,8 @@ func SerializeIntents(locale string) (_intents []Intent) {
 }
 
 // SerializeModulesIntents retrieves all the registered modules and returns an array of Intents
-func SerializeModulesIntents() []Intent {
-	registeredModules := modules.GetModules()
+func SerializeModulesIntents(locale string) []Intent {
+	registeredModules := modules.GetModules(locale)
 	intents := make([]Intent, len(registeredModules))
 
 	for _, module := range registeredModules {
@@ -68,7 +68,7 @@ func Organize(locale string) (words, classes []string, documents []Document) {
 	// Append the modules intents to the intents from res/datasets/intents.json
 	intents := append(
 		SerializeIntents(locale),
-		SerializeModulesIntents()...,
+		SerializeModulesIntents(locale)...,
 	)
 
 	for _, intent := range intents {

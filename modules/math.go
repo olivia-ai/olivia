@@ -9,22 +9,7 @@ import (
 	"github.com/soudy/mathcat"
 )
 
-var mathTag = "math"
-
-func init() {
-	RegisterModule(Module{
-		Tag: "math",
-		Patterns: []string{
-			"Give me the result of ",
-			"Calculate ",
-		},
-		Responses: []string{
-			"The result is %s",
-			"That makes %s",
-		},
-		Replacer: MathReplacer,
-	})
-}
+var MathTag = "math"
 
 // MathReplacer replaces the pattern contained inside the response by the answer of the math
 // expression specified in the message.
@@ -56,5 +41,5 @@ func MathReplacer(entry, response, _ string) (string, string) {
 	trailingZerosRegex := regexp.MustCompile(`\.?0+$`)
 	result = trailingZerosRegex.ReplaceAllString(result, "")
 
-	return mathTag, fmt.Sprintf(response, result)
+	return MathTag, fmt.Sprintf(response, result)
 }
