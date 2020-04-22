@@ -1,10 +1,11 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
+
+	"github.com/olivia-ai/olivia/locales"
 
 	"github.com/olivia-ai/olivia/training"
 
@@ -21,22 +22,6 @@ import (
 
 var neuralNetworks = map[string]network.Network{}
 
-// A Locale is a registered locale in the file
-type Locale struct {
-	Locale string `json:"locale"`
-	Name   string `json:"name"`
-}
-
-// SerializeLocales returns the locales retrieved from the locales JSON file
-func SerializeLocales() (locales []Locale) {
-	err := json.Unmarshal(util.ReadFile("res/locales/locales.json"), &locales)
-	if err != nil {
-		panic(err)
-	}
-
-	return
-}
-
 func main() {
 	port := flag.String("port", "8080", "The port for the API and WebSocket.")
 	flag.Parse()
@@ -48,10 +33,10 @@ func main() {
 	// Create the authentication token
 	dashboard.Authenticate()
 
-	for _, locale := range SerializeLocales() {
+	for _, locale := range locales.GetLocales() {
 		neuralNetworks[locale.Locale] = training.CreateNeuralNetwork(
 			locale.Locale,
-			true,
+			false,
 		)
 	}
 

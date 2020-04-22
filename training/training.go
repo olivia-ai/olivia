@@ -40,14 +40,17 @@ func CreateNeuralNetwork(locale string, ignoreTrainingFile bool) (neuralNetwork 
 	if err != nil || ignoreTrainingFile {
 		inputs, outputs := TrainData(locale)
 
-		fmt.Println("training for " + locale)
-		neuralNetwork = network.CreateNetwork(0.1, inputs, outputs, 50)
+		neuralNetwork = network.CreateNetwork(locale, 0.1, inputs, outputs, 50)
 		neuralNetwork.Train(200)
 
 		// Save the neural network in res/training.json
 		neuralNetwork.Save(saveFile)
 	} else {
-		color.FgBlue.Println("Loading the neural network from " + saveFile)
+		fmt.Printf(
+			"%s %s\n",
+			color.FgBlue.Render("Loading the neural network from"),
+			color.FgRed.Render(saveFile),
+		)
 		// Initialize the intents
 		analysis.SerializeIntents(locale)
 		neuralNetwork = *network.LoadNetwork(saveFile)

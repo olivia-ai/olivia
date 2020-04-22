@@ -5,6 +5,8 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/olivia-ai/olivia/locales"
+
 	"github.com/olivia-ai/olivia/util"
 	"github.com/tebeka/snowball"
 )
@@ -18,6 +20,7 @@ func (sentence *Sentence) Arrange() {
 		return punctuation.ReplaceAllString(s, "")
 	})
 
+	sentence.Content = strings.ReplaceAll(sentence.Content, "-", " ")
 	sentence.Content = strings.TrimSpace(sentence.Content)
 }
 
@@ -70,7 +73,7 @@ func (sentence Sentence) Tokenize() (tokens []string) {
 
 // Stem returns the sentence split in stemmed words
 func (sentence Sentence) Stem() (tokenizeWords []string) {
-	locale := sentence.Locale
+	locale := locales.GetLocaleByName(sentence.Locale)
 	// Set default locale to english
 	if locale == "" {
 		locale = "english"
