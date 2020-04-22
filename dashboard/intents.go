@@ -22,7 +22,7 @@ type DeleteRequest struct {
 
 // WriteIntents writes the given intents to the intents file
 func WriteIntents(intents []analysis.Intent) {
-	analysis.CacheIntents(intents)
+	analysis.CacheIntents("en", intents)
 
 	// Encode the json
 	bytes, _ := json.MarshalIndent(intents, "", "  ")
@@ -39,8 +39,8 @@ func WriteIntents(intents []analysis.Intent) {
 }
 
 // AddIntent adds the given intent to the intents file
-func AddIntent(intent analysis.Intent) {
-	intents := append(analysis.SerializeIntents(), intent)
+func AddIntent(locale string, intent analysis.Intent) {
+	intents := append(analysis.SerializeIntents(locale), intent)
 
 	WriteIntents(intents)
 
@@ -48,8 +48,8 @@ func AddIntent(intent analysis.Intent) {
 }
 
 // RemoveIntent removes the intent with the given tag from the intents file
-func RemoveIntent(tag string) {
-	intents := analysis.SerializeIntents()
+func RemoveIntent(locale, tag string) {
+	intents := analysis.SerializeIntents(locale)
 
 	// Iterate through the intents to remove the right one
 	for i, intent := range intents {
@@ -69,7 +69,7 @@ func RemoveIntent(tag string) {
 func GetIntents(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
-	json.NewEncoder(w).Encode(analysis.GetIntents())
+	json.NewEncoder(w).Encode(analysis.GetIntents("en"))
 }
 
 // CreateIntent is the route to create a new intent
@@ -95,7 +95,7 @@ func CreateIntent(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Adds the intent
-	AddIntent(intent)
+	AddIntent("en", intent)
 
 	json.NewEncoder(w).Encode(intent)
 }
@@ -120,7 +120,7 @@ func DeleteIntent(w http.ResponseWriter, r *http.Request) {
 	var deleteRequest DeleteRequest
 	json.NewDecoder(r.Body).Decode(&deleteRequest)
 
-	RemoveIntent(deleteRequest.Tag)
+	RemoveIntent("en", deleteRequest.Tag)
 
-	json.NewEncoder(w).Encode(analysis.GetIntents())
+	json.NewEncoder(w).Encode(analysis.GetIntents("en"))
 }

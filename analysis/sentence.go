@@ -43,7 +43,7 @@ func NewSentence(locale, content string) (sentence Sentence) {
 
 // PredictTag classifies the sentence with the model
 func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
-	words, classes, _ := Organize()
+	words, classes, _ := Organize(sentence.Locale)
 
 	// Predict with the model
 	predict := neuralNetwork.Predict(sentence.WordsBag(words))
@@ -66,13 +66,13 @@ func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 
 // RandomizeResponse takes the entry message, the response tag and the token and returns a random
 // message from res/datasets/intents.json where the triggers are applied
-func RandomizeResponse(entry, tag, token string) (string, string) {
+func RandomizeResponse(locale, entry, tag, token string) (string, string) {
 	if tag == DontUnderstand {
 		return DontUnderstand, util.GetMessage(tag)
 	}
 
 	// Append the modules intents to the intents from res/datasets/intents.json
-	intents := append(SerializeIntents(), SerializeModulesIntents()...)
+	intents := append(SerializeIntents(locale), SerializeModulesIntents()...)
 
 	for _, intent := range intents {
 		if intent.Tag != tag {
@@ -111,7 +111,7 @@ func (sentence Sentence) Calculate(cache gocache.Cache, neuralNetwork network.Ne
 		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
 	}
 
-	return RandomizeResponse(sentence.Content, tag.(string), token)
+	return RandomizeResponse(sentence.Locale, sentence.Content, tag.(string), token)
 }
 
 // LogResults print in the console the sentence and its tags sorted by prediction

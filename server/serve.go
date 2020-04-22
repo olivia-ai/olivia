@@ -20,15 +20,15 @@ import (
 
 var (
 	// Create the neural network variable to use it everywhere
-	neuralNetwork network.Network
+	neuralNetworks map[string]network.Network
 	// Initializes the cache with a 5 minute lifetime
 	cache = gocache.New(5*time.Minute, 5*time.Minute)
 )
 
 // Serve serves the server in the given port
-func Serve(_neuralNetwork network.Network, port string) {
+func Serve(_neuralNetworks map[string]network.Network, port string) {
 	// Set the current global network as a global variable
-	neuralNetwork = _neuralNetwork
+	neuralNetworks = _neuralNetworks
 
 	// Initializes the router
 	router := mux.NewRouter()
@@ -65,5 +65,8 @@ func Train(w http.ResponseWriter, r *http.Request) {
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nRe-training the %s..\n", magenta("neural network"))
-	neuralNetwork = training.CreateNeuralNetwork(true)
+
+	for locale := range neuralNetworks {
+		neuralNetworks[locale] = training.CreateNeuralNetwork(locale, true)
+	}
 }
