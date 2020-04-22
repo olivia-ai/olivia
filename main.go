@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
@@ -18,7 +19,23 @@ import (
 	"github.com/olivia-ai/olivia/server"
 )
 
-var neuralNetwork network.Network
+var neuralNetworks = map[string]network.Network{}
+
+// A Locale is a registered locale in the file
+type Locale struct {
+	Locale string `json:"locale"`
+	Name   string `json:"name"`
+}
+
+// SerializeLocales returns the locales retrieved from the locales JSON file
+func SerializeLocales() (locales []Locale) {
+	err := json.Unmarshal(util.ReadFile("res/locales/locales.json"), &locales)
+	if err != nil {
+		panic(err)
+	}
+
+	return
+}
 
 func main() {
 	port := flag.String("port", "8080", "The port for the API and WebSocket.")
@@ -31,7 +48,12 @@ func main() {
 	// Create the authentication token
 	dashboard.Authenticate()
 
-	neuralNetwork = training.CreateNeuralNetwork(false)
+	for _, locale := range SerializeLocales() {
+		neuralNetworks[locale.Locale] = training.CreateNeuralNetwork(
+			locale.Locale,
+			true,
+		)
+	}
 
 	// Get port from environment variables if there is
 	if os.Getenv("PORT") != "" {
@@ -39,5 +61,5 @@ func main() {
 	}
 
 	// Serves the server
-	server.Serve(neuralNetwork, *port)
+	server.Serve(neuralNetworks, *port)
 }

@@ -90,8 +90,6 @@ func (sentence Sentence) Stem() (tokenizeWords []string) {
 		tokenizeWords = append(tokenizeWords, word)
 	}
 
-	fmt.Println(tokenizeWords)
-
 	return
 }
 

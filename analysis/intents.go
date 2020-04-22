@@ -8,9 +8,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
-const intentsFile = "res/datasets/intents.json"
-
-var intents []Intent
+var intents map[string][]Intent
 
 // Intent is a way to group sentences that mean the same thing and link them with a tag which
 // represents what they mean, some responses that the bot can reply and a context
@@ -28,23 +26,23 @@ type Document struct {
 }
 
 // CacheIntents set the given intents to the global variable intents
-func CacheIntents(_intents []Intent) {
-	intents = _intents
+func CacheIntents(locale string, _intents []Intent) {
+	intents[locale] = _intents
 }
 
 // GetIntents returns the cached intents
-func GetIntents() []Intent {
-	return intents
+func GetIntents(locale string) []Intent {
+	return intents[locale]
 }
 
-// SerializeIntents returns a list of intents retrieved from `res/datasets/intents.json`
-func SerializeIntents() []Intent {
-	err := json.Unmarshal(util.ReadFile(intentsFile), &intents)
+// SerializeIntents returns a list of intents retrieved from the given intents file
+func SerializeIntents(locale string) (_intents []Intent) {
+	err := json.Unmarshal(util.ReadFile("res/locales/"+locale+"/intents.json"), &_intents)
 	if err != nil {
 		panic(err)
 	}
 
-	return intents
+	return _intents
 }
 
 // SerializeModulesIntents retrieves all the registered modules and returns an array of Intents
@@ -66,14 +64,17 @@ func SerializeModulesIntents() []Intent {
 
 // Organize intents with an array of all words, an array with a representative word of each tag
 // and an array of Documents which contains a word list associated with a tag
-func Organize() (words, classes []string, documents []Document) {
+func Organize(locale string) (words, classes []string, documents []Document) {
 	// Append the modules intents to the intents from res/datasets/intents.json
-	intents := append(SerializeIntents(), SerializeModulesIntents()...)
+	intents := append(
+		SerializeIntents(locale),
+		SerializeModulesIntents()...,
+	)
 
 	for _, intent := range intents {
 		for _, pattern := range intent.Patterns {
 			// Tokenize the pattern's sentence
-			patternSentence := Sentence{"en", pattern}
+			patternSentence := Sentence{locale, pattern}
 			patternSentence.Arrange()
 
 			// Add each word to response
