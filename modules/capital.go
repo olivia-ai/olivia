@@ -7,22 +7,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
-var capitalTag = "capital"
-
-func init() {
-	RegisterModule(Module{
-		Tag: capitalTag,
-		Patterns: []string{
-			"What is the capital of ",
-			"What's the capital of ",
-			"Give me the capital of ",
-		},
-		Responses: []string{
-			"The capital of %s is %s",
-		},
-		Replacer: CapitalReplacer,
-	})
-}
+var CapitalTag = "capital"
 
 // CapitalReplacer replaces the pattern contained inside the response by the capital of the country
 // specified in the message.
@@ -36,5 +21,5 @@ func CapitalReplacer(entry, response, _ string) (string, string) {
 		return responseTag, util.GetMessage(responseTag)
 	}
 
-	return capitalTag, fmt.Sprintf(response, country.CommonName, country.Capital)
+	return CapitalTag, fmt.Sprintf(response, country.CommonName, country.Capital)
 }

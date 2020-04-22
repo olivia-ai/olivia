@@ -72,7 +72,7 @@ func RandomizeResponse(locale, entry, tag, token string) (string, string) {
 	}
 
 	// Append the modules intents to the intents from res/datasets/intents.json
-	intents := append(SerializeIntents(locale), SerializeModulesIntents()...)
+	intents := append(SerializeIntents(locale), SerializeModulesIntents(locale)...)
 
 	for _, intent := range intents {
 		if intent.Tag != tag {
@@ -95,7 +95,7 @@ func RandomizeResponse(locale, entry, tag, token string) (string, string) {
 		}
 
 		// And then apply the triggers on the message
-		return modules.ReplaceContent(tag, entry, response, token)
+		return modules.ReplaceContent(locale, tag, entry, response, token)
 	}
 
 	return DontUnderstand, util.GetMessage(DontUnderstand)

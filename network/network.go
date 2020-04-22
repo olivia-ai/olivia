@@ -166,7 +166,7 @@ func (network *Network) Train(iterations int) {
 	bar := pb.New(iterations).Postfix(fmt.Sprintf(
 		" - %s %s %s",
 		color.FgBlue.Render("Training the"),
-		color.FgRed.Render(locales.GetNameByLocale(network.Locale)),
+		color.FgRed.Render(locales.GetNameByTag(network.Locale)),
 		color.FgBlue.Render("neural network"),
 	))
 	bar.Format("(██░)")

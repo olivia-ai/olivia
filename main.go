@@ -33,9 +33,9 @@ func main() {
 	// Create the authentication token
 	dashboard.Authenticate()
 
-	for _, locale := range locales.GetLocales() {
-		neuralNetworks[locale.Locale] = training.CreateNeuralNetwork(
-			locale.Locale,
+	for _, locale := range locales.Locales {
+		neuralNetworks[locale.Tag] = training.CreateNeuralNetwork(
+			locale.Tag,
 			false,
 		)
 	}

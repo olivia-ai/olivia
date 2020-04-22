@@ -7,21 +7,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
-var areaTag = "area"
-
-func init() {
-	RegisterModule(Module{
-		Tag: areaTag,
-		Patterns: []string{
-			"What is the area of ",
-			"Give me the area of ",
-		},
-		Responses: []string{
-			"The area of %s is %gkm²",
-		},
-		Replacer: AreaReplacer,
-	})
-}
+var AreaTag = "area"
 
 // AreaReplacer replaces the pattern contained inside the response by the area of the country
 // specified in the message.
@@ -35,5 +21,5 @@ func AreaReplacer(entry, response, _ string) (string, string) {
 		return responseTag, util.GetMessage(responseTag)
 	}
 
-	return areaTag, fmt.Sprintf(response, country.CommonName, country.Area)
+	return AreaTag, fmt.Sprintf(response, country.CommonName, country.Area)
 }
