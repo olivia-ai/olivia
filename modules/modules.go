@@ -7,6 +7,7 @@ type Module struct {
 	Patterns  []string
 	Responses []string
 	Replacer  func(string, string, string) (string, string)
+	Context   string
 }
 
 var modules = map[string][]Module{}

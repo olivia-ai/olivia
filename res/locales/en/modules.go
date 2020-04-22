@@ -138,18 +138,6 @@ func init() {
 			Replacer: modules.NameSetterReplacer,
 		},
 
-		{
-			Tag: modules.NameSetterTag,
-			Patterns: []string{
-				"My name is ",
-				"You can call me ",
-			},
-			Responses: []string{
-				"Great! Hi %s",
-			},
-			Replacer: modules.NameSetterReplacer,
-		},
-
 		// RANDOM
 		{
 			Tag: modules.RandomTag,
