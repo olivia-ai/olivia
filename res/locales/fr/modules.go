@@ -183,7 +183,7 @@ func init() {
 				"Voici mes identifiants spotify",
 			},
 			Responses: []string{
-				modules.LoginMessage,
+				"Connexion en cours",
 			},
 			Replacer: modules.SpotifySetterReplacer,
 		},

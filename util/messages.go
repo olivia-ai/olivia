@@ -12,21 +12,24 @@ type Message struct {
 	Messages []string `json:"messages"`
 }
 
-var messages = SerializeMessages()
+var messages = map[string][]Message{}
 
 // SerializeMessages serializes the content of `res/datasets/messages.json` in JSON
-func SerializeMessages() (messages []Message) {
-	err := json.Unmarshal(ReadFile("res/datasets/messages.json"), &messages)
+func SerializeMessages(locale string) []Message {
+	var currentMessages []Message
+	err := json.Unmarshal(ReadFile("res/locales/"+locale+"/messages.json"), &currentMessages)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	return messages
+	messages[locale] = currentMessages
+
+	return currentMessages
 }
 
 // GetMessage retrieves a message tag and returns a random message chose from res/datasets/messages.json
-func GetMessage(tag string) string {
-	for _, message := range messages {
+func GetMessage(locale, tag string) string {
+	for _, message := range messages[locale] {
 		// Find the message with the right tag
 		if message.Tag != tag {
 			continue
@@ -41,5 +44,5 @@ func GetMessage(tag string) string {
 		return message.Messages[rand.Intn(len(message.Messages))]
 	}
 
-	return messages[0].Messages[0]
+	return messages[locale][0].Messages[0]
 }

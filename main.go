@@ -34,6 +34,8 @@ func main() {
 	dashboard.Authenticate()
 
 	for _, locale := range locales.Locales {
+		util.SerializeMessages(locale.Tag)
+
 		neuralNetworks[locale.Tag] = training.CreateNeuralNetwork(
 			locale.Tag,
 			false,

@@ -5,14 +5,19 @@ import (
 )
 
 // SearchMusic returns a music title and artist found from the given sentence
-func SearchMusic(sentence string) (music, artist string) {
+func SearchMusic(locale, sentence string) (music, artist string) {
 	words := strings.Split(sentence, " ")
 
 	// Iterate through the words of the sentence
 	playAppeared, fromAppeared, onAppeared := false, false, false
+	play, from, on := "play", "from", "on"
+	if locale == "fr" {
+		play, from, on = "joue", "de", "sur"
+	}
+
 	for _, word := range words {
 		// If "on" appeared
-		if word == "on" {
+		if word == on {
 			onAppeared = true
 		}
 
@@ -22,7 +27,7 @@ func SearchMusic(sentence string) (music, artist string) {
 		}
 
 		// If "from" appeared
-		if LevenshteinDistance(word, "from") < 2 {
+		if LevenshteinDistance(word, from) < 2 {
 			fromAppeared = true
 		}
 
@@ -32,7 +37,7 @@ func SearchMusic(sentence string) (music, artist string) {
 		}
 
 		// If "play" appeared
-		if LevenshteinDistance(word, "play") < 2 {
+		if LevenshteinDistance(word, play) < 2 {
 			playAppeared = true
 		}
 	}

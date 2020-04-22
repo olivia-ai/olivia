@@ -6,6 +6,8 @@ import (
 	"os"
 	"time"
 
+	"github.com/olivia-ai/olivia/util"
+
 	"github.com/olivia-ai/olivia/user"
 	"github.com/zmb3/spotify"
 	"golang.org/x/oauth2"
@@ -41,7 +43,7 @@ func init() {
 }
 
 // LoginSpotify logins the user with its token to Spotify
-func LoginSpotify(token string) string {
+func LoginSpotify(locale, token string) string {
 	information := user.GetUserInformation(token)
 
 	// Generate the authentication url
@@ -70,7 +72,7 @@ func LoginSpotify(token string) string {
 		})
 	}()
 
-	return fmt.Sprintf(`Login in progress <meta http-equiv="refresh" content="0; url = %s" />`, url)
+	return fmt.Sprintf(util.GetMessage(locale, "spotify credentials"), url)
 }
 
 // RenewSpotifyToken renews the spotify token with the user's information token and returns
