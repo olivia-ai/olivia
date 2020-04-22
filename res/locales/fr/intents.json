@@ -50,13 +50,13 @@
   {
     "tag": "feeling",
     "patterns": [
-      "Comment vas-tu aujourd'hui"
+      "Comment vas-tu aujourd'hui",
+      "Comment ca va?"
     ],
     "responses": [
       "Je me sens bien, et vous?",
       "Très bien et vous?",
-      "Actuellement, je vais bien et vous?",
-      "comment ça va?"
+      "Actuellement, je vais bien et vous?"
     ],
     "context": ""
   },

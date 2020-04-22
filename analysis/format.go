@@ -25,35 +25,31 @@ func (sentence *Sentence) Arrange() {
 }
 
 // RemoveStopWords takes an arary of words, removes the stopwords and returns it
-func RemoveStopWords(words []string) []string {
+func RemoveStopWords(locale string, words []string) []string {
 	// Don't remove stopwords for small sentences like “How are you” because it will remove all the words
 	if len(words) <= 4 {
 		return words
 	}
 
 	// Read the content of the stopwords file
-	stopWords := string(util.ReadFile("res/datasets/stopwords.txt"))
+	stopWords := string(util.ReadFile("res/locales/" + locale + "/stopwords.txt"))
+
+	var wordsToRemove []string
 
 	// Iterate through all the stopwords
 	for _, stopWord := range strings.Split(stopWords, "\n") {
 		// Iterate through all the words of the given array
-		for i, word := range words {
+		for _, word := range words {
 			// Continue if the word isn't a stopword
 			if !strings.Contains(stopWord, word) {
 				continue
 			}
 
-			// Remove the word from the array
-			if len(words) == 1 {
-				words = []string{}
-			} else {
-				words[i] = words[len(words)-1]
-				words = words[:len(words)-1]
-			}
+			wordsToRemove = append(wordsToRemove, word)
 		}
 	}
 
-	return words
+	return util.Difference(words, wordsToRemove)
 }
 
 // Tokenize returns a list of words that have been lower-cased
@@ -66,7 +62,7 @@ func (sentence Sentence) Tokenize() (tokens []string) {
 		tokens[i] = strings.ToLower(token)
 	}
 
-	tokens = RemoveStopWords(tokens)
+	tokens = RemoveStopWords(sentence.Locale, tokens)
 
 	return
 }
