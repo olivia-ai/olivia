@@ -186,7 +186,7 @@ func init() {
 				"My spotify secrets",
 			},
 			Responses: []string{
-				modules.LoginMessage,
+				"Login in progress",
 			},
 			Replacer: modules.SpotifySetterReplacer,
 		},

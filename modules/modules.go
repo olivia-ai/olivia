@@ -6,7 +6,7 @@ type Module struct {
 	Tag       string
 	Patterns  []string
 	Responses []string
-	Replacer  func(string, string, string) (string, string)
+	Replacer  func(string, string, string, string) (string, string)
 	Context   string
 }
 
@@ -34,7 +34,7 @@ func ReplaceContent(locale, tag, entry, response, token string) (string, string)
 			continue
 		}
 
-		return module.Replacer(entry, response, token)
+		return module.Replacer(locale, entry, response, token)
 	}
 
 	return tag, response

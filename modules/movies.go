@@ -20,13 +20,13 @@ var (
 
 // GenresReplacer gets the genre specified in the message and adds it to the user information.
 // See modules/modules.go#Module.Replacer() for more details.
-func GenresReplacer(entry, response, token string) (string, string) {
+func GenresReplacer(locale, entry, response, token string) (string, string) {
 	genres := language.FindMoviesGenres(entry)
 
 	// If there is no genres then reply with a message from res/datasets/messages.json
 	if len(genres) == 0 {
 		responseTag := "no genres"
-		return responseTag, util.GetMessage(responseTag)
+		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
 	// Change the user information to add the new genres
@@ -48,13 +48,13 @@ func GenresReplacer(entry, response, token string) (string, string) {
 // MovieSearchReplacer replaces the patterns contained inside the response by the movie's name
 // and rating from the genre specified in the message.
 // See modules/modules.go#Module.Replacer() for more details.
-func MovieSearchReplacer(entry, response, token string) (string, string) {
+func MovieSearchReplacer(locale, entry, response, token string) (string, string) {
 	genres := language.FindMoviesGenres(entry)
 
 	// If there is no genres then reply with a message from res/datasets/messages.json
 	if len(genres) == 0 {
 		responseTag := "no genres"
-		return responseTag, util.GetMessage(responseTag)
+		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
 	movie := language.SearchMovie(genres[0], token)
@@ -65,12 +65,12 @@ func MovieSearchReplacer(entry, response, token string) (string, string) {
 // MovieSearchFromInformationReplacer replaces the patterns contained inside the response by the movie's name
 // and rating from the genre in the user's information.
 // See modules/modules.go#Module.Replacer() for more details.
-func MovieSearchFromInformationReplacer(_, response, token string) (string, string) {
+func MovieSearchFromInformationReplacer(locale, _, response, token string) (string, string) {
 	// If there is no genres then reply with a message from res/datasets/messages.json
 	genres := user.GetUserInformation(token).MovieGenres
 	if len(genres) == 0 {
 		responseTag := "no genres saved"
-		return responseTag, util.GetMessage(responseTag)
+		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
 	movie := language.SearchMovie(genres[rand.Intn(len(genres))], token)

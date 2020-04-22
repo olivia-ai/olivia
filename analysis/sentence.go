@@ -68,7 +68,7 @@ func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 // message from res/datasets/intents.json where the triggers are applied
 func RandomizeResponse(locale, entry, tag, token string) (string, string) {
 	if tag == DontUnderstand {
-		return DontUnderstand, util.GetMessage(tag)
+		return DontUnderstand, util.GetMessage(locale, tag)
 	}
 
 	// Append the modules intents to the intents from res/datasets/intents.json
@@ -82,7 +82,7 @@ func RandomizeResponse(locale, entry, tag, token string) (string, string) {
 		// Reply a "don't understand" message if the context isn't correct
 		cacheTag, _ := userCache.Get(token)
 		if intent.Context != "" && cacheTag != intent.Context {
-			return DontUnderstand, util.GetMessage(DontUnderstand)
+			return DontUnderstand, util.GetMessage(locale, DontUnderstand)
 		}
 
 		// Set the actual context
@@ -98,7 +98,7 @@ func RandomizeResponse(locale, entry, tag, token string) (string, string) {
 		return modules.ReplaceContent(locale, tag, entry, response, token)
 	}
 
-	return DontUnderstand, util.GetMessage(DontUnderstand)
+	return DontUnderstand, util.GetMessage(locale, DontUnderstand)
 }
 
 // Calculate send the sentence content to the neural network and returns a response with the matching tag
