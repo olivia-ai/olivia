@@ -15,6 +15,7 @@ import (
 
 // A Sentence represents simply a sentence with its content as a string
 type Sentence struct {
+	Locale  string
 	Content string
 }
 
@@ -30,8 +31,11 @@ var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 const DontUnderstand = "don't understand"
 
 // NewSentence returns a Sentence object where the content has been arranged
-func NewSentence(content string) (sentence Sentence) {
-	sentence = Sentence{content}
+func NewSentence(locale, content string) (sentence Sentence) {
+	sentence = Sentence{
+		Locale:  locale,
+		Content: content,
+	}
 	sentence.Arrange()
 
 	return

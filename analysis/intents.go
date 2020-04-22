@@ -73,7 +73,7 @@ func Organize() (words, classes []string, documents []Document) {
 	for _, intent := range intents {
 		for _, pattern := range intent.Patterns {
 			// Tokenize the pattern's sentence
-			patternSentence := Sentence{pattern}
+			patternSentence := Sentence{"en", pattern}
 			patternSentence.Arrange()
 
 			// Add each word to response

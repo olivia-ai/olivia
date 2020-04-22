@@ -27,6 +27,7 @@ type RequestMessage struct {
 	Type        int              `json:"type"` // 0 for handshakes and 1 for messages
 	Content     string           `json:"content"`
 	Token       string           `json:"user_token"`
+	Locale      string           `json:"locale"`
 	Information user.Information `json:"information"`
 }
 
@@ -104,7 +105,7 @@ func Reply(request RequestMessage) []byte {
 		responseSentence = util.GetMessage(responseTag)
 	} else {
 		responseTag, responseSentence = analysis.NewSentence(
-			request.Content,
+			request.Locale, request.Content,
 		).Calculate(*cache, neuralNetwork, request.Token)
 	}
 

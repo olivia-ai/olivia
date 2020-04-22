@@ -6,6 +6,7 @@ import (
 
 // Information is the user's information retrieved from the client
 type Information struct {
+	Locale         string        `json:"locale"`
 	Name           string        `json:"name"`
 	MovieGenres    []string      `json:"movie_genres"`
 	MovieBlacklist []string      `json:"movie_blacklist"`
