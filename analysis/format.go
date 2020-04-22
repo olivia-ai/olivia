@@ -1,11 +1,12 @@
 package analysis
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 
-	"github.com/caneroj1/stemmer"
 	"github.com/olivia-ai/olivia/util"
+	"github.com/tebeka/snowball"
 )
 
 // Arrange checks the format of a string to normalize it, remove ignored characters
@@ -69,13 +70,27 @@ func (sentence Sentence) Tokenize() (tokens []string) {
 
 // Stem returns the sentence split in stemmed words
 func (sentence Sentence) Stem() (tokenizeWords []string) {
+	locale := sentence.Locale
+	// Set default locale to english
+	if locale == "" {
+		locale = "english"
+	}
+
 	tokens := sentence.Tokenize()
+
+	stemmer, err := snowball.New(locale)
+	if err != nil {
+		fmt.Println("error", err)
+		return
+	}
 
 	// Get the string token and push it to tokenizeWord
 	for _, tokenizeWord := range tokens {
 		word := stemmer.Stem(tokenizeWord)
 		tokenizeWords = append(tokenizeWords, word)
 	}
+
+	fmt.Println(tokenizeWords)
 
 	return
 }
