@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 // Message contains the message's tag and its contained matched sentences
@@ -41,6 +42,7 @@ func GetMessage(locale, tag string) string {
 		}
 
 		// Returns a random sentence
+		rand.Seed(time.Now().UnixNano())
 		return message.Messages[rand.Intn(len(message.Messages))]
 	}
 
