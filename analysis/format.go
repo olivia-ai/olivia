@@ -20,6 +20,38 @@ func (sentence *Sentence) Arrange() {
 	sentence.Content = strings.TrimSpace(sentence.Content)
 }
 
+// RemoveStopWords takes an arary of words, removes the stopwords and returns it
+func RemoveStopWords(words []string) []string {
+	// Don't remove stopwords for small sentences like “How are you” because it will remove all the words
+	if len(words) <= 4 {
+		return words
+	}
+
+	// Read the content of the stopwords file
+	stopWords := string(util.ReadFile("res/datasets/stopwords.txt"))
+
+	// Iterate through all the stopwords
+	for _, stopWord := range strings.Split(stopWords, "\n") {
+		// Iterate through all the words of the given array
+		for i, word := range words {
+			// Continue if the word isn't a stopword
+			if !strings.Contains(stopWord, word) {
+				continue
+			}
+
+			// Remove the word from the array
+			if len(words) == 1 {
+				words = []string{}
+			} else {
+				words[i] = words[len(words)-1]
+				words = words[:len(words)-1]
+			}
+		}
+	}
+
+	return words
+}
+
 // Tokenize returns a list of words that have been lower-cased
 func (sentence Sentence) Tokenize() (tokens []string) {
 	// Split the sentence in words
@@ -29,6 +61,8 @@ func (sentence Sentence) Tokenize() (tokens []string) {
 	for i, token := range tokens {
 		tokens[i] = strings.ToLower(token)
 	}
+
+	tokens = RemoveStopWords(tokens)
 
 	return
 }
