@@ -15,7 +15,7 @@ func TestFindMathOperation(t *testing.T) {
 func TestFindNumberOfDecimals(t *testing.T) {
 	sentence := "Calculate cos(0.5) * 5.3 with 8 decimals please"
 	excepted := 8
-	decimals := FindNumberOfDecimals(sentence)
+	decimals := FindNumberOfDecimals("en", sentence)
 
 	if decimals != excepted {
 		t.Errorf("FindNumberOfDecimals() failed, excepted %d got %d.", excepted, decimals)

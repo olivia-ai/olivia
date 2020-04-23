@@ -13,7 +13,7 @@ var AreaTag = "area"
 // specified in the message.
 // See modules/modules.go#Module.Replacer() for more details.
 func AreaReplacer(locale, entry, response, _ string) (string, string) {
-	country := language.FindCountry(entry)
+	country := language.FindCountry(locale, entry)
 
 	// If there isn't a country respond with a message from res/datasets/messages.json
 	if country.Code == "" {
@@ -21,5 +21,5 @@ func AreaReplacer(locale, entry, response, _ string) (string, string) {
 		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
-	return AreaTag, fmt.Sprintf(response, country.CommonName, country.Area)
+	return AreaTag, fmt.Sprintf(response, country.Name[locale], country.Area)
 }

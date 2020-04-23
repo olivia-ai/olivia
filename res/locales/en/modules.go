@@ -249,4 +249,16 @@ func init() {
 
 	// MATH
 	language.MathDecimals["en"] = `(\d+( |-)decimal(s)?)|(number (of )?decimal(s)? (is )?\d+)`
+
+	// COUNTRIES
+	modules.ArticleCountries["en"] = ArticleCountries
+}
+
+// ArticleCountries returns the country with its article in front.
+func ArticleCountries(name string) string {
+	if name == "United States" {
+		return "the " + name
+	}
+
+	return name
 }

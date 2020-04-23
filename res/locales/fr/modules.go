@@ -1,6 +1,10 @@
 package fr
 
 import (
+	"fmt"
+	"regexp"
+	"strings"
+
 	"github.com/olivia-ai/olivia/language"
 	"github.com/olivia-ai/olivia/language/date"
 	"github.com/olivia-ai/olivia/modules"
@@ -29,7 +33,7 @@ func init() {
 				"Donne moi la capitale de ",
 			},
 			Responses: []string{
-				"La capitale de %s est %s",
+				"La capitale %s est %s",
 			},
 			Replacer: modules.CapitalReplacer,
 		},
@@ -246,4 +250,63 @@ func init() {
 
 	// MATH
 	language.MathDecimals["fr"] = `(\d+( |-)decimale(s)?)|(nombre (de )?decimale(s)? (est )?\d+)`
+
+	// COUNTRIES
+	modules.ArticleCountries["fr"] = ArticleCountries
+}
+
+// ArticleCountries returns the country with its article in front.
+// See https://www.lepointdufle.net/ressources_fle/pays_regle.htm
+func ArticleCountries(name string) string {
+	exceptions := map[string]string{
+		"Belize":              "du ",
+		"Cambodge":            "du ",
+		"Mexique":             "du ",
+		"Mozambique":          "du ",
+		"Suriname":            "du ",
+		"Zimbabwe":            "du ",
+		"Bahreïn":             "du ",
+		"Chypre":              "de ",
+		"Cuba":                "de ",
+		"Djibouti":            "du ",
+		"Haïti":               "de ",
+		"Israël":              "d'",
+		"Madagascar":          "de ",
+		"Malte":               "de ",
+		"Maurice":             "de ",
+		"Monaco":              "de ",
+		"Oman":                "d'",
+		"Singapour":           "de ",
+		"Trinité-et-Tobago":   "de ",
+		"Vanuatu":             "du ",
+		"Bahamas":             "des ",
+		"Bermudes":            "des ",
+		"Comores":             "des ",
+		"Émirats arabes unis": "des ",
+		"États-Unis":          "des ",
+		"Fidgi":               "des ",
+		"Îles Féroé":          "des ",
+		"Pays-Bas":            "des ",
+		"Philippines":         "des ",
+		"Seychelles":          "des ",
+	}
+
+	vowels := regexp.MustCompile("[aeiou]")
+
+	if exceptions[name] != "" {
+		name = exceptions[name] + name
+	} else if vowels.FindStringIndex(strings.ToLower(name))[0] == 0 {
+		name = "de l'" + name
+	} else {
+		lastLetter := regexp.MustCompile(".+e")
+		article := "du "
+
+		if lastLetter.MatchString(strings.ToLower(name)) {
+			article = "de la "
+		}
+
+		name = fmt.Sprintf("%s%s", article, name)
+	}
+
+	return name
 }
