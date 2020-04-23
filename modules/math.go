@@ -30,7 +30,7 @@ func MathReplacer(locale, entry, response, _ string) (string, string) {
 		return responseTag, util.GetMessage(locale, responseTag)
 	}
 	// Use number of decimals from the query
-	decimals := language.FindNumberOfDecimals(entry)
+	decimals := language.FindNumberOfDecimals(locale, entry)
 	if decimals == 0 {
 		decimals = 6
 	}

@@ -6,6 +6,8 @@ import (
 	"strings"
 )
 
+var MathDecimals = map[string]string{}
+
 // FindMathOperation finds a math operation in a string an returns it
 func FindMathOperation(entry string) string {
 	mathRegex := regexp.MustCompile(
@@ -19,9 +21,9 @@ func FindMathOperation(entry string) string {
 }
 
 // FindNumberOfDecimals finds the number of decimals asked in the query
-func FindNumberOfDecimals(entry string) int {
+func FindNumberOfDecimals(locale, entry string) int {
 	decimalsRegex := regexp.MustCompile(
-		`(\d+( |-)decimal(s)?)|(number (of )?decimal(s)? (is )?\d+)`,
+		MathDecimals[locale],
 	)
 	numberRegex := regexp.MustCompile(`\d+`)
 
