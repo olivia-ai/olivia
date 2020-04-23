@@ -6,6 +6,8 @@ import (
 	"sort"
 	"time"
 
+	"github.com/olivia-ai/olivia/locales"
+
 	"github.com/gookit/color"
 	"github.com/olivia-ai/olivia/modules"
 	"github.com/olivia-ai/olivia/network"
@@ -59,7 +61,7 @@ func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 		return resultsTag[i].Value > resultsTag[j].Value
 	})
 
-	LogResults(sentence.Content, resultsTag)
+	LogResults(sentence.Locale, sentence.Content, resultsTag)
 
 	return resultsTag[0].Tag
 }
@@ -116,11 +118,15 @@ func (sentence Sentence) Calculate(cache gocache.Cache, neuralNetwork network.Ne
 }
 
 // LogResults print in the console the sentence and its tags sorted by prediction
-func LogResults(entry string, results []Result) {
+func LogResults(locale, entry string, results []Result) {
 	green := color.FgGreen.Render
 	yellow := color.FgYellow.Render
 
-	color.FgCyan.Printf("\n\"%s\"\n", entry)
+	fmt.Printf(
+		"“%s” - %s\n",
+		color.FgCyan.Render(entry),
+		color.FgRed.Render(locales.GetNameByTag(locale)),
+	)
 	for _, result := range results {
 		// Arbitrary choice of 0.004 to have less tags to show
 		if result.Value < 0.004 {
