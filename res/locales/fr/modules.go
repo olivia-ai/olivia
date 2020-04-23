@@ -1,6 +1,9 @@
 package fr
 
-import "github.com/olivia-ai/olivia/modules"
+import (
+	"github.com/olivia-ai/olivia/language"
+	"github.com/olivia-ai/olivia/modules"
+)
 
 func init() {
 	modules.RegisterModules("fr", []modules.Module{
@@ -199,4 +202,10 @@ func init() {
 			Replacer: modules.SpotifyPlayerReplacer,
 		},
 	})
+
+	// MOVIES
+	language.MoviesGenres["fr"] = []string{
+		"Action", "Aventure", "Animation", "Enfant", "Comédie", "Crime", "Documentaire", "Drama", "Fantaisie",
+		"Film-Noir", "Horreur", "Musical", "Mystère", "Romance", "Science-fiction", "Thriller", "Guerre", "Western",
+	}
 }
