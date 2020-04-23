@@ -123,7 +123,7 @@ func LogResults(locale, entry string, results []Result) {
 	yellow := color.FgYellow.Render
 
 	fmt.Printf(
-		"“%s” - %s\n",
+		"\n“%s” - %s\n",
 		color.FgCyan.Render(entry),
 		color.FgRed.Render(locales.GetNameByTag(locale)),
 	)

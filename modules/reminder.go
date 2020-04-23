@@ -21,10 +21,10 @@ var (
 // ReminderSetterReplacer replaces the pattern contained inside the response by the date of the reminder
 // and its reason.
 // See modules/modules.go#Module.Replacer() for more details.
-func ReminderSetterReplacer(_, entry, response, token string) (string, string) {
+func ReminderSetterReplacer(locale, entry, response, token string) (string, string) {
 	// Search the time and
-	sentence, date := date.SearchTime(entry)
-	reason := language.SearchReason(sentence)
+	sentence, date := date.SearchTime(locale, entry)
+	reason := language.SearchReason(locale, sentence)
 
 	// Format the date
 	formattedDate := date.Format("01/02/2006 03:04")
