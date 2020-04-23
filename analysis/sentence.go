@@ -120,7 +120,8 @@ func (sentence Sentence) Calculate(cache gocache.Cache, neuralNetwork network.Ne
 
 // LogResults print in the console the sentence and its tags sorted by prediction
 func LogResults(locale, entry string, results []Result) {
-	if os.Getenv("NOLOGS") == "1" {
+	// If NO_LOGS is present, then don't print the given messages
+	if os.Getenv("NO_LOGS") == "1" {
 		return
 	}
 
