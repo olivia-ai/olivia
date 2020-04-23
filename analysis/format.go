@@ -79,7 +79,7 @@ func (sentence Sentence) Stem() (tokenizeWords []string) {
 
 	stemmer, err := snowball.New(locale)
 	if err != nil {
-		fmt.Println("error", err)
+		fmt.Println("Stemmer error", err)
 		return
 	}
 

@@ -55,7 +55,8 @@
   {
     "tag": "feeling",
     "patterns": [
-      "How are you today"
+      "How are you today",
+      "How are you"
     ],
     "responses": [
       "I am feeling good, you?",

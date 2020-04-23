@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"reflect"
 
+	"github.com/olivia-ai/olivia/locales"
+
 	"github.com/olivia-ai/olivia/modules/start"
 
 	"github.com/gookit/color"
@@ -104,9 +106,15 @@ func Reply(request RequestMessage) []byte {
 		responseTag = "too long"
 		responseSentence = util.GetMessage(request.Locale, responseTag)
 	} else {
+		// If the given locale is not supported yet, set english
+		locale := request.Locale
+		if !locales.Exists(locale) {
+			locale = "en"
+		}
+
 		responseTag, responseSentence = analysis.NewSentence(
-			request.Locale, request.Content,
-		).Calculate(*cache, neuralNetworks[request.Locale], request.Token)
+			locale, request.Content,
+		).Calculate(*cache, neuralNetworks[locale], request.Token)
 	}
 
 	// Marshall the response in json

@@ -286,7 +286,7 @@ func ArticleCountries(name string) string {
 		"États-Unis":          "des ",
 		"Fidgi":               "des ",
 		"Îles Féroé":          "des ",
-		"Pays-Bas":            "des ",
+		"Pays Bas":            "des ",
 		"Philippines":         "des ",
 		"Seychelles":          "des ",
 	}
