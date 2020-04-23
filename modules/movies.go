@@ -21,7 +21,7 @@ var (
 // GenresReplacer gets the genre specified in the message and adds it to the user information.
 // See modules/modules.go#Module.Replacer() for more details.
 func GenresReplacer(locale, entry, response, token string) (string, string) {
-	genres := language.FindMoviesGenres(entry)
+	genres := language.FindMoviesGenres(locale, entry)
 
 	// If there is no genres then reply with a message from res/datasets/messages.json
 	if len(genres) == 0 {
@@ -49,7 +49,7 @@ func GenresReplacer(locale, entry, response, token string) (string, string) {
 // and rating from the genre specified in the message.
 // See modules/modules.go#Module.Replacer() for more details.
 func MovieSearchReplacer(locale, entry, response, token string) (string, string) {
-	genres := language.FindMoviesGenres(entry)
+	genres := language.FindMoviesGenres(locale, entry)
 
 	// If there is no genres then reply with a message from res/datasets/messages.json
 	if len(genres) == 0 {

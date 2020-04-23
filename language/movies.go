@@ -24,11 +24,8 @@ type Movie struct {
 
 var (
 	// Initializes movies genres
-	genres = []string{
-		"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
-		"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western",
-	}
-	movies = SerializeMovies()
+	MoviesGenres = map[string][]string{}
+	movies       = SerializeMovies()
 )
 
 // SerializeMovies retrieves the content of res/datasets/movies.csv and serialize it
@@ -85,10 +82,10 @@ func SearchMovie(genre, userToken string) (output Movie) {
 }
 
 // FindMoviesGenres returns an array of genres found in the entry string
-func FindMoviesGenres(content string) (output []string) {
-	for _, genre := range genres {
+func FindMoviesGenres(locale, content string) (output []string) {
+	for i, genre := range MoviesGenres[locale] {
 		if LevenshteinContains(strings.ToUpper(content), strings.ToUpper(genre), 2) {
-			output = append(output, genre)
+			output = append(output, MoviesGenres["en"][i])
 		}
 	}
 
