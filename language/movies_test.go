@@ -26,7 +26,7 @@ func TestSearchMovie(t *testing.T) {
 func TestFindMoviesGenres(t *testing.T) {
 	sentence := "I like movies of adventure, sci-fi"
 	excepted := []string{"Adventure", "Sci-Fi"}
-	genres := FindMoviesGenres(sentence)
+	genres := FindMoviesGenres("en", sentence)
 
 	if !reflect.DeepEqual(excepted, genres) {
 		t.Errorf("FindMoviesGenres() failed, excepted %s got %s.", excepted, genres)

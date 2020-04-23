@@ -10,16 +10,11 @@ import (
 
 // Country is the serializer of the countries.json file in the res folder
 type Country struct {
-	OfficialName string   `json:"official_name"`
-	CommonName   string   `json:"common_name"`
-	Capital      string   `json:"capital"`
-	Region       string   `json:"continent"`
-	SubRegion    string   `json:"subcontinent"`
-	Code         string   `json:"code"`
-	Borders      []string `json:"borders"`
-	Area         float64  `json:"area"`
-	Currency     string   `json:"currency"`
-	Flag         string   `json:"flag"`
+	Name     map[string]string `json:"name"`
+	Capital  string            `json:"capital"`
+	Code     string            `json:"code"`
+	Area     float64           `json:"area"`
+	Currency string            `json:"currency"`
 }
 
 var countries = SerializeCountries()
@@ -35,11 +30,10 @@ func SerializeCountries() (countries []Country) {
 }
 
 // FindCountry returns the country found in the sentence and if no country is found, returns an empty Country struct
-func FindCountry(sentence string) Country {
+func FindCountry(locale, sentence string) Country {
 	for _, country := range countries {
 		// If the actual country isn't contained in the sentence, continue
-		if !strings.Contains(strings.ToLower(sentence), strings.ToLower(country.CommonName)) &&
-			!strings.Contains(strings.ToLower(sentence), strings.ToLower(country.OfficialName)) {
+		if !strings.Contains(strings.ToLower(sentence), strings.ToLower(country.Name[locale])) {
 			continue
 		}
 
