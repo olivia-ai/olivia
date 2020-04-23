@@ -15,6 +15,18 @@
     ]
   },
   {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” for the %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "You have no reminders saved."
+    ]
+  },
+  {
     "tag": "spotify credentials",
     "messages": [
       "You need to enter your Spotify credentials."

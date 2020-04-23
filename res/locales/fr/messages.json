@@ -15,6 +15,18 @@
     ]
   },
   {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” pour le %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "Vous n'avez aucun rappel sauvegardé."
+    ]
+  },
+  {
     "tag": "spotify credentials",
     "messages": [
       "Vous devez entrer vos identifiants Spotify."
