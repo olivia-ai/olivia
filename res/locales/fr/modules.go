@@ -208,4 +208,11 @@ func init() {
 		"Action", "Aventure", "Animation", "Enfant", "Comédie", "Crime", "Documentaire", "Drama", "Fantaisie",
 		"Film-Noir", "Horreur", "Musical", "Mystère", "Romance", "Science-fiction", "Thriller", "Guerre", "Western",
 	}
+
+	// SPOTIFY
+	language.Keywords["fr"] = language.SpotifyKeywords{
+		Play: "joue",
+		From: "de",
+		On:   "sur",
+	}
 }
