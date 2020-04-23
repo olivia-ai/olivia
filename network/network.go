@@ -7,6 +7,8 @@ import (
 	"os"
 	"time"
 
+	"github.com/olivia-ai/olivia/locales"
+
 	"github.com/gookit/color"
 	"gopkg.in/cheggaaa/pb.v1"
 )
@@ -21,6 +23,7 @@ type Network struct {
 	Rate    float64
 	Errors  []float64
 	Time    float64
+	Locale  string
 }
 
 // LoadNetwork returns a Network from a specified file
@@ -42,7 +45,7 @@ func LoadNetwork(fileName string) *Network {
 }
 
 // CreateNetwork creates the network by generating the layers, weights and biases
-func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Network {
+func CreateNetwork(locale string, rate float64, input, output Matrix, hiddensNodes ...int) Network {
 	input = append([][]float64{
 		make([]float64, len(input[0])),
 	}, input...)
@@ -78,6 +81,7 @@ func CreateNetwork(rate float64, input, output Matrix, hiddensNodes ...int) Netw
 		Biases:  biases,
 		Output:  output,
 		Rate:    rate,
+		Locale:  locale,
 	}
 }
 
@@ -160,8 +164,10 @@ func (network *Network) Train(iterations int) {
 
 	// Create the progress bar
 	bar := pb.New(iterations).Postfix(fmt.Sprintf(
-		" - %s",
-		color.FgBlue.Render("Training the neural network"),
+		" - %s %s %s",
+		color.FgBlue.Render("Training the"),
+		color.FgRed.Render(locales.GetNameByTag(network.Locale)),
+		color.FgBlue.Render("neural network"),
 	))
 	bar.Format("(██░)")
 	bar.SetMaxWidth(60)

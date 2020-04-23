@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/gorilla/mux"
+
 	"github.com/gookit/color"
 	"github.com/olivia-ai/olivia/analysis"
 )
@@ -21,14 +23,14 @@ type DeleteRequest struct {
 }
 
 // WriteIntents writes the given intents to the intents file
-func WriteIntents(intents []analysis.Intent) {
-	analysis.CacheIntents(intents)
+func WriteIntents(locale string, intents []analysis.Intent) {
+	analysis.CacheIntents(locale, intents)
 
 	// Encode the json
 	bytes, _ := json.MarshalIndent(intents, "", "  ")
 
 	// Write it to the file
-	file, err := os.Create("res/datasets/intents.json")
+	file, err := os.Create("res/locales/" + locale + "/intents.json")
 	if err != nil {
 		panic(err)
 	}
@@ -39,17 +41,17 @@ func WriteIntents(intents []analysis.Intent) {
 }
 
 // AddIntent adds the given intent to the intents file
-func AddIntent(intent analysis.Intent) {
-	intents := append(analysis.SerializeIntents(), intent)
+func AddIntent(locale string, intent analysis.Intent) {
+	intents := append(analysis.SerializeIntents(locale), intent)
 
-	WriteIntents(intents)
+	WriteIntents(locale, intents)
 
 	fmt.Printf("Added %s intent.\n", color.FgMagenta.Render(intent.Tag))
 }
 
 // RemoveIntent removes the intent with the given tag from the intents file
-func RemoveIntent(tag string) {
-	intents := analysis.SerializeIntents()
+func RemoveIntent(locale, tag string) {
+	intents := analysis.SerializeIntents(locale)
 
 	// Iterate through the intents to remove the right one
 	for i, intent := range intents {
@@ -62,14 +64,17 @@ func RemoveIntent(tag string) {
 		fmt.Printf("The intent %s was deleted.\n", color.FgMagenta.Render(intent.Tag))
 	}
 
-	WriteIntents(intents)
+	WriteIntents(locale, intents)
 }
 
 // GetIntents is the route to get the intents
 func GetIntents(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
-	json.NewEncoder(w).Encode(analysis.GetIntents())
+	data := mux.Vars(r)
+
+	// Encode the intents for the given locale
+	json.NewEncoder(w).Encode(analysis.GetIntents(data["locale"]))
 }
 
 // CreateIntent is the route to create a new intent
@@ -94,8 +99,10 @@ func CreateIntent(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	data := mux.Vars(r)
+
 	// Adds the intent
-	AddIntent(intent)
+	AddIntent(data["locale"], intent)
 
 	json.NewEncoder(w).Encode(intent)
 }
@@ -120,7 +127,9 @@ func DeleteIntent(w http.ResponseWriter, r *http.Request) {
 	var deleteRequest DeleteRequest
 	json.NewDecoder(r.Body).Decode(&deleteRequest)
 
-	RemoveIntent(deleteRequest.Tag)
+	data := mux.Vars(r)
 
-	json.NewEncoder(w).Encode(analysis.GetIntents())
+	RemoveIntent(data["locale"], deleteRequest.Tag)
+
+	json.NewEncoder(w).Encode(analysis.GetIntents(data["locale"]))
 }

@@ -1,0 +1,84 @@
+[
+  {
+    "tag": "don't understand",
+    "messages": [
+      "Je fais de mon mieux mais je ne comprends pas, pardon.",
+      "Je ne suis pas sûr du message que vous essayez de me transmettre.",
+      "Je suis encore jeune, vous pouvez m'aider à mieux comprendre vos requêtes sur GitHub.",
+      "Je ne peux pas comprendre votre reqûete, pardon."
+    ]
+  },
+  {
+    "tag": "spotify tokens",
+    "messages": [
+      "Vous devez envoyer vos deux clés."
+    ]
+  },
+  {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” pour le %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "Vous n'avez aucun rappel sauvegardé."
+    ]
+  },
+  {
+    "tag": "spotify credentials",
+    "messages": [
+      "Vous devez entrer vos identifiants Spotify."
+    ]
+  },
+  {
+    "tag": "spotify login",
+    "messages": [
+      "Connexion en cours <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+    ]
+  },
+  {
+    "tag": "too long",
+    "messages": [
+      "S'il vous plaît, reduisez la taille de votre message à 500 caractères ou moins."
+    ]
+  },
+  {
+    "tag": "no country",
+    "messages": [
+      "Je ne trouve aucun pays dans vos messages."
+    ]
+  },
+  {
+    "tag": "math not valid",
+    "messages": [
+      "Votre expression mathématique n'est pas valide.",
+      "S'il vous plaît, revoyez votre expression mathématique."
+    ]
+  },
+  {
+    "tag": "don't know name",
+    "messages": [
+      "Pardonnez-moi, mais je ne connais pas encore votre nom."
+    ]
+  },
+  {
+    "tag": "no name",
+    "messages": [
+      "Désolé, je ne trouve aucun nom dans votre message."
+    ]
+  },
+  {
+    "tag": "no genres",
+    "messages": [
+      "Pardonnez-moi, je ne trouve aucun genre de film dans votre message. Essayez ceux-ci: Action, Aventure, Animation, Enfant, Comédie, Crime, Documentaire, Drama, Fantaisie, Film-Noir, Horreur, Musical, Mystère, Romance, Science-Fiction, Thriller, Guerre et Western"
+    ]
+  },
+  {
+    "tag": "no genres saved",
+    "messages": [
+      "Désolé, je ne trouve aucun genre de film dans vos données. Essayez d'envoyer: “J'aime les films d'aventure”"
+    ]
+  }
+]

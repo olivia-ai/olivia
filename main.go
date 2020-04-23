@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/olivia-ai/olivia/locales"
+
 	"github.com/olivia-ai/olivia/training"
 
 	"github.com/olivia-ai/olivia/dashboard"
@@ -18,7 +20,7 @@ import (
 	"github.com/olivia-ai/olivia/server"
 )
 
-var neuralNetwork network.Network
+var neuralNetworks = map[string]network.Network{}
 
 func main() {
 	port := flag.String("port", "8080", "The port for the API and WebSocket.")
@@ -31,7 +33,14 @@ func main() {
 	// Create the authentication token
 	dashboard.Authenticate()
 
-	neuralNetwork = training.CreateNeuralNetwork(false)
+	for _, locale := range locales.Locales {
+		util.SerializeMessages(locale.Tag)
+
+		neuralNetworks[locale.Tag] = training.CreateNeuralNetwork(
+			locale.Tag,
+			false,
+		)
+	}
 
 	// Get port from environment variables if there is
 	if os.Getenv("PORT") != "" {
@@ -39,5 +48,5 @@ func main() {
 	}
 
 	// Serves the server
-	server.Serve(neuralNetwork, *port)
+	server.Serve(neuralNetworks, *port)
 }

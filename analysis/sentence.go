@@ -3,8 +3,11 @@ package analysis
 import (
 	"fmt"
 	"math/rand"
+	"os"
 	"sort"
 	"time"
+
+	"github.com/olivia-ai/olivia/locales"
 
 	"github.com/gookit/color"
 	"github.com/olivia-ai/olivia/modules"
@@ -15,6 +18,7 @@ import (
 
 // A Sentence represents simply a sentence with its content as a string
 type Sentence struct {
+	Locale  string
 	Content string
 }
 
@@ -30,8 +34,11 @@ var userCache = gocache.New(5*time.Minute, 5*time.Minute)
 const DontUnderstand = "don't understand"
 
 // NewSentence returns a Sentence object where the content has been arranged
-func NewSentence(content string) (sentence Sentence) {
-	sentence = Sentence{content}
+func NewSentence(locale, content string) (sentence Sentence) {
+	sentence = Sentence{
+		Locale:  locale,
+		Content: content,
+	}
 	sentence.Arrange()
 
 	return
@@ -39,7 +46,7 @@ func NewSentence(content string) (sentence Sentence) {
 
 // PredictTag classifies the sentence with the model
 func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
-	words, classes, _ := Organize()
+	words, classes, _ := Organize(sentence.Locale)
 
 	// Predict with the model
 	predict := neuralNetwork.Predict(sentence.WordsBag(words))
@@ -55,20 +62,20 @@ func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 		return resultsTag[i].Value > resultsTag[j].Value
 	})
 
-	LogResults(sentence.Content, resultsTag)
+	LogResults(sentence.Locale, sentence.Content, resultsTag)
 
 	return resultsTag[0].Tag
 }
 
 // RandomizeResponse takes the entry message, the response tag and the token and returns a random
 // message from res/datasets/intents.json where the triggers are applied
-func RandomizeResponse(entry, tag, token string) (string, string) {
+func RandomizeResponse(locale, entry, tag, token string) (string, string) {
 	if tag == DontUnderstand {
-		return DontUnderstand, util.GetMessage(tag)
+		return DontUnderstand, util.GetMessage(locale, tag)
 	}
 
 	// Append the modules intents to the intents from res/datasets/intents.json
-	intents := append(SerializeIntents(), SerializeModulesIntents()...)
+	intents := append(SerializeIntents(locale), SerializeModulesIntents(locale)...)
 
 	for _, intent := range intents {
 		if intent.Tag != tag {
@@ -78,7 +85,7 @@ func RandomizeResponse(entry, tag, token string) (string, string) {
 		// Reply a "don't understand" message if the context isn't correct
 		cacheTag, _ := userCache.Get(token)
 		if intent.Context != "" && cacheTag != intent.Context {
-			return DontUnderstand, util.GetMessage(DontUnderstand)
+			return DontUnderstand, util.GetMessage(locale, DontUnderstand)
 		}
 
 		// Set the actual context
@@ -87,14 +94,15 @@ func RandomizeResponse(entry, tag, token string) (string, string) {
 		// Choose a random response in intents
 		response := intent.Responses[0]
 		if len(intent.Responses) > 1 {
+			rand.Seed(time.Now().UnixNano())
 			response = intent.Responses[rand.Intn(len(intent.Responses))]
 		}
 
 		// And then apply the triggers on the message
-		return modules.ReplaceContent(tag, entry, response, token)
+		return modules.ReplaceContent(locale, tag, entry, response, token)
 	}
 
-	return DontUnderstand, util.GetMessage(DontUnderstand)
+	return DontUnderstand, util.GetMessage(locale, DontUnderstand)
 }
 
 // Calculate send the sentence content to the neural network and returns a response with the matching tag
@@ -107,15 +115,24 @@ func (sentence Sentence) Calculate(cache gocache.Cache, neuralNetwork network.Ne
 		cache.Set(sentence.Content, tag, gocache.DefaultExpiration)
 	}
 
-	return RandomizeResponse(sentence.Content, tag.(string), token)
+	return RandomizeResponse(sentence.Locale, sentence.Content, tag.(string), token)
 }
 
 // LogResults print in the console the sentence and its tags sorted by prediction
-func LogResults(entry string, results []Result) {
+func LogResults(locale, entry string, results []Result) {
+	// If NO_LOGS is present, then don't print the given messages
+	if os.Getenv("NO_LOGS") == "1" {
+		return
+	}
+
 	green := color.FgGreen.Render
 	yellow := color.FgYellow.Render
 
-	color.FgCyan.Printf("\n\"%s\"\n", entry)
+	fmt.Printf(
+		"\n“%s” - %s\n",
+		color.FgCyan.Render(entry),
+		color.FgRed.Render(locales.GetNameByTag(locale)),
+	)
 	for _, result := range results {
 		// Arbitrary choice of 0.004 to have less tags to show
 		if result.Value < 0.004 {

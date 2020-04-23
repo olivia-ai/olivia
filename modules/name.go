@@ -10,57 +10,32 @@ import (
 )
 
 var (
-	nameGetterTag = "name getter"
-	nameSetterTag = "name setter"
+	NameGetterTag = "name getter"
+	NameSetterTag = "name setter"
 )
-
-func init() {
-	RegisterModule(Module{
-		Tag: nameGetterTag,
-		Patterns: []string{
-			"Do you know my name?",
-		},
-		Responses: []string{
-			"Your name is %s!",
-		},
-		Replacer: NameGetterReplacer,
-	})
-
-	RegisterModule(Module{
-		Tag: nameSetterTag,
-		Patterns: []string{
-			"My name is ",
-			"You can call me ",
-		},
-		Responses: []string{
-			"Great! Hi %s",
-		},
-		Replacer: NameSetterReplacer,
-	})
-}
 
 // NameGetterReplacer replaces the pattern contained inside the response by the user's name.
 // See modules/modules.go#Module.Replacer() for more details.
-func NameGetterReplacer(_, response, token string) (string, string) {
+func NameGetterReplacer(locale, _, response, token string) (string, string) {
 	name := user.GetUserInformation(token).Name
 
 	if strings.TrimSpace(name) == "" {
 		responseTag := "don't know name"
-		return responseTag, util.GetMessage(responseTag)
+		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
-	return nameGetterTag, fmt.Sprintf(response, name)
+	return NameGetterTag, fmt.Sprintf(response, name)
 }
 
 // NameSetterReplacer gets the name specified in the message and save it in the user's information.
 // See modules/modules.go#Module.Replacer() for more details.
-func NameSetterReplacer(entry, response, token string) (string, string) {
+func NameSetterReplacer(locale, entry, response, token string) (string, string) {
 	name := language.FindName(entry)
 
 	// If there is no name in the entry string
 	if name == "" {
 		responseTag := "no name"
-		return responseTag, util.GetMessage(responseTag)
+		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
 	// Capitalize the name
@@ -72,5 +47,5 @@ func NameSetterReplacer(entry, response, token string) (string, string) {
 		return information
 	})
 
-	return nameSetterTag, fmt.Sprintf(response, name)
+	return NameSetterTag, fmt.Sprintf(response, name)
 }

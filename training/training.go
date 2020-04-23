@@ -1,6 +1,7 @@
 package training
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/gookit/color"
@@ -10,8 +11,8 @@ import (
 )
 
 // TrainData returns the inputs and outputs for the neural network
-func TrainData() (inputs, outputs [][]float64) {
-	words, classes, documents := analysis.Organize()
+func TrainData(locale string) (inputs, outputs [][]float64) {
+	words, classes, documents := analysis.Organize(locale)
 
 	for _, document := range documents {
 		outputRow := make([]float64, len(classes))
@@ -30,24 +31,28 @@ func TrainData() (inputs, outputs [][]float64) {
 
 // CreateNeuralNetwork returns a new neural network which is loaded from res/training.json or
 // trained from TrainData() inputs and targets.
-func CreateNeuralNetwork(ignoreTrainingFile bool) (neuralNetwork network.Network) {
+func CreateNeuralNetwork(locale string, ignoreTrainingFile bool) (neuralNetwork network.Network) {
 	// Decide if the network is created by the save or is a new one
-	saveFile := "res/training.json"
+	saveFile := "res/locales/" + locale + "/training.json"
 
 	_, err := os.Open(saveFile)
 	// Train the model if there is no training file
 	if err != nil || ignoreTrainingFile {
-		inputs, outputs := TrainData()
+		inputs, outputs := TrainData(locale)
 
-		neuralNetwork = network.CreateNetwork(0.1, inputs, outputs, 50)
+		neuralNetwork = network.CreateNetwork(locale, 0.1, inputs, outputs, 50)
 		neuralNetwork.Train(200)
 
 		// Save the neural network in res/training.json
 		neuralNetwork.Save(saveFile)
 	} else {
-		color.FgBlue.Println("Loading the neural network from " + saveFile)
+		fmt.Printf(
+			"%s %s\n",
+			color.FgBlue.Render("Loading the neural network from"),
+			color.FgRed.Render(saveFile),
+		)
 		// Initialize the intents
-		analysis.SerializeIntents()
+		analysis.SerializeIntents(locale)
 		neuralNetwork = *network.LoadNetwork(saveFile)
 	}
 

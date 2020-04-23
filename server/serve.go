@@ -20,15 +20,15 @@ import (
 
 var (
 	// Create the neural network variable to use it everywhere
-	neuralNetwork network.Network
+	neuralNetworks map[string]network.Network
 	// Initializes the cache with a 5 minute lifetime
 	cache = gocache.New(5*time.Minute, 5*time.Minute)
 )
 
 // Serve serves the server in the given port
-func Serve(_neuralNetwork network.Network, port string) {
+func Serve(_neuralNetworks map[string]network.Network, port string) {
 	// Set the current global network as a global variable
-	neuralNetwork = _neuralNetwork
+	neuralNetworks = _neuralNetworks
 
 	// Initializes the router
 	router := mux.NewRouter()
@@ -37,10 +37,10 @@ func Serve(_neuralNetwork network.Network, port string) {
 	router.HandleFunc("/websocket", SocketHandle)
 	// Serve the API
 	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
-	router.HandleFunc("/api/intent", dashboard.CreateIntent).Methods("POST")
-	router.HandleFunc("/api/intent", dashboard.DeleteIntent).Methods("DELETE", "OPTIONS")
-	router.HandleFunc("/api/train", Train).Methods("POST")
-	router.HandleFunc("/api/intents", dashboard.GetIntents).Methods("GET")
+	router.HandleFunc("/api/{locale}/intent", dashboard.CreateIntent).Methods("POST")
+	router.HandleFunc("/api/{locale}/intent", dashboard.DeleteIntent).Methods("DELETE", "OPTIONS")
+	router.HandleFunc("/api/{locale}/train", Train).Methods("POST")
+	router.HandleFunc("/api/{locale}/intents", dashboard.GetIntents).Methods("GET")
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
@@ -65,5 +65,8 @@ func Train(w http.ResponseWriter, r *http.Request) {
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nRe-training the %s..\n", magenta("neural network"))
-	neuralNetwork = training.CreateNeuralNetwork(true)
+
+	for locale := range neuralNetworks {
+		neuralNetworks[locale] = training.CreateNeuralNetwork(locale, true)
+	}
 }

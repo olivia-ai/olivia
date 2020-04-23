@@ -2,8 +2,13 @@ package analysis
 
 import (
 	"reflect"
+	"strings"
 	"testing"
 )
+
+func TestIsStopWord(t *testing.T) {
+	IsStopWord(strings.Split("could you give me the capital of france", " "))
+}
 
 func TestSentence_WordsBag(t *testing.T) {
 	sentence := Sentence{"Hi how are you"}

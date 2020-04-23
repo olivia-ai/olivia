@@ -9,43 +9,28 @@ import (
 	"github.com/soudy/mathcat"
 )
 
-var mathTag = "math"
-
-func init() {
-	RegisterModule(Module{
-		Tag: "math",
-		Patterns: []string{
-			"Give me the result of ",
-			"Calculate ",
-		},
-		Responses: []string{
-			"The result is %s",
-			"That makes %s",
-		},
-		Replacer: MathReplacer,
-	})
-}
+var MathTag = "math"
 
 // MathReplacer replaces the pattern contained inside the response by the answer of the math
 // expression specified in the message.
 // See modules/modules.go#Module.Replacer() for more details.
-func MathReplacer(entry, response, _ string) (string, string) {
+func MathReplacer(locale, entry, response, _ string) (string, string) {
 	operation := language.FindMathOperation(entry)
 
 	// If there is no operation in the entry message reply with a "don't understand" message
 	if operation == "" {
 		responseTag := "don't understand"
-		return responseTag, util.GetMessage(responseTag)
+		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
 	res, err := mathcat.Eval(operation)
 	// If the expression isn't valid reply with a message from res/datasets/messages.json
 	if err != nil {
 		responseTag := "math not valid"
-		return responseTag, util.GetMessage(responseTag)
+		return responseTag, util.GetMessage(locale, responseTag)
 	}
 	// Use number of decimals from the query
-	decimals := language.FindNumberOfDecimals(entry)
+	decimals := language.FindNumberOfDecimals(locale, entry)
 	if decimals == 0 {
 		decimals = 6
 	}
@@ -56,5 +41,5 @@ func MathReplacer(entry, response, _ string) (string, string) {
 	trailingZerosRegex := regexp.MustCompile(`\.?0+$`)
 	result = trailingZerosRegex.ReplaceAllString(result, "")
 
-	return mathTag, fmt.Sprintf(response, result)
+	return MathTag, fmt.Sprintf(response, result)
 }
