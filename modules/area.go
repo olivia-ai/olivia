@@ -21,5 +21,5 @@ func AreaReplacer(locale, entry, response, _ string) (string, string) {
 		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
-	return AreaTag, fmt.Sprintf(response, country.Name[locale], country.Area)
+	return AreaTag, fmt.Sprintf(response, ArticleCountries[locale](country.Name[locale]), country.Area)
 }
