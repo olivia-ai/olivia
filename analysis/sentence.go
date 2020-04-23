@@ -3,6 +3,7 @@ package analysis
 import (
 	"fmt"
 	"math/rand"
+	"os"
 	"sort"
 	"time"
 
@@ -119,6 +120,10 @@ func (sentence Sentence) Calculate(cache gocache.Cache, neuralNetwork network.Ne
 
 // LogResults print in the console the sentence and its tags sorted by prediction
 func LogResults(locale, entry string, results []Result) {
+	if os.Getenv("NOLOGS") == "1" {
+		return
+	}
+
 	green := color.FgGreen.Render
 	yellow := color.FgYellow.Render
 
