@@ -48,3 +48,14 @@ func GetTagByName(name string) string {
 
 	return ""
 }
+
+// Exists checks if the given tag exists in the list of locales
+func Exists(tag string) bool {
+	for _, locale := range Locales {
+		if locale.Tag == tag {
+			return true
+		}
+	}
+
+	return false
+}
