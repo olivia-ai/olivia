@@ -11,7 +11,7 @@ import (
 )
 
 func TestCalculate(t *testing.T) {
-	model := training.CreateNeuralNetwork(true)
+	model := training.CreateNeuralNetwork("en", true)
 	cache := gocache.New(5*time.Minute, 5*time.Minute)
 
 	sentences := map[string]string{
@@ -39,7 +39,7 @@ func TestCalculate(t *testing.T) {
 	}
 
 	for sentence, tag := range sentences {
-		responseTag, _ := analysis.NewSentence(sentence).Calculate(*cache, model, "1")
+		responseTag, _ := analysis.NewSentence("en", sentence).Calculate(*cache, model, "1")
 
 		if !regexp.MustCompile(tag).MatchString(responseTag) {
 			t.Errorf("Expected \"%s\" tag for \"%s\", found \"%s\"", tag, sentence, responseTag)
