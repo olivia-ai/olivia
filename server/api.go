@@ -47,11 +47,11 @@ func GetDashboardData(w http.ResponseWriter, _ *http.Request) {
 func GetLayers() Layers {
 	return Layers{
 		// Get the number of rows of the first layer to get the count of input nodes
-		InputNodes: network.Rows(neuralNetwork.Layers[0]),
+		InputNodes: network.Rows(neuralNetworks["en"].Layers[0]),
 		// Get the number of hidden layers by removing the count of the input and output layers
-		HiddenLayers: len(neuralNetwork.Layers) - 2,
+		HiddenLayers: len(neuralNetworks["en"].Layers) - 2,
 		// Get the number of rows of the latest layer to get the count of output nodes
-		OutputNodes: network.Columns(neuralNetwork.Output),
+		OutputNodes: network.Columns(neuralNetworks["en"].Output),
 	}
 }
 
@@ -59,8 +59,8 @@ func GetLayers() Layers {
 func GetTraining() Training {
 	// Retrieve the information from the neural network
 	return Training{
-		Rate:   neuralNetwork.Rate,
-		Errors: neuralNetwork.Errors,
-		Time:   neuralNetwork.Time,
+		Rate:   neuralNetworks["en"].Rate,
+		Errors: neuralNetworks["en"].Errors,
+		Time:   neuralNetworks["en"].Time,
 	}
 }

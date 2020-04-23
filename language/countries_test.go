@@ -6,17 +6,17 @@ import (
 
 func TestSerializeCountries(t *testing.T) {
 	countries := SerializeCountries()
-	excepted := "Aruba"
+	excepted := "Afghanistan"
 
-	if countries[0].CommonName != excepted {
-		t.Errorf("SerializeCountries() failed, excepted %s got %s.", excepted, countries[0].CommonName)
+	if countries[0].Name["en"] != excepted {
+		t.Errorf("SerializeCountries() failed, excepted %s got %s.", excepted, countries[0].Name["en"])
 	}
 }
 
 func TestFindCountry(t *testing.T) {
 	sentence := "What is the capital of France please"
 	excepted := "France"
-	country := FindCountry(sentence).CommonName
+	country := FindCountry("en", sentence).Name["en"]
 
 	if excepted != country {
 		t.Errorf("FindCountry() failed, excepted %s got %s.", excepted, country)

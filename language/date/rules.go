@@ -6,9 +6,25 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/olivia-ai/olivia/util"
 )
 
 const day = time.Hour * 24
+
+var RuleTranslations = map[string]RuleTranslation{}
+
+// A RuleTranslation is all the texts/regexs to match the dates
+type RuleTranslation struct {
+	DaysOfWeek        []string
+	Months            []string
+	RuleToday         string
+	RuleTomorrow      string
+	RuleAfterTomorrow string
+	RuleDayOfWeek     string
+	RuleNextDayOfWeek string
+	RuleNaturalDate   string
+}
 
 var daysOfWeek = map[string]time.Weekday{
 	"monday":    time.Monday,
@@ -31,8 +47,8 @@ func init() {
 
 // RuleToday checks for today, tonight, this afternoon dates in the given sentence, then
 // it returns the date parsed.
-func RuleToday(sentence string) (result time.Time) {
-	todayRegex := regexp.MustCompile("today|tonight")
+func RuleToday(locale, sentence string) (result time.Time) {
+	todayRegex := regexp.MustCompile(RuleTranslations[locale].RuleToday)
 	today := todayRegex.FindString(sentence)
 
 	// Returns an empty date struct if no date has been found
@@ -45,8 +61,8 @@ func RuleToday(sentence string) (result time.Time) {
 
 // RuleTomorrow checks for "tomorrow" and "after tomorrow" dates in the given sentence, then
 // it returns the date parsed.
-func RuleTomorrow(sentence string) (result time.Time) {
-	tomorrowRegex := regexp.MustCompile(`(after )?tomorrow`)
+func RuleTomorrow(locale, sentence string) (result time.Time) {
+	tomorrowRegex := regexp.MustCompile(RuleTranslations[locale].RuleTomorrow)
 	date := tomorrowRegex.FindString(sentence)
 
 	// Returns an empty date struct if no date has been found
@@ -57,7 +73,7 @@ func RuleTomorrow(sentence string) (result time.Time) {
 	result = time.Now().Add(day)
 
 	// If the date contains "after", we add 24 hours to tomorrow's date
-	if strings.Contains(date, "after") {
+	if strings.Contains(date, RuleTranslations[locale].RuleAfterTomorrow) {
 		return result.Add(day)
 	}
 
@@ -66,8 +82,8 @@ func RuleTomorrow(sentence string) (result time.Time) {
 
 // RuleDayOfWeek checks for the days of the week and the keyword "next" in the given sentence,
 // then it returns the date parsed.
-func RuleDayOfWeek(sentence string) time.Time {
-	dayOfWeekRegex := regexp.MustCompile(`((next )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday))`)
+func RuleDayOfWeek(locale, sentence string) time.Time {
+	dayOfWeekRegex := regexp.MustCompile(RuleTranslations[locale].RuleDayOfWeek)
 	date := dayOfWeekRegex.FindString(sentence)
 
 	// Returns an empty date struct if no date has been found
@@ -96,7 +112,7 @@ func RuleDayOfWeek(sentence string) time.Time {
 	}
 
 	// If there is "next" in the sentence, then we add another week
-	if strings.Contains(date, "next") {
+	if strings.Contains(date, RuleTranslations[locale].RuleNextDayOfWeek) {
 		calculatedDate += 7
 	}
 
@@ -106,14 +122,20 @@ func RuleDayOfWeek(sentence string) time.Time {
 
 // RuleNaturalDate checks for the dates written in natural language in the given sentence,
 // then it returns the date parsed.
-func RuleNaturalDate(sentence string) time.Time {
+func RuleNaturalDate(locale, sentence string) time.Time {
 	naturalMonthRegex := regexp.MustCompile(
-		`january|february|march|april|may|june|july|august|september|october|november|december`,
+		RuleTranslations[locale].RuleNaturalDate,
 	)
 	naturalDayRegex := regexp.MustCompile(`\d{2}|\d`)
 
 	month := naturalMonthRegex.FindString(sentence)
 	day := naturalDayRegex.FindString(sentence)
+
+	// Put the month in english to parse the time with time golang package
+	if locale != "en" {
+		monthIndex := util.Index(RuleTranslations[locale].Months, month)
+		month = RuleTranslations["en"].Months[monthIndex]
+	}
 
 	parsedMonth, _ := time.Parse("January", month)
 	parsedDay, _ := strconv.Atoi(day)
@@ -152,7 +174,7 @@ func RuleNaturalDate(sentence string) time.Time {
 }
 
 // RuleDate checks for dates written like mm/dd
-func RuleDate(sentence string) time.Time {
+func RuleDate(locale, sentence string) time.Time {
 	dateRegex := regexp.MustCompile(`(\d{2}|\d)/(\d{2}|\d)`)
 	date := dateRegex.FindString(sentence)
 
@@ -180,7 +202,7 @@ func RuleDate(sentence string) time.Time {
 
 // RuleTime checks for an hour written like 9pm
 func RuleTime(sentence string) time.Time {
-	timeRegex := regexp.MustCompile(`(\d{2}|\d)(:\d{2}|\d)?( )?(pm|am)`)
+	timeRegex := regexp.MustCompile(`(\d{2}|\d)(:\d{2}|\d)?( )?(pm|am|p\.m|a\.m)`)
 	foundTime := timeRegex.FindString(sentence)
 
 	// Returns an empty date struct if no date has been found
@@ -189,9 +211,11 @@ func RuleTime(sentence string) time.Time {
 	}
 
 	// Initialize the part of the day asked
-	part := "am"
+	var part string
 	if strings.Contains(foundTime, "pm") || strings.Contains(foundTime, "p.m") {
 		part = "pm"
+	} else if strings.Contains(foundTime, "am") || strings.Contains(foundTime, "a.m") {
+		part = "am"
 	}
 
 	if strings.Contains(foundTime, ":") {

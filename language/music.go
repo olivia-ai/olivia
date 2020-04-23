@@ -4,15 +4,24 @@ import (
 	"strings"
 )
 
+var SpotifyKeyword = map[string]SpotifyKeywords{}
+
+// SpotifyKeywords are the keywords used to get music name
+type SpotifyKeywords struct {
+	Play string
+	From string
+	On   string
+}
+
 // SearchMusic returns a music title and artist found from the given sentence
-func SearchMusic(sentence string) (music, artist string) {
+func SearchMusic(locale, sentence string) (music, artist string) {
 	words := strings.Split(sentence, " ")
 
 	// Iterate through the words of the sentence
 	playAppeared, fromAppeared, onAppeared := false, false, false
 	for _, word := range words {
 		// If "on" appeared
-		if word == "on" {
+		if word == SpotifyKeyword[locale].On {
 			onAppeared = true
 		}
 
@@ -22,7 +31,7 @@ func SearchMusic(sentence string) (music, artist string) {
 		}
 
 		// If "from" appeared
-		if LevenshteinDistance(word, "from") < 2 {
+		if LevenshteinDistance(word, SpotifyKeyword[locale].From) < 2 {
 			fromAppeared = true
 		}
 
@@ -32,7 +41,7 @@ func SearchMusic(sentence string) (music, artist string) {
 		}
 
 		// If "play" appeared
-		if LevenshteinDistance(word, "play") < 2 {
+		if LevenshteinDistance(word, SpotifyKeyword[locale].Play) < 2 {
 			playAppeared = true
 		}
 	}

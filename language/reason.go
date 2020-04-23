@@ -4,9 +4,17 @@ import (
 	"strings"
 )
 
+var ReasonKeywords = map[string]ReasonKeyword{}
+
+// ReasonKeyword are used to find reason for different languages
+type ReasonKeyword struct {
+	That string
+	To   string
+}
+
 // SearchReason returns the reason found in the given sentence for the reminders,
 // here is an example: "Remind me that I need to **call mom** tomorrow".
-func SearchReason(sentence string) string {
+func SearchReason(locale, sentence string) string {
 	var response []string
 
 	// Split the given sentence into words
@@ -23,8 +31,8 @@ func SearchReason(sentence string) string {
 
 		// If the keyword didn't appeared and one of the keywords match set the appeared condition
 		// to true
-		if !appeared && (LevenshteinDistance(word, "that") <= 2 ||
-			LevenshteinDistance(word, "to") < 2) {
+		if !appeared && (LevenshteinDistance(word, ReasonKeywords[locale].That) <= 2 ||
+			LevenshteinDistance(word, ReasonKeywords[locale].To) < 2) {
 			appeared = true
 		}
 	}

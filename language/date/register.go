@@ -4,7 +4,7 @@ import "time"
 
 // A Rule is a function that takes the given sentence and tries to parse a specific
 // rule to return a date, if not, the date is empty.
-type Rule func(string) time.Time
+type Rule func(string, string) time.Time
 
 var rules []Rule
 
