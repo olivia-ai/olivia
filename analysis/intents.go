@@ -8,7 +8,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
-var intents map[string][]Intent
+var intents = map[string][]Intent{}
 
 // Intent is a way to group sentences that mean the same thing and link them with a tag which
 // represents what they mean, some responses that the bot can reply and a context
@@ -41,6 +41,8 @@ func SerializeIntents(locale string) (_intents []Intent) {
 	if err != nil {
 		panic(err)
 	}
+
+	CacheIntents(locale, _intents)
 
 	return _intents
 }
