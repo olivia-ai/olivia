@@ -60,13 +60,13 @@
   {
     "tag": "no genres",
     "messages": [
-      "Sorry I can't find any movie genre in your message, try with them: Action, Adventure, Animation, Children, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, Musical, Mystery, Romance, Sci-Fi, Thriller, War and Western"
+      "Pardonnez-moi, je ne trouve aucun genre de film dans votre message. Essayez ceux-ci: Action, Aventure, Animation, Enfant, Comédie, Crime, Documentaire, Drama, Fantaisie, Film-Noir, Horreur, Musical, Mystère, Romance, Science-Fiction, Thriller, Guerre et Western"
     ]
   },
   {
     "tag": "no genres saved",
     "messages": [
-      "Sorry I can't find any movie genre in your data, try to set your preferences with “I like movies of adventure”"
+      "Désolé, je ne trouve aucun genre de film dans vos données. Essayez d'envoyer: “J'aime les films d'aventure”"
     ]
   }
 ]
