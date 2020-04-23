@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/olivia-ai/olivia/language"
+
 	"github.com/olivia-ai/olivia/util"
 
 	"github.com/olivia-ai/olivia/user"
-
-	"github.com/olivia-ai/olivia/language"
 
 	"github.com/olivia-ai/olivia/language/date"
 )

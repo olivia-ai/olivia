@@ -14,7 +14,7 @@ func TestSearchReason(t *testing.T) {
 	}
 
 	for sentence, excepted := range sentences {
-		reason := SearchReason(sentence)
+		reason := SearchReason("en", sentence)
 		if reason != excepted {
 			t.Errorf("SearchReason() failed, excepted %s got %s.", excepted, reason)
 		}
@@ -23,6 +23,6 @@ func TestSearchReason(t *testing.T) {
 
 func BenchmarkSearchReason(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		SearchReason("Remind me to wash the dishes the 28th of march")
+		SearchReason("en", "Remind me to wash the dishes the 28th of march")
 	}
 }
