@@ -210,9 +210,15 @@ func init() {
 	}
 
 	// SPOTIFY
-	language.Keywords["fr"] = language.SpotifyKeywords{
+	language.SpotifyKeyword["fr"] = language.SpotifyKeywords{
 		Play: "joue",
 		From: "de",
 		On:   "sur",
+	}
+
+	// REMINDERS
+	language.ReasonKeywords["fr"] = language.ReasonKeyword{
+		That: "que",
+		To:   "de",
 	}
 }
