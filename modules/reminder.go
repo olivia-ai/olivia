@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/olivia-ai/olivia/util"
+
 	"github.com/olivia-ai/olivia/user"
 
 	"github.com/olivia-ai/olivia/language"
@@ -43,13 +45,17 @@ func ReminderSetterReplacer(_, entry, response, token string) (string, string) {
 // ReminderGetterReplacer gets the reminders in the user's information and replaces the pattern in the
 // response patterns by the current reminders
 // See modules/modules.go#Module.Replacer() for more details.
-func ReminderGetterReplacer(_, _, response, token string) (string, string) {
+func ReminderGetterReplacer(locale, _, response, token string) (string, string) {
 	reminders := user.GetUserInformation(token).Reminders
 	var formattedReminders []string
 
 	// Iterate through the reminders and parse them
 	for _, reminder := range reminders {
-		formattedReminder := fmt.Sprintf("- “%s” for the %s", reminder.Reason, reminder.Date)
+		formattedReminder := fmt.Sprintf(
+			util.GetMessage(locale, "reminder"),
+			reminder.Reason,
+			reminder.Date,
+		)
 		formattedReminders = append(formattedReminders, formattedReminder)
 	}
 
