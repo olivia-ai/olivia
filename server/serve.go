@@ -37,10 +37,10 @@ func Serve(_neuralNetworks map[string]network.Network, port string) {
 	router.HandleFunc("/websocket", SocketHandle)
 	// Serve the API
 	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
-	router.HandleFunc("/api/intent", dashboard.CreateIntent).Methods("POST")
-	router.HandleFunc("/api/intent", dashboard.DeleteIntent).Methods("DELETE", "OPTIONS")
-	router.HandleFunc("/api/train", Train).Methods("POST")
-	router.HandleFunc("/api/intents", dashboard.GetIntents).Methods("GET")
+	router.HandleFunc("/api/{locale}/intent", dashboard.CreateIntent).Methods("POST")
+	router.HandleFunc("/api/{locale}/intent", dashboard.DeleteIntent).Methods("DELETE", "OPTIONS")
+	router.HandleFunc("/api/{locale}/train", Train).Methods("POST")
+	router.HandleFunc("/api/{locale}/intents", dashboard.GetIntents).Methods("GET")
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))
