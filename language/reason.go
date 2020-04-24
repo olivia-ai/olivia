@@ -4,7 +4,16 @@ import (
 	"strings"
 )
 
-var ReasonKeywords = map[string]ReasonKeyword{}
+var ReasonKeywords = map[string]ReasonKeyword{
+	"en": {
+		That: "that",
+		To:   "to",
+	},
+	"fr": {
+		That: "que",
+		To:   "de",
+	},
+}
 
 // ReasonKeyword are used to find reason for different languages
 type ReasonKeyword struct {

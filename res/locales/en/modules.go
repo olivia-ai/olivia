@@ -1,8 +1,6 @@
 package en
 
 import (
-	"github.com/olivia-ai/olivia/language"
-	"github.com/olivia-ai/olivia/language/date"
 	"github.com/olivia-ai/olivia/modules"
 )
 
@@ -206,49 +204,6 @@ func init() {
 			Replacer: modules.SpotifyPlayerReplacer,
 		},
 	})
-
-	// MOVIES
-	language.MoviesGenres["en"] = []string{
-		"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
-		"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western",
-	}
-
-	// SPOTIFY
-	language.SpotifyKeyword["en"] = language.SpotifyKeywords{
-		Play: "play",
-		From: "from",
-		On:   "on",
-	}
-
-	// REMINDERS
-	language.ReasonKeywords["en"] = language.ReasonKeyword{
-		That: "that",
-		To:   "to",
-	}
-
-	date.RuleTranslations["en"] = date.RuleTranslation{
-		DaysOfWeek: []string{
-			"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
-		},
-		Months: []string{
-			"january", "february", "march", "april", "may", "june", "july",
-			"august", "september", "october", "november", "december",
-		},
-		RuleToday:         `today|tonight`,
-		RuleTomorrow:      `(after )?tomorrow`,
-		RuleAfterTomorrow: "after",
-		RuleDayOfWeek:     `(next )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday)`,
-		RuleNextDayOfWeek: "next",
-		RuleNaturalDate:   `january|february|march|april|may|june|july|august|september|october|november|december`,
-	}
-
-	date.PatternTranslation["en"] = date.PatternTranslations{
-		DateRegex: `(of )?(the )?((after )?tomorrow|((today|tonight)|(next )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday))|(\d{2}|\d)(th|rd|st|nd)? (of )?(january|february|march|april|may|june|july|august|september|october|november|december)|((\d{2}|\d)/(\d{2}|\d)))`,
-		TimeRegex: `(at )?(\d{2}|\d)(:\d{2}|\d)?( )?(pm|am|p\.m|a\.m)`,
-	}
-
-	// MATH
-	language.MathDecimals["en"] = `(\d+( |-)decimal(s)?)|(number (of )?decimal(s)? (is )?\d+)`
 
 	// COUNTRIES
 	modules.ArticleCountries["en"] = ArticleCountries

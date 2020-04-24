@@ -12,7 +12,7 @@ func TestDeleteDates(t *testing.T) {
 	}
 
 	for sentence, excepted := range sentences {
-		deleteDatesSentence := DeleteDates(sentence)
+		deleteDatesSentence := DeleteDates("en", sentence)
 
 		if excepted != deleteDatesSentence {
 			t.Errorf("DeleteDates() failed, excepted %s got %s.", excepted, deleteDatesSentence)
@@ -27,7 +27,7 @@ func TestDeleteTimes(t *testing.T) {
 	}
 
 	for sentence, excepted := range sentences {
-		deleteTimesSentence := DeleteTimes(sentence)
+		deleteTimesSentence := DeleteTimes("en", sentence)
 
 		if excepted != deleteTimesSentence {
 			t.Errorf("DeleteTimes() failed, excepted %s got %s.", excepted, deleteTimesSentence)
