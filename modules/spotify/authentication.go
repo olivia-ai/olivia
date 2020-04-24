@@ -72,7 +72,7 @@ func LoginSpotify(locale, token string) string {
 		})
 	}()
 
-	return fmt.Sprintf(util.GetMessage(locale, "spotify credentials"), url)
+	return fmt.Sprintf(util.GetMessage(locale, "spotify login"), url)
 }
 
 // RenewSpotifyToken renews the spotify token with the user's information token and returns
