@@ -61,7 +61,7 @@ func ReminderGetterReplacer(locale, _, response, token string) (string, string) 
 
 	// If no reminder has been found
 	if len(formattedReminders) == 0 {
-		return ReminderGetterTag, "You have no reminders saved."
+		return ReminderGetterTag, util.GetMessage(locale, "no reminders")
 	}
 
 	return ReminderGetterTag, fmt.Sprintf(response, strings.Join(formattedReminders, " "))
