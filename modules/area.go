@@ -16,7 +16,7 @@ func AreaReplacer(locale, entry, response, _ string) (string, string) {
 	country := language.FindCountry(locale, entry)
 
 	// If there isn't a country respond with a message from res/datasets/messages.json
-	if country.Code == "" {
+	if country.Currency == "" {
 		responseTag := "no country"
 		return responseTag, util.GetMessage(locale, responseTag)
 	}
