@@ -18,7 +18,7 @@ func init() {
 				"Donne moi la superficie de ",
 			},
 			Responses: []string{
-				"La superficie de %s est de %gkm²",
+				"La superficie %s est de %gkm²",
 			},
 			Replacer: modules.AreaReplacer,
 		},
@@ -46,7 +46,7 @@ func init() {
 				"Quelle est la monnaie de ",
 			},
 			Responses: []string{
-				"La monnaie utilisée en %s est %s",
+				"La monnaie %s est %s",
 			},
 			Replacer: modules.CurrencyReplacer,
 		},
