@@ -4,7 +4,18 @@ import (
 	"strings"
 )
 
-var SpotifyKeyword = map[string]SpotifyKeywords{}
+var SpotifyKeyword = map[string]SpotifyKeywords{
+	"en": {
+		Play: "play",
+		From: "from",
+		On:   "on",
+	},
+	"fr": {
+		Play: "joue",
+		From: "de",
+		On:   "sur",
+	},
+}
 
 // SpotifyKeywords are the keywords used to get music name
 type SpotifyKeywords struct {

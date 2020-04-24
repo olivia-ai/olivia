@@ -6,7 +6,10 @@ import (
 	"strings"
 )
 
-var MathDecimals = map[string]string{}
+var MathDecimals = map[string]string{
+	"en": `(\d+( |-)decimal(s)?)|(number (of )?decimal(s)? (is )?\d+)`,
+	"fr": `(\d+( |-)decimale(s)?)|(nombre (de )?decimale(s)? (est )?\d+)`,
+}
 
 // FindMathOperation finds a math operation in a string an returns it
 func FindMathOperation(entry string) string {

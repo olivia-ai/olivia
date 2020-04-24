@@ -1,6 +1,8 @@
 package language
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestFindMathOperation(t *testing.T) {
 	sentence := "Calculate cos(0.5) * 5.3 please"
