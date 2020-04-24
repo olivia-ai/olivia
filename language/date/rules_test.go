@@ -12,9 +12,9 @@ func CheckEquality(a, b time.Time) bool {
 
 func TestRuleToday(t *testing.T) {
 	sentence := "Remind me that I have an exam today"
-	date := RuleToday(sentence)
+	date := RuleToday("en", sentence)
 
-	if !CheckEquality(time.Now(), RuleToday(sentence)) {
+	if !CheckEquality(time.Now(), RuleToday("en", sentence)) {
 		t.Errorf("RuleToday() failed, excepted %s got %s.", time.Now(), date)
 	}
 }
@@ -28,7 +28,7 @@ func TestRuleTomorrow(t *testing.T) {
 	}
 
 	for sentence, date := range sentences {
-		foundDate := RuleTomorrow(sentence)
+		foundDate := RuleTomorrow("en", sentence)
 		if !CheckEquality(date, foundDate) {
 			t.Errorf("SearchTime() failed, excepted %s got %s.", date, foundDate)
 		}
@@ -38,7 +38,7 @@ func TestRuleTomorrow(t *testing.T) {
 func TestRuleDayOfWeek(t *testing.T) {
 	sentence := "Remind me that I have an exam saturday"
 	excepted := 6
-	weekday := int(RuleDayOfWeek(sentence).Weekday())
+	weekday := int(RuleDayOfWeek("en", sentence).Weekday())
 
 	if excepted != weekday {
 		t.Errorf("RuleDayOfWeek() failed, excepted %d got %d.", excepted, weekday)
@@ -47,7 +47,7 @@ func TestRuleDayOfWeek(t *testing.T) {
 
 func TestRuleNaturalDate(t *testing.T) {
 	sentence := "Nothing here"
-	date := RuleNaturalDate(sentence)
+	date := RuleNaturalDate("en", sentence)
 	excepted := time.Time{}
 
 	if date != excepted {
@@ -55,14 +55,14 @@ func TestRuleNaturalDate(t *testing.T) {
 	}
 
 	sentence = "Remind me that I have an exam the 28th of march"
-	date = RuleNaturalDate(sentence)
+	date = RuleNaturalDate("en", sentence)
 
 	if date.Month() != 3 || date.Day() != 28 {
 		t.Errorf("RuleNaturalDate() failed, excepted 3/28 got %s.", date)
 	}
 
 	sentence = "Remind me that I have an exam in december"
-	date = RuleNaturalDate(sentence)
+	date = RuleNaturalDate("en", sentence)
 
 	if date.Month() != 12 || date.Day() != 1 {
 		t.Errorf("RuleNaturalDate() failed, excepted 1/12 got %s.", date)
@@ -71,7 +71,7 @@ func TestRuleNaturalDate(t *testing.T) {
 
 func TestRuleDate(t *testing.T) {
 	sentence := "Remind me that I have an exam the 12/04"
-	date := RuleDate(sentence)
+	date := RuleDate("en", sentence)
 
 	if date.Day() != 4 || date.Month() != 12 {
 		t.Errorf("RuleData() failed, excepted 04/12 got %s.", date)

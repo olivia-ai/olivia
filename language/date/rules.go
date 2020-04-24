@@ -12,7 +12,38 @@ import (
 
 const day = time.Hour * 24
 
-var RuleTranslations = map[string]RuleTranslation{}
+var RuleTranslations = map[string]RuleTranslation{
+	"en": {
+		DaysOfWeek: []string{
+			"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday",
+		},
+		Months: []string{
+			"january", "february", "march", "april", "may", "june", "july",
+			"august", "september", "october", "november", "december",
+		},
+		RuleToday:         `today|tonight`,
+		RuleTomorrow:      `(after )?tomorrow`,
+		RuleAfterTomorrow: "after",
+		RuleDayOfWeek:     `(next )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday)`,
+		RuleNextDayOfWeek: "next",
+		RuleNaturalDate:   `january|february|march|april|may|june|july|august|september|october|november|december`,
+	},
+	"fr": {
+		DaysOfWeek: []string{
+			"lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche",
+		},
+		Months: []string{
+			"janvier", "février", "mars", "avril", "mai", "juin", "juillet",
+			"août", "septembre", "octobre", "novembre", "décembre",
+		},
+		RuleToday:         `aujourd'hui|ce soir`,
+		RuleTomorrow:      `(après )?demain`,
+		RuleAfterTomorrow: "après",
+		RuleDayOfWeek:     `(lundi|mardi|mecredi|jeudi|vendredi|samedi|dimanche)( prochain)?`,
+		RuleNextDayOfWeek: "prochain",
+		RuleNaturalDate:   `janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre`,
+	},
+}
 
 // A RuleTranslation is all the texts/regexs to match the dates
 type RuleTranslation struct {
