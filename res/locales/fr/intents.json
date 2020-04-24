@@ -16,7 +16,8 @@
     "tag": "hello",
     "patterns": [
       "Bonjour",
-      "Salut"
+      "Salut",
+      "Hey"
     ],
     "responses": [
       "Hey!",
