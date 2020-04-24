@@ -5,8 +5,6 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/olivia-ai/olivia/language"
-	"github.com/olivia-ai/olivia/language/date"
 	"github.com/olivia-ai/olivia/modules"
 )
 
@@ -207,49 +205,6 @@ func init() {
 			Replacer: modules.SpotifyPlayerReplacer,
 		},
 	})
-
-	// MOVIES
-	language.MoviesGenres["fr"] = []string{
-		"Action", "Aventure", "Animation", "Enfant", "Comédie", "Crime", "Documentaire", "Drama", "Fantaisie",
-		"Film-Noir", "Horreur", "Musical", "Mystère", "Romance", "Science-fiction", "Thriller", "Guerre", "Western",
-	}
-
-	// SPOTIFY
-	language.SpotifyKeyword["fr"] = language.SpotifyKeywords{
-		Play: "joue",
-		From: "de",
-		On:   "sur",
-	}
-
-	// REMINDERS
-	language.ReasonKeywords["fr"] = language.ReasonKeyword{
-		That: "que",
-		To:   "de",
-	}
-
-	date.RuleTranslations["fr"] = date.RuleTranslation{
-		DaysOfWeek: []string{
-			"lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche",
-		},
-		Months: []string{
-			"janvier", "février", "mars", "avril", "mai", "juin", "juillet",
-			"août", "septembre", "octobre", "novembre", "décembre",
-		},
-		RuleToday:         `aujourd'hui|ce soir`,
-		RuleTomorrow:      `(après )?demain`,
-		RuleAfterTomorrow: "après",
-		RuleDayOfWeek:     `(lundi|mardi|mecredi|jeudi|vendredi|samedi|dimanche)( prochain)?`,
-		RuleNextDayOfWeek: "prochain",
-		RuleNaturalDate:   `janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre`,
-	}
-
-	date.PatternTranslation["fr"] = date.PatternTranslations{
-		DateRegex: `(le )?(après )?demain|((aujourd'hui'|ce soir)|(lundi|mardi|mecredi|jeudi|vendredi|samedi|dimanche)( prochain)?|(\d{2}|\d) (janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)|((\d{2}|\d)/(\d{2}|\d)))`,
-		TimeRegex: `(à )?(\d{2}|\d)(:\d{2}|\d)?( )?(pm|am|p\.m|a\.m)`,
-	}
-
-	// MATH
-	language.MathDecimals["fr"] = `(\d+( |-)decimale(s)?)|(nombre (de )?decimale(s)? (est )?\d+)`
 
 	// COUNTRIES
 	modules.ArticleCountries["fr"] = ArticleCountries

@@ -24,8 +24,17 @@ type Movie struct {
 
 var (
 	// Initializes movies genres
-	MoviesGenres = map[string][]string{}
-	movies       = SerializeMovies()
+	MoviesGenres = map[string][]string{
+		"en": {
+			"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
+			"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western",
+		},
+		"fr": {
+			"Action", "Aventure", "Animation", "Enfant", "Comédie", "Crime", "Documentaire", "Drama", "Fantaisie",
+			"Film-Noir", "Horreur", "Musical", "Mystère", "Romance", "Science-fiction", "Thriller", "Guerre", "Western",
+		},
+	}
+	movies = SerializeMovies()
 )
 
 // SerializeMovies retrieves the content of res/datasets/movies.csv and serialize it

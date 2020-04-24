@@ -2,20 +2,15 @@ package analysis
 
 import (
 	"reflect"
-	"strings"
 	"testing"
 )
 
-func TestIsStopWord(t *testing.T) {
-	IsStopWord(strings.Split("could you give me the capital of france", " "))
-}
-
 func TestSentence_WordsBag(t *testing.T) {
-	sentence := Sentence{"Hi how are you"}
-	words := Sentence{"hi hello good morning are is were you seven"}.Stem()
+	sentence := Sentence{"en", "Hi how are you"}
+	words := Sentence{"en", "hi hello good morning are is were you seven"}.Stem()
 
 	wordsBag := sentence.WordsBag(words)
-	excepted := []float64{1, 0, 0, 0, 1, 0, 0, 1, 0}
+	excepted := []float64{0, 0, 0, 0, 1, 0}
 
 	if !reflect.DeepEqual(excepted, wordsBag) {
 		t.Errorf("sentence.WordsBag() failed, excepted %v, got %v", excepted, wordsBag)
@@ -23,7 +18,7 @@ func TestSentence_WordsBag(t *testing.T) {
 }
 
 func TestSentence_Arrange(t *testing.T) {
-	sentence := Sentence{"Hello. how are you!   "}
+	sentence := Sentence{"en", "Hello. how are you!   "}
 	sentence.Arrange()
 
 	excepted := "Hello how are you"
@@ -34,7 +29,7 @@ func TestSentence_Arrange(t *testing.T) {
 }
 
 func TestSentence_Tokenize(t *testing.T) {
-	sentence := Sentence{"Hello How are you"}
+	sentence := Sentence{"en", "Hello How are you"}
 	tokens := sentence.Tokenize()
 
 	excepted := []string{"hello", "how", "are", "you"}
