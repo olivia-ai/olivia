@@ -215,7 +215,7 @@ func ArticleCountries(name string) string {
 	} else if lastCharacters == "os" {
 		article = "de los "
 	} else if string(lastCharacters[1]) == "a" {
-		article = "de la "
+		article = "de "
 	} else {
 		article = "del "
 	}
