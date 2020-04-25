@@ -9,6 +9,12 @@
     ]
   },
   {
+    "tag": "no permission",
+    "messages": [
+      "No tienes permiso para hacer esto.."
+    ]
+  },
+  {
     "tag": "spotify tokens",
     "messages": [
       "Tienes que enviar las dos tokens."
