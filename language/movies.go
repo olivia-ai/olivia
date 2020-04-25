@@ -33,6 +33,10 @@ var (
 			"Action", "Aventure", "Animation", "Enfant", "Comédie", "Crime", "Documentaire", "Drama", "Fantaisie",
 			"Film-Noir", "Horreur", "Musical", "Mystère", "Romance", "Science-fiction", "Thriller", "Guerre", "Western",
 		},
+		"es": {
+			"Acción", "Aventura", "Animación", "Infantil", "Comedia", "Crimen", "Documental", "Drama", "Fantasía",
+			"Cine Negro", "Terror", "Musical", "Misterio", "Romance", "Ciencia Ficción", "Thriller", "Guerra", "Western",
+		},
 	}
 	movies = SerializeMovies()
 )
