@@ -28,7 +28,7 @@ func init() {
 				"Dame el capital de ",
 			},
 			Responses: []string{
-				"El capital %s es %s",
+				"La capital %s es %s",
 			},
 			Replacer: modules.CapitalReplacer,
 		},

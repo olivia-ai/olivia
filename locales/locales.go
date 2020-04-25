@@ -3,6 +3,7 @@ package locales
 import (
 	// Import these packages to trigger the init() function
 	_ "github.com/olivia-ai/olivia/res/locales/en"
+	_ "github.com/olivia-ai/olivia/res/locales/es"
 	_ "github.com/olivia-ai/olivia/res/locales/fr"
 )
 
@@ -14,6 +15,10 @@ var Locales = []Locale{
 	{
 		Tag:  "fr",
 		Name: "french",
+	},
+	{
+		Tag:  "es",
+		Name: "spanish",
 	},
 }
 
