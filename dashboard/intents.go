@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/olivia-ai/olivia/util"
+
 	"github.com/gorilla/mux"
 
 	"github.com/gookit/color"
@@ -115,19 +117,19 @@ func DeleteIntent(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Headers", allowedHeaders)
 	w.Header().Set("Access-Control-Expose-Headers", "Authorization")
 
+	data := mux.Vars(r)
+
 	// Checks if the token present in the headers is the right one
 	token := r.Header.Get("Olivia-Token")
 	if !ChecksToken(token) {
 		json.NewEncoder(w).Encode(Error{
-			Message: "You don't have the permission to do this.",
+			Message: util.GetMessage(data["locale"], "no permission"),
 		})
 		return
 	}
 
 	var deleteRequest DeleteRequest
 	json.NewDecoder(r.Body).Decode(&deleteRequest)
-
-	data := mux.Vars(r)
 
 	RemoveIntent(data["locale"], deleteRequest.Tag)
 

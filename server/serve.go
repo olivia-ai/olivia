@@ -36,7 +36,7 @@ func Serve(_neuralNetworks map[string]network.Network, port string) {
 	// Serve the websocket
 	router.HandleFunc("/websocket", SocketHandle)
 	// Serve the API
-	router.HandleFunc("/api/dashboard", GetDashboardData).Methods("GET")
+	router.HandleFunc("/api/{locale}/dashboard", GetDashboardData).Methods("GET")
 	router.HandleFunc("/api/{locale}/intent", dashboard.CreateIntent).Methods("POST")
 	router.HandleFunc("/api/{locale}/intent", dashboard.DeleteIntent).Methods("DELETE", "OPTIONS")
 	router.HandleFunc("/api/{locale}/train", Train).Methods("POST")
