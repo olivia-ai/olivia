@@ -1,0 +1,84 @@
+[
+  {
+    "tag": "don't understand",
+    "messages": [
+      "Estoy tratando de hacer lo mejor que puedo pero no lo entiendo.",
+      "No estoy seguro de qué mensaje quieres comunicarme.",
+      "Todavía soy joven, podrías ayudarme a entender mejor en mi GitHub",
+      "No puedo entender su petición, lo siento."
+    ]
+  },
+  {
+    "tag": "spotify tokens",
+    "messages": [
+      "Tienes que enviar las dos tokens."
+    ]
+  },
+  {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” para el %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "No tienes ningún recordatorio guardado."
+    ]
+  },
+  {
+    "tag": "spotify credentials",
+    "messages": [
+      "Tienes que introducir tus credenciales de Spotify."
+    ]
+  },
+  {
+    "tag": "spotify login",
+    "messages": [
+      "Inicio de sesión en curso <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+    ]
+  },
+  {
+    "tag": "too long",
+    "messages": [
+      "Por favor, reduzca el tamaño de su mensaje a menos de 500"
+    ]
+  },
+  {
+    "tag": "no country",
+    "messages": [
+      "No encuentro un país en su mensaje"
+    ]
+  },
+  {
+    "tag": "math not valid",
+    "messages": [
+      "Su expresión matemática no es válida",
+      "Por favor, revise su expresión matemática"
+    ]
+  },
+  {
+    "tag": "don't know name",
+    "messages": [
+      "Lo siento, pero aún no sé tu nombre."
+    ]
+  },
+  {
+    "tag": "no name",
+    "messages": [
+      "Siento no poder encontrar un nombre en su mensaje."
+    ]
+  },
+  {
+    "tag": "no genres",
+    "messages": [
+      "Lo siento, no puedo encontrar ningún género de película en tu mensaje, prueba con estos: Acción, Aventura, Animación, Infantil, Comedia, Crimen, Documental, Drama, Fantasía, Cine Negro, Terror, Musical, Misterio, Romance, Ciencia Ficción, Thriller, Guerra y Western"
+    ]
+  },
+  {
+    "tag": "no genres saved",
+    "messages": [
+      "Lo siento, no puedo encontrar ningún género de película en sus datos, intente establecer sus preferencias con “Me gustan las películas de aventuras”"
+    ]
+  }
+]
