@@ -1,0 +1,90 @@
+[
+  {
+    "tag": "don't understand",
+    "messages": [
+      "Estic fent el millor possible, però no ho entenc, ho sento.",
+      "No estic segur del missatge que esteu intentant transmetre’m.",
+      "Encara sóc jove, podeu ajudar-me a comprendre millor les vostres sol·licituds a GitHub.",
+      "No puc entendre la vostra sol·licitud, ho sento."
+    ]
+  },
+  {
+    "tag": "no permission",
+    "messages": [
+      "No teniu permís per fer-ho."
+    ]
+  },
+  {
+    "tag": "spotify tokens",
+    "messages": [
+      "Heu d’enviar les vostres dues claus."
+    ]
+  },
+  {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” el %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "No teniu guardats els recordatoris."
+    ]
+  },
+  {
+    "tag": "spotify credentials",
+    "messages": [
+      "Heu d’introduir les vostres credencials de Spotify."
+    ]
+  },
+  {
+    "tag": "spotify login",
+    "messages": [
+      "Connexió en curs <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+    ]
+  },
+  {
+    "tag": "too long",
+    "messages": [
+      "Reduïu la mida del missatge a 500 caràcters o menys."
+    ]
+  },
+  {
+    "tag": "no country",
+    "messages": [
+      "No puc trobar cap país al vostre missatge."
+    ]
+  },
+  {
+    "tag": "math not valid",
+    "messages": [
+      "La vostra expressió matemàtica no és vàlida",
+      "Revisa la teva expressió matemàtica"
+    ]
+  },
+  {
+    "tag": "don't know name",
+    "messages": [
+      "Perdoneu-me, però encara no sé el vostre nom"
+    ]
+  },
+  {
+    "tag": "no name",
+    "messages": [
+      "Ho sentim, no puc trobar cap nom al vostre missatge."
+    ]
+  },
+  {
+    "tag": "no genres",
+    "messages": [
+      "Perdoneu-me, no puc trobar cap tipus de pel·lícula al vostre missatge. Proveu-les: Acció, Aventura, Animació, Nen, Comèdia, Crim, Documental, Drama, Fantasia, Film-Noir, Horror, Musical, Misteri, Romanç, Ciència-ficció, Thriller, War i Western"
+    ]
+  },
+  {
+    "tag": "no genres saved",
+    "messages": [
+      "Ho sentim, no puc trobar cap tipus de pel·lícula a les vostres dades. Intenteu enviar: “M'agraden les pel·lícules d'aventura”"
+    ]
+  }
+]
