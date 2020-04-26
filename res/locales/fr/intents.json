@@ -28,7 +28,7 @@
   {
     "tag": "job",
     "patterns": [
-      "Quelle est votre travail"
+      "Quel est votre travail"
     ],
     "responses": [
       "Mon travail consiste à vous faire sentir que tout va bien.",
@@ -170,7 +170,7 @@
   {
     "tag": "wait",
     "patterns": [
-      "Peux-tu attendre 2 minutres",
+      "Peux-tu attendre 2 minutes",
       "Attends",
       "Attends 2 secondes s'il te plait"
     ],
