@@ -1,12 +1,24 @@
 package util
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestContains(t *testing.T) {
 	slice := []string{"hey", "Hola", "boNjour"}
 
 	if !Contains(slice, "Hola") || Contains(slice, "bonjour") || !Contains(slice, "hey") {
 		t.Errorf("slice.Contains() failed.")
+	}
+}
+
+func TestDifference(t *testing.T) {
+	slice := []string{"hey", "Hola", "boNjour"}
+	slice2 := []string{"hey", "boNjour"}
+	difference := Difference(slice, slice2)
+
+	if len(difference) != 1 || difference[0] != "Hola" {
+		t.Errorf("Difference() failed.")
 	}
 }
 
