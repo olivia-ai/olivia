@@ -12,7 +12,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-const fileName = "res/authentication.txt"
+var fileName = "res/authentication.txt"
 
 var authenticationHash []byte
 
