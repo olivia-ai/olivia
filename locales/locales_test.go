@@ -21,3 +21,13 @@ func TestGetTagByName(t *testing.T) {
 		t.Errorf("GetTagByName() failed, excepted %s got %s.", excepted, name)
 	}
 }
+
+func TestExists(t *testing.T) {
+	tag := "en"
+	excepted := true
+	exists := Exists(tag)
+
+	if exists != excepted {
+		t.Errorf("Exists() failed, excepted %t got %t.", excepted, exists)
+	}
+}
