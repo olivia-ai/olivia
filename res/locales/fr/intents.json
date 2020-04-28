@@ -52,7 +52,8 @@
     "tag": "feeling",
     "patterns": [
       "Comment vas-tu aujourd'hui",
-      "Comment ca va?"
+      "Comment ca va?",
+      "ça va?"
     ],
     "responses": [
       "Je me sens bien, et vous?",
