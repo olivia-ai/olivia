@@ -15,6 +15,18 @@
     ]
   },
   {
+    "tag": "patterns same",
+    "messages": [
+      "The patterns and/or responses can't be empty."
+    ]
+  },
+  {
+    "tag": "tags same",
+    "messages": [
+      "An intent already exists with this tag."
+    ]
+  },
+  {
     "tag": "spotify tokens",
     "messages": [
       "You need to send the two tokens."

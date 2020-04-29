@@ -15,6 +15,18 @@
     ]
   },
   {
+    "tag": "patterns same",
+    "messages": [
+      "Les modèles et/ou les réponses ne peuvent pas être vides."
+    ]
+  },
+  {
+    "tag": "tags same",
+    "messages": [
+      "Un intent existe déjà avec cette étiquette"
+    ]
+  },
+  {
     "tag": "spotify tokens",
     "messages": [
       "Vous devez envoyer vos deux clés."

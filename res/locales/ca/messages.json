@@ -15,6 +15,18 @@
     ]
   },
   {
+    "tag": "patterns same",
+    "messages": [
+      "Els patrons i/o les respostes no poden estar buits."
+    ]
+  },
+  {
+    "tag": "tags same",
+    "messages": [
+      "Ja existeix un intent amb aquesta etiqueta."
+    ]
+  },
+  {
     "tag": "spotify tokens",
     "messages": [
       "Heu d’enviar les vostres dues claus."
