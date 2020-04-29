@@ -15,6 +15,18 @@
     ]
   },
   {
+    "tag": "patterns same",
+    "messages": [
+      "Los patrones y/o respuestas no pueden estar vacíos."
+    ]
+  },
+  {
+    "tag": "tags same",
+    "messages": [
+      "Ya existe un intent con esta etiqueta."
+    ]
+  },
+  {
     "tag": "spotify tokens",
     "messages": [
       "Tienes que enviar las dos tokens."

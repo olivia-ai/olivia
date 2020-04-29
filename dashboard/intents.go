@@ -81,11 +81,19 @@ func GetIntents(w http.ResponseWriter, r *http.Request) {
 
 // CreateIntent is the route to create a new intent
 func CreateIntent(w http.ResponseWriter, r *http.Request) {
+	allowedHeaders := "Accept, Content-Type, Content-Length, Accept-Encoding, Authorization,Olivia-Token"
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Set("Access-Control-Allow-Headers", allowedHeaders)
+	w.Header().Set("Access-Control-Expose-Headers", "Authorization")
+
+	data := mux.Vars(r)
+
 	// Checks if the token present in the headers is the right one
 	token := r.Header.Get("Olivia-Token")
 	if !ChecksToken(token) {
 		json.NewEncoder(w).Encode(Error{
-			Message: "You don't have the permission to do this.",
+			Message: util.GetMessage(data["locale"], "no permission"),
 		})
 		return
 	}
@@ -96,12 +104,20 @@ func CreateIntent(w http.ResponseWriter, r *http.Request) {
 
 	if intent.Responses == nil || intent.Patterns == nil {
 		json.NewEncoder(w).Encode(Error{
-			Message: "Patterns and responses can't be null",
+			Message: util.GetMessage(data["locale"], "patterns same"),
 		})
 		return
 	}
 
-	data := mux.Vars(r)
+	// Returns an error if the tags are the same
+	for _, _intent := range analysis.GetIntents(data["locale"]) {
+		if _intent.Tag == intent.Tag {
+			json.NewEncoder(w).Encode(Error{
+				Message: util.GetMessage(data["locale"], "tags same"),
+			})
+			return
+		}
+	}
 
 	// Adds the intent
 	AddIntent(data["locale"], intent)
