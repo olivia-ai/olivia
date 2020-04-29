@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// PatternTranslation are the map of regexs in different languages
 var PatternTranslation = map[string]PatternTranslations{
 	"en": {
 		DateRegex: `(of )?(the )?((after )?tomorrow|((today|tonight)|(next )?(monday|tuesday|wednesday|thursday|friday|saturday|sunday))|(\d{2}|\d)(th|rd|st|nd)? (of )?(january|february|march|april|may|june|july|august|september|october|november|december)|((\d{2}|\d)/(\d{2}|\d)))`,
@@ -25,7 +26,7 @@ var PatternTranslation = map[string]PatternTranslations{
 	},
 }
 
-// Translations are the translations of the regexs for dates
+// PatternTranslations are the translations of the regexs for dates
 type PatternTranslations struct {
 	DateRegex string
 	TimeRegex string

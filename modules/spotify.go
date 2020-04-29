@@ -15,7 +15,9 @@ import (
 )
 
 var (
+	// SpotifySetterTag is the intent tag for its module
 	SpotifySetterTag = "spotify setter"
+	// SpotifyPlayerTag is the intent tag for its module
 	SpotifyPlayerTag = "spotify player"
 )
 

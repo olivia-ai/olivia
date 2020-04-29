@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// ReasonKeywords is for having the keywords in different languages
 var ReasonKeywords = map[string]ReasonKeyword{
 	"en": {
 		That: "that",

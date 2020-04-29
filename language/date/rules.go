@@ -12,6 +12,7 @@ import (
 
 const day = time.Hour * 24
 
+// RuleTranslations are the translations of the rules in different languages
 var RuleTranslations = map[string]RuleTranslation{
 	"en": {
 		DaysOfWeek: []string{

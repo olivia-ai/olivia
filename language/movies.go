@@ -23,7 +23,7 @@ type Movie struct {
 }
 
 var (
-	// Initializes movies genres
+	// MoviesGenres initializes movies genres in different languages
 	MoviesGenres = map[string][]string{
 		"en": {
 			"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
