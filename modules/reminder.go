@@ -14,7 +14,9 @@ import (
 )
 
 var (
+	// ReminderSetterTag is the intent tag for its module
 	ReminderSetterTag = "reminder setter"
+	// ReminderGetterTag is the intent tag for its module
 	ReminderGetterTag = "reminder getter"
 )
 

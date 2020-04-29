@@ -27,8 +27,8 @@ func main() {
 	flag.Parse()
 
 	// Print the Olivia ascii text
-	oliviaAscii := string(util.ReadFile("res/olivia-ascii.txt"))
-	fmt.Println(color.FgLightGreen.Render(oliviaAscii))
+	oliviaASCII := string(util.ReadFile("res/olivia-ascii.txt"))
+	fmt.Println(color.FgLightGreen.Render(oliviaASCII))
 
 	// Create the authentication token
 	dashboard.Authenticate()

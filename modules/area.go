@@ -7,6 +7,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
+// AreaTag is the intent tag for its module
 var AreaTag = "area"
 
 // AreaReplacer replaces the pattern contained inside the response by the area of the country

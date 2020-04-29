@@ -7,6 +7,7 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
+// CurrencyTag is the intent tag for its module
 var CurrencyTag = "currency"
 
 // CurrencyReplacer replaces the pattern contained inside the response by the currency of the country

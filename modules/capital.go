@@ -8,7 +8,10 @@ import (
 )
 
 var (
-	CapitalTag       = "capital"
+	// CapitalTag is the intent tag for its module
+	CapitalTag = "capital"
+	// ArticleCountries is the map of functions to find the article in front of a country
+	// in different languages
 	ArticleCountries = map[string]func(string) string{}
 )
 

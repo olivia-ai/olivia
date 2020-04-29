@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// SpotifyKeyword is the map for having the music keywords in different languages
 var SpotifyKeyword = map[string]SpotifyKeywords{
 	"en": {
 		Play: "play",

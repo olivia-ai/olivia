@@ -9,6 +9,7 @@ import (
 	"github.com/soudy/mathcat"
 )
 
+// MathTag is the intent tag for its module
 var MathTag = "math"
 
 // MathReplacer replaces the pattern contained inside the response by the answer of the math

@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+// RandomTag is the intent tag for its module
 var RandomTag = "random number"
 
 // RandomNumberReplacer replaces the pattern contained inside the response by a random number.

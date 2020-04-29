@@ -10,7 +10,9 @@ import (
 )
 
 var (
+	// NameGetterTag is the intent tag for its module
 	NameGetterTag = "name getter"
+	// NameSetterTag is the intent tag for its module
 	NameSetterTag = "name setter"
 )
 

@@ -8,6 +8,7 @@ import (
 	_ "github.com/olivia-ai/olivia/res/locales/fr"
 )
 
+// Locales is the list of locales's tags and names
 var Locales = []Locale{
 	{
 		Tag:  "en",
