@@ -11,6 +11,9 @@ import (
 func init() {
 	modules.RegisterModules("fr", []modules.Module{
 		// AREA
+		// For modules related to countries, please add the translations of the countries' names
+		// or open an issue to ask for translations.
+
 		{
 			Tag: modules.AreaTag,
 			Patterns: []string{
@@ -52,6 +55,9 @@ func init() {
 		},
 
 		// MATH
+		// A regex translation is also required in `language/math.go`, please don't forget to translate it.
+		// Otherwise, remove the registration of the Math module in this file.
+
 		{
 			Tag: modules.MathTag,
 			Patterns: []string{
@@ -66,6 +72,10 @@ func init() {
 		},
 
 		// MOVIES
+		// A translation of movies genres is also required in `language/movies.go`, please don't forget
+		// to translate it.
+		// Otherwise, remove the registration of the Movies modules in this file.
+
 		{
 			Tag: modules.GenresTag,
 			Patterns: []string{
@@ -156,6 +166,10 @@ func init() {
 		},
 
 		// REMINDERS
+		// Translations are required in `language/date/date`, `language/date/rules` and in `language/reason`,
+		// please don't forget to translate it.
+		// Otherwise, remove the registration of the Reminders modules in this file.
+
 		{
 			Tag: modules.ReminderSetterTag,
 			Patterns: []string{
@@ -183,6 +197,9 @@ func init() {
 		},
 
 		// SPOTIFY
+		// A translation is needed in `language/music`, please don't forget to translate it.
+		// Otherwise, remove the registration of the Spotify modules in this file.
+
 		{
 			Tag: modules.SpotifySetterTag,
 			Patterns: []string{
@@ -207,6 +224,9 @@ func init() {
 	})
 
 	// COUNTRIES
+	// Please translate this method for adding the correct article in front of countries names.
+	// Otherwise, remove the countries modules from this file.
+
 	modules.ArticleCountries["fr"] = ArticleCountries
 }
 
