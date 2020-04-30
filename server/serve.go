@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/olivia-ai/olivia/analysis"
+
 	"github.com/olivia-ai/olivia/training"
 
 	"github.com/olivia-ai/olivia/dashboard"
@@ -41,6 +43,7 @@ func Serve(_neuralNetworks map[string]network.Network, port string) {
 	router.HandleFunc("/api/{locale}/intent", dashboard.DeleteIntent).Methods("DELETE", "OPTIONS")
 	router.HandleFunc("/api/{locale}/train", Train).Methods("POST")
 	router.HandleFunc("/api/{locale}/intents", dashboard.GetIntents).Methods("GET")
+	router.HandleFunc("/api/coverage", analysis.GetCoverage).Methods("GET")
 
 	magenta := color.FgMagenta.Render
 	fmt.Printf("\nServer listening on the port %s...\n", magenta(port))

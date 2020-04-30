@@ -33,6 +33,19 @@ func GetMessages(locale string) []Message {
 	return messages[locale]
 }
 
+// GetMessageByTag returns a message found by the given tag and locale
+func GetMessageByTag(tag, locale string) Message {
+	for _, message := range messages[locale] {
+		if tag != message.Tag {
+			continue
+		}
+
+		return message
+	}
+
+	return Message{}
+}
+
 // GetMessage retrieves a message tag and returns a random message chose from res/datasets/messages.json
 func GetMessage(locale, tag string) string {
 	for _, message := range messages[locale] {
