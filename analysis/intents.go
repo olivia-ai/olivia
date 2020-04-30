@@ -64,6 +64,19 @@ func SerializeModulesIntents(locale string) []Intent {
 	return intents
 }
 
+// GetIntentByTag returns an intent found by given tag and locale
+func GetIntentByTag(tag, locale string) Intent {
+	for _, intent := range GetIntents(locale) {
+		if tag != intent.Tag {
+			continue
+		}
+
+		return intent
+	}
+
+	return Intent{}
+}
+
 // Organize intents with an array of all words, an array with a representative word of each tag
 // and an array of Documents which contains a word list associated with a tag
 func Organize(locale string) (words, classes []string, documents []Document) {

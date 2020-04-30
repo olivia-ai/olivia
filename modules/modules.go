@@ -27,6 +27,19 @@ func GetModules(locale string) []Module {
 	return modules[locale]
 }
 
+// GetModuleByTag returns a module found by the given tag and locale
+func GetModuleByTag(tag, locale string) Module {
+	for _, module := range modules[locale] {
+		if tag != module.Tag {
+			continue
+		}
+
+		return module
+	}
+
+	return Module{}
+}
+
 // ReplaceContent apply the Replacer of the matching module to the response and returns it
 func ReplaceContent(locale, tag, entry, response, token string) (string, string) {
 	for _, module := range modules[locale] {
