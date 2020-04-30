@@ -19,3 +19,11 @@ func TestGetIntentCoverage(t *testing.T) {
 		t.Errorf("GetIntentCoverage() failed.")
 	}
 }
+
+func TestGetMessageCoverage(t *testing.T) {
+	notCovered, coverage := GetIntentCoverage("en")
+
+	if len(notCovered) != 0 || coverage != 100 {
+		t.Errorf("GetIntentCoverage() failed.")
+	}
+}

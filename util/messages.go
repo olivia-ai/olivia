@@ -28,6 +28,11 @@ func SerializeMessages(locale string) []Message {
 	return currentMessages
 }
 
+// GetMessages returns the cached messages for the given locale
+func GetMessages(locale string) []Message {
+	return messages[locale]
+}
+
 // GetMessage retrieves a message tag and returns a random message chose from res/datasets/messages.json
 func GetMessage(locale, tag string) string {
 	for _, message := range messages[locale] {

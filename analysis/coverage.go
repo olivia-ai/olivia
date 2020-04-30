@@ -2,12 +2,34 @@ package analysis
 
 import (
 	"github.com/olivia-ai/olivia/modules"
+	"github.com/olivia-ai/olivia/util"
 )
 
 var (
-	defaultModules = modules.GetModules("en")
-	defaultIntents = GetIntents("en")
+	defaultModules  = modules.GetModules("en")
+	defaultIntents  = GetIntents("en")
+	defaultMessages = util.GetMessages("en")
 )
+
+// GetMessageCoverage returns an array of not covered messages and the percentage of message that
+// aren't translated in the given locale.
+func GetMessageCoverage(locale string) (notCoveredMessages []string, coverage int) {
+	// Iterate through the default messages which are the english ones to verify if a message isn't
+	// translated in the given locale.
+	for _, defaultMessage := range defaultMessages {
+		intent := GetIntentByTag(defaultMessage.Tag, locale)
+
+		// Add the current module tag to the list of not-covered-modules
+		if intent.Tag != defaultMessage.Tag {
+			notCoveredMessages = append(notCoveredMessages, defaultMessage.Tag)
+		}
+	}
+
+	// Calculate the percentage of modules that aren't translated in the given locale
+	coverage = CalculateCoverage(len(notCoveredMessages), len(defaultMessages))
+
+	return
+}
 
 // GetIntentCoverage returns an array of not covered intents and the percentage of intents that aren't
 // translated in the given locale.
