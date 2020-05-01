@@ -16,11 +16,18 @@ var (
 	defaultMessages []util.Message
 )
 
+// LocaleCoverage is the element for the coverage of each language
+type LocaleCoverage struct {
+	Tag      string   `json:"locale_tag"`
+	Language string   `json:"language"`
+	Coverage Coverage `json:"coverage"`
+}
+
 // Coverage is the coverage for a single language which contains the coverage details of each section
 type Coverage struct {
 	Modules  CoverageDetails `json:"modules"`
 	Intents  CoverageDetails `json:"intents"`
-	Messages CoverageDetails `json:"message"`
+	Messages CoverageDetails `json:"messages"`
 }
 
 // CoverageDetails are the details of items not covered and the coverage percentage
@@ -30,19 +37,33 @@ type CoverageDetails struct {
 }
 
 // GetCoverage encodes the coverage of each language in json
-func GetCoverage(writer http.ResponseWriter, request *http.Request) {
+func GetCoverage(writer http.ResponseWriter, _ *http.Request) {
+	allowedHeaders := "Accept, Content-Type, Content-Length, Accept-Encoding, Authorization,Olivia-Token"
+	writer.Header().Set("Access-Control-Allow-Origin", "*")
+	writer.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	writer.Header().Set("Access-Control-Allow-Headers", allowedHeaders)
+	writer.Header().Set("Access-Control-Expose-Headers", "Authorization")
+
 	defaultMessages, defaultIntents, defaultModules =
 		util.GetMessages("en"), GetIntents("en"), modules.GetModules("en")
 
-	coverage := map[string]Coverage{}
+	var coverage []LocaleCoverage
 
 	// Calculate coverage for each language
 	for _, locale := range locales.Locales {
-		coverage[locale.Tag] = Coverage{
-			Modules:  GetModuleCoverage(locale.Tag),
-			Intents:  GetIntentCoverage(locale.Tag),
-			Messages: GetMessageCoverage(locale.Tag),
+		if locale.Tag == "en" {
+			continue
 		}
+
+		coverage = append(coverage, LocaleCoverage{
+			Tag:      locale.Tag,
+			Language: locales.GetNameByTag(locale.Tag),
+			Coverage: Coverage{
+				Modules:  GetModuleCoverage(locale.Tag),
+				Intents:  GetIntentCoverage(locale.Tag),
+				Messages: GetMessageCoverage(locale.Tag),
+			},
+		})
 	}
 
 	json.NewEncoder(writer).Encode(coverage)
