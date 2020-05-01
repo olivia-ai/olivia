@@ -2,28 +2,37 @@ package analysis
 
 import (
 	"testing"
+
+	"github.com/olivia-ai/olivia/modules"
+	"github.com/olivia-ai/olivia/util"
 )
 
 func TestGetModuleCoverage(t *testing.T) {
-	notCovered, coverage := GetModuleCoverage("en")
+	defaultModules = modules.GetModules("en")
 
-	if len(notCovered) != 0 || coverage != 100 {
+	coverage := GetModuleCoverage("en")
+
+	if len(coverage.NotCovered) != 0 || coverage.Coverage != 100 {
 		t.Errorf("GetModuleCoverage() failed.")
 	}
 }
 
 func TestGetIntentCoverage(t *testing.T) {
-	notCovered, coverage := GetIntentCoverage("en")
+	defaultIntents = GetIntents("en")
 
-	if len(notCovered) != 0 || coverage != 100 {
+	coverage := GetIntentCoverage("en")
+
+	if len(coverage.NotCovered) != 0 || coverage.Coverage != 100 {
 		t.Errorf("GetIntentCoverage() failed.")
 	}
 }
 
 func TestGetMessageCoverage(t *testing.T) {
-	notCovered, coverage := GetIntentCoverage("en")
+	defaultMessages = util.GetMessages("en")
 
-	if len(notCovered) != 0 || coverage != 100 {
+	coverage := GetIntentCoverage("en")
+
+	if len(coverage.NotCovered) != 0 || coverage.Coverage != 100 {
 		t.Errorf("GetIntentCoverage() failed.")
 	}
 }
