@@ -39,7 +39,7 @@ func NewSentence(locale, content string) (sentence Sentence) {
 		Locale:  locale,
 		Content: content,
 	}
-	sentence.Arrange()
+	sentence.arrange()
 
 	return
 }

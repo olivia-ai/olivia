@@ -11,8 +11,8 @@ import (
 	"github.com/tebeka/snowball"
 )
 
-// Arrange checks the format of a string to normalize it, remove ignored characters
-func (sentence *Sentence) Arrange() {
+// arrange checks the format of a string to normalize it, remove ignored characters
+func (sentence *Sentence) arrange() {
 	// Remove punctuation after letters
 	punctuationRegex := regexp.MustCompile(`[a-zA-Z]( )?(\.|\?|!|¿|¡)`)
 	sentence.Content = punctuationRegex.ReplaceAllStringFunc(sentence.Content, func(s string) string {
@@ -24,8 +24,8 @@ func (sentence *Sentence) Arrange() {
 	sentence.Content = strings.TrimSpace(sentence.Content)
 }
 
-// RemoveStopWords takes an arary of words, removes the stopwords and returns it
-func RemoveStopWords(locale string, words []string) []string {
+// removeStopWords takes an arary of words, removes the stopwords and returns it
+func removeStopWords(locale string, words []string) []string {
 	// Don't remove stopwords for small sentences like “How are you” because it will remove all the words
 	if len(words) <= 4 {
 		return words
@@ -52,8 +52,8 @@ func RemoveStopWords(locale string, words []string) []string {
 	return util.Difference(words, wordsToRemove)
 }
 
-// Tokenize returns a list of words that have been lower-cased
-func (sentence Sentence) Tokenize() (tokens []string) {
+// tokenize returns a list of words that have been lower-cased
+func (sentence Sentence) tokenize() (tokens []string) {
 	// Split the sentence in words
 	tokens = strings.Fields(sentence.Content)
 
@@ -62,20 +62,20 @@ func (sentence Sentence) Tokenize() (tokens []string) {
 		tokens[i] = strings.ToLower(token)
 	}
 
-	tokens = RemoveStopWords(sentence.Locale, tokens)
+	tokens = removeStopWords(sentence.Locale, tokens)
 
 	return
 }
 
-// Stem returns the sentence split in stemmed words
-func (sentence Sentence) Stem() (tokenizeWords []string) {
+// stem returns the sentence split in stemmed words
+func (sentence Sentence) stem() (tokenizeWords []string) {
 	locale := locales.GetTagByName(sentence.Locale)
 	// Set default locale to english
 	if locale == "" {
 		locale = "english"
 	}
 
-	tokens := sentence.Tokenize()
+	tokens := sentence.tokenize()
 
 	stemmer, err := snowball.New(locale)
 	if err != nil {
@@ -97,7 +97,7 @@ func (sentence Sentence) WordsBag(words []string) (bag []float64) {
 	for _, word := range words {
 		// Append 1 if the patternWords contains the actual word, else 0
 		var valueToAppend float64
-		if util.Contains(sentence.Stem(), word) {
+		if util.Contains(sentence.stem(), word) {
 			valueToAppend = 1
 		}
 
