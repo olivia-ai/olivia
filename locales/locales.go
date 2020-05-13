@@ -9,6 +9,8 @@ import (
 )
 
 // Locales is the list of locales's tags and names
+// Please check if the language is supported in https://github.com/tebeka/snowball,
+// if it is please add the correct language name.
 var Locales = []Locale{
 	{
 		Tag:  "en",
