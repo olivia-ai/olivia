@@ -10,7 +10,7 @@ import (
 func TestGetModuleCoverage(t *testing.T) {
 	defaultModules = modules.GetModules("en")
 
-	coverage := GetModuleCoverage("en")
+	coverage := getModuleCoverage("en")
 
 	if len(coverage.NotCovered) != 0 || coverage.Coverage != 100 {
 		t.Errorf("GetModuleCoverage() failed.")
@@ -20,7 +20,7 @@ func TestGetModuleCoverage(t *testing.T) {
 func TestGetIntentCoverage(t *testing.T) {
 	defaultIntents = GetIntents("en")
 
-	coverage := GetIntentCoverage("en")
+	coverage := getIntentCoverage("en")
 
 	if len(coverage.NotCovered) != 0 || coverage.Coverage != 100 {
 		t.Errorf("GetIntentCoverage() failed.")
@@ -30,7 +30,7 @@ func TestGetIntentCoverage(t *testing.T) {
 func TestGetMessageCoverage(t *testing.T) {
 	defaultMessages = util.GetMessages("en")
 
-	coverage := GetIntentCoverage("en")
+	coverage := getIntentCoverage("en")
 
 	if len(coverage.NotCovered) != 0 || coverage.Coverage != 100 {
 		t.Errorf("GetIntentCoverage() failed.")

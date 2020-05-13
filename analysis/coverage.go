@@ -59,9 +59,9 @@ func GetCoverage(writer http.ResponseWriter, _ *http.Request) {
 			Tag:      locale.Tag,
 			Language: locales.GetNameByTag(locale.Tag),
 			Coverage: Coverage{
-				Modules:  GetModuleCoverage(locale.Tag),
-				Intents:  GetIntentCoverage(locale.Tag),
-				Messages: GetMessageCoverage(locale.Tag),
+				Modules:  getModuleCoverage(locale.Tag),
+				Intents:  getIntentCoverage(locale.Tag),
+				Messages: getMessageCoverage(locale.Tag),
 			},
 		})
 	}
@@ -69,9 +69,9 @@ func GetCoverage(writer http.ResponseWriter, _ *http.Request) {
 	json.NewEncoder(writer).Encode(coverage)
 }
 
-// GetMessageCoverage returns an array of not covered messages and the percentage of message that
+// getMessageCoverage returns an array of not covered messages and the percentage of message that
 // aren't translated in the given locale.
-func GetMessageCoverage(locale string) CoverageDetails {
+func getMessageCoverage(locale string) CoverageDetails {
 	var notCoveredMessages []string
 
 	// Iterate through the default messages which are the english ones to verify if a message isn't
@@ -86,7 +86,7 @@ func GetMessageCoverage(locale string) CoverageDetails {
 	}
 
 	// Calculate the percentage of modules that aren't translated in the given locale
-	coverage := CalculateCoverage(len(notCoveredMessages), len(defaultMessages))
+	coverage := calculateCoverage(len(notCoveredMessages), len(defaultMessages))
 
 	return CoverageDetails{
 		NotCovered: notCoveredMessages,
@@ -94,9 +94,9 @@ func GetMessageCoverage(locale string) CoverageDetails {
 	}
 }
 
-// GetIntentCoverage returns an array of not covered intents and the percentage of intents that aren't
+// getIntentCoverage returns an array of not covered intents and the percentage of intents that aren't
 // translated in the given locale.
-func GetIntentCoverage(locale string) CoverageDetails {
+func getIntentCoverage(locale string) CoverageDetails {
 	var notCoveredIntents []string
 
 	// Iterate through the default intents which are the english ones to verify if an intent isn't
@@ -111,7 +111,7 @@ func GetIntentCoverage(locale string) CoverageDetails {
 	}
 
 	// Calculate the percentage of modules that aren't translated in the given locale
-	coverage := CalculateCoverage(len(notCoveredIntents), len(defaultModules))
+	coverage := calculateCoverage(len(notCoveredIntents), len(defaultModules))
 
 	return CoverageDetails{
 		NotCovered: notCoveredIntents,
@@ -119,9 +119,9 @@ func GetIntentCoverage(locale string) CoverageDetails {
 	}
 }
 
-// GetModuleCoverage returns an array of not covered modules and the percentage of modules that aren't
+// getModuleCoverage returns an array of not covered modules and the percentage of modules that aren't
 // translated in the given locale.
-func GetModuleCoverage(locale string) CoverageDetails {
+func getModuleCoverage(locale string) CoverageDetails {
 	var notCoveredModules []string
 
 	// Iterate through the default modules which are the english ones to verify if a module isn't
@@ -136,7 +136,7 @@ func GetModuleCoverage(locale string) CoverageDetails {
 	}
 
 	// Calculate the percentage of modules that aren't translated in the given locale
-	coverage := CalculateCoverage(len(notCoveredModules), len(defaultModules))
+	coverage := calculateCoverage(len(notCoveredModules), len(defaultModules))
 
 	return CoverageDetails{
 		NotCovered: notCoveredModules,
@@ -144,8 +144,8 @@ func GetModuleCoverage(locale string) CoverageDetails {
 	}
 }
 
-// CalculateCoverage returns the coverage calculated with the given length of not covered
+// calculateCoverage returns the coverage calculated with the given length of not covered
 // items and the default items length
-func CalculateCoverage(notCoveredLength, defaultLength int) int {
+func calculateCoverage(notCoveredLength, defaultLength int) int {
 	return 100 * (defaultLength - notCoveredLength) / defaultLength
 }

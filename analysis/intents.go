@@ -90,10 +90,10 @@ func Organize(locale string) (words, classes []string, documents []Document) {
 		for _, pattern := range intent.Patterns {
 			// Tokenize the pattern's sentence
 			patternSentence := Sentence{locale, pattern}
-			patternSentence.Arrange()
+			patternSentence.arrange()
 
 			// Add each word to response
-			for _, word := range patternSentence.Stem() {
+			for _, word := range patternSentence.stem() {
 
 				if !util.Contains(words, word) {
 					words = append(words, word)
