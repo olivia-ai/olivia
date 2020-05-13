@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/olivia-ai/olivia/locales"
-
 	"github.com/olivia-ai/olivia/training"
 
 	"github.com/olivia-ai/olivia/dashboard"
@@ -24,7 +24,13 @@ var neuralNetworks = map[string]network.Network{}
 
 func main() {
 	port := flag.String("port", "8080", "The port for the API and WebSocket.")
+	localesFlag := flag.String("re-train", "", "The locale(s) to re-train.")
 	flag.Parse()
+
+	// If the locales flag isn't empty then retrain the given models
+	if *localesFlag != "" {
+		reTrainModels(*localesFlag)
+	}
 
 	// Print the Olivia ascii text
 	oliviaASCII := string(util.ReadFile("res/olivia-ascii.txt"))
@@ -49,4 +55,19 @@ func main() {
 
 	// Serves the server
 	server.Serve(neuralNetworks, *port)
+}
+
+// reTrainModels retrain the given locales
+func reTrainModels(localesFlag string) {
+	// Iterate locales by separating them by comma
+	for _, localeFlag := range strings.Split(localesFlag, ",") {
+		fmt.Println(localeFlag)
+		path := fmt.Sprintf("res/locales/%s/training.json", localeFlag)
+		err := os.Remove(path)
+
+		if err != nil {
+			fmt.Printf("Cannot re-train %s model.", localeFlag)
+			return
+		}
+	}
 }
