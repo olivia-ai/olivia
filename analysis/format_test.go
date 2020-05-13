@@ -7,7 +7,7 @@ import (
 
 func TestSentence_WordsBag(t *testing.T) {
 	sentence := Sentence{"en", "Hi how are you"}
-	words := Sentence{"en", "hi hello good morning are is were you seven"}.Stem()
+	words := Sentence{"en", "hi hello good morning are is were you seven"}.stem()
 
 	wordsBag := sentence.WordsBag(words)
 	excepted := []float64{0, 0, 0, 0, 1, 0}
@@ -19,7 +19,7 @@ func TestSentence_WordsBag(t *testing.T) {
 
 func TestSentence_Arrange(t *testing.T) {
 	sentence := Sentence{"en", "Hello. how are you!   "}
-	sentence.Arrange()
+	sentence.arrange()
 
 	excepted := "Hello how are you"
 
@@ -30,7 +30,7 @@ func TestSentence_Arrange(t *testing.T) {
 
 func TestSentence_Tokenize(t *testing.T) {
 	sentence := Sentence{"en", "Hello How are you"}
-	tokens := sentence.Tokenize()
+	tokens := sentence.tokenize()
 
 	excepted := []string{"hello", "how", "are", "you"}
 
