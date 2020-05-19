@@ -12,6 +12,7 @@ require (
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/soudy/mathcat v0.0.0-20190121135055-f636e7f09e6c
 	github.com/tebeka/snowball v0.4.2
+	github.com/yanyiwu/gojieba v1.1.2 // indirect
 	github.com/zmb3/spotify v0.0.0-20200422222148-5fe5f9535a2c
 	golang.org/x/crypto v0.0.0-20200510223506-06a226fb4e37
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d

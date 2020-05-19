@@ -2,6 +2,7 @@ package analysis
 
 import (
 	"fmt"
+	"github.com/yanyiwu/gojieba"
 	"regexp"
 	"strings"
 
@@ -54,8 +55,15 @@ func removeStopWords(locale string, words []string) []string {
 
 // tokenize returns a list of words that have been lower-cased
 func (sentence Sentence) tokenize() (tokens []string) {
-	// Split the sentence in words
-	tokens = strings.Fields(sentence.Content)
+	if strings.HasPrefix(sentence.Locale, "zn") {
+		jieba := gojieba.NewJieba()
+		defer jieba.Free()
+
+		tokens = jieba.CutAll(sentence.Content)
+	} else {
+		// Split the sentence in words
+		tokens = strings.Fields(sentence.Content)
+	}
 
 	// Lower case each word
 	for i, token := range tokens {

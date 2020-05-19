@@ -37,6 +37,8 @@ github.com/stretchr/testify v1.3.0 h1:TivCn/peBQ7UY8ooIcPgZFpTNSz0Q2U6UrFlUfqbe0
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
 github.com/tebeka/snowball v0.4.2 h1:ujvgLOr6IHbsvB2Vgz27IcxWqDrNu9/oPhhe74lN/Kc=
 github.com/tebeka/snowball v0.4.2/go.mod h1:4IfL14h1lvwZcp1sfXuuc7/7yCsvVffTWxWxCLfFpYg=
+github.com/yanyiwu/gojieba v1.1.2 h1:BMwKCwg3G+Nw/Ctqzm/gNgN/6Ljf0Y4f7ddKlzTA+TM=
+github.com/yanyiwu/gojieba v1.1.2/go.mod h1:54wkP7sMJ6bklf7yPl6F+JG71dzVUU1WigZbR47nGdY=
 github.com/zmb3/spotify v0.0.0-20200331200324-6a9312f5d1de h1:fSnEhxQWMrRxwyfQzMVEi8tBFHR7YCdREwbSVhHTHpE=
 github.com/zmb3/spotify v0.0.0-20200331200324-6a9312f5d1de/go.mod h1:pHsWAmY9PfX7i/uwPZkmWrebc8JbK8FppKbvyevwzSU=
 github.com/zmb3/spotify v0.0.0-20200422222148-5fe5f9535a2c h1:BHOHTZS4eVhPUoiwttNT4zdvkAzquBeD7bF5qEztKgs=
