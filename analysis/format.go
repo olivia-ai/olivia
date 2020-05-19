@@ -78,12 +78,14 @@ func (sentence Sentence) tokenize() (tokens []string) {
 // stem returns the sentence split in stemmed words
 func (sentence Sentence) stem() (tokenizeWords []string) {
 	locale := locales.GetTagByName(sentence.Locale)
+	tokens := sentence.tokenize()
+
 	// Set default locale to english
 	if locale == "" {
 		locale = "english"
+	} else if strings.HasPrefix(locale, "zn") {
+		return tokens
 	}
-
-	tokens := sentence.tokenize()
 
 	stemmer, err := snowball.New(locale)
 	if err != nil {
