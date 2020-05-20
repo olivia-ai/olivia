@@ -55,7 +55,8 @@ func removeStopWords(locale string, words []string) []string {
 
 // tokenize returns a list of words that have been lower-cased
 func (sentence Sentence) tokenize() (tokens []string) {
-	if strings.HasPrefix(sentence.Locale, "zn") {
+	locale := sentence.Locale
+	if strings.HasPrefix(locale, "cn") || strings.ToLower(locale) == "zh-cn" {
 		jieba := gojieba.NewJieba()
 		defer jieba.Free()
 
@@ -83,7 +84,7 @@ func (sentence Sentence) stem() (tokenizeWords []string) {
 	// Set default locale to english
 	if locale == "" {
 		locale = "english"
-	} else if strings.HasPrefix(locale, "zn") {
+	} else if strings.HasPrefix(locale, "cn") || strings.ToLower(locale) == "zh-cn" {
 		return tokens
 	}
 
