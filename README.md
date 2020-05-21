@@ -18,6 +18,10 @@
 </p>
 
 <p align="center">
+  <a href="https://www.youtube.com/watch?v=JRSNnW05suo"><img width="250" src="https://i.imgur.com/kEKJjJn.png"></a>
+</p>
+
+<p align="center">
   <a href="https://olivia-ai.org">Website</a> —
   <a href="https://discord.gg/wXDwTdy">Discord</a> —
   <a href="https://docs.olivia-ai.org">Documentation</a> —
