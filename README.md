@@ -18,11 +18,16 @@
 </p>
 
 <p align="center">
+  <a href="https://www.youtube.com/watch?v=JRSNnW05suo"><img width="250" src="https://i.imgur.com/kEKJjJn.png"></a>
+</p>
+
+<p align="center">
   <a href="https://olivia-ai.org">Website</a> —
   <a href="https://discord.gg/wXDwTdy">Discord</a> —
   <a href="https://docs.olivia-ai.org">Documentation</a> —
   <a href="#getting-started">Getting started</a> —
   <a href="#introduction">Introduction</a> —
+  <a href="#translations">Translations</a> —
   <a href="#contributors">Contributors</a> —
   <a href="#license">License</a>
 </p>
@@ -117,12 +122,27 @@ And all done!
 
 ## Architecture
 <p align="center">
-  <img alt="architecture" height="100" src="https://i.imgur.com/95h8WIU.png">
+  <img alt="architecture" height="85" src="https://i.imgur.com/95h8WIU.png">
   <br>
   <img src="https://i.imgur.com/G9BYf4Y.png">
 </p>
 
+## Translations
 
+<p align="center">
+  <img alt="introduction" height="130" src="https://i.imgur.com/MDKbP0R.png">
+</p>
+
+### Languages supported
+- <img src="https://i.imgur.com/URqxsb0.png" width="25"> English
+- <img src="https://i.imgur.com/Oo5BNk0.png" width="25"> Spanish
+- <img src="https://i.imgur.com/2DWxeF9.png" width="25"> Catalan
+- <img src="https://i.imgur.com/0dVqbjf.png" width="25"> French
+- <img src="https://i.imgur.com/kB0RoFZ.png" width="25"> Brazilian portuguese - not completed
+
+### Coverage
+The coverage of the translations is given [here](https://olivia-ai.org/dashboard/language).
+To add a language please read [the documentation for that](https://docs.olivia-ai.org/translations.html).
 
 ## Contributors
 
