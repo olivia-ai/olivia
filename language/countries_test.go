@@ -6,7 +6,7 @@ import (
 
 func TestSerializeCountries(t *testing.T) {
 	countries := SerializeCountries()
-	excepted := "Afghanistan"
+	excepted := "United Kingdom"
 
 	if countries[0].Name["en"] != excepted {
 		t.Errorf("SerializeCountries() failed, excepted %s got %s.", excepted, countries[0].Name["en"])
