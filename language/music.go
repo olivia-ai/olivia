@@ -11,6 +11,11 @@ var SpotifyKeyword = map[string]SpotifyKeywords{
 		From: "from",
 		On:   "on",
 	},
+	"de": {
+		Play: "spiele",
+		From: "von",
+		On:   "auf",
+	},
 	"fr": {
 		Play: "joue",
 		From: "de",

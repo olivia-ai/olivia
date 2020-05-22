@@ -29,6 +29,21 @@ var RuleTranslations = map[string]RuleTranslation{
 		RuleNextDayOfWeek: "next",
 		RuleNaturalDate:   `january|february|march|april|may|june|july|august|september|october|november|december`,
 	},
+	"de": {
+		DaysOfWeek: []string{
+			"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag",
+		},
+		Months: []string{
+			"Januar", "Februar", "Marsch", "April", "Mai", "Juni", "Juli",
+			"August", "September", "Oktober", "November", "Dezember",
+		},
+		RuleToday:         `heute|abends`,
+		RuleTomorrow:      `(nach )?tomorrow`,
+		RuleAfterTomorrow: "nach",
+		RuleDayOfWeek:     `(nächsten )?(Montag|Dienstag|Mittwoch|Donnerstag|Freitag|Samstag|Sonntag)`,
+		RuleNextDayOfWeek: "nächste",
+		RuleNaturalDate:   `Januar|Februar|März|April|Mai|Juli|Juli|August|September|Oktober|November|Dezember`,
+	},
 	"fr": {
 		DaysOfWeek: []string{
 			"lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche",
