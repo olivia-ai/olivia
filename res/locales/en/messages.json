@@ -9,6 +9,12 @@
     ]
   },
   {
+    "tag": "list reminders",
+    "messages": [
+      "Hello %s! For today you have these reminders: %s."
+    ]
+  },
+  {
     "tag": "no permission",
     "messages": [
       "You don't have the permission to do this."

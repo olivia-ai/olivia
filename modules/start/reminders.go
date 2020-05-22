@@ -2,6 +2,7 @@ package start
 
 import (
 	"fmt"
+	"github.com/olivia-ai/olivia/util"
 	"strings"
 	"time"
 
@@ -15,7 +16,7 @@ func init() {
 }
 
 // CheckReminders will check the dates of the user's reminder and if they are outdated, remove them
-func CheckReminders(token string) {
+func CheckReminders(token, locale string) {
 	reminders := user.GetUserInformation(token).Reminders
 	var messages []string
 
@@ -41,8 +42,13 @@ func CheckReminders(token string) {
 		}
 
 		// Set the message with the current reminders
+		listRemindersMessage := util.GetMessage(locale, "list reminders")
+		if listRemindersMessage == "" {
+			return
+		}
+
 		message := fmt.Sprintf(
-			"Hello %s! For today you have these reminders: %s.",
+			listRemindersMessage,
 			user.GetUserInformation(token).Name,
 			strings.Join(messages, ", "),
 		)

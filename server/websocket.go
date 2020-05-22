@@ -65,7 +65,7 @@ func SocketHandle(w http.ResponseWriter, r *http.Request) {
 
 		// If the type of requests is a handshake then execute the start modules
 		if request.Type == 0 {
-			start.ExecuteModules(request.Token)
+			start.ExecuteModules(request.Token, request.Locale)
 
 			message := start.GetMessage()
 			if message != "" {
