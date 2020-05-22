@@ -18,6 +18,10 @@
 </p>
 
 <p align="center">
+  <a href="https://twitter.com/oliv_ai"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/oliv_ai"></a>
+</p>
+
+<p align="center">
   <a href="https://www.youtube.com/watch?v=JRSNnW05suo"><img width="250" src="https://i.imgur.com/kEKJjJn.png"></a>
 </p>
 
