@@ -32,8 +32,14 @@ func SerializeCountries() (countries []Country) {
 // FindCountry returns the country found in the sentence and if no country is found, returns an empty Country struct
 func FindCountry(locale, sentence string) Country {
 	for _, country := range countries {
+		name, exists := country.Name[locale]
+
+		if !exists {
+			continue
+		}
+
 		// If the actual country isn't contained in the sentence, continue
-		if !strings.Contains(strings.ToLower(sentence), strings.ToLower(country.Name[locale])) {
+		if !strings.Contains(strings.ToLower(sentence), strings.ToLower(name)) {
 			continue
 		}
 
