@@ -64,5 +64,5 @@ func GetMessage(locale, tag string) string {
 		return message.Messages[rand.Intn(len(message.Messages))]
 	}
 
-	return messages[locale][0].Messages[0]
+	return ""
 }

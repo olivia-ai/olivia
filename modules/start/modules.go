@@ -8,7 +8,7 @@ import (
 
 // A Module is a module that will be executed when a connection is opened by a user
 type Module struct {
-	Action func(string)
+	Action func(string, string)
 }
 
 var (
@@ -32,10 +32,10 @@ func GetMessage() string {
 }
 
 // ExecuteModules will execute all the registered start modules with the user token
-func ExecuteModules(token string) {
+func ExecuteModules(token, locale string) {
 	fmt.Println(color.FgGreen.Render("Executing start modules.."))
 
 	for _, module := range modules {
-		module.Action(token)
+		module.Action(token, locale)
 	}
 }
