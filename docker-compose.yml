@@ -7,7 +7,7 @@ services:
       args:
         - VUE_APP_URL=ws://localhost:8080
     environment:
-      - WEBPORT=80
+      - PORT=80
     ports:
       - "80:80"
   olivia:
