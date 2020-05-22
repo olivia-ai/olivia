@@ -10,6 +10,10 @@ var ReasonKeywords = map[string]ReasonKeyword{
 		That: "that",
 		To:   "to",
 	},
+	"de": {
+		That: "das",
+		To:   "zu",
+	},
 	"fr": {
 		That: "que",
 		To:   "de",
