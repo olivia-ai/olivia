@@ -19,6 +19,7 @@
 
 <p align="center">
   <a href="https://twitter.com/oliv_ai"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/oliv_ai"></a>
+  <a href="https://discord.gg/wXDwTdy"><img src="https://img.shields.io/discord/699567909235720224?label=Discord&style=social"></a>
 </p>
 
 <p align="center">
@@ -27,7 +28,6 @@
 
 <p align="center">
   <a href="https://olivia-ai.org">Website</a> —
-  <a href="https://discord.gg/wXDwTdy">Discord</a> —
   <a href="https://docs.olivia-ai.org">Documentation</a> —
   <a href="#getting-started">Getting started</a> —
   <a href="#introduction">Introduction</a> —
