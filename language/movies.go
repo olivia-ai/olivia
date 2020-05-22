@@ -29,6 +29,10 @@ var (
 			"Action", "Adventure", "Animation", "Children", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
 			"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western",
 		},
+		"de": {
+			"Action", "Abenteuer", "Animation", "Kinder", "Komödie", "Verbrechen", "Dokumentarfilm", "Drama", "Fantasie",
+			"Film-Noir", "Horror", "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "Krieg", "Western",
+		},
 		"fr": {
 			"Action", "Aventure", "Animation", "Enfant", "Comédie", "Crime", "Documentaire", "Drama", "Fantaisie",
 			"Film-Noir", "Horreur", "Musical", "Mystère", "Romance", "Science-fiction", "Thriller", "Guerre", "Western",
