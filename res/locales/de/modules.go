@@ -226,13 +226,13 @@ func init() {
 	// Please translate this method for adding the correct article in front of countries names.
 	// Otherwise, remove the countries modules from this file.
 
-	modules.ArticleCountries["en"] = ArticleCountries
+	modules.ArticleCountries["de"] = ArticleCountries
 }
 
 // ArticleCountries returns the country with its article in front.
 func ArticleCountries(name string) string {
-	if name == "United States" {
-		return "the " + name
+	if name == "vereinigten Staaten" {
+		return "die " + name
 	}
 
 	return name
