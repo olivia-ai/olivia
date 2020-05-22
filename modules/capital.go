@@ -27,5 +27,11 @@ func CapitalReplacer(locale, entry, response, _ string) (string, string) {
 		return responseTag, util.GetMessage(locale, responseTag)
 	}
 
-	return CapitalTag, fmt.Sprintf(response, ArticleCountries[locale](country.Name[locale]), country.Capital)
+	articleFunction, exists := ArticleCountries[locale]
+	countryName := country.Name[locale]
+	if exists {
+		countryName = articleFunction(countryName)
+	}
+
+	return CapitalTag, fmt.Sprintf(response, countryName, country.Capital)
 }
