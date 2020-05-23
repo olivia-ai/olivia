@@ -17,7 +17,7 @@ func init() {
 				"Dammi la superficie ",
 			},
 			Responses: []string{
-				"La superficie della %s è %gkm²",
+				"La superficie %s è %gkm²",
 			},
 			Replacer: modules.AreaReplacer,
 		},
