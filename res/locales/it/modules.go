@@ -56,7 +56,7 @@ func init() {
 		// A regex translation is also required in `language/math.go`, please don't forget to translate it.
 		// Otherwise, remove the registration of the Math module in this file.
 
-		/*{
+		{
 			Tag: modules.MathTag,
 			Patterns: []string{
 				"Dammi il risultato di ",
@@ -74,7 +74,7 @@ func init() {
 		// to translate it.
 		// Otherwise, remove the registration of the Movies modules in this file.
 
-		{
+		/*{
 			Tag: modules.GenresTag,
 			Patterns: []string{
 				"I like movies of adventure, animation",
@@ -198,7 +198,7 @@ func init() {
 		// SPOTIFY
 		// A translation is needed in `language/music`, please don't forget to translate it.
 		// Otherwise, remove the registration of the Spotify modules in this file.
-
+		*/
 		{
 			Tag: modules.SpotifySetterTag,
 			Patterns: []string{
@@ -222,7 +222,7 @@ func init() {
 			Replacer: modules.SpotifyPlayerReplacer,
 		},
 	})
-*/
+
 	// COUNTRIES
 	// Please translate this method for adding the correct article in front of countries names.
 	// Otherwise, remove the countries modules from this file.
@@ -234,32 +234,18 @@ func init() {
 func ArticleCountries(name string) string {
 	firstCharacters := name[0]
 	lastCharacters := name[len(name)-1]
-	
-	if name == "Stati Uniti" {
+
+	switch {
+	case name == "Stati Uniti":
 		return "degli " + name
-		
-	}else if name == "Filippine" {
+	case name == "Filippine":
 		return "delle " + name
-		
-	}else if string(firstCharacters) == "A" {
-		return = "dell'" + name
-		
-	}else if string(firstCharacters) == "E" {
-		return = "dell'" + name
-	
-	}else if string(firstCharacters) == "I" {
-		return = "dell'" + name
-		
-	}else if string(firstCharacters) == "O" {
-		return = "dell'" + name
-	}else if string(firstCharacters) == "U" {
-		return = "dell'" + name
-		
-	}else if string(lastCharacters) == "a" {
-		return = "della " + name
-		
-	}else{
-		return = "del " + name
+	case firstCharacters == 'A' || firstCharacters == 'E' || firstCharacters == 'I' ||
+		firstCharacters == 'O' || firstCharacters == 'U':
+		return "dell'" + name
+	case lastCharacters == 'a':
+		return "della " + name
+	default:
+		return "del " + name
 	}
-	
 }
