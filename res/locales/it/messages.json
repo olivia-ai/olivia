@@ -1,0 +1,108 @@
+[
+  {
+    "tag": "don't understand",
+    "messages": [
+      "Sto cercando di fare il possibile, ma non capico",
+      "Non mi è chiaro cosa vuoi dirmi",
+      "Sono ancora giovane, puoi aiutarmi a capire meglio sul mio GitHub",
+      "Non capisco la tua richiesta, mi spiace"
+    ]
+  },
+  {
+    "tag": "list reminders",
+    "messages": [
+      "Ciao %s! Per oggi ha questi promemoria : %s."
+    ]
+  },
+  {
+    "tag": "no permission",
+    "messages": [
+      "Non hai il permesso di fare questo."
+    ]
+  },
+  {
+    "tag": "patterns same",
+    "messages": [
+      "Il percorso e/o la risposta non può essere vuota."
+    ]
+  },
+  {
+    "tag": "tags same",
+    "messages": [
+      "Esiste già un intento con questo tag."
+    ]
+  },
+  {
+    "tag": "spotify tokens",
+    "messages": [
+      "Devi inviare i due token."
+    ]
+  },
+  {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” per il %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "Non hai promemoria salvati."
+    ]
+  },
+  {
+    "tag": "spotify credentials",
+    "messages": [
+      "Devi inserire le tue credenziali Spotify."
+    ]
+  },
+  {
+    "tag": "spotify login",
+    "messages": [
+      "Login in progresso <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+    ]
+  },
+  {
+    "tag": "too long",
+    "messages": [
+      "Per favore abbrevia il tuo messaggio a meno di 500 caratteri"
+    ]
+  },
+  {
+    "tag": "no country",
+    "messages": [
+      "Non ho trovato un paese nel tuo messaggio"
+    ]
+  },
+  {
+    "tag": "math not valid",
+    "messages": [
+      "La tua espresisone matematica non è valida",
+      "Per favore controlla la tua espressione matematica"
+    ]
+  },
+  {
+    "tag": "don't know name",
+    "messages": [
+      "Mi spiace, ma non conosco ancora il tuo nome"
+    ]
+  },
+  {
+    "tag": "no name",
+    "messages": [
+      "Mi spiace ma non trovo un nom nel tuo messaggio."
+    ]
+  },
+  {
+    "tag": "no genres",
+    "messages": [
+      "Mi spiace, non trovo un genere nel tuo messaggio; prova questo: Azione, Avventura, Animazione, Bambini, Commedia, Crimine, Documentario, Dramma, Fantasy, Film-Noir, Horror, Musical, Mystery, Romanzo, Sci-Fi, Thriller, Guerra e Western"
+    ]
+  },
+  {
+    "tag": "no genres saved",
+    "messages": [
+      "Mi spiace, non risco a trovare alcun genere nei tuoi dati; prova ad impostare le tue preferenze con  “Mi piacciono i film d'avvetura”"
+    ]
+  }
+]
