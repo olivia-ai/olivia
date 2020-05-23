@@ -42,7 +42,7 @@ func init() {
 			Tag: modules.CurrencyTag,
 			Patterns: []string{
 				"Che moneta è usata in ",
-				"Dammi la moneta in ",
+				"Dimmi la moneta usata in ",
 				"Qual è la moneta in ",
 				"Che moneta si usa in ",
 			},
