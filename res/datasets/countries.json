@@ -1,1 +1,3198 @@
-[{"name":{"en":"United Kingdom","fr":"Royaume Uni","es":"Reino Unido","ca":"Regne Unit"},"capital":"Londosn","area":242495,"currency":"GBP"},{"name":{"en":"Afghanistan","fr":"Afghanistan","es":"Afganistán","ca":"Afganistan","de":"Afghanistan","cn":"阿富汗","pt":"Afeganistão"},"capital":"Kabul","area":652230,"currency":"AFN"},{"name":{"en":"Åland Islands","fr":"Îles Åland","es":"Åland","ca":"Illes Åland","cn":"奥兰","pt":"Ilhas Åland"},"capital":"Mariehamn","area":1580,"currency":"EUR"},{"name":{"en":"Albania","fr":"Albanie","es":"Albania","ca":"Albània","de":"Albanien","cn":"阿尔巴尼亚","pt":"Albânia"},"capital":"Tirana","area":28748,"currency":"ALL"},{"name":{"en":"Algeria","fr":"Algérie","es":"Argelia","ca":"Algèria","de":"Algerien","cn":"阿尔及利亚","pt":"Argélia"},"capital":"Algiers","area":2381741,"currency":"DZD"},{"name":{"en":"American Samoa","fr":"Samoa américaines","es":"Samoa Americana","ca":"Samoa Nord-americana","cn":"美属萨摩亚","pt":"Samoa Americana"},"capital":"Pago Pago","area":199,"currency":"USD"},{"name":{"en":"Andorra","fr":"Andorre","es":"Andorra","ca":"Andorra","de":"Andorra","cn":"安道尔","pt":"Andorra"},"capital":"Andorra la Vella","area":468,"currency":"EUR"},{"name":{"en":"Angola","fr":"Angola","es":"Angola","ca":"Angola","de":"Angola","cn":"安哥拉","pt":"Angola"},"capital":"Luanda","area":1246700,"currency":"AOA"},{"name":{"en":"Anguilla","fr":"Anguilla","es":"Anguila","ca":"Anguilla","cn":"安圭拉","pt":"Anguilla"},"capital":"The Valley","area":91,"currency":"XCD"},{"name":{"en":"Antarctica","fr":"Antarctique","es":"Antártida","ca":"Antàrtida","cn":"南极洲","pt":"Antártida"},"capital":"","area":14000000,"currency":"nil"},{"name":{"en":"Antigua and Barbuda","fr":"Antigua et Barbuda","es":"Antigua y Barbuda","ca":"Antigua i Barbuda","de":"Antigua und Barbuda","cn":"安地卡及巴布達","pt":"Antígua e Barbuda"},"capital":"Saint John's","area":442,"currency":"XCD"},{"name":{"en":"Argentina","fr":"Argentine","es":"Argentina","ca":"Argentina","de":"Argentinien","cn":"阿根廷","pt":"Argentina"},"capital":"Buenos Aires","area":2780400,"currency":"ARS"},{"name":{"en":"Armenia","fr":"Arménie","es":"Armenia","ca":"Armènia","de":"Armenien","cn":"亞美尼亞","pt":"Armênia"},"capital":"Yerevan","area":29743,"currency":"AMD"},{"name":{"en":"Aruba","fr":"Aruba","es":"Aruba","ca":"Aruba","cn":"阿鲁巴","pt":"Aruba"},"capital":"Oranjestad","area":180,"currency":"AWG"},{"name":{"en":"Australia","fr":"Australie","es":"Australia","ca":"Austràlia","de":"Australien","cn":"澳大利亚","pt":"Austrália"},"capital":"Canberra","area":7692024,"currency":"AUD"},{"name":{"en":"Austria","fr":"Autriche","es":"Austria","ca":"Àustria","de":"Österreich","cn":"奥地利","pt":"Áustria"},"capital":"Vienna","area":83871,"currency":"EUR"},{"name":{"en":"Azerbaijan","fr":"Azerbaïdjan","es":"Azerbaiyán","ca":"Azerbaidjan","de":"Aserbaidschan","cn":"阿塞拜疆","pt":"Azerbaijão"},"capital":"Baku","area":86600,"currency":"AZN"},{"name":{"en":"Bahamas","fr":"Bahamas","es":"Bahamas","ca":"Bahames","de":"Bahamas","cn":"巴哈马","pt":"Bahamas"},"capital":"Nassau","area":13943,"currency":"BSD"},{"name":{"en":"Bahrain","fr":"Bahreïn","es":"Baréin","ca":"Bahrain","de":"Bahrain","cn":"巴林","pt":"Bahrein"},"capital":"Manama","area":765,"currency":"BHD"},{"name":{"en":"Bangladesh","fr":"Bangladesh","es":"Bangladés","ca":"Bangla Desh","de":"Bangladesch","cn":"孟加拉国","pt":"Bangladesh"},"capital":"Dhaka","area":147570,"currency":"BDT"},{"name":{"en":"Barbados","fr":"Barbade","es":"Barbados","ca":"Barbados","de":"Barbados","cn":"巴巴多斯","pt":"Barbados"},"capital":"Bridgetown","area":430,"currency":"BBD"},{"name":{"en":"Belarus","fr":"Biélorussie","es":"Bielorrusia","ca":"Belarús","de":"Weißrussland","cn":"白俄羅斯","pt":"Bielorrússia"},"capital":"Minsk","area":207600,"currency":"BYN"},{"name":{"en":"Belgium","fr":"Belgique","es":"Bélgica","ca":"Bèlgica","de":"Belgien","cn":"比利時","pt":"Bélgica"},"capital":"Brussels","area":30528,"currency":"EUR"},{"name":{"en":"Belize","fr":"Belize","es":"Belice","ca":"Belize","de":"Belize","cn":"伯利兹","pt":"Belize"},"capital":"Belmopan","area":22966,"currency":"BZD"},{"name":{"en":"Benin","fr":"Bénin","es":"Benín","ca":"Benín","de":"Benin","cn":"贝宁","pt":"Benim"},"capital":"Porto Novo","area":112622,"currency":"XOF"},{"name":{"en":"Bermuda","fr":"Bermudes","es":"Bermudas","ca":"Bermudes","cn":"百慕大","pt":"Bermudas"},"capital":"Hamilton","area":54,"currency":"BMD"},{"name":{"en":"Bhutan","fr":"Bhoutan","es":"Bután","ca":"Bhutan","de":"Bhutan","cn":"不丹","pt":"Butão"},"capital":"Thimphu","area":38394,"currency":"BTN"},{"name":{"en":"Bosnia and Herzegovina","fr":"Bosnie Herzégovine","es":"Bosnia y Herzegovina","ca":"Bòsnia i Hercegovina","de":"Bosnien und Herzegowina","cn":"波黑","pt":"Bósnia e Herzegovina"},"capital":"Sarajevo","area":51209,"currency":"BAM"},{"name":{"en":"Botswana","fr":"Botswana","es":"Botsuana","ca":"Botswana","de":"Botswana","cn":"博茨瓦纳","pt":"Botswana"},"capital":"Gaborone","area":582000,"currency":"BWP"},{"name":{"en":"Bouvet Island","fr":"Île Bouvet","es":"Isla Bouvet","cn":"布韦岛","pt":"Ilha Bouvet"},"capital":"","area":49,"currency":"NOK"},{"name":{"en":"Brazil","fr":"Brésil","es":"Brasil","ca":"Brasil","de":"Brasilien","cn":"巴西","pt":"Brasil"},"capital":"Brasília","area":8515767,"currency":"BRL"},{"name":{"en":"British Indian Ocean Territory","fr":"Territoire britannique de l'océan Indien","es":"Territorio Británico del Océano Índico","ca":"Territori Britànic de l’Oceà Índic","cn":"英屬印度洋領地","pt":"Território Britânico do Oceano Índico"},"capital":"Diego Garcia","area":60,"currency":"USD"},{"name":{"en":"Bulgaria","fr":"Bulgarie","es":"Bulgaria","ca":"Bulgària","de":"Bulgarien","cn":"保加利亚","pt":"Bulgária"},"capital":"Sofia","area":110879,"currency":"BGN"},{"name":{"en":"Burkina Faso","fr":"Burkina Faso","es":"Burkina Faso","ca":"Burkina Faso","de":"Burkina Faso","cn":"布吉納法索","pt":"Burkina Faso"},"capital":"Ouagadougou","area":272967,"currency":"XOF"},{"name":{"en":"Burundi","fr":"Burundi","es":"Burundi","ca":"Burundi","de":"Burundi","cn":"布隆迪","pt":"Burundi"},"capital":"Bujumbura","area":27834,"currency":"BIF"},{"name":{"en":"Cambodia","fr":"Cambodge","es":"Camboya","ca":"Cambodja","de":"Kambodscha","cn":"柬埔寨","pt":"Camboja"},"capital":"Phnom Penh","area":181035,"currency":"KHR"},{"name":{"en":"Cameroon","fr":"Cameroun","es":"Camerún","ca":"Camerun","de":"Kamerun","cn":"喀麦隆","pt":"Camarões"},"capital":"Yaoundé","area":475442,"currency":"XAF"},{"name":{"en":"Canada","fr":"Canada","es":"Canadá","ca":"Canadà","de":"Kanada","cn":"加拿大","pt":"Canadá"},"capital":"Ottawa","area":9984670,"currency":"CAD"},{"name":{"en":"Cayman Islands","fr":"Îles Caïmans","es":"Islas Caimán","ca":"Illes Caiman","cn":"开曼群岛","pt":"Ilhas Cayman"},"capital":"George Town","area":264,"currency":"KYD"},{"name":{"en":"Central African Republic","fr":"République centrafricaine","es":"República Centroafricana","ca":"República Centreafricana","de":"Zentral­afrikanische Republik","cn":"中非","pt":"República Centro-Africana"},"capital":"Bangui","area":622984,"currency":"XAF"},{"name":{"en":"Chad","fr":"Tchad","es":"Chad","ca":"Txad","de":"Tschad","cn":"乍得","pt":"Chade"},"capital":"N'Djamena","area":1284000,"currency":"XAF"},{"name":{"en":"Chile","fr":"Chili","es":"Chile","ca":"Xile","de":"Chile","cn":"智利","pt":"Chile"},"capital":"Santiago","area":756102,"currency":"CLP"},{"name":{"en":"China","fr":"Chine","es":"China","ca":"Xina","de":"Volksrepublik China","cn":"中国","pt":"China"},"capital":"Beijing","area":9706961,"currency":"CNY"},{"name":{"en":"Christmas Island","fr":"Île Christmas","es":"Isla de Navidad","ca":"Illa Christmas","cn":"圣诞岛","pt":"Ilha do Natal"},"capital":"Flying Fish Cove","area":135,"currency":"AUD"},{"name":{"en":"Cocos (Keeling) Islands","fr":"Îles Cocos","es":"Islas Cocos","ca":"Illes Cocos","cn":"科科斯（基林）群島","pt":"Ilhas Cocos (Keeling)"},"capital":"West Island","area":14,"currency":"AUD"},{"name":{"en":"Colombia","fr":"Colombie","es":"Colombia","ca":"Colòmbia","de":"Kolumbien","cn":"哥伦比亚","pt":"Colômbia"},"capital":"Bogotá","area":1141748,"currency":"COP"},{"name":{"en":"Comoros","fr":"Comores (pays)","es":"Comoras","ca":"Comores","de":"Komoren","cn":"科摩罗","pt":"Comores"},"capital":"Moroni","area":1862,"currency":"KMF"},{"name":{"en":"Cook Islands","fr":"Îles Cook","es":"Islas Cook","ca":"Illes Cook","cn":"庫克群島","pt":"Ilhas Cook"},"capital":"Avarua","area":236,"currency":"NZD"},{"name":{"en":"Costa Rica","fr":"Costa Rica","es":"Costa Rica","ca":"Costa Rica","de":"Costa Rica","cn":"哥斯达黎加","pt":"Costa Rica"},"capital":"San José","area":51100,"currency":"CRC"},{"name":{"en":"Croatia","fr":"Croatie","es":"Croacia","ca":"Croàcia","de":"Kroatien","cn":"克罗地亚","pt":"Croácia"},"capital":"Zagreb","area":56594,"currency":"HRK"},{"name":{"en":"Cuba","fr":"Cuba","es":"Cuba","ca":"Cuba","de":"Kuba","cn":"古巴","pt":"Cuba"},"capital":"Havana","area":109884,"currency":"CUC"},{"name":{"en":"Curaçao","fr":"Curaçao","es":"Curazao","ca":"Curaçao","cn":"库拉索","pt":"Curaçao"},"capital":"Willemstad","area":444,"currency":"ANG"},{"name":{"en":"Cyprus","fr":"Chypre","es":"Chipre","ca":"Xipre","de":"Zypern","cn":"賽普勒斯","pt":"Chipre"},"capital":"Nicosia","area":9251,"currency":"EUR"},{"name":{"en":"Czechia","fr":"Tchéquie","es":"República Checa","ca":"Txèquia","de":"Tschechien","cn":"捷克","pt":"Chéquia"},"capital":"Prague","area":78865,"currency":"CZK"},{"name":{"en":"Denmark","fr":"Danemark","es":"Dinamarca","ca":"Dinamarca","de":"Dänemark","cn":"丹麥","pt":"Dinamarca"},"capital":"Copenhagen","area":43094,"currency":"DKK"},{"name":{"en":"Djibouti","fr":"Djibouti","es":"Yibuti","ca":"Djibouti","de":"Dschibuti","cn":"吉布提","pt":"Djibouti"},"capital":"Djibouti","area":23200,"currency":"DJF"},{"name":{"en":"Dominica","fr":"Dominique","es":"Dominica","ca":"Dominica","de":"Dominica","cn":"多米尼克","pt":"Dominica"},"capital":"Roseau","area":751,"currency":"XCD"},{"name":{"en":"Dominican Republic","fr":"République dominicaine","es":"República Dominicana","ca":"República Dominicana","de":"Dominikanische Republik","cn":"多米尼加","pt":"República Dominicana"},"capital":"Santo Domingo","area":48671,"currency":"DOP"},{"name":{"en":"Ecuador","fr":"Équateur (pays)","es":"Ecuador","ca":"Equador","de":"Ecuador","cn":"厄瓜多尔","pt":"Equador"},"capital":"Quito","area":276841,"currency":"USD"},{"name":{"en":"Egypt","fr":"Égypte","es":"Egipto","ca":"Egipte","de":"Ägypten","cn":"埃及","pt":"Egito"},"capital":"Cairo","area":1002450,"currency":"EGP"},{"name":{"en":"El Salvador","fr":"Salvador","es":"El Salvador","ca":"El Salvador","de":"El Salvador","cn":"薩爾瓦多","pt":"El Salvador"},"capital":"San Salvador","area":21041,"currency":"SVC"},{"name":{"en":"Equatorial Guinea","fr":"Guinée équatoriale","es":"Guinea Ecuatorial","ca":"Guinea Equatorial","de":"Äquatorialguinea","cn":"赤道几内亚","pt":"Guiné Equatorial"},"capital":"Malabo","area":28051,"currency":"XAF"},{"name":{"en":"Eritrea","fr":"Érythrée","es":"Eritrea","ca":"Eritrea","de":"Eritrea","cn":"厄立特里亚","pt":"Eritreia"},"capital":"Asmara","area":117600,"currency":"ERN"},{"name":{"en":"Estonia","fr":"Estonie","es":"Estonia","ca":"Estònia","de":"Estland","cn":"爱沙尼亚","pt":"Estónia"},"capital":"Tallinn","area":45227,"currency":"EUR"},{"name":{"en":"Eswatini","fr":"Eswatini","es":"Suazilandia","ca":"eSwatini","de":"Swasiland","cn":"斯威士兰","pt":"Essuatíni"},"capital":"Lobamba","area":17364,"currency":"SZL"},{"name":{"en":"Ethiopia","fr":"Éthiopie","es":"Etiopía","ca":"Etiòpia","de":"Äthiopien","cn":"衣索比亞","pt":"Etiópia"},"capital":"Addis Ababa","area":1104300,"currency":"ETB"},{"name":{"en":"Faroe Islands","fr":"Îles Féroé","es":"Islas Feroe","ca":"Illes Fèroe","cn":"法罗群岛","pt":"Ilhas Feroé"},"capital":"Tórshavn","area":1393,"currency":"DKK"},{"name":{"en":"Fiji","fr":"Fidji","es":"Fiyi","ca":"Fiji","de":"Fidschi","cn":"斐济","pt":"Fiji"},"capital":"Suva","area":18272,"currency":"FJD"},{"name":{"en":"Finland","fr":"Finlande","es":"Finlandia","ca":"Finlàndia","de":"Finnland","cn":"芬兰","pt":"Finlândia"},"capital":"Helsinki","area":338424,"currency":"EUR"},{"name":{"en":"France","fr":"France","es":"Francia","ca":"França","de":"Frankreich","cn":"法國","pt":"França"},"capital":"Paris","area":551695,"currency":"EUR"},{"name":{"en":"French Guiana","fr":"Guyane","es":"Guayana Francesa","ca":"Guaiana Francesa","cn":"法属圭亚那","pt":"Guiana Francesa"},"capital":"Cayenne","area":83534,"currency":"EUR"},{"name":{"en":"French Polynesia","fr":"Polynésie française","es":"Polinesia Francesa","ca":"Polinèsia Francesa","cn":"法屬玻里尼西亞","pt":"Polinésia Francesa"},"capital":"Papeetē","area":4167,"currency":"XPF"},{"name":{"en":"Gabon","fr":"Gabon","es":"Gabón","ca":"Gabon","de":"Gabun","cn":"加彭","pt":"Gabão"},"capital":"Libreville","area":267668,"currency":"XAF"},{"name":{"en":"Gambia","fr":"Gambie","es":"Gambia","ca":"Gàmbia","de":"Gambia","cn":"冈比亚","pt":"Gâmbia"},"capital":"Banjul","area":10689,"currency":"GMD"},{"name":{"en":"Georgia","fr":"Géorgie (pays)","es":"Georgia","ca":"Geòrgia","de":"Georgien","cn":"格鲁吉亚","pt":"Geórgia"},"capital":"Tbilisi","area":69700,"currency":"GEL"},{"name":{"en":"Germany","fr":"Allemagne","es":"Alemania","ca":"Alemanya","de":"Deutschland","cn":"德國","pt":"Alemanha"},"capital":"Berlin","area":357114,"currency":"EUR"},{"name":{"en":"Ghana","fr":"Ghana","es":"Ghana","ca":"Ghana","de":"Ghana","cn":"加纳","pt":"Gana"},"capital":"Accra","area":238533,"currency":"GHS"},{"name":{"en":"Gibraltar","fr":"Gibraltar","es":"Gibraltar","ca":"Gibraltar","cn":"直布罗陀","pt":"Gibraltar"},"capital":"Gibraltar","area":6,"currency":"GIP"},{"name":{"en":"Greece","fr":"Grèce","es":"Grecia","ca":"Grècia","de":"Griechenland","cn":"希臘","pt":"Grécia"},"capital":"Athens","area":131990,"currency":"EUR"},{"name":{"en":"Greenland","fr":"Groenland","es":"Groenlandia","ca":"Grenlàndia","cn":"格陵兰","pt":"Gronelândia"},"capital":"Nuuk","area":2166086,"currency":"DKK"},{"name":{"en":"Grenada","fr":"Grenade (pays)","es":"Granada","ca":"Grenada","de":"Grenada","cn":"格瑞那達","pt":"Granada"},"capital":"St. George's","area":344,"currency":"XCD"},{"name":{"en":"Guadeloupe","fr":"Guadeloupe","es":"Guadalupe","ca":"Guadeloupe","cn":"瓜德罗普","pt":"Guadalupe"},"capital":"Basse Terre","area":1628,"currency":"EUR"},{"name":{"en":"Guam","fr":"Guam","es":"Guam","ca":"Guam","cn":"關島","pt":"Guam"},"capital":"Hagåtña","area":549,"currency":"USD"},{"name":{"en":"Guatemala","fr":"Guatemala","es":"Guatemala","ca":"Guatemala","de":"Guatemala","cn":"危地马拉","pt":"Guatemala"},"capital":"Guatemala City","area":108889,"currency":"GTQ"},{"name":{"en":"Guernsey","fr":"Guernesey","es":"Guernsey","ca":"Guernsey","cn":"根西","pt":"Guernsey"},"capital":"St. Peter Port","area":78,"currency":"GBP"},{"name":{"en":"Guinea","fr":"Guinée","es":"Guinea","ca":"Guinea","de":"Guinea","cn":"几内亚","pt":"Guiné"},"capital":"Conakry","area":245857,"currency":"GNF"},{"name":{"en":"Guinea-Bissau","fr":"Guinée-Bissau","es":"Guinea-Bisáu","ca":"Guinea Bissau","de":"Guinea-Bissau","cn":"几内亚比绍","pt":"Guiné-Bissau"},"capital":"Bissau","area":36125,"currency":"XOF"},{"name":{"en":"Guyana","fr":"Guyana","es":"Guyana","ca":"Guyana","de":"Guyana","cn":"圭亚那","pt":"Guiana"},"capital":"Georgetown","area":214969,"currency":"GYD"},{"name":{"en":"Haiti","fr":"Haïti","es":"Haití","ca":"Haití","de":"Haiti","cn":"海地","pt":"Haiti"},"capital":"Port-au-Prince","area":27750,"currency":"HTG"},{"name":{"en":"Heard Island and McDonald Islands","fr":"Îles Heard-et-MacDonald","es":"Islas Heard y McDonald","cn":"赫德岛和麦克唐纳群岛","pt":"Ilha Heard e Ilhas McDonald"},"capital":"","area":412,"currency":"AUD"},{"name":{"en":"Honduras","fr":"Honduras","es":"Honduras","ca":"Hondures","de":"Honduras","cn":"洪都拉斯","pt":"Honduras"},"capital":"Tegucigalpa","area":112492,"currency":"HNL"},{"name":{"en":"Hong Kong","fr":"Hong Kong","es":"Hong Kong","ca":"Hong Kong (RAE Xina)","cn":"香港","pt":"Hong Kong"},"capital":"City of Victoria","area":1104,"currency":"HKD"},{"name":{"en":"Hungary","fr":"Hongrie","es":"Hungría","ca":"Hongria","de":"Ungarn","cn":"匈牙利","pt":"Hungria"},"capital":"Budapest","area":93028,"currency":"HUF"},{"name":{"en":"Iceland","fr":"Islande","es":"Islandia","ca":"Islàndia","de":"Island","cn":"冰島","pt":"Islândia"},"capital":"Reykjavik","area":103000,"currency":"ISK"},{"name":{"en":"India","fr":"Inde","es":"India","ca":"Índia","de":"Indien","cn":"印度","pt":"Índia"},"capital":"New Delhi","area":3287590,"currency":"INR"},{"name":{"en":"Indonesia","fr":"Indonésie","es":"Indonesia","ca":"Indonèsia","de":"Indonesien","cn":"印尼","pt":"Indonésia"},"capital":"Jakarta","area":1904569,"currency":"IDR"},{"name":{"en":"Iraq","fr":"Irak","es":"Irak","ca":"Iraq","de":"Irak","cn":"伊拉克","pt":"Iraque"},"capital":"Baghdad","area":438317,"currency":"IQD"},{"name":{"en":"Ireland","fr":"Irlande (pays)","es":"Irlanda","ca":"Irlanda","de":"Irland","cn":"爱尔兰","pt":"Irlanda"},"capital":"Dublin","area":70273,"currency":"EUR"},{"name":{"en":"Isle of Man","fr":"Île de Man","es":"Isla de Man","ca":"Illa de Man","cn":"马恩岛","pt":"Ilha de Man"},"capital":"Douglas","area":572,"currency":"GBP"},{"name":{"en":"Israel","fr":"Israël","es":"Israel","ca":"Israel","de":"Israel","cn":"以色列","pt":"Israel"},"capital":"Jerusalem","area":20770,"currency":"ILS"},{"name":{"en":"Italy","fr":"Italie","es":"Italia","ca":"Itàlia","de":"Italien","cn":"義大利","pt":"Itália"},"capital":"Rome","area":301336,"currency":"EUR"},{"name":{"en":"Jamaica","fr":"Jamaïque","es":"Jamaica","ca":"Jamaica","de":"Jamaika","cn":"牙买加","pt":"Jamaica"},"capital":"Kingston","area":10991,"currency":"JMD"},{"name":{"en":"Japan","fr":"Japon","es":"Japón","ca":"Japó","de":"Japan","cn":"日本","pt":"Japão"},"capital":"Tokyo","area":377930,"currency":"JPY"},{"name":{"en":"Jersey","fr":"Jersey","es":"Jersey","ca":"Jersey","cn":"澤西","pt":"Jersey"},"capital":"Saint Helier","area":116,"currency":"GBP"},{"name":{"en":"Jordan","fr":"Jordanie","es":"Jordania","ca":"Jordània","de":"Jordanien","cn":"约旦","pt":"Jordânia"},"capital":"Amman","area":89342,"currency":"JOD"},{"name":{"en":"Kazakhstan","fr":"Kazakhstan","es":"Kazajistán","ca":"Kazakhstan","de":"Kasachstan","cn":"哈萨克斯坦","pt":"Cazaquistão"},"capital":"Astana","area":2724900,"currency":"KZT"},{"name":{"en":"Kenya","fr":"Kenya","es":"Kenia","ca":"Kenya","de":"Kenia","cn":"肯尼亚","pt":"Quênia"},"capital":"Nairobi","area":580367,"currency":"KES"},{"name":{"en":"Kiribati","fr":"Kiribati","es":"Kiribati","ca":"Kiribati","de":"Kiribati","cn":"基里巴斯","pt":"Kiribati"},"capital":"South Tarawa","area":811,"currency":"AUD"},{"name":{"en":"Kuwait","fr":"Koweït","es":"Kuwait","ca":"Kuwait","de":"Kuwait","cn":"科威特","pt":"Kuwait"},"capital":"Kuwait City","area":17818,"currency":"KWD"},{"name":{"en":"Kyrgyzstan","fr":"Kirghizistan","es":"Kirguistán","ca":"Kirguizistan","de":"Kirgisistan","cn":"吉尔吉斯斯坦","pt":"Quirguistão"},"capital":"Bishkek","area":199951,"currency":"KGS"},{"name":{"en":"Latvia","fr":"Lettonie","es":"Letonia","ca":"Letònia","de":"Lettland","cn":"拉脫維亞","pt":"Letônia"},"capital":"Riga","area":64559,"currency":"EUR"},{"name":{"en":"Lebanon","fr":"Liban","es":"Líbano","ca":"Líban","de":"Libanon","cn":"黎巴嫩","pt":"Líbano"},"capital":"Beirut","area":10452,"currency":"LBP"},{"name":{"en":"Lesotho","fr":"Lesotho","es":"Lesoto","ca":"Lesotho","de":"Lesotho","cn":"賴索托","pt":"Lesoto"},"capital":"Maseru","area":30355,"currency":"LSL"},{"name":{"en":"Liberia","fr":"Liberia","es":"Liberia","ca":"Libèria","de":"Liberia","cn":"利比里亚","pt":"Libéria"},"capital":"Monrovia","area":111369,"currency":"LRD"},{"name":{"en":"Libya","fr":"Libye","es":"Libia","ca":"Líbia","de":"Libyen","cn":"利比亞","pt":"Líbia"},"capital":"Tripoli","area":1759540,"currency":"LYD"},{"name":{"en":"Liechtenstein","fr":"Liechtenstein","es":"Liechtenstein","ca":"Liechtenstein","de":"Liechtenstein","cn":"列支敦斯登","pt":"Liechtenstein"},"capital":"Vaduz","area":160,"currency":"CHF"},{"name":{"en":"Lithuania","fr":"Lituanie","es":"Lituania","ca":"Lituània","de":"Litauen","cn":"立陶宛","pt":"Lituânia"},"capital":"Vilnius","area":65300,"currency":"EUR"},{"name":{"en":"Luxembourg","fr":"Luxembourg (pays)","es":"Luxemburgo","ca":"Luxemburg","de":"Luxemburg","cn":"卢森堡","pt":"Luxemburgo"},"capital":"Luxembourg","area":2586,"currency":"EUR"},{"name":{"en":"Madagascar","fr":"Madagascar","es":"Madagascar","ca":"Madagascar","de":"Madagaskar","cn":"马达加斯加","pt":"Madagáscar"},"capital":"Antananarivo","area":587041,"currency":"MGA"},{"name":{"en":"Malawi","fr":"Malawi","es":"Malaui","ca":"Malawi","de":"Malawi","cn":"马拉维","pt":"Malawi"},"capital":"Lilongwe","area":118484,"currency":"MWK"},{"name":{"en":"Malaysia","fr":"Malaisie","es":"Malasia","ca":"Malàisia","de":"Malaysia","cn":"马来西亚","pt":"Malásia"},"capital":"Kuala Lumpur","area":330803,"currency":"MYR"},{"name":{"en":"Maldives","fr":"Maldives","es":"Maldivas","ca":"Maldives","de":"Malediven","cn":"馬爾地夫","pt":"Maldivas"},"capital":"Malé","area":300,"currency":"MVR"},{"name":{"en":"Mali","fr":"Mali","es":"Malí","ca":"Mali","de":"Mali","cn":"马里","pt":"Mali"},"capital":"Bamako","area":1240192,"currency":"XOF"},{"name":{"en":"Malta","fr":"Malte","es":"Malta","ca":"Malta","de":"Malta","cn":"馬爾他","pt":"Malta"},"capital":"Valletta","area":316,"currency":"EUR"},{"name":{"en":"Marshall Islands","fr":"Îles Marshall (pays)","es":"Islas Marshall","ca":"Illes Marshall","de":"Marshallinseln","cn":"马绍尔群岛","pt":"Ilhas Marshall"},"capital":"Majuro","area":181,"currency":"USD"},{"name":{"en":"Martinique","fr":"Martinique","es":"Martinica","ca":"Martinica","cn":"马提尼克","pt":"Martinica"},"capital":"Fort-de-France","area":1128,"currency":"EUR"},{"name":{"en":"Mauritania","fr":"Mauritanie","es":"Mauritania","ca":"Mauritània","de":"Mauretanien","cn":"毛里塔尼亚","pt":"Mauritânia"},"capital":"Nouakchott","area":1030700,"currency":"MRO"},{"name":{"en":"Mauritius","fr":"Maurice (pays)","es":"Mauricio","ca":"Maurici","de":"Mauritius","cn":"模里西斯","pt":"Maurícia"},"capital":"Port Louis","area":2040,"currency":"MUR"},{"name":{"en":"Mayotte","fr":"Mayotte","es":"Mayotte","ca":"Mayotte","cn":"马约特","pt":"Mayotte"},"capital":"Mamoudzou","area":374,"currency":"EUR"},{"name":{"en":"Mexico","fr":"Mexique","es":"México","ca":"Mèxic","de":"Mexiko","cn":"墨西哥","pt":"México"},"capital":"Mexico City","area":1964375,"currency":"MXN"},{"name":{"en":"Monaco","fr":"Monaco","es":"Mónaco","ca":"Mònaco","de":"Monaco","cn":"摩納哥","pt":"Mónaco"},"capital":"Monaco","area":2.02,"currency":"EUR"},{"name":{"en":"Mongolia","fr":"Mongolie","es":"Mongolia","ca":"Mongòlia","de":"Mongolei","cn":"蒙古國","pt":"Mongólia"},"capital":"Ulan Bator","area":1564110,"currency":"MNT"},{"name":{"en":"Montenegro","fr":"Monténégro","es":"Montenegro","ca":"Montenegro","de":"Montenegro","cn":"蒙特內哥羅","pt":"Montenegro"},"capital":"Podgorica","area":13812,"currency":"EUR"},{"name":{"en":"Montserrat","fr":"Montserrat","es":"Montserrat","ca":"Montserrat","cn":"蒙特塞拉特","pt":"Montserrat"},"capital":"Plymouth","area":102,"currency":"XCD"},{"name":{"en":"Morocco","fr":"Maroc","es":"Marruecos","ca":"Marroc","de":"Marokko","cn":"摩洛哥","pt":"Marrocos"},"capital":"Rabat","area":446550,"currency":"MAD"},{"name":{"en":"Mozambique","fr":"Mozambique","es":"Mozambique","ca":"Moçambic","de":"Mosambik","cn":"莫桑比克","pt":"Moçambique"},"capital":"Maputo","area":801590,"currency":"MZN"},{"name":{"en":"Myanmar","fr":"Birmanie","es":"Birmania","ca":"Myanmar (Birmània)","de":"Myanmar","cn":"緬甸","pt":"Mianmar"},"capital":"Naypyidaw","area":676578,"currency":"MMK"},{"name":{"en":"Namibia","fr":"Namibie","es":"Namibia","ca":"Namíbia","de":"Namibia","cn":"纳米比亚","pt":"Namíbia"},"capital":"Windhoek","area":825615,"currency":"NAD"},{"name":{"en":"Nauru","fr":"Nauru","es":"Nauru","ca":"Nauru","de":"Nauru","cn":"瑙鲁","pt":"Nauru"},"capital":"Yaren","area":21,"currency":"AUD"},{"name":{"en":"Nepal","fr":"Népal","es":"Nepal","ca":"Nepal","de":"Nepal","cn":"尼泊尔","pt":"Nepal"},"capital":"Kathmandu","area":147181,"currency":"NPR"},{"name":{"en":"Netherlands","fr":"Pays Bas","es":"Países Bajos","ca":"Països Baixos","de":"Niederlande","cn":"荷蘭","pt":"Países Baixos"},"capital":"Amsterdam","area":41850,"currency":"EUR"},{"name":{"en":"New Caledonia","fr":"Nouvelle-Calédonie","es":"Nueva Caledonia","ca":"Nova Caledònia","cn":"新喀里多尼亞","pt":"Nova Caledônia"},"capital":"Nouméa","area":18575,"currency":"XPF"},{"name":{"en":"New Zealand","fr":"Nouvelle-Zélande","es":"Nueva Zelanda","ca":"Nova Zelanda","de":"Neuseeland","cn":"新西蘭","pt":"Nova Zelândia"},"capital":"Wellington","area":270467,"currency":"NZD"},{"name":{"en":"Nicaragua","fr":"Nicaragua","es":"Nicaragua","ca":"Nicaragua","de":"Nicaragua","cn":"尼加拉瓜","pt":"Nicarágua"},"capital":"Managua","area":130373,"currency":"NIO"},{"name":{"en":"Niger","fr":"Niger","es":"Níger","ca":"Níger","de":"Niger","cn":"尼日尔","pt":"Níger"},"capital":"Niamey","area":1267000,"currency":"XOF"},{"name":{"en":"Nigeria","fr":"Nigeria","es":"Nigeria","ca":"Nigèria","de":"Nigeria","cn":"奈及利亞","pt":"Nigéria"},"capital":"Abuja","area":923768,"currency":"NGN"},{"name":{"en":"Niue","fr":"Niue","es":"Niue","ca":"Niue","cn":"纽埃","pt":"Niue"},"capital":"Alofi","area":260,"currency":"NZD"},{"name":{"en":"Norfolk Island","fr":"Île Norfolk","es":"Isla Norfolk","ca":"Norfolk","cn":"诺福克岛","pt":"Ilha Norfolk"},"capital":"Kingston","area":36,"currency":"AUD"},{"name":{"en":"Northern Mariana Islands","fr":"Îles Mariannes du Nord","es":"Islas Marianas del Norte","ca":"Illes Mariannes del Nord","cn":"北马里亚纳群岛","pt":"Marianas Setentrionais"},"capital":"Saipan","area":464,"currency":"USD"},{"name":{"en":"Norway","fr":"Norvège","es":"Noruega","ca":"Noruega","de":"Norwegen","cn":"挪威","pt":"Noruega"},"capital":"Oslo","area":323802,"currency":"NOK"},{"name":{"en":"Oman","fr":"Oman","es":"Omán","ca":"Oman","de":"Oman","cn":"阿曼","pt":"Omã"},"capital":"Muscat","area":309500,"currency":"OMR"},{"name":{"en":"Pakistan","fr":"Pakistan","es":"Pakistán","ca":"Pakistan","de":"Pakistan","cn":"巴基斯坦","pt":"Paquistão"},"capital":"Islamabad","area":881912,"currency":"PKR"},{"name":{"en":"Palau","fr":"Palaos","es":"Palaos","ca":"Palau","de":"Palau","cn":"帛琉","pt":"Palau"},"capital":"Ngerulmud","area":459,"currency":"USD"},{"name":{"en":"Panama","fr":"Panama","es":"Panamá","ca":"Panamà","de":"Panama","cn":"巴拿马","pt":"Panamá"},"capital":"Panama City","area":75417,"currency":"PAB"},{"name":{"en":"Papua New Guinea","fr":"Papouasie-Nouvelle-Guinée","es":"Papúa Nueva Guinea","ca":"Papua Nova Guinea","de":"Papua-Neuguinea","cn":"巴布亚新几内亚","pt":"Papua-Nova Guiné"},"capital":"Port Moresby","area":462840,"currency":"PGK"},{"name":{"en":"Paraguay","fr":"Paraguay","es":"Paraguay","ca":"Paraguai","de":"Paraguay","cn":"巴拉圭","pt":"Paraguai"},"capital":"Asunción","area":406752,"currency":"PYG"},{"name":{"en":"Peru","fr":"Pérou","es":"Perú","ca":"Perú","de":"Peru","cn":"秘魯","pt":"Peru"},"capital":"Lima","area":1285216,"currency":"PEN"},{"name":{"en":"Philippines","fr":"Philippines","es":"Filipinas","ca":"Filipines","de":"Philippinen","cn":"菲律賓","pt":"Filipinas"},"capital":"Manila","area":342353,"currency":"PHP"},{"name":{"en":"Poland","fr":"Pologne","es":"Polonia","ca":"Polònia","de":"Polen","cn":"波蘭","pt":"Polónia"},"capital":"Warsaw","area":312679,"currency":"PLN"},{"name":{"en":"Portugal","fr":"Portugal","es":"Portugal","ca":"Portugal","de":"Portugal","cn":"葡萄牙","pt":"Portugal"},"capital":"Lisbon","area":92090,"currency":"EUR"},{"name":{"en":"Puerto Rico","fr":"Porto Rico","es":"Puerto Rico","ca":"Puerto Rico","cn":"波多黎各","pt":"Porto Rico"},"capital":"San Juan","area":8870,"currency":"USD"},{"name":{"en":"Qatar","fr":"Qatar","es":"Catar","ca":"Qatar","de":"Katar","cn":"卡塔尔","pt":"Catar"},"capital":"Doha","area":11586,"currency":"QAR"},{"name":{"en":"Réunion","fr":"La Réunion","es":"Reunión","ca":"Illa de la Reunió","cn":"留尼旺","pt":"Reunião"},"capital":"Saint-Denis","area":2511,"currency":"EUR"},{"name":{"en":"Romania","fr":"Roumanie","es":"Rumania","ca":"Romania","de":"Rumänien","cn":"羅馬尼亞","pt":"Roménia"},"capital":"Bucharest","area":238391,"currency":"RON"},{"name":{"en":"Rwanda","fr":"Rwanda","es":"Ruanda","ca":"Ruanda","de":"Ruanda","cn":"卢旺达","pt":"Ruanda"},"capital":"Kigali","area":26338,"currency":"RWF"},{"name":{"en":"Saint Barthélemy","fr":"Saint-Barthélemy","es":"San Bartolomé","ca":"Saint Barthélemy","cn":"圣巴泰勒米","pt":"São Bartolomeu"},"capital":"Gustavia","area":21,"currency":"EUR"},{"name":{"en":"Saint Helena, Ascension and Tristan da Cunha","fr":"Sainte-Hélène, Ascension et Tristan da Cunha","es":"Santa Elena, Ascensión y Tristán de Acuña","ca":"Saint Helena","cn":"圣赫勒拿、阿森松和特里斯坦-达库尼亚","pt":"Santa Helena, Ascensão e Tristão da Cunha"},"capital":"Jamestown","area":394,"currency":"SHP"},{"name":{"en":"Saint Kitts and Nevis","fr":"Saint-Christophe-et-Niévès","es":"San Cristóbal y Nieves","ca":"Saint Christopher i Nevis","de":"St. Kitts und Nevis","cn":"圣基茨和尼维斯","pt":"São Cristóvão e Névis"},"capital":"Basseterre","area":261,"currency":"XCD"},{"name":{"en":"Saint Lucia","fr":"Sainte-Lucie","es":"Santa Lucía","ca":"Saint Lucia","de":"St. Lucia","cn":"圣卢西亚","pt":"Santa Lúcia"},"capital":"Castries","area":616,"currency":"XCD"},{"name":{"en":"Saint Pierre and Miquelon","fr":"Saint-Pierre-et-Miquelon","es":"San Pedro y Miquelón","ca":"Saint-Pierre-et-Miquelon","cn":"圣皮埃尔和密克隆","pt":"Saint-Pierre e Miquelon"},"capital":"Saint-Pierre","area":242,"currency":"EUR"},{"name":{"en":"Saint Vincent and the Grenadines","fr":"Saint-Vincent-et-les-Grenadines","es":"San Vicente y las Granadinas","ca":"Saint Vincent i les Grenadines","de":"St. Vincent und die Grenadinen","cn":"圣文森特和格林纳丁斯","pt":"São Vicente e Granadinas"},"capital":"Kingstown","area":389,"currency":"XCD"},{"name":{"en":"Samoa","fr":"Samoa","es":"Samoa","ca":"Samoa","de":"Samoa","cn":"萨摩亚","pt":"Samoa"},"capital":"Apia","area":2842,"currency":"WST"},{"name":{"en":"San Marino","fr":"Saint-Marin","es":"San Marino","ca":"San Marino","de":"San Marino","cn":"圣马力诺","pt":"San Marino"},"capital":"City of San Marino","area":61,"currency":"EUR"},{"name":{"en":"Saudi Arabia","fr":"Arabie saoudite","es":"Arabia Saudita","ca":"Aràbia Saudita","de":"Saudi-Arabien","cn":"沙烏地阿拉伯","pt":"Arábia Saudita"},"capital":"Riyadh","area":2149690,"currency":"SAR"},{"name":{"en":"Senegal","fr":"Sénégal","es":"Senegal","ca":"Senegal","de":"Senegal","cn":"塞内加尔","pt":"Senegal"},"capital":"Dakar","area":196722,"currency":"XOF"},{"name":{"en":"Serbia","fr":"Serbie","es":"Serbia","ca":"Sèrbia","de":"Serbien","cn":"塞爾維亞","pt":"Sérvia"},"capital":"Belgrade","area":88361,"currency":"RSD"},{"name":{"en":"Seychelles","fr":"Seychelles","es":"Seychelles","ca":"Seychelles","de":"Seychellen","cn":"塞舌尔","pt":"Seicheles"},"capital":"Victoria","area":452,"currency":"SCR"},{"name":{"en":"Sierra Leone","fr":"Sierra Leone","es":"Sierra Leona","ca":"Sierra Leone","de":"Sierra Leone","cn":"塞拉利昂","pt":"Serra Leoa"},"capital":"Freetown","area":71740,"currency":"SLL"},{"name":{"en":"Singapore","fr":"Singapour","es":"Singapur","ca":"Singapur","de":"Singapur","cn":"新加坡","pt":"Singapura"},"capital":"Singapore","area":710,"currency":"SGD"},{"name":{"en":"Slovakia","fr":"Slovaquie","es":"Eslovaquia","ca":"Eslovàquia","de":"Slowakei","cn":"斯洛伐克","pt":"Eslováquia"},"capital":"Bratislava","area":49037,"currency":"EUR"},{"name":{"en":"Slovenia","fr":"Slovénie","es":"Eslovenia","ca":"Eslovènia","de":"Slowenien","cn":"斯洛維尼亞","pt":"Eslovênia"},"capital":"Ljubljana","area":20273,"currency":"EUR"},{"name":{"en":"Solomon Islands","fr":"Salomon","es":"Islas Salomón","ca":"Illes Salomó","de":"Salomonen","cn":"所罗门群岛","pt":"Ilhas Salomão"},"capital":"Honiara","area":28896,"currency":"SBD"},{"name":{"en":"Somalia","fr":"Somalie","es":"Somalia","ca":"Somàlia","de":"Somalia","cn":"索馬利亞","pt":"Somália"},"capital":"Mogadishu","area":637657,"currency":"SOS"},{"name":{"en":"South Africa","fr":"Afrique du Sud","es":"Sudáfrica","ca":"República de Sud-àfrica","de":"Südafrika","cn":"南非","pt":"África do Sul"},"capital":"Pretoria","area":1221037,"currency":"ZAR"},{"name":{"en":"South Sudan","fr":"Soudan du Sud","es":"Sudán del Sur","ca":"Sudan del Sud","de":"Südsudan","cn":"南蘇丹","pt":"Sudão do Sul"},"capital":"Juba","area":619745,"currency":"SSP"},{"name":{"en":"Spain","fr":"Espagne","es":"España","ca":"Espanya","de":"Spanien","cn":"西班牙","pt":"Espanha"},"capital":"Madrid","area":505992,"currency":"EUR"},{"name":{"en":"Sri Lanka","fr":"Sri Lanka","es":"Sri Lanka","ca":"Sri Lanka","de":"Sri Lanka","cn":"斯里蘭卡","pt":"Sri Lanka"},"capital":"Colombo","area":65610,"currency":"LKR"},{"name":{"en":"Sudan","fr":"Soudan","es":"Sudán","ca":"Sudan","de":"Sudan","cn":"苏丹","pt":"Sudão"},"capital":"Khartoum","area":1886068,"currency":"SDG"},{"name":{"en":"Suriname","fr":"Suriname","es":"Surinam","ca":"Surinam","de":"Suriname","cn":"苏里南","pt":"Suriname"},"capital":"Paramaribo","area":163820,"currency":"SRD"},{"name":{"en":"Svalbard and Jan Mayen","fr":"Svalbard et ile Jan Mayen","es":"Svalbard y Jan Mayen","ca":"Svalbard i Jan Mayen","cn":"斯瓦尔巴和扬马延","pt":"Svalbard e Jan Mayen"},"capital":"Longyearbyen","area":-1,"currency":"NOK"},{"name":{"en":"Sweden","fr":"Suède","es":"Suecia","ca":"Suècia","de":"Schweden","cn":"瑞典","pt":"Suécia"},"capital":"Stockholm","area":450295,"currency":"SEK"},{"name":{"en":"Switzerland","fr":"Suisse","es":"Suiza","ca":"Suïssa","de":"Schweiz","cn":"瑞士","pt":"Suíça"},"capital":"Bern","area":41284,"currency":"CHF"},{"name":{"en":"Tajikistan","fr":"Tadjikistan","es":"Tayikistán","ca":"Tadjikistan","de":"Tadschikistan","cn":"塔吉克斯坦","pt":"Tajiquistão"},"capital":"Dushanbe","area":143100,"currency":"TJS"},{"name":{"en":"Thailand","fr":"Thaïlande","es":"Tailandia","ca":"Tailàndia","de":"Thailand","cn":"泰國","pt":"Tailândia"},"capital":"Bangkok","area":513120,"currency":"THB"},{"name":{"en":"Timor-Leste","fr":"Timor oriental","es":"Timor Oriental","ca":"Timor Oriental","de":"Osttimor","cn":"东帝汶","pt":"Timor-Leste"},"capital":"Dili","area":14874,"currency":"USD"},{"name":{"en":"Togo","fr":"Togo","es":"Togo","ca":"Togo","de":"Togo","cn":"多哥","pt":"Togo"},"capital":"Lomé","area":56785,"currency":"XOF"},{"name":{"en":"Tokelau","fr":"Tokelau","es":"Tokelau","ca":"Tokelau","cn":"托克勞","pt":"Toquelau"},"capital":"Fakaofo","area":12,"currency":"NZD"},{"name":{"en":"Tonga","fr":"Tonga","es":"Tonga","ca":"Tonga","de":"Tonga","cn":"汤加","pt":"Tonga"},"capital":"Nuku'alofa","area":747,"currency":"TOP"},{"name":{"en":"Trinidad and Tobago","fr":"Trinité-et-Tobago","es":"Trinidad y Tobago","ca":"Trinitat i Tobago","de":"Trinidad und Tobago","cn":"千里達及托巴哥","pt":"Trinidad e Tobago"},"capital":"Port of Spain","area":5130,"currency":"TTD"},{"name":{"en":"Tunisia","fr":"Tunisie","es":"Túnez","ca":"Tunísia","de":"Tunesien","cn":"突尼西亞","pt":"Tunísia"},"capital":"Tunis","area":163610,"currency":"TND"},{"name":{"en":"Turkey","fr":"Turquie","es":"Turquía","ca":"Turquia","de":"Türkei","cn":"土耳其","pt":"Turquia"},"capital":"Ankara","area":783562,"currency":"TRY"},{"name":{"en":"Turkmenistan","fr":"Turkménistan","es":"Turkmenistán","ca":"Turkmenistan","de":"Turkmenistan","cn":"土库曼斯坦","pt":"Turquemenistão"},"capital":"Ashgabat","area":488100,"currency":"TMT"},{"name":{"en":"Turks and Caicos Islands","fr":"Îles Turques-et-Caïques","es":"Islas Turcas y Caicos","ca":"Illes Turks i Caicos","cn":"特克斯和凯科斯群岛","pt":"Turks e Caicos"},"capital":"Cockburn Town","area":948,"currency":"USD"},{"name":{"en":"Tuvalu","fr":"Tuvalu","es":"Tuvalu","ca":"Tuvalu","de":"Tuvalu","cn":"图瓦卢","pt":"Tuvalu"},"capital":"Funafuti","area":26,"currency":"AUD"},{"name":{"en":"Uganda","fr":"Ouganda","es":"Uganda","ca":"Uganda","de":"Uganda","cn":"乌干达","pt":"Uganda"},"capital":"Kampala","area":241550,"currency":"UGX"},{"name":{"en":"Ukraine","fr":"Ukraine","es":"Ucrania","ca":"Ucraïna","de":"Ukraine","cn":"烏克蘭","pt":"Ucrânia"},"capital":"Kyiv","area":603500,"currency":"UAH"},{"name":{"en":"United Arab Emirates","fr":"Émirats arabes unis","es":"Emiratos Árabes Unidos","ca":"Emirats Àrabs Units","de":"Vereinigte Arabische Emirate","cn":"阿联酋","pt":"Emirados Árabes Unidos"},"capital":"Abu Dhabi","area":83600,"currency":"AED"},{"name":{"en":"United States","fr":"États Unis"},"capital":"Washington DC","area":9834000,"currency":"USD"},{"name":{"en":"Uruguay","fr":"Uruguay","es":"Uruguay","ca":"Uruguai","de":"Uruguay","cn":"乌拉圭","pt":"Uruguai"},"capital":"Montevideo","area":181034,"currency":"UYU"},{"name":{"en":"Uzbekistan","fr":"Ouzbékistan","es":"Uzbekistán","ca":"Uzbekistan","de":"Usbekistan","cn":"乌兹别克斯坦","pt":"Uzbequistão"},"capital":"Tashkent","area":447400,"currency":"UZS"},{"name":{"en":"Vanuatu","fr":"Vanuatu","es":"Vanuatu","ca":"Vanuatu","de":"Vanuatu","cn":"瓦努阿圖","pt":"Vanuatu"},"capital":"Port Vila","area":12189,"currency":"VUV"},{"name":{"en":"Wallis and Futuna","fr":"Wallis et Futuna","es":"Wallis y Futuna","ca":"Wallis i Futuna","cn":"瓦利斯和富圖納","pt":"Wallis e Futuna"},"capital":"Mata Utu","area":142,"currency":"XPF"},{"name":{"en":"Western Sahara","fr":"République arabe sahraouie démocratique","es":"República Árabe Saharaui Democrática","ca":"Sàhara Occidental","cn":"阿拉伯撒哈拉民主共和国","pt":"Saara Ocidental"},"capital":"El Aaiún","area":266000,"currency":"MAD"},{"name":{"en":"Yemen","fr":"Yémen","es":"Yemen","ca":"Iemen","de":"Jemen","cn":"葉門","pt":"Iêmen"},"capital":"Sana'a","area":527968,"currency":"YER"},{"name":{"en":"Zambia","fr":"Zambie","es":"Zambia","ca":"Zàmbia","de":"Sambia","cn":"尚比亞","pt":"Zâmbia"},"capital":"Lusaka","area":752612,"currency":"ZMW"},{"name":{"en":"Zimbabwe","fr":"Zimbabwe","es":"Zimbabue","ca":"Zimbàbue","de":"Simbabwe","cn":"辛巴威","pt":"Zimbabwe"},"capital":"Harare","area":390757,"currency":"ZWL"}]
+[
+  {
+    "name": {
+      "en": "United Kingdom",
+      "fr": "Royaume Uni",
+      "es": "Reino Unido",
+      "ca": "Regne Unit",
+      "de": "Großbritannien",
+      "cn": "英国",
+      "pt": "Reino Unido",
+      "it": "Regno Unito"
+    },
+    "capital": "London",
+    "area": 242495,
+    "currency": "GBP"
+  },
+  {
+    "name": {
+      "en": "Afghanistan",
+      "fr": "Afghanistan",
+      "es": "Afganistán",
+      "ca": "Afganistan",
+      "de": "Afghanistan",
+      "cn": "阿富汗",
+      "pt": "Afeganistão",
+      "it": "Afghanistan"
+    },
+    "capital": "Kabul",
+    "area": 652230,
+    "currency": "AFN"
+  },
+  {
+    "name": {
+      "en": "Åland Islands",
+      "fr": "Îles Åland",
+      "es": "Åland",
+      "ca": "Illes Åland",
+      "cn": "奥兰",
+      "pt": "Ilhas Åland",
+      "it": "Isole Åland"
+    },
+    "capital": "Mariehamn",
+    "area": 1580,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Albania",
+      "fr": "Albanie",
+      "es": "Albania",
+      "ca": "Albània",
+      "de": "Albanien",
+      "cn": "阿尔巴尼亚",
+      "pt": "Albânia",
+      "it": "Albania"
+    },
+    "capital": "Tirana",
+    "area": 28748,
+    "currency": "ALL"
+  },
+  {
+    "name": {
+      "en": "Algeria",
+      "fr": "Algérie",
+      "es": "Argelia",
+      "ca": "Algèria",
+      "de": "Algerien",
+      "cn": "阿尔及利亚",
+      "pt": "Argélia",
+      "it": "Algeria"
+    },
+    "capital": "Algiers",
+    "area": 2381741,
+    "currency": "DZD"
+  },
+  {
+    "name": {
+      "en": "American Samoa",
+      "fr": "Samoa américaines",
+      "es": "Samoa Americana",
+      "ca": "Samoa Nord-americana",
+      "cn": "美属萨摩亚",
+      "pt": "Samoa Americana",
+      "it": "Samoa Americane"
+    },
+    "capital": "Pago Pago",
+    "area": 199,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Andorra",
+      "fr": "Andorre",
+      "es": "Andorra",
+      "ca": "Andorra",
+      "de": "Andorra",
+      "cn": "安道尔",
+      "pt": "Andorra",
+      "it": "Andorra"
+    },
+    "capital": "Andorra la Vella",
+    "area": 468,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Angola",
+      "fr": "Angola",
+      "es": "Angola",
+      "ca": "Angola",
+      "de": "Angola",
+      "cn": "安哥拉",
+      "pt": "Angola",
+      "it": "Angola"
+    },
+    "capital": "Luanda",
+    "area": 1246700,
+    "currency": "AOA"
+  },
+  {
+    "name": {
+      "en": "Anguilla",
+      "fr": "Anguilla",
+      "es": "Anguila",
+      "ca": "Anguilla",
+      "cn": "安圭拉",
+      "pt": "Anguilla",
+      "it": "Anguilla"
+    },
+    "capital": "The Valley",
+    "area": 91,
+    "currency": "XCD"
+  },
+  {
+    "name": {
+      "en": "Antarctica",
+      "fr": "Antarctique",
+      "es": "Antártida",
+      "ca": "Antàrtida",
+      "cn": "南极洲",
+      "pt": "Antártida",
+      "it": "Antartide"
+    },
+    "capital": "",
+    "area": 14000000,
+    "currency": "nil"
+  },
+  {
+    "name": {
+      "en": "Antigua and Barbuda",
+      "fr": "Antigua et Barbuda",
+      "es": "Antigua y Barbuda",
+      "ca": "Antigua i Barbuda",
+      "de": "Antigua und Barbuda",
+      "cn": "安地卡及巴布達",
+      "pt": "Antígua e Barbuda",
+      "it": "Antigua e Barbuda"
+    },
+    "capital": "Saint John's",
+    "area": 442,
+    "currency": "XCD"
+  },
+  {
+    "name": {
+      "en": "Argentina",
+      "fr": "Argentine",
+      "es": "Argentina",
+      "ca": "Argentina",
+      "de": "Argentinien",
+      "cn": "阿根廷",
+      "pt": "Argentina",
+      "it": "Argentina"
+    },
+    "capital": "Buenos Aires",
+    "area": 2780400,
+    "currency": "ARS"
+  },
+  {
+    "name": {
+      "en": "Armenia",
+      "fr": "Arménie",
+      "es": "Armenia",
+      "ca": "Armènia",
+      "de": "Armenien",
+      "cn": "亞美尼亞",
+      "pt": "Armênia",
+      "it": "Armenia"
+    },
+    "capital": "Yerevan",
+    "area": 29743,
+    "currency": "AMD"
+  },
+  {
+    "name": {
+      "en": "Aruba",
+      "fr": "Aruba",
+      "es": "Aruba",
+      "ca": "Aruba",
+      "cn": "阿鲁巴",
+      "pt": "Aruba",
+      "it": "Aruba"
+    },
+    "capital": "Oranjestad",
+    "area": 180,
+    "currency": "AWG"
+  },
+  {
+    "name": {
+      "en": "Australia",
+      "fr": "Australie",
+      "es": "Australia",
+      "ca": "Austràlia",
+      "de": "Australien",
+      "cn": "澳大利亚",
+      "pt": "Austrália",
+      "it": "Australia"
+    },
+    "capital": "Canberra",
+    "area": 7692024,
+    "currency": "AUD"
+  },
+  {
+    "name": {
+      "en": "Austria",
+      "fr": "Autriche",
+      "es": "Austria",
+      "ca": "Àustria",
+      "de": "Österreich",
+      "cn": "奥地利",
+      "pt": "Áustria",
+      "it": "Austria"
+    },
+    "capital": "Vienna",
+    "area": 83871,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Azerbaijan",
+      "fr": "Azerbaïdjan",
+      "es": "Azerbaiyán",
+      "ca": "Azerbaidjan",
+      "de": "Aserbaidschan",
+      "cn": "阿塞拜疆",
+      "pt": "Azerbaijão",
+      "it": "Azerbaigian"
+    },
+    "capital": "Baku",
+    "area": 86600,
+    "currency": "AZN"
+  },
+  {
+    "name": {
+      "en": "Bahamas",
+      "fr": "Bahamas",
+      "es": "Bahamas",
+      "ca": "Bahames",
+      "de": "Bahamas",
+      "cn": "巴哈马",
+      "pt": "Bahamas",
+      "it": "Bahamas"
+    },
+    "capital": "Nassau",
+    "area": 13943,
+    "currency": "BSD"
+  },
+  {
+    "name": {
+      "en": "Bahrain",
+      "fr": "Bahreïn",
+      "es": "Baréin",
+      "ca": "Bahrain",
+      "de": "Bahrain",
+      "cn": "巴林",
+      "pt": "Bahrein",
+      "it": "Bahrein"
+    },
+    "capital": "Manama",
+    "area": 765,
+    "currency": "BHD"
+  },
+  {
+    "name": {
+      "en": "Bangladesh",
+      "fr": "Bangladesh",
+      "es": "Bangladés",
+      "ca": "Bangla Desh",
+      "de": "Bangladesch",
+      "cn": "孟加拉国",
+      "pt": "Bangladesh",
+      "it": "Bangladesh"
+    },
+    "capital": "Dhaka",
+    "area": 147570,
+    "currency": "BDT"
+  },
+  {
+    "name": {
+      "en": "Barbados",
+      "fr": "Barbade",
+      "es": "Barbados",
+      "ca": "Barbados",
+      "de": "Barbados",
+      "cn": "巴巴多斯",
+      "pt": "Barbados",
+      "it": "Barbados"
+    },
+    "capital": "Bridgetown",
+    "area": 430,
+    "currency": "BBD"
+  },
+  {
+    "name": {
+      "en": "Belarus",
+      "fr": "Biélorussie",
+      "es": "Bielorrusia",
+      "ca": "Belarús",
+      "de": "Weißrussland",
+      "cn": "白俄羅斯",
+      "pt": "Bielorrússia",
+      "it": "Bielorussia"
+    },
+    "capital": "Minsk",
+    "area": 207600,
+    "currency": "BYN"
+  },
+  {
+    "name": {
+      "en": "Belgium",
+      "fr": "Belgique",
+      "es": "Bélgica",
+      "ca": "Bèlgica",
+      "de": "Belgien",
+      "cn": "比利時",
+      "pt": "Bélgica",
+      "it": "Belgio"
+    },
+    "capital": "Brussels",
+    "area": 30528,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Belize",
+      "fr": "Belize",
+      "es": "Belice",
+      "ca": "Belize",
+      "de": "Belize",
+      "cn": "伯利兹",
+      "pt": "Belize",
+      "it": "Belize"
+    },
+    "capital": "Belmopan",
+    "area": 22966,
+    "currency": "BZD"
+  },
+  {
+    "name": {
+      "en": "Benin",
+      "fr": "Bénin",
+      "es": "Benín",
+      "ca": "Benín",
+      "de": "Benin",
+      "cn": "贝宁",
+      "pt": "Benim",
+      "it": "Benin"
+    },
+    "capital": "Porto Novo",
+    "area": 112622,
+    "currency": "XOF"
+  },
+  {
+    "name": {
+      "en": "Bermuda",
+      "fr": "Bermudes",
+      "es": "Bermudas",
+      "ca": "Bermudes",
+      "cn": "百慕大",
+      "pt": "Bermudas",
+      "it": "Bermuda"
+    },
+    "capital": "Hamilton",
+    "area": 54,
+    "currency": "BMD"
+  },
+  {
+    "name": {
+      "en": "Bhutan",
+      "fr": "Bhoutan",
+      "es": "Bután",
+      "ca": "Bhutan",
+      "de": "Bhutan",
+      "cn": "不丹",
+      "pt": "Butão",
+      "it": "Bhutan"
+    },
+    "capital": "Thimphu",
+    "area": 38394,
+    "currency": "BTN"
+  },
+  {
+    "name": {
+      "en": "Bosnia and Herzegovina",
+      "fr": "Bosnie Herzégovine",
+      "es": "Bosnia y Herzegovina",
+      "ca": "Bòsnia i Hercegovina",
+      "de": "Bosnien und Herzegowina",
+      "cn": "波黑",
+      "pt": "Bósnia e Herzegovina",
+      "it": "Bosnia ed Erzegovina"
+    },
+    "capital": "Sarajevo",
+    "area": 51209,
+    "currency": "BAM"
+  },
+  {
+    "name": {
+      "en": "Botswana",
+      "fr": "Botswana",
+      "es": "Botsuana",
+      "ca": "Botswana",
+      "de": "Botswana",
+      "cn": "博茨瓦纳",
+      "pt": "Botswana",
+      "it": "Botswana"
+    },
+    "capital": "Gaborone",
+    "area": 582000,
+    "currency": "BWP"
+  },
+  {
+    "name": {
+      "en": "Bouvet Island",
+      "fr": "Île Bouvet",
+      "es": "Isla Bouvet",
+      "cn": "布韦岛",
+      "pt": "Ilha Bouvet",
+      "it": "Isola Bouvet"
+    },
+    "capital": "",
+    "area": 49,
+    "currency": "NOK"
+  },
+  {
+    "name": {
+      "en": "Brazil",
+      "fr": "Brésil",
+      "es": "Brasil",
+      "ca": "Brasil",
+      "de": "Brasilien",
+      "cn": "巴西",
+      "pt": "Brasil",
+      "it": "Brasile"
+    },
+    "capital": "Brasília",
+    "area": 8515767,
+    "currency": "BRL"
+  },
+  {
+    "name": {
+      "en": "British Indian Ocean Territory",
+      "fr": "Territoire britannique de l'océan Indien",
+      "es": "Territorio Británico del Océano Índico",
+      "ca": "Territori Britànic de l’Oceà Índic",
+      "cn": "英屬印度洋領地",
+      "pt": "Território Britânico do Oceano Índico",
+      "it": "Territorio britannico dell'Oceano Indiano"
+    },
+    "capital": "Diego Garcia",
+    "area": 60,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Bulgaria",
+      "fr": "Bulgarie",
+      "es": "Bulgaria",
+      "ca": "Bulgària",
+      "de": "Bulgarien",
+      "cn": "保加利亚",
+      "pt": "Bulgária",
+      "it": "Bulgaria"
+    },
+    "capital": "Sofia",
+    "area": 110879,
+    "currency": "BGN"
+  },
+  {
+    "name": {
+      "en": "Burkina Faso",
+      "fr": "Burkina Faso",
+      "es": "Burkina Faso",
+      "ca": "Burkina Faso",
+      "de": "Burkina Faso",
+      "cn": "布吉納法索",
+      "pt": "Burkina Faso",
+      "it": "Burkina Faso"
+    },
+    "capital": "Ouagadougou",
+    "area": 272967,
+    "currency": "XOF"
+  },
+  {
+    "name": {
+      "en": "Burundi",
+      "fr": "Burundi",
+      "es": "Burundi",
+      "ca": "Burundi",
+      "de": "Burundi",
+      "cn": "布隆迪",
+      "pt": "Burundi",
+      "it": "Burundi"
+    },
+    "capital": "Bujumbura",
+    "area": 27834,
+    "currency": "BIF"
+  },
+  {
+    "name": {
+      "en": "Cambodia",
+      "fr": "Cambodge",
+      "es": "Camboya",
+      "ca": "Cambodja",
+      "de": "Kambodscha",
+      "cn": "柬埔寨",
+      "pt": "Camboja",
+      "it": "Cambogia"
+    },
+    "capital": "Phnom Penh",
+    "area": 181035,
+    "currency": "KHR"
+  },
+  {
+    "name": {
+      "en": "Cameroon",
+      "fr": "Cameroun",
+      "es": "Camerún",
+      "ca": "Camerun",
+      "de": "Kamerun",
+      "cn": "喀麦隆",
+      "pt": "Camarões",
+      "it": "Camerun"
+    },
+    "capital": "Yaoundé",
+    "area": 475442,
+    "currency": "XAF"
+  },
+  {
+    "name": {
+      "en": "Canada",
+      "fr": "Canada",
+      "es": "Canadá",
+      "ca": "Canadà",
+      "de": "Kanada",
+      "cn": "加拿大",
+      "pt": "Canadá",
+      "it": "Canada"
+    },
+    "capital": "Ottawa",
+    "area": 9984670,
+    "currency": "CAD"
+  },
+  {
+    "name": {
+      "en": "Cayman Islands",
+      "fr": "Îles Caïmans",
+      "es": "Islas Caimán",
+      "ca": "Illes Caiman",
+      "cn": "开曼群岛",
+      "pt": "Ilhas Cayman",
+      "it": "Isole Cayman"
+    },
+    "capital": "George Town",
+    "area": 264,
+    "currency": "KYD"
+  },
+  {
+    "name": {
+      "en": "Central African Republic",
+      "fr": "République centrafricaine",
+      "es": "República Centroafricana",
+      "ca": "República Centreafricana",
+      "de": "Zentral­afrikanische Republik",
+      "cn": "中非",
+      "pt": "República Centro-Africana",
+      "it": "Rep. Centrafricana"
+    },
+    "capital": "Bangui",
+    "area": 622984,
+    "currency": "XAF"
+  },
+  {
+    "name": {
+      "en": "Chad",
+      "fr": "Tchad",
+      "es": "Chad",
+      "ca": "Txad",
+      "de": "Tschad",
+      "cn": "乍得",
+      "pt": "Chade",
+      "it": "Ciad"
+    },
+    "capital": "N'Djamena",
+    "area": 1284000,
+    "currency": "XAF"
+  },
+  {
+    "name": {
+      "en": "Chile",
+      "fr": "Chili",
+      "es": "Chile",
+      "ca": "Xile",
+      "de": "Chile",
+      "cn": "智利",
+      "pt": "Chile",
+      "it": "Cile"
+    },
+    "capital": "Santiago",
+    "area": 756102,
+    "currency": "CLP"
+  },
+  {
+    "name": {
+      "en": "China",
+      "fr": "Chine",
+      "es": "China",
+      "ca": "Xina",
+      "de": "Volksrepublik China",
+      "cn": "中国",
+      "pt": "China",
+      "it": "Cina"
+    },
+    "capital": "Beijing",
+    "area": 9706961,
+    "currency": "CNY"
+  },
+  {
+    "name": {
+      "en": "Christmas Island",
+      "fr": "Île Christmas",
+      "es": "Isla de Navidad",
+      "ca": "Illa Christmas",
+      "cn": "圣诞岛",
+      "pt": "Ilha do Natal",
+      "it": "Isola di Natale"
+    },
+    "capital": "Flying Fish Cove",
+    "area": 135,
+    "currency": "AUD"
+  },
+  {
+    "name": {
+      "en": "Cocos (Keeling) Islands",
+      "fr": "Îles Cocos",
+      "es": "Islas Cocos",
+      "ca": "Illes Cocos",
+      "cn": "科科斯（基林）群島",
+      "pt": "Ilhas Cocos (Keeling)",
+      "it": "Isole Cocos (Keeling)"
+    },
+    "capital": "West Island",
+    "area": 14,
+    "currency": "AUD"
+  },
+  {
+    "name": {
+      "en": "Colombia",
+      "fr": "Colombie",
+      "es": "Colombia",
+      "ca": "Colòmbia",
+      "de": "Kolumbien",
+      "cn": "哥伦比亚",
+      "pt": "Colômbia",
+      "it": "Colombia"
+    },
+    "capital": "Bogotá",
+    "area": 1141748,
+    "currency": "COP"
+  },
+  {
+    "name": {
+      "en": "Comoros",
+      "fr": "Comores (pays)",
+      "es": "Comoras",
+      "ca": "Comores",
+      "de": "Komoren",
+      "cn": "科摩罗",
+      "pt": "Comores",
+      "it": "Comore"
+    },
+    "capital": "Moroni",
+    "area": 1862,
+    "currency": "KMF"
+  },
+  {
+    "name": {
+      "en": "Cook Islands",
+      "fr": "Îles Cook",
+      "es": "Islas Cook",
+      "ca": "Illes Cook",
+      "cn": "庫克群島",
+      "pt": "Ilhas Cook",
+      "it": "Isole Cook"
+    },
+    "capital": "Avarua",
+    "area": 236,
+    "currency": "NZD"
+  },
+  {
+    "name": {
+      "en": "Costa Rica",
+      "fr": "Costa Rica",
+      "es": "Costa Rica",
+      "ca": "Costa Rica",
+      "de": "Costa Rica",
+      "cn": "哥斯达黎加",
+      "pt": "Costa Rica",
+      "it": "Costa Rica"
+    },
+    "capital": "San José",
+    "area": 51100,
+    "currency": "CRC"
+  },
+  {
+    "name": {
+      "en": "Croatia",
+      "fr": "Croatie",
+      "es": "Croacia",
+      "ca": "Croàcia",
+      "de": "Kroatien",
+      "cn": "克罗地亚",
+      "pt": "Croácia",
+      "it": "Croazia"
+    },
+    "capital": "Zagreb",
+    "area": 56594,
+    "currency": "HRK"
+  },
+  {
+    "name": {
+      "en": "Cuba",
+      "fr": "Cuba",
+      "es": "Cuba",
+      "ca": "Cuba",
+      "de": "Kuba",
+      "cn": "古巴",
+      "pt": "Cuba",
+      "it": "Cuba"
+    },
+    "capital": "Havana",
+    "area": 109884,
+    "currency": "CUC"
+  },
+  {
+    "name": {
+      "en": "Curaçao",
+      "fr": "Curaçao",
+      "es": "Curazao",
+      "ca": "Curaçao",
+      "cn": "库拉索",
+      "pt": "Curaçao",
+      "it": "Curaçao"
+    },
+    "capital": "Willemstad",
+    "area": 444,
+    "currency": "ANG"
+  },
+  {
+    "name": {
+      "en": "Cyprus",
+      "fr": "Chypre",
+      "es": "Chipre",
+      "ca": "Xipre",
+      "de": "Zypern",
+      "cn": "賽普勒斯",
+      "pt": "Chipre",
+      "it": "Cipro"
+    },
+    "capital": "Nicosia",
+    "area": 9251,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Czechia",
+      "fr": "Tchéquie",
+      "es": "República Checa",
+      "ca": "Txèquia",
+      "de": "Tschechien",
+      "cn": "捷克",
+      "pt": "Chéquia",
+      "it": "Rep. Ceca"
+    },
+    "capital": "Prague",
+    "area": 78865,
+    "currency": "CZK"
+  },
+  {
+    "name": {
+      "en": "Denmark",
+      "fr": "Danemark",
+      "es": "Dinamarca",
+      "ca": "Dinamarca",
+      "de": "Dänemark",
+      "cn": "丹麥",
+      "pt": "Dinamarca",
+      "it": "Danimarca"
+    },
+    "capital": "Copenhagen",
+    "area": 43094,
+    "currency": "DKK"
+  },
+  {
+    "name": {
+      "en": "Djibouti",
+      "fr": "Djibouti",
+      "es": "Yibuti",
+      "ca": "Djibouti",
+      "de": "Dschibuti",
+      "cn": "吉布提",
+      "pt": "Djibouti",
+      "it": "Gibuti"
+    },
+    "capital": "Djibouti",
+    "area": 23200,
+    "currency": "DJF"
+  },
+  {
+    "name": {
+      "en": "Dominica",
+      "fr": "Dominique",
+      "es": "Dominica",
+      "ca": "Dominica",
+      "de": "Dominica",
+      "cn": "多米尼克",
+      "pt": "Dominica",
+      "it": "Dominica"
+    },
+    "capital": "Roseau",
+    "area": 751,
+    "currency": "XCD"
+  },
+  {
+    "name": {
+      "en": "Dominican Republic",
+      "fr": "République dominicaine",
+      "es": "República Dominicana",
+      "ca": "República Dominicana",
+      "de": "Dominikanische Republik",
+      "cn": "多米尼加",
+      "pt": "República Dominicana",
+      "it": "Rep. Dominicana"
+    },
+    "capital": "Santo Domingo",
+    "area": 48671,
+    "currency": "DOP"
+  },
+  {
+    "name": {
+      "en": "Ecuador",
+      "fr": "Équateur (pays)",
+      "es": "Ecuador",
+      "ca": "Equador",
+      "de": "Ecuador",
+      "cn": "厄瓜多尔",
+      "pt": "Equador",
+      "it": "Ecuador"
+    },
+    "capital": "Quito",
+    "area": 276841,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Egypt",
+      "fr": "Égypte",
+      "es": "Egipto",
+      "ca": "Egipte",
+      "de": "Ägypten",
+      "cn": "埃及",
+      "pt": "Egito",
+      "it": "Egitto"
+    },
+    "capital": "Cairo",
+    "area": 1002450,
+    "currency": "EGP"
+  },
+  {
+    "name": {
+      "en": "El Salvador",
+      "fr": "Salvador",
+      "es": "El Salvador",
+      "ca": "El Salvador",
+      "de": "El Salvador",
+      "cn": "薩爾瓦多",
+      "pt": "El Salvador",
+      "it": "El Salvador"
+    },
+    "capital": "San Salvador",
+    "area": 21041,
+    "currency": "SVC"
+  },
+  {
+    "name": {
+      "en": "Equatorial Guinea",
+      "fr": "Guinée équatoriale",
+      "es": "Guinea Ecuatorial",
+      "ca": "Guinea Equatorial",
+      "de": "Äquatorialguinea",
+      "cn": "赤道几内亚",
+      "pt": "Guiné Equatorial",
+      "it": "Guinea Equatoriale"
+    },
+    "capital": "Malabo",
+    "area": 28051,
+    "currency": "XAF"
+  },
+  {
+    "name": {
+      "en": "Eritrea",
+      "fr": "Érythrée",
+      "es": "Eritrea",
+      "ca": "Eritrea",
+      "de": "Eritrea",
+      "cn": "厄立特里亚",
+      "pt": "Eritreia",
+      "it": "Eritrea"
+    },
+    "capital": "Asmara",
+    "area": 117600,
+    "currency": "ERN"
+  },
+  {
+    "name": {
+      "en": "Estonia",
+      "fr": "Estonie",
+      "es": "Estonia",
+      "ca": "Estònia",
+      "de": "Estland",
+      "cn": "爱沙尼亚",
+      "pt": "Estónia",
+      "it": "Estonia"
+    },
+    "capital": "Tallinn",
+    "area": 45227,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Eswatini",
+      "fr": "Eswatini",
+      "es": "Suazilandia",
+      "ca": "eSwatini",
+      "de": "Swasiland",
+      "cn": "斯威士兰",
+      "pt": "Essuatíni",
+      "it": "Swaziland"
+    },
+    "capital": "Lobamba",
+    "area": 17364,
+    "currency": "SZL"
+  },
+  {
+    "name": {
+      "en": "Ethiopia",
+      "fr": "Éthiopie",
+      "es": "Etiopía",
+      "ca": "Etiòpia",
+      "de": "Äthiopien",
+      "cn": "衣索比亞",
+      "pt": "Etiópia",
+      "it": "Etiopia"
+    },
+    "capital": "Addis Ababa",
+    "area": 1104300,
+    "currency": "ETB"
+  },
+  {
+    "name": {
+      "en": "Faroe Islands",
+      "fr": "Îles Féroé",
+      "es": "Islas Feroe",
+      "ca": "Illes Fèroe",
+      "cn": "法罗群岛",
+      "pt": "Ilhas Feroé",
+      "it": "Fær Øer"
+    },
+    "capital": "Tórshavn",
+    "area": 1393,
+    "currency": "DKK"
+  },
+  {
+    "name": {
+      "en": "Fiji",
+      "fr": "Fidji",
+      "es": "Fiyi",
+      "ca": "Fiji",
+      "de": "Fidschi",
+      "cn": "斐济",
+      "pt": "Fiji",
+      "it": "Figi"
+    },
+    "capital": "Suva",
+    "area": 18272,
+    "currency": "FJD"
+  },
+  {
+    "name": {
+      "en": "Finland",
+      "fr": "Finlande",
+      "es": "Finlandia",
+      "ca": "Finlàndia",
+      "de": "Finnland",
+      "cn": "芬兰",
+      "pt": "Finlândia",
+      "it": "Finlandia"
+    },
+    "capital": "Helsinki",
+    "area": 338424,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "France",
+      "fr": "France",
+      "es": "Francia",
+      "ca": "França",
+      "de": "Frankreich",
+      "cn": "法國",
+      "pt": "França",
+      "it": "Francia"
+    },
+    "capital": "Paris",
+    "area": 551695,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "French Guiana",
+      "fr": "Guyane",
+      "es": "Guayana Francesa",
+      "ca": "Guaiana Francesa",
+      "cn": "法属圭亚那",
+      "pt": "Guiana Francesa",
+      "it": "Guyana francese"
+    },
+    "capital": "Cayenne",
+    "area": 83534,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "French Polynesia",
+      "fr": "Polynésie française",
+      "es": "Polinesia Francesa",
+      "ca": "Polinèsia Francesa",
+      "cn": "法屬玻里尼西亞",
+      "pt": "Polinésia Francesa",
+      "it": "Polinesia francese"
+    },
+    "capital": "Papeetē",
+    "area": 4167,
+    "currency": "XPF"
+  },
+  {
+    "name": {
+      "en": "Gabon",
+      "fr": "Gabon",
+      "es": "Gabón",
+      "ca": "Gabon",
+      "de": "Gabun",
+      "cn": "加彭",
+      "pt": "Gabão",
+      "it": "Gabon"
+    },
+    "capital": "Libreville",
+    "area": 267668,
+    "currency": "XAF"
+  },
+  {
+    "name": {
+      "en": "Gambia",
+      "fr": "Gambie",
+      "es": "Gambia",
+      "ca": "Gàmbia",
+      "de": "Gambia",
+      "cn": "冈比亚",
+      "pt": "Gâmbia",
+      "it": "Gambia"
+    },
+    "capital": "Banjul",
+    "area": 10689,
+    "currency": "GMD"
+  },
+  {
+    "name": {
+      "en": "Georgia",
+      "fr": "Géorgie (pays)",
+      "es": "Georgia",
+      "ca": "Geòrgia",
+      "de": "Georgien",
+      "cn": "格鲁吉亚",
+      "pt": "Geórgia",
+      "it": "Georgia"
+    },
+    "capital": "Tbilisi",
+    "area": 69700,
+    "currency": "GEL"
+  },
+  {
+    "name": {
+      "en": "Germany",
+      "fr": "Allemagne",
+      "es": "Alemania",
+      "ca": "Alemanya",
+      "de": "Deutschland",
+      "cn": "德國",
+      "pt": "Alemanha",
+      "it": "Germania"
+    },
+    "capital": "Berlin",
+    "area": 357114,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Ghana",
+      "fr": "Ghana",
+      "es": "Ghana",
+      "ca": "Ghana",
+      "de": "Ghana",
+      "cn": "加纳",
+      "pt": "Gana",
+      "it": "Ghana"
+    },
+    "capital": "Accra",
+    "area": 238533,
+    "currency": "GHS"
+  },
+  {
+    "name": {
+      "en": "Gibraltar",
+      "fr": "Gibraltar",
+      "es": "Gibraltar",
+      "ca": "Gibraltar",
+      "cn": "直布罗陀",
+      "pt": "Gibraltar",
+      "it": "Gibilterra"
+    },
+    "capital": "Gibraltar",
+    "area": 6,
+    "currency": "GIP"
+  },
+  {
+    "name": {
+      "en": "Greece",
+      "fr": "Grèce",
+      "es": "Grecia",
+      "ca": "Grècia",
+      "de": "Griechenland",
+      "cn": "希臘",
+      "pt": "Grécia",
+      "it": "Grecia"
+    },
+    "capital": "Athens",
+    "area": 131990,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Greenland",
+      "fr": "Groenland",
+      "es": "Groenlandia",
+      "ca": "Grenlàndia",
+      "cn": "格陵兰",
+      "pt": "Gronelândia",
+      "it": "Groenlandia"
+    },
+    "capital": "Nuuk",
+    "area": 2166086,
+    "currency": "DKK"
+  },
+  {
+    "name": {
+      "en": "Grenada",
+      "fr": "Grenade (pays)",
+      "es": "Granada",
+      "ca": "Grenada",
+      "de": "Grenada",
+      "cn": "格瑞那達",
+      "pt": "Granada",
+      "it": "Grenada"
+    },
+    "capital": "St. George's",
+    "area": 344,
+    "currency": "XCD"
+  },
+  {
+    "name": {
+      "en": "Guadeloupe",
+      "fr": "Guadeloupe",
+      "es": "Guadalupe",
+      "ca": "Guadeloupe",
+      "cn": "瓜德罗普",
+      "pt": "Guadalupe",
+      "it": "Guadalupa"
+    },
+    "capital": "Basse Terre",
+    "area": 1628,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Guam",
+      "fr": "Guam",
+      "es": "Guam",
+      "ca": "Guam",
+      "cn": "關島",
+      "pt": "Guam",
+      "it": "Guam"
+    },
+    "capital": "Hagåtña",
+    "area": 549,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Guatemala",
+      "fr": "Guatemala",
+      "es": "Guatemala",
+      "ca": "Guatemala",
+      "de": "Guatemala",
+      "cn": "危地马拉",
+      "pt": "Guatemala",
+      "it": "Guatemala"
+    },
+    "capital": "Guatemala City",
+    "area": 108889,
+    "currency": "GTQ"
+  },
+  {
+    "name": {
+      "en": "Guernsey",
+      "fr": "Guernesey",
+      "es": "Guernsey",
+      "ca": "Guernsey",
+      "cn": "根西",
+      "pt": "Guernsey",
+      "it": "Guernsey"
+    },
+    "capital": "St. Peter Port",
+    "area": 78,
+    "currency": "GBP"
+  },
+  {
+    "name": {
+      "en": "Guinea",
+      "fr": "Guinée",
+      "es": "Guinea",
+      "ca": "Guinea",
+      "de": "Guinea",
+      "cn": "几内亚",
+      "pt": "Guiné",
+      "it": "Guinea"
+    },
+    "capital": "Conakry",
+    "area": 245857,
+    "currency": "GNF"
+  },
+  {
+    "name": {
+      "en": "Guinea-Bissau",
+      "fr": "Guinée-Bissau",
+      "es": "Guinea-Bisáu",
+      "ca": "Guinea Bissau",
+      "de": "Guinea-Bissau",
+      "cn": "几内亚比绍",
+      "pt": "Guiné-Bissau",
+      "it": "Guinea-Bissau"
+    },
+    "capital": "Bissau",
+    "area": 36125,
+    "currency": "XOF"
+  },
+  {
+    "name": {
+      "en": "Guyana",
+      "fr": "Guyana",
+      "es": "Guyana",
+      "ca": "Guyana",
+      "de": "Guyana",
+      "cn": "圭亚那",
+      "pt": "Guiana",
+      "it": "Guyana"
+    },
+    "capital": "Georgetown",
+    "area": 214969,
+    "currency": "GYD"
+  },
+  {
+    "name": {
+      "en": "Haiti",
+      "fr": "Haïti",
+      "es": "Haití",
+      "ca": "Haití",
+      "de": "Haiti",
+      "cn": "海地",
+      "pt": "Haiti",
+      "it": "Haiti"
+    },
+    "capital": "Port-au-Prince",
+    "area": 27750,
+    "currency": "HTG"
+  },
+  {
+    "name": {
+      "en": "Heard Island and McDonald Islands",
+      "fr": "Îles Heard-et-MacDonald",
+      "es": "Islas Heard y McDonald",
+      "cn": "赫德岛和麦克唐纳群岛",
+      "pt": "Ilha Heard e Ilhas McDonald",
+      "it": "Isole Heard e McDonald"
+    },
+    "capital": "",
+    "area": 412,
+    "currency": "AUD"
+  },
+  {
+    "name": {
+      "en": "Honduras",
+      "fr": "Honduras",
+      "es": "Honduras",
+      "ca": "Hondures",
+      "de": "Honduras",
+      "cn": "洪都拉斯",
+      "pt": "Honduras",
+      "it": "Honduras"
+    },
+    "capital": "Tegucigalpa",
+    "area": 112492,
+    "currency": "HNL"
+  },
+  {
+    "name": {
+      "en": "Hong Kong",
+      "fr": "Hong Kong",
+      "es": "Hong Kong",
+      "ca": "Hong Kong (RAE Xina)",
+      "cn": "香港",
+      "pt": "Hong Kong",
+      "it": "Hong Kong"
+    },
+    "capital": "City of Victoria",
+    "area": 1104,
+    "currency": "HKD"
+  },
+  {
+    "name": {
+      "en": "Hungary",
+      "fr": "Hongrie",
+      "es": "Hungría",
+      "ca": "Hongria",
+      "de": "Ungarn",
+      "cn": "匈牙利",
+      "pt": "Hungria",
+      "it": "Ungheria"
+    },
+    "capital": "Budapest",
+    "area": 93028,
+    "currency": "HUF"
+  },
+  {
+    "name": {
+      "en": "Iceland",
+      "fr": "Islande",
+      "es": "Islandia",
+      "ca": "Islàndia",
+      "de": "Island",
+      "cn": "冰島",
+      "pt": "Islândia",
+      "it": "Islanda"
+    },
+    "capital": "Reykjavik",
+    "area": 103000,
+    "currency": "ISK"
+  },
+  {
+    "name": {
+      "en": "India",
+      "fr": "Inde",
+      "es": "India",
+      "ca": "Índia",
+      "de": "Indien",
+      "cn": "印度",
+      "pt": "Índia",
+      "it": "India"
+    },
+    "capital": "New Delhi",
+    "area": 3287590,
+    "currency": "INR"
+  },
+  {
+    "name": {
+      "en": "Indonesia",
+      "fr": "Indonésie",
+      "es": "Indonesia",
+      "ca": "Indonèsia",
+      "de": "Indonesien",
+      "cn": "印尼",
+      "pt": "Indonésia",
+      "it": "Indonesia"
+    },
+    "capital": "Jakarta",
+    "area": 1904569,
+    "currency": "IDR"
+  },
+  {
+    "name": {
+      "en": "Iraq",
+      "fr": "Irak",
+      "es": "Irak",
+      "ca": "Iraq",
+      "de": "Irak",
+      "cn": "伊拉克",
+      "pt": "Iraque",
+      "it": "Iraq"
+    },
+    "capital": "Baghdad",
+    "area": 438317,
+    "currency": "IQD"
+  },
+  {
+    "name": {
+      "en": "Ireland",
+      "fr": "Irlande (pays)",
+      "es": "Irlanda",
+      "ca": "Irlanda",
+      "de": "Irland",
+      "cn": "爱尔兰",
+      "pt": "Irlanda",
+      "it": "Irlanda"
+    },
+    "capital": "Dublin",
+    "area": 70273,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Isle of Man",
+      "fr": "Île de Man",
+      "es": "Isla de Man",
+      "ca": "Illa de Man",
+      "cn": "马恩岛",
+      "pt": "Ilha de Man",
+      "it": "Isola di Man"
+    },
+    "capital": "Douglas",
+    "area": 572,
+    "currency": "GBP"
+  },
+  {
+    "name": {
+      "en": "Israel",
+      "fr": "Israël",
+      "es": "Israel",
+      "ca": "Israel",
+      "de": "Israel",
+      "cn": "以色列",
+      "pt": "Israel",
+      "it": "Israele"
+    },
+    "capital": "Jerusalem",
+    "area": 20770,
+    "currency": "ILS"
+  },
+  {
+    "name": {
+      "en": "Italy",
+      "fr": "Italie",
+      "es": "Italia",
+      "ca": "Itàlia",
+      "de": "Italien",
+      "cn": "義大利",
+      "pt": "Itália",
+      "it": "Italia"
+    },
+    "capital": "Rome",
+    "area": 301336,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Jamaica",
+      "fr": "Jamaïque",
+      "es": "Jamaica",
+      "ca": "Jamaica",
+      "de": "Jamaika",
+      "cn": "牙买加",
+      "pt": "Jamaica",
+      "it": "Giamaica"
+    },
+    "capital": "Kingston",
+    "area": 10991,
+    "currency": "JMD"
+  },
+  {
+    "name": {
+      "en": "Japan",
+      "fr": "Japon",
+      "es": "Japón",
+      "ca": "Japó",
+      "de": "Japan",
+      "cn": "日本",
+      "pt": "Japão",
+      "it": "Giappone"
+    },
+    "capital": "Tokyo",
+    "area": 377930,
+    "currency": "JPY"
+  },
+  {
+    "name": {
+      "en": "Jersey",
+      "fr": "Jersey",
+      "es": "Jersey",
+      "ca": "Jersey",
+      "cn": "澤西",
+      "pt": "Jersey",
+      "it": "Jersey"
+    },
+    "capital": "Saint Helier",
+    "area": 116,
+    "currency": "GBP"
+  },
+  {
+    "name": {
+      "en": "Jordan",
+      "fr": "Jordanie",
+      "es": "Jordania",
+      "ca": "Jordània",
+      "de": "Jordanien",
+      "cn": "约旦",
+      "pt": "Jordânia",
+      "it": "Giordania"
+    },
+    "capital": "Amman",
+    "area": 89342,
+    "currency": "JOD"
+  },
+  {
+    "name": {
+      "en": "Kazakhstan",
+      "fr": "Kazakhstan",
+      "es": "Kazajistán",
+      "ca": "Kazakhstan",
+      "de": "Kasachstan",
+      "cn": "哈萨克斯坦",
+      "pt": "Cazaquistão",
+      "it": "Kazakistan"
+    },
+    "capital": "Astana",
+    "area": 2724900,
+    "currency": "KZT"
+  },
+  {
+    "name": {
+      "en": "Kenya",
+      "fr": "Kenya",
+      "es": "Kenia",
+      "ca": "Kenya",
+      "de": "Kenia",
+      "cn": "肯尼亚",
+      "pt": "Quênia",
+      "it": "Kenya"
+    },
+    "capital": "Nairobi",
+    "area": 580367,
+    "currency": "KES"
+  },
+  {
+    "name": {
+      "en": "Kiribati",
+      "fr": "Kiribati",
+      "es": "Kiribati",
+      "ca": "Kiribati",
+      "de": "Kiribati",
+      "cn": "基里巴斯",
+      "pt": "Kiribati",
+      "it": "Kiribati"
+    },
+    "capital": "South Tarawa",
+    "area": 811,
+    "currency": "AUD"
+  },
+  {
+    "name": {
+      "en": "Kuwait",
+      "fr": "Koweït",
+      "es": "Kuwait",
+      "ca": "Kuwait",
+      "de": "Kuwait",
+      "cn": "科威特",
+      "pt": "Kuwait",
+      "it": "Kuwait"
+    },
+    "capital": "Kuwait City",
+    "area": 17818,
+    "currency": "KWD"
+  },
+  {
+    "name": {
+      "en": "Kyrgyzstan",
+      "fr": "Kirghizistan",
+      "es": "Kirguistán",
+      "ca": "Kirguizistan",
+      "de": "Kirgisistan",
+      "cn": "吉尔吉斯斯坦",
+      "pt": "Quirguistão",
+      "it": "Kirghizistan"
+    },
+    "capital": "Bishkek",
+    "area": 199951,
+    "currency": "KGS"
+  },
+  {
+    "name": {
+      "en": "Latvia",
+      "fr": "Lettonie",
+      "es": "Letonia",
+      "ca": "Letònia",
+      "de": "Lettland",
+      "cn": "拉脫維亞",
+      "pt": "Letônia",
+      "it": "Lettonia"
+    },
+    "capital": "Riga",
+    "area": 64559,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Lebanon",
+      "fr": "Liban",
+      "es": "Líbano",
+      "ca": "Líban",
+      "de": "Libanon",
+      "cn": "黎巴嫩",
+      "pt": "Líbano",
+      "it": "Libano"
+    },
+    "capital": "Beirut",
+    "area": 10452,
+    "currency": "LBP"
+  },
+  {
+    "name": {
+      "en": "Lesotho",
+      "fr": "Lesotho",
+      "es": "Lesoto",
+      "ca": "Lesotho",
+      "de": "Lesotho",
+      "cn": "賴索托",
+      "pt": "Lesoto",
+      "it": "Lesotho"
+    },
+    "capital": "Maseru",
+    "area": 30355,
+    "currency": "LSL"
+  },
+  {
+    "name": {
+      "en": "Liberia",
+      "fr": "Liberia",
+      "es": "Liberia",
+      "ca": "Libèria",
+      "de": "Liberia",
+      "cn": "利比里亚",
+      "pt": "Libéria",
+      "it": "Liberia"
+    },
+    "capital": "Monrovia",
+    "area": 111369,
+    "currency": "LRD"
+  },
+  {
+    "name": {
+      "en": "Libya",
+      "fr": "Libye",
+      "es": "Libia",
+      "ca": "Líbia",
+      "de": "Libyen",
+      "cn": "利比亞",
+      "pt": "Líbia",
+      "it": "Libia"
+    },
+    "capital": "Tripoli",
+    "area": 1759540,
+    "currency": "LYD"
+  },
+  {
+    "name": {
+      "en": "Liechtenstein",
+      "fr": "Liechtenstein",
+      "es": "Liechtenstein",
+      "ca": "Liechtenstein",
+      "de": "Liechtenstein",
+      "cn": "列支敦斯登",
+      "pt": "Liechtenstein",
+      "it": "Liechtenstein"
+    },
+    "capital": "Vaduz",
+    "area": 160,
+    "currency": "CHF"
+  },
+  {
+    "name": {
+      "en": "Lithuania",
+      "fr": "Lituanie",
+      "es": "Lituania",
+      "ca": "Lituània",
+      "de": "Litauen",
+      "cn": "立陶宛",
+      "pt": "Lituânia",
+      "it": "Lituania"
+    },
+    "capital": "Vilnius",
+    "area": 65300,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Luxembourg",
+      "fr": "Luxembourg (pays)",
+      "es": "Luxemburgo",
+      "ca": "Luxemburg",
+      "de": "Luxemburg",
+      "cn": "卢森堡",
+      "pt": "Luxemburgo",
+      "it": "Lussemburgo"
+    },
+    "capital": "Luxembourg",
+    "area": 2586,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Madagascar",
+      "fr": "Madagascar",
+      "es": "Madagascar",
+      "ca": "Madagascar",
+      "de": "Madagaskar",
+      "cn": "马达加斯加",
+      "pt": "Madagáscar",
+      "it": "Madagascar"
+    },
+    "capital": "Antananarivo",
+    "area": 587041,
+    "currency": "MGA"
+  },
+  {
+    "name": {
+      "en": "Malawi",
+      "fr": "Malawi",
+      "es": "Malaui",
+      "ca": "Malawi",
+      "de": "Malawi",
+      "cn": "马拉维",
+      "pt": "Malawi",
+      "it": "Malawi"
+    },
+    "capital": "Lilongwe",
+    "area": 118484,
+    "currency": "MWK"
+  },
+  {
+    "name": {
+      "en": "Malaysia",
+      "fr": "Malaisie",
+      "es": "Malasia",
+      "ca": "Malàisia",
+      "de": "Malaysia",
+      "cn": "马来西亚",
+      "pt": "Malásia",
+      "it": "Malaysia"
+    },
+    "capital": "Kuala Lumpur",
+    "area": 330803,
+    "currency": "MYR"
+  },
+  {
+    "name": {
+      "en": "Maldives",
+      "fr": "Maldives",
+      "es": "Maldivas",
+      "ca": "Maldives",
+      "de": "Malediven",
+      "cn": "馬爾地夫",
+      "pt": "Maldivas",
+      "it": "Maldive"
+    },
+    "capital": "Malé",
+    "area": 300,
+    "currency": "MVR"
+  },
+  {
+    "name": {
+      "en": "Mali",
+      "fr": "Mali",
+      "es": "Malí",
+      "ca": "Mali",
+      "de": "Mali",
+      "cn": "马里",
+      "pt": "Mali",
+      "it": "Mali"
+    },
+    "capital": "Bamako",
+    "area": 1240192,
+    "currency": "XOF"
+  },
+  {
+    "name": {
+      "en": "Malta",
+      "fr": "Malte",
+      "es": "Malta",
+      "ca": "Malta",
+      "de": "Malta",
+      "cn": "馬爾他",
+      "pt": "Malta",
+      "it": "Malta"
+    },
+    "capital": "Valletta",
+    "area": 316,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Marshall Islands",
+      "fr": "Îles Marshall (pays)",
+      "es": "Islas Marshall",
+      "ca": "Illes Marshall",
+      "de": "Marshallinseln",
+      "cn": "马绍尔群岛",
+      "pt": "Ilhas Marshall",
+      "it": "Isole Marshall"
+    },
+    "capital": "Majuro",
+    "area": 181,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Martinique",
+      "fr": "Martinique",
+      "es": "Martinica",
+      "ca": "Martinica",
+      "cn": "马提尼克",
+      "pt": "Martinica",
+      "it": "Martinica"
+    },
+    "capital": "Fort-de-France",
+    "area": 1128,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Mauritania",
+      "fr": "Mauritanie",
+      "es": "Mauritania",
+      "ca": "Mauritània",
+      "de": "Mauretanien",
+      "cn": "毛里塔尼亚",
+      "pt": "Mauritânia",
+      "it": "Mauritania"
+    },
+    "capital": "Nouakchott",
+    "area": 1030700,
+    "currency": "MRO"
+  },
+  {
+    "name": {
+      "en": "Mauritius",
+      "fr": "Maurice (pays)",
+      "es": "Mauricio",
+      "ca": "Maurici",
+      "de": "Mauritius",
+      "cn": "模里西斯",
+      "pt": "Maurícia",
+      "it": "Mauritius"
+    },
+    "capital": "Port Louis",
+    "area": 2040,
+    "currency": "MUR"
+  },
+  {
+    "name": {
+      "en": "Mayotte",
+      "fr": "Mayotte",
+      "es": "Mayotte",
+      "ca": "Mayotte",
+      "cn": "马约特",
+      "pt": "Mayotte",
+      "it": "Mayotte"
+    },
+    "capital": "Mamoudzou",
+    "area": 374,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Mexico",
+      "fr": "Mexique",
+      "es": "México",
+      "ca": "Mèxic",
+      "de": "Mexiko",
+      "cn": "墨西哥",
+      "pt": "México",
+      "it": "Messico"
+    },
+    "capital": "Mexico City",
+    "area": 1964375,
+    "currency": "MXN"
+  },
+  {
+    "name": {
+      "en": "Monaco",
+      "fr": "Monaco",
+      "es": "Mónaco",
+      "ca": "Mònaco",
+      "de": "Monaco",
+      "cn": "摩納哥",
+      "pt": "Mónaco",
+      "it": "Monaco"
+    },
+    "capital": "Monaco",
+    "area": 2.02,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Mongolia",
+      "fr": "Mongolie",
+      "es": "Mongolia",
+      "ca": "Mongòlia",
+      "de": "Mongolei",
+      "cn": "蒙古國",
+      "pt": "Mongólia",
+      "it": "Mongolia"
+    },
+    "capital": "Ulan Bator",
+    "area": 1564110,
+    "currency": "MNT"
+  },
+  {
+    "name": {
+      "en": "Montenegro",
+      "fr": "Monténégro",
+      "es": "Montenegro",
+      "ca": "Montenegro",
+      "de": "Montenegro",
+      "cn": "蒙特內哥羅",
+      "pt": "Montenegro",
+      "it": "Montenegro"
+    },
+    "capital": "Podgorica",
+    "area": 13812,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Montserrat",
+      "fr": "Montserrat",
+      "es": "Montserrat",
+      "ca": "Montserrat",
+      "cn": "蒙特塞拉特",
+      "pt": "Montserrat",
+      "it": "Montserrat"
+    },
+    "capital": "Plymouth",
+    "area": 102,
+    "currency": "XCD"
+  },
+  {
+    "name": {
+      "en": "Morocco",
+      "fr": "Maroc",
+      "es": "Marruecos",
+      "ca": "Marroc",
+      "de": "Marokko",
+      "cn": "摩洛哥",
+      "pt": "Marrocos",
+      "it": "Marocco"
+    },
+    "capital": "Rabat",
+    "area": 446550,
+    "currency": "MAD"
+  },
+  {
+    "name": {
+      "en": "Mozambique",
+      "fr": "Mozambique",
+      "es": "Mozambique",
+      "ca": "Moçambic",
+      "de": "Mosambik",
+      "cn": "莫桑比克",
+      "pt": "Moçambique",
+      "it": "Mozambico"
+    },
+    "capital": "Maputo",
+    "area": 801590,
+    "currency": "MZN"
+  },
+  {
+    "name": {
+      "en": "Myanmar",
+      "fr": "Birmanie",
+      "es": "Birmania",
+      "ca": "Myanmar (Birmània)",
+      "de": "Myanmar",
+      "cn": "緬甸",
+      "pt": "Mianmar",
+      "it": "Birmania"
+    },
+    "capital": "Naypyidaw",
+    "area": 676578,
+    "currency": "MMK"
+  },
+  {
+    "name": {
+      "en": "Namibia",
+      "fr": "Namibie",
+      "es": "Namibia",
+      "ca": "Namíbia",
+      "de": "Namibia",
+      "cn": "纳米比亚",
+      "pt": "Namíbia",
+      "it": "Namibia"
+    },
+    "capital": "Windhoek",
+    "area": 825615,
+    "currency": "NAD"
+  },
+  {
+    "name": {
+      "en": "Nauru",
+      "fr": "Nauru",
+      "es": "Nauru",
+      "ca": "Nauru",
+      "de": "Nauru",
+      "cn": "瑙鲁",
+      "pt": "Nauru",
+      "it": "Nauru"
+    },
+    "capital": "Yaren",
+    "area": 21,
+    "currency": "AUD"
+  },
+  {
+    "name": {
+      "en": "Nepal",
+      "fr": "Népal",
+      "es": "Nepal",
+      "ca": "Nepal",
+      "de": "Nepal",
+      "cn": "尼泊尔",
+      "pt": "Nepal",
+      "it": "Nepal"
+    },
+    "capital": "Kathmandu",
+    "area": 147181,
+    "currency": "NPR"
+  },
+  {
+    "name": {
+      "en": "Netherlands",
+      "fr": "Pays Bas",
+      "es": "Países Bajos",
+      "ca": "Països Baixos",
+      "de": "Niederlande",
+      "cn": "荷蘭",
+      "pt": "Países Baixos",
+      "it": "Paesi Bassi"
+    },
+    "capital": "Amsterdam",
+    "area": 41850,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "New Caledonia",
+      "fr": "Nouvelle-Calédonie",
+      "es": "Nueva Caledonia",
+      "ca": "Nova Caledònia",
+      "cn": "新喀里多尼亞",
+      "pt": "Nova Caledônia",
+      "it": "Nuova Caledonia"
+    },
+    "capital": "Nouméa",
+    "area": 18575,
+    "currency": "XPF"
+  },
+  {
+    "name": {
+      "en": "New Zealand",
+      "fr": "Nouvelle-Zélande",
+      "es": "Nueva Zelanda",
+      "ca": "Nova Zelanda",
+      "de": "Neuseeland",
+      "cn": "新西蘭",
+      "pt": "Nova Zelândia",
+      "it": "Nuova Zelanda"
+    },
+    "capital": "Wellington",
+    "area": 270467,
+    "currency": "NZD"
+  },
+  {
+    "name": {
+      "en": "Nicaragua",
+      "fr": "Nicaragua",
+      "es": "Nicaragua",
+      "ca": "Nicaragua",
+      "de": "Nicaragua",
+      "cn": "尼加拉瓜",
+      "pt": "Nicarágua",
+      "it": "Nicaragua"
+    },
+    "capital": "Managua",
+    "area": 130373,
+    "currency": "NIO"
+  },
+  {
+    "name": {
+      "en": "Niger",
+      "fr": "Niger",
+      "es": "Níger",
+      "ca": "Níger",
+      "de": "Niger",
+      "cn": "尼日尔",
+      "pt": "Níger",
+      "it": "Niger"
+    },
+    "capital": "Niamey",
+    "area": 1267000,
+    "currency": "XOF"
+  },
+  {
+    "name": {
+      "en": "Nigeria",
+      "fr": "Nigeria",
+      "es": "Nigeria",
+      "ca": "Nigèria",
+      "de": "Nigeria",
+      "cn": "奈及利亞",
+      "pt": "Nigéria",
+      "it": "Nigeria"
+    },
+    "capital": "Abuja",
+    "area": 923768,
+    "currency": "NGN"
+  },
+  {
+    "name": {
+      "en": "Niue",
+      "fr": "Niue",
+      "es": "Niue",
+      "ca": "Niue",
+      "cn": "纽埃",
+      "pt": "Niue",
+      "it": "Niue"
+    },
+    "capital": "Alofi",
+    "area": 260,
+    "currency": "NZD"
+  },
+  {
+    "name": {
+      "en": "Norfolk Island",
+      "fr": "Île Norfolk",
+      "es": "Isla Norfolk",
+      "ca": "Norfolk",
+      "cn": "诺福克岛",
+      "pt": "Ilha Norfolk",
+      "it": "Isola Norfolk"
+    },
+    "capital": "Kingston",
+    "area": 36,
+    "currency": "AUD"
+  },
+  {
+    "name": {
+      "en": "Northern Mariana Islands",
+      "fr": "Îles Mariannes du Nord",
+      "es": "Islas Marianas del Norte",
+      "ca": "Illes Mariannes del Nord",
+      "cn": "北马里亚纳群岛",
+      "pt": "Marianas Setentrionais",
+      "it": "Isole Marianne Settentrionali"
+    },
+    "capital": "Saipan",
+    "area": 464,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Norway",
+      "fr": "Norvège",
+      "es": "Noruega",
+      "ca": "Noruega",
+      "de": "Norwegen",
+      "cn": "挪威",
+      "pt": "Noruega",
+      "it": "Norvegia"
+    },
+    "capital": "Oslo",
+    "area": 323802,
+    "currency": "NOK"
+  },
+  {
+    "name": {
+      "en": "Oman",
+      "fr": "Oman",
+      "es": "Omán",
+      "ca": "Oman",
+      "de": "Oman",
+      "cn": "阿曼",
+      "pt": "Omã",
+      "it": "Oman"
+    },
+    "capital": "Muscat",
+    "area": 309500,
+    "currency": "OMR"
+  },
+  {
+    "name": {
+      "en": "Pakistan",
+      "fr": "Pakistan",
+      "es": "Pakistán",
+      "ca": "Pakistan",
+      "de": "Pakistan",
+      "cn": "巴基斯坦",
+      "pt": "Paquistão",
+      "it": "Pakistan"
+    },
+    "capital": "Islamabad",
+    "area": 881912,
+    "currency": "PKR"
+  },
+  {
+    "name": {
+      "en": "Palau",
+      "fr": "Palaos",
+      "es": "Palaos",
+      "ca": "Palau",
+      "de": "Palau",
+      "cn": "帛琉",
+      "pt": "Palau",
+      "it": "Palau"
+    },
+    "capital": "Ngerulmud",
+    "area": 459,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Panama",
+      "fr": "Panama",
+      "es": "Panamá",
+      "ca": "Panamà",
+      "de": "Panama",
+      "cn": "巴拿马",
+      "pt": "Panamá",
+      "it": "Panama"
+    },
+    "capital": "Panama City",
+    "area": 75417,
+    "currency": "PAB"
+  },
+  {
+    "name": {
+      "en": "Papua New Guinea",
+      "fr": "Papouasie-Nouvelle-Guinée",
+      "es": "Papúa Nueva Guinea",
+      "ca": "Papua Nova Guinea",
+      "de": "Papua-Neuguinea",
+      "cn": "巴布亚新几内亚",
+      "pt": "Papua-Nova Guiné",
+      "it": "Papua Nuova Guinea"
+    },
+    "capital": "Port Moresby",
+    "area": 462840,
+    "currency": "PGK"
+  },
+  {
+    "name": {
+      "en": "Paraguay",
+      "fr": "Paraguay",
+      "es": "Paraguay",
+      "ca": "Paraguai",
+      "de": "Paraguay",
+      "cn": "巴拉圭",
+      "pt": "Paraguai",
+      "it": "Paraguay"
+    },
+    "capital": "Asunción",
+    "area": 406752,
+    "currency": "PYG"
+  },
+  {
+    "name": {
+      "en": "Peru",
+      "fr": "Pérou",
+      "es": "Perú",
+      "ca": "Perú",
+      "de": "Peru",
+      "cn": "秘魯",
+      "pt": "Peru",
+      "it": "Perù"
+    },
+    "capital": "Lima",
+    "area": 1285216,
+    "currency": "PEN"
+  },
+  {
+    "name": {
+      "en": "Philippines",
+      "fr": "Philippines",
+      "es": "Filipinas",
+      "ca": "Filipines",
+      "de": "Philippinen",
+      "cn": "菲律賓",
+      "pt": "Filipinas",
+      "it": "Filippine"
+    },
+    "capital": "Manila",
+    "area": 342353,
+    "currency": "PHP"
+  },
+  {
+    "name": {
+      "en": "Poland",
+      "fr": "Pologne",
+      "es": "Polonia",
+      "ca": "Polònia",
+      "de": "Polen",
+      "cn": "波蘭",
+      "pt": "Polónia",
+      "it": "Polonia"
+    },
+    "capital": "Warsaw",
+    "area": 312679,
+    "currency": "PLN"
+  },
+  {
+    "name": {
+      "en": "Portugal",
+      "fr": "Portugal",
+      "es": "Portugal",
+      "ca": "Portugal",
+      "de": "Portugal",
+      "cn": "葡萄牙",
+      "pt": "Portugal",
+      "it": "Portogallo"
+    },
+    "capital": "Lisbon",
+    "area": 92090,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Puerto Rico",
+      "fr": "Porto Rico",
+      "es": "Puerto Rico",
+      "ca": "Puerto Rico",
+      "cn": "波多黎各",
+      "pt": "Porto Rico",
+      "it": "Porto Rico"
+    },
+    "capital": "San Juan",
+    "area": 8870,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Qatar",
+      "fr": "Qatar",
+      "es": "Catar",
+      "ca": "Qatar",
+      "de": "Katar",
+      "cn": "卡塔尔",
+      "pt": "Catar",
+      "it": "Qatar"
+    },
+    "capital": "Doha",
+    "area": 11586,
+    "currency": "QAR"
+  },
+  {
+    "name": {
+      "en": "Réunion",
+      "fr": "La Réunion",
+      "es": "Reunión",
+      "ca": "Illa de la Reunió",
+      "cn": "留尼旺",
+      "pt": "Reunião",
+      "it": "Riunione"
+    },
+    "capital": "Saint-Denis",
+    "area": 2511,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Romania",
+      "fr": "Roumanie",
+      "es": "Rumania",
+      "ca": "Romania",
+      "de": "Rumänien",
+      "cn": "羅馬尼亞",
+      "pt": "Roménia",
+      "it": "Romania"
+    },
+    "capital": "Bucharest",
+    "area": 238391,
+    "currency": "RON"
+  },
+  {
+    "name": {
+      "en": "Rwanda",
+      "fr": "Rwanda",
+      "es": "Ruanda",
+      "ca": "Ruanda",
+      "de": "Ruanda",
+      "cn": "卢旺达",
+      "pt": "Ruanda",
+      "it": "Ruanda"
+    },
+    "capital": "Kigali",
+    "area": 26338,
+    "currency": "RWF"
+  },
+  {
+    "name": {
+      "en": "Saint Barthélemy",
+      "fr": "Saint-Barthélemy",
+      "es": "San Bartolomé",
+      "ca": "Saint Barthélemy",
+      "cn": "圣巴泰勒米",
+      "pt": "São Bartolomeu",
+      "it": "Saint-Barthélemy"
+    },
+    "capital": "Gustavia",
+    "area": 21,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Saint Helena, Ascension and Tristan da Cunha",
+      "fr": "Sainte-Hélène, Ascension et Tristan da Cunha",
+      "es": "Santa Elena, Ascensión y Tristán de Acuña",
+      "ca": "Saint Helena",
+      "cn": "圣赫勒拿、阿森松和特里斯坦-达库尼亚",
+      "pt": "Santa Helena, Ascensão e Tristão da Cunha",
+      "it": "Sant'Elena, Ascensione e Tristan da Cunha"
+    },
+    "capital": "Jamestown",
+    "area": 394,
+    "currency": "SHP"
+  },
+  {
+    "name": {
+      "en": "Saint Kitts and Nevis",
+      "fr": "Saint-Christophe-et-Niévès",
+      "es": "San Cristóbal y Nieves",
+      "ca": "Saint Christopher i Nevis",
+      "de": "St. Kitts und Nevis",
+      "cn": "圣基茨和尼维斯",
+      "pt": "São Cristóvão e Névis",
+      "it": "Saint Kitts e Nevis"
+    },
+    "capital": "Basseterre",
+    "area": 261,
+    "currency": "XCD"
+  },
+  {
+    "name": {
+      "en": "Saint Lucia",
+      "fr": "Sainte-Lucie",
+      "es": "Santa Lucía",
+      "ca": "Saint Lucia",
+      "de": "St. Lucia",
+      "cn": "圣卢西亚",
+      "pt": "Santa Lúcia",
+      "it": "Saint Lucia"
+    },
+    "capital": "Castries",
+    "area": 616,
+    "currency": "XCD"
+  },
+  {
+    "name": {
+      "en": "Saint Pierre and Miquelon",
+      "fr": "Saint-Pierre-et-Miquelon",
+      "es": "San Pedro y Miquelón",
+      "ca": "Saint-Pierre-et-Miquelon",
+      "cn": "圣皮埃尔和密克隆",
+      "pt": "Saint-Pierre e Miquelon",
+      "it": "Saint-Pierre e Miquelon"
+    },
+    "capital": "Saint-Pierre",
+    "area": 242,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Saint Vincent and the Grenadines",
+      "fr": "Saint-Vincent-et-les-Grenadines",
+      "es": "San Vicente y las Granadinas",
+      "ca": "Saint Vincent i les Grenadines",
+      "de": "St. Vincent und die Grenadinen",
+      "cn": "圣文森特和格林纳丁斯",
+      "pt": "São Vicente e Granadinas",
+      "it": "Saint Vincent e Grenadine"
+    },
+    "capital": "Kingstown",
+    "area": 389,
+    "currency": "XCD"
+  },
+  {
+    "name": {
+      "en": "Samoa",
+      "fr": "Samoa",
+      "es": "Samoa",
+      "ca": "Samoa",
+      "de": "Samoa",
+      "cn": "萨摩亚",
+      "pt": "Samoa",
+      "it": "Samoa"
+    },
+    "capital": "Apia",
+    "area": 2842,
+    "currency": "WST"
+  },
+  {
+    "name": {
+      "en": "San Marino",
+      "fr": "Saint-Marin",
+      "es": "San Marino",
+      "ca": "San Marino",
+      "de": "San Marino",
+      "cn": "圣马力诺",
+      "pt": "San Marino",
+      "it": "San Marino"
+    },
+    "capital": "City of San Marino",
+    "area": 61,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Saudi Arabia",
+      "fr": "Arabie saoudite",
+      "es": "Arabia Saudita",
+      "ca": "Aràbia Saudita",
+      "de": "Saudi-Arabien",
+      "cn": "沙烏地阿拉伯",
+      "pt": "Arábia Saudita",
+      "it": "Arabia Saudita"
+    },
+    "capital": "Riyadh",
+    "area": 2149690,
+    "currency": "SAR"
+  },
+  {
+    "name": {
+      "en": "Senegal",
+      "fr": "Sénégal",
+      "es": "Senegal",
+      "ca": "Senegal",
+      "de": "Senegal",
+      "cn": "塞内加尔",
+      "pt": "Senegal",
+      "it": "Senegal"
+    },
+    "capital": "Dakar",
+    "area": 196722,
+    "currency": "XOF"
+  },
+  {
+    "name": {
+      "en": "Serbia",
+      "fr": "Serbie",
+      "es": "Serbia",
+      "ca": "Sèrbia",
+      "de": "Serbien",
+      "cn": "塞爾維亞",
+      "pt": "Sérvia",
+      "it": "Serbia"
+    },
+    "capital": "Belgrade",
+    "area": 88361,
+    "currency": "RSD"
+  },
+  {
+    "name": {
+      "en": "Seychelles",
+      "fr": "Seychelles",
+      "es": "Seychelles",
+      "ca": "Seychelles",
+      "de": "Seychellen",
+      "cn": "塞舌尔",
+      "pt": "Seicheles",
+      "it": "Seychelles"
+    },
+    "capital": "Victoria",
+    "area": 452,
+    "currency": "SCR"
+  },
+  {
+    "name": {
+      "en": "Sierra Leone",
+      "fr": "Sierra Leone",
+      "es": "Sierra Leona",
+      "ca": "Sierra Leone",
+      "de": "Sierra Leone",
+      "cn": "塞拉利昂",
+      "pt": "Serra Leoa",
+      "it": "Sierra Leone"
+    },
+    "capital": "Freetown",
+    "area": 71740,
+    "currency": "SLL"
+  },
+  {
+    "name": {
+      "en": "Singapore",
+      "fr": "Singapour",
+      "es": "Singapur",
+      "ca": "Singapur",
+      "de": "Singapur",
+      "cn": "新加坡",
+      "pt": "Singapura",
+      "it": "Singapore"
+    },
+    "capital": "Singapore",
+    "area": 710,
+    "currency": "SGD"
+  },
+  {
+    "name": {
+      "en": "Slovakia",
+      "fr": "Slovaquie",
+      "es": "Eslovaquia",
+      "ca": "Eslovàquia",
+      "de": "Slowakei",
+      "cn": "斯洛伐克",
+      "pt": "Eslováquia",
+      "it": "Slovacchia"
+    },
+    "capital": "Bratislava",
+    "area": 49037,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Slovenia",
+      "fr": "Slovénie",
+      "es": "Eslovenia",
+      "ca": "Eslovènia",
+      "de": "Slowenien",
+      "cn": "斯洛維尼亞",
+      "pt": "Eslovênia",
+      "it": "Slovenia"
+    },
+    "capital": "Ljubljana",
+    "area": 20273,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Solomon Islands",
+      "fr": "Salomon",
+      "es": "Islas Salomón",
+      "ca": "Illes Salomó",
+      "de": "Salomonen",
+      "cn": "所罗门群岛",
+      "pt": "Ilhas Salomão",
+      "it": "Isole Salomone"
+    },
+    "capital": "Honiara",
+    "area": 28896,
+    "currency": "SBD"
+  },
+  {
+    "name": {
+      "en": "Somalia",
+      "fr": "Somalie",
+      "es": "Somalia",
+      "ca": "Somàlia",
+      "de": "Somalia",
+      "cn": "索馬利亞",
+      "pt": "Somália",
+      "it": "Somalia"
+    },
+    "capital": "Mogadishu",
+    "area": 637657,
+    "currency": "SOS"
+  },
+  {
+    "name": {
+      "en": "South Africa",
+      "fr": "Afrique du Sud",
+      "es": "Sudáfrica",
+      "ca": "República de Sud-àfrica",
+      "de": "Südafrika",
+      "cn": "南非",
+      "pt": "África do Sul",
+      "it": "Sudafrica"
+    },
+    "capital": "Pretoria",
+    "area": 1221037,
+    "currency": "ZAR"
+  },
+  {
+    "name": {
+      "en": "South Sudan",
+      "fr": "Soudan du Sud",
+      "es": "Sudán del Sur",
+      "ca": "Sudan del Sud",
+      "de": "Südsudan",
+      "cn": "南蘇丹",
+      "pt": "Sudão do Sul",
+      "it": "Sudan del Sud"
+    },
+    "capital": "Juba",
+    "area": 619745,
+    "currency": "SSP"
+  },
+  {
+    "name": {
+      "en": "Spain",
+      "fr": "Espagne",
+      "es": "España",
+      "ca": "Espanya",
+      "de": "Spanien",
+      "cn": "西班牙",
+      "pt": "Espanha",
+      "it": "Spagna"
+    },
+    "capital": "Madrid",
+    "area": 505992,
+    "currency": "EUR"
+  },
+  {
+    "name": {
+      "en": "Sri Lanka",
+      "fr": "Sri Lanka",
+      "es": "Sri Lanka",
+      "ca": "Sri Lanka",
+      "de": "Sri Lanka",
+      "cn": "斯里蘭卡",
+      "pt": "Sri Lanka",
+      "it": "Sri Lanka"
+    },
+    "capital": "Colombo",
+    "area": 65610,
+    "currency": "LKR"
+  },
+  {
+    "name": {
+      "en": "Sudan",
+      "fr": "Soudan",
+      "es": "Sudán",
+      "ca": "Sudan",
+      "de": "Sudan",
+      "cn": "苏丹",
+      "pt": "Sudão",
+      "it": "Sudan"
+    },
+    "capital": "Khartoum",
+    "area": 1886068,
+    "currency": "SDG"
+  },
+  {
+    "name": {
+      "en": "Suriname",
+      "fr": "Suriname",
+      "es": "Surinam",
+      "ca": "Surinam",
+      "de": "Suriname",
+      "cn": "苏里南",
+      "pt": "Suriname",
+      "it": "Suriname"
+    },
+    "capital": "Paramaribo",
+    "area": 163820,
+    "currency": "SRD"
+  },
+  {
+    "name": {
+      "en": "Svalbard and Jan Mayen",
+      "fr": "Svalbard et ile Jan Mayen",
+      "es": "Svalbard y Jan Mayen",
+      "ca": "Svalbard i Jan Mayen",
+      "cn": "斯瓦尔巴和扬马延",
+      "pt": "Svalbard e Jan Mayen",
+      "it": "Svalbard e Jan Mayen"
+    },
+    "capital": "Longyearbyen",
+    "area": -1,
+    "currency": "NOK"
+  },
+  {
+    "name": {
+      "en": "Sweden",
+      "fr": "Suède",
+      "es": "Suecia",
+      "ca": "Suècia",
+      "de": "Schweden",
+      "cn": "瑞典",
+      "pt": "Suécia",
+      "it": "Svezia"
+    },
+    "capital": "Stockholm",
+    "area": 450295,
+    "currency": "SEK"
+  },
+  {
+    "name": {
+      "en": "Switzerland",
+      "fr": "Suisse",
+      "es": "Suiza",
+      "ca": "Suïssa",
+      "de": "Schweiz",
+      "cn": "瑞士",
+      "pt": "Suíça",
+      "it": "Svizzera"
+    },
+    "capital": "Bern",
+    "area": 41284,
+    "currency": "CHF"
+  },
+  {
+    "name": {
+      "en": "Tajikistan",
+      "fr": "Tadjikistan",
+      "es": "Tayikistán",
+      "ca": "Tadjikistan",
+      "de": "Tadschikistan",
+      "cn": "塔吉克斯坦",
+      "pt": "Tajiquistão",
+      "it": "Tagikistan"
+    },
+    "capital": "Dushanbe",
+    "area": 143100,
+    "currency": "TJS"
+  },
+  {
+    "name": {
+      "en": "Thailand",
+      "fr": "Thaïlande",
+      "es": "Tailandia",
+      "ca": "Tailàndia",
+      "de": "Thailand",
+      "cn": "泰國",
+      "pt": "Tailândia",
+      "it": "Thailandia"
+    },
+    "capital": "Bangkok",
+    "area": 513120,
+    "currency": "THB"
+  },
+  {
+    "name": {
+      "en": "Timor-Leste",
+      "fr": "Timor oriental",
+      "es": "Timor Oriental",
+      "ca": "Timor Oriental",
+      "de": "Osttimor",
+      "cn": "东帝汶",
+      "pt": "Timor-Leste",
+      "it": "Timor Est"
+    },
+    "capital": "Dili",
+    "area": 14874,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Togo",
+      "fr": "Togo",
+      "es": "Togo",
+      "ca": "Togo",
+      "de": "Togo",
+      "cn": "多哥",
+      "pt": "Togo",
+      "it": "Togo"
+    },
+    "capital": "Lomé",
+    "area": 56785,
+    "currency": "XOF"
+  },
+  {
+    "name": {
+      "en": "Tokelau",
+      "fr": "Tokelau",
+      "es": "Tokelau",
+      "ca": "Tokelau",
+      "cn": "托克勞",
+      "pt": "Toquelau",
+      "it": "Tokelau"
+    },
+    "capital": "Fakaofo",
+    "area": 12,
+    "currency": "NZD"
+  },
+  {
+    "name": {
+      "en": "Tonga",
+      "fr": "Tonga",
+      "es": "Tonga",
+      "ca": "Tonga",
+      "de": "Tonga",
+      "cn": "汤加",
+      "pt": "Tonga",
+      "it": "Tonga"
+    },
+    "capital": "Nuku'alofa",
+    "area": 747,
+    "currency": "TOP"
+  },
+  {
+    "name": {
+      "en": "Trinidad and Tobago",
+      "fr": "Trinité-et-Tobago",
+      "es": "Trinidad y Tobago",
+      "ca": "Trinitat i Tobago",
+      "de": "Trinidad und Tobago",
+      "cn": "千里達及托巴哥",
+      "pt": "Trinidad e Tobago",
+      "it": "Trinidad e Tobago"
+    },
+    "capital": "Port of Spain",
+    "area": 5130,
+    "currency": "TTD"
+  },
+  {
+    "name": {
+      "en": "Tunisia",
+      "fr": "Tunisie",
+      "es": "Túnez",
+      "ca": "Tunísia",
+      "de": "Tunesien",
+      "cn": "突尼西亞",
+      "pt": "Tunísia",
+      "it": "Tunisia"
+    },
+    "capital": "Tunis",
+    "area": 163610,
+    "currency": "TND"
+  },
+  {
+    "name": {
+      "en": "Turkey",
+      "fr": "Turquie",
+      "es": "Turquía",
+      "ca": "Turquia",
+      "de": "Türkei",
+      "cn": "土耳其",
+      "pt": "Turquia",
+      "it": "Turchia"
+    },
+    "capital": "Ankara",
+    "area": 783562,
+    "currency": "TRY"
+  },
+  {
+    "name": {
+      "en": "Turkmenistan",
+      "fr": "Turkménistan",
+      "es": "Turkmenistán",
+      "ca": "Turkmenistan",
+      "de": "Turkmenistan",
+      "cn": "土库曼斯坦",
+      "pt": "Turquemenistão",
+      "it": "Turkmenistan"
+    },
+    "capital": "Ashgabat",
+    "area": 488100,
+    "currency": "TMT"
+  },
+  {
+    "name": {
+      "en": "Turks and Caicos Islands",
+      "fr": "Îles Turques-et-Caïques",
+      "es": "Islas Turcas y Caicos",
+      "ca": "Illes Turks i Caicos",
+      "cn": "特克斯和凯科斯群岛",
+      "pt": "Turks e Caicos",
+      "it": "Turks e Caicos"
+    },
+    "capital": "Cockburn Town",
+    "area": 948,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Tuvalu",
+      "fr": "Tuvalu",
+      "es": "Tuvalu",
+      "ca": "Tuvalu",
+      "de": "Tuvalu",
+      "cn": "图瓦卢",
+      "pt": "Tuvalu",
+      "it": "Tuvalu"
+    },
+    "capital": "Funafuti",
+    "area": 26,
+    "currency": "AUD"
+  },
+  {
+    "name": {
+      "en": "Uganda",
+      "fr": "Ouganda",
+      "es": "Uganda",
+      "ca": "Uganda",
+      "de": "Uganda",
+      "cn": "乌干达",
+      "pt": "Uganda",
+      "it": "Uganda"
+    },
+    "capital": "Kampala",
+    "area": 241550,
+    "currency": "UGX"
+  },
+  {
+    "name": {
+      "en": "Ukraine",
+      "fr": "Ukraine",
+      "es": "Ucrania",
+      "ca": "Ucraïna",
+      "de": "Ukraine",
+      "cn": "烏克蘭",
+      "pt": "Ucrânia",
+      "it": "Ucraina"
+    },
+    "capital": "Kyiv",
+    "area": 603500,
+    "currency": "UAH"
+  },
+  {
+    "name": {
+      "en": "United Arab Emirates",
+      "fr": "Émirats arabes unis",
+      "es": "Emiratos Árabes Unidos",
+      "ca": "Emirats Àrabs Units",
+      "de": "Vereinigte Arabische Emirate",
+      "cn": "阿联酋",
+      "pt": "Emirados Árabes Unidos",
+      "it": "Emirati Arabi Uniti"
+    },
+    "capital": "Abu Dhabi",
+    "area": 83600,
+    "currency": "AED"
+  },
+  {
+    "name": {
+      "en": "United States",
+      "fr": "États Unis",
+      "es": "Estados Unidos",
+      "ca": "Estats Units",
+      "de": "Vereinigte Staaten",
+      "cn": "美国",
+      "pt": "Estados Unidos",
+      "it": "Stati Uniti"
+    },
+    "capital": "Washington DC",
+    "area": 9834000,
+    "currency": "USD"
+  },
+  {
+    "name": {
+      "en": "Uruguay",
+      "fr": "Uruguay",
+      "es": "Uruguay",
+      "ca": "Uruguai",
+      "de": "Uruguay",
+      "cn": "乌拉圭",
+      "pt": "Uruguai",
+      "it": "Uruguay"
+    },
+    "capital": "Montevideo",
+    "area": 181034,
+    "currency": "UYU"
+  },
+  {
+    "name": {
+      "en": "Uzbekistan",
+      "fr": "Ouzbékistan",
+      "es": "Uzbekistán",
+      "ca": "Uzbekistan",
+      "de": "Usbekistan",
+      "cn": "乌兹别克斯坦",
+      "pt": "Uzbequistão",
+      "it": "Uzbekistan"
+    },
+    "capital": "Tashkent",
+    "area": 447400,
+    "currency": "UZS"
+  },
+  {
+    "name": {
+      "en": "Vanuatu",
+      "fr": "Vanuatu",
+      "es": "Vanuatu",
+      "ca": "Vanuatu",
+      "de": "Vanuatu",
+      "cn": "瓦努阿圖",
+      "pt": "Vanuatu",
+      "it": "Vanuatu"
+    },
+    "capital": "Port Vila",
+    "area": 12189,
+    "currency": "VUV"
+  },
+  {
+    "name": {
+      "en": "Wallis and Futuna",
+      "fr": "Wallis et Futuna",
+      "es": "Wallis y Futuna",
+      "ca": "Wallis i Futuna",
+      "cn": "瓦利斯和富圖納",
+      "pt": "Wallis e Futuna",
+      "it": "Wallis e Futuna"
+    },
+    "capital": "Mata Utu",
+    "area": 142,
+    "currency": "XPF"
+  },
+  {
+    "name": {
+      "en": "Western Sahara",
+      "fr": "République arabe sahraouie démocratique",
+      "es": "República Árabe Saharaui Democrática",
+      "ca": "Sàhara Occidental",
+      "cn": "阿拉伯撒哈拉民主共和国",
+      "pt": "Saara Ocidental",
+      "it": "Sahara Occidentale"
+    },
+    "capital": "El Aaiún",
+    "area": 266000,
+    "currency": "MAD"
+  },
+  {
+    "name": {
+      "en": "Yemen",
+      "fr": "Yémen",
+      "es": "Yemen",
+      "ca": "Iemen",
+      "de": "Jemen",
+      "cn": "葉門",
+      "pt": "Iêmen",
+      "it": "Yemen"
+    },
+    "capital": "Sana'a",
+    "area": 527968,
+    "currency": "YER"
+  },
+  {
+    "name": {
+      "en": "Zambia",
+      "fr": "Zambie",
+      "es": "Zambia",
+      "ca": "Zàmbia",
+      "de": "Sambia",
+      "cn": "尚比亞",
+      "pt": "Zâmbia",
+      "it": "Zambia"
+    },
+    "capital": "Lusaka",
+    "area": 752612,
+    "currency": "ZMW"
+  },
+  {
+    "name": {
+      "en": "Zimbabwe",
+      "fr": "Zimbabwe",
+      "es": "Zimbabue",
+      "ca": "Zimbàbue",
+      "de": "Simbabwe",
+      "cn": "辛巴威",
+      "pt": "Zimbabwe",
+      "it": "Zimbabwe"
+    },
+    "capital": "Harare",
+    "area": 390757,
+    "currency": "ZWL"
+  }
+]
