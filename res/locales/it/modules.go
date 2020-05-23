@@ -234,7 +234,7 @@ func init() {
 func ArticleCountries(name string) string {
 	firstCharacters := name[0]
 	lastCharacters := name[len(name)-1]
-	var article string
+	
 	if name == "Stati Uniti" {
 		return "degli " + name
 		
