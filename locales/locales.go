@@ -7,6 +7,7 @@ import (
 	_ "github.com/olivia-ai/olivia/res/locales/en"
 	_ "github.com/olivia-ai/olivia/res/locales/es"
 	_ "github.com/olivia-ai/olivia/res/locales/fr"
+	_ "github.com/olivia-ai/olivia/res/locales/it"
 )
 
 // Locales is the list of locales's tags and names
@@ -33,6 +34,10 @@ var Locales = []Locale{
 		Tag:  "ca",
 		Name: "catalan",
 	},
+	{
+		Tag:  "it",
+		Name: "italian",
+	}
 }
 
 // A Locale is a registered locale in the file
