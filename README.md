@@ -162,7 +162,7 @@ Please refer to the [contributing file](.github/CONTRIBUTING.md)
 Thanks to the people who contribute to Olivia. 
 
 [Contribute](.github/CONTRIBUTING.md)
-<a href="https://github.com/olivia-ai/olivia/graphs/contributors"><img src="https://opencollective.com/olivia-ai/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/olivia-ai/olivia/graphs/contributors"><img src="https://opencollective.com/olivia-ai/contributors.svg?width=950&button=false" /></a>
 
 ### Financial Contributors
 Become a financial contributor and help Olivia growth. 
