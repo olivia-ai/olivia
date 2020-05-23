@@ -13,7 +13,7 @@ var MathDecimals = map[string]string{
 	"fr": `(\d+( |-)decimale(s)?)|(nombre (de )?decimale(s)? (est )?\d+)`,
 	"es": `(\d+( |-)decimale(s)?)|(numero (de )?decimale(s)? (de )?\d+)`,
 	"ca": `(\d+( |-)decimal(s)?)|(nombre (de )?decimal(s)? (de )?\d+)`,
-	"it": `(\d+( |-)decimale(s)?)|(numero (di )?decimali(s)? (è )?\d+)`,
+	"it": `(\d+( |-)decimale(s)?)|(numero (di )?decimale(s)? (è )?\d+)`,
 }
 
 // FindMathOperation finds a math operation in a string an returns it
