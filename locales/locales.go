@@ -37,7 +37,7 @@ var Locales = []Locale{
 	{
 		Tag:  "it",
 		Name: "italian",
-	}
+	},
 }
 
 // A Locale is a registered locale in the file
