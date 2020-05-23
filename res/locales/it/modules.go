@@ -1,11 +1,11 @@
-package en
+package it
 
 import (
 	"github.com/olivia-ai/olivia/modules"
 )
 
 func init() {
-	modules.RegisterModules("en", []modules.Module{
+	modules.RegisterModules("it", []modules.Module{
 		// AREA
 		// For modules related to countries, please add the translations of the countries' names
 		// or open an issue to ask for translations.
@@ -26,12 +26,13 @@ func init() {
 		{
 			Tag: modules.CapitalTag,
 			Patterns: []string{
-				"What is the capital of ",
-				"What's the capital of ",
-				"Give me the capital of ",
+				"Qual è la capitale ",
+				"Dimmi la capitale ",
+				"Dammi la capitale ",
+				"Come si chiama la capitale",
 			},
 			Responses: []string{
-				"The capital of %s is %s",
+				"La capitale %s è %s",
 			},
 			Replacer: modules.CapitalReplacer,
 		},
@@ -40,13 +41,13 @@ func init() {
 		{
 			Tag: modules.CurrencyTag,
 			Patterns: []string{
-				"Which currency is used in ",
-				"Give me the used currency of ",
-				"Give me the currency of ",
-				"What is the currency of ",
+				"Che moneta è usata in ",
+				"Dammi la moneta in ",
+				"Qual è la moneta in ",
+				"Che moneta si usa in ",
 			},
 			Responses: []string{
-				"The currency of %s is %s",
+				"La moneta %s è %s",
 			},
 			Replacer: modules.CurrencyReplacer,
 		},
@@ -55,15 +56,15 @@ func init() {
 		// A regex translation is also required in `language/math.go`, please don't forget to translate it.
 		// Otherwise, remove the registration of the Math module in this file.
 
-		{
+		/*{
 			Tag: modules.MathTag,
 			Patterns: []string{
-				"Give me the result of ",
-				"Calculate ",
+				"Dammi il risultato di ",
+				"Calcola ",
 			},
 			Responses: []string{
-				"The result is %s",
-				"That makes %s",
+				"Il risultato è %s",
+				"Il risultato ottenuto è %s",
 			},
 			Replacer: modules.MathReplacer,
 		},
@@ -221,7 +222,7 @@ func init() {
 			Replacer: modules.SpotifyPlayerReplacer,
 		},
 	})
-
+*/
 	// COUNTRIES
 	// Please translate this method for adding the correct article in front of countries names.
 	// Otherwise, remove the countries modules from this file.
@@ -231,9 +232,34 @@ func init() {
 
 // ArticleCountries returns the country with its article in front.
 func ArticleCountries(name string) string {
-	if name == "United States" {
-		return "the " + name
+	firstCharacters := name[0]
+	lastCharacters := name[len(name)-1]
+	var article string
+	if name == "Stati Uniti" {
+		return "degli " + name
+		
+	}else if name == "Filippine" {
+		return "delle " + name
+		
+	}else if string(firstCharacters) == "A" {
+		return = "dell'" + name
+		
+	}else if string(firstCharacters) == "E" {
+		return = "dell'" + name
+	
+	}else if string(firstCharacters) == "I" {
+		return = "dell'" + name
+		
+	}else if string(firstCharacters) == "O" {
+		return = "dell'" + name
+	}else if string(firstCharacters) == "U" {
+		return = "dell'" + name
+		
+	}else if string(lastCharacters) == "a" {
+		return = "della " + name
+		
+	}else{
+		return = "del " + name
 	}
-
-	return name
+	
 }
