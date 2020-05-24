@@ -143,6 +143,7 @@ And all done!
 - <img src="https://i.imgur.com/2DWxeF9.png" width="25"> Catalan
 - <img src="https://i.imgur.com/0dVqbjf.png" width="25"> French
 - <img src="https://i.imgur.com/sXLQp8e.png" width="25"> German
+- <img src="https://i.imgur.com/DGNcrRF.png" width="25"> Italian
 - <img src="https://i.imgur.com/kB0RoFZ.png" width="25"> Brazilian portuguese - not completed
 
 ### Coverage
