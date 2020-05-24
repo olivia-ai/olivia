@@ -168,7 +168,7 @@ Thanks to the people who contribute to Olivia.
 ### Financial Contributors
 Become a financial contributor and help Olivia growth. 
 
-Contribute on the GitHub page on [hugolgst](https://github.com/sponsors/hugolgst) ❤️
+Contribute on the GitHub page of [hugolgst](https://github.com/sponsors/hugolgst) ❤️
 
 ## License
 
