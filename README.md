@@ -53,7 +53,7 @@ Try it on [her website!](https://olivia-ai.org)
 ### Why Olivia?
 - The only chatbot project in Go that could be modulable and customizable.
 - Using daily a privacy-friendly chatbot is great.
-- The Website is a Progessive Web Application, which means you can add it to your phone and it seems like a native app!
+- The Website is a Progressive Web Application, which means you can add it to your phone and it seems like a native app!
 
 
 ## Getting started
