@@ -220,6 +220,19 @@ func init() {
 			},
 			Replacer: modules.SpotifyPlayerReplacer,
 		},
+
+		{
+			Tag: modules.JokesTag,
+			Patterns: []string{
+				"Tell me a joke",
+				"Make me laugh",
+			},
+			Responses: []string{
+				"Here you go, %s",
+				"Here's one, %s",
+			},
+			Replacer: modules.JokesReplacer,
+		},
 	})
 
 	// COUNTRIES
