@@ -67,7 +67,7 @@ $ docker pull docker.pkg.github.com/olivia-ai/olivia/olivia:latest
 
 Then start it
 ```bash
-$ docker run -d -p 8080:8080 docker.pkg.github.com/olivia-ai/olivia/olivia:latest
+$ docker run -p 8080:8080 -e PORT=8080 docker.pkg.github.com/olivia-ai/olivia/olivia:latest
 ```
 
 You can just use the websocket of Olivia now.
