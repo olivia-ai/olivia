@@ -9,11 +9,12 @@ import (
 	"github.com/olivia-ai/olivia/util"
 )
 
-const JOKEURL = "https://official-joke-api.appspot.com/random_joke"
+const jokeURL = "https://official-joke-api.appspot.com/random_joke"
 
 // JokesTag is the intent tag for its module
 var JokesTag = "jokes"
 
+// Joke represents the response from the joke api
 type Joke struct {
 	ID        int64  `json:"id"`
 	Type      string `json:"type"`
@@ -21,12 +22,12 @@ type Joke struct {
 	Punchline string `json:"punchline"`
 }
 
-// CurrencyReplacer replaces the pattern contained inside the response by the currency of the country
-// specified in the message.
+// JokesReplacer replaces the pattern contained inside the response by a random joke from the api
+// specified in jokeURL.
 // See modules/modules.go#Module.Replacer() for more details.
 func JokesReplacer(locale, entry, response, _ string) (string, string) {
 
-	resp, err := http.Get(JOKEURL)
+	resp, err := http.Get(jokeURL)
 	if err != nil {
 		responseTag := "no jokes"
 		return responseTag, util.GetMessage(locale, responseTag)
