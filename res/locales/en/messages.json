@@ -104,5 +104,11 @@
     "messages": [
       "Sorry I can't find any movie genre in your data, try to set your preferences with “I like adventure movies”"
     ]
+  },
+  {
+    "tag": "no jokes",
+    "messages": [
+      "Sorry I couldn't come up with a joke. Please don't unplug me."
+    ]
   }
 ]
