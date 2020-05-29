@@ -1,114 +1,114 @@
 [
   {
-    "tag": "don't understand",
+    "tag": "anlamadım",
     "messages": [
-      "I'm trying to do my best but I don't understand",
-      "I'm not sure what message you want to communicate to me",
+      "Elimden geleni yapmaya çalışıyorum, ancak anlamıyorum.",
+      "Ne demek istediğinizi tam olarak anladığımdan emin değilim.",
       "I'm still young, you could help me to better understand on my GitHub",
-      "I can't understand your request, sorry"
+      "Isteğini anlamıyorum, üzgünüm"
     ]
   },
   {
-    "tag": "list reminders",
+    "tag": "hatırlatıcıları listele",
     "messages": [
-      "Hello %s! For today you have these reminders: %s."
+      "Selam %s! Bu gün için hatırlatmalarınız var: %s."
     ]
   },
   {
-    "tag": "no permission",
+    "tag": "Yetkiniz yok",
     "messages": [
-      "You don't have the permission to do this."
+      "Bu işlemi gerçekleştirmek için yetkiniz yok."
     ]
   },
   {
-    "tag": "patterns same",
+    "tag": "Aynı dizilim",
     "messages": [
-      "The patterns and/or responses can't be empty."
+      "Dizilim ve/veya kalıplar aynı olamaz."
     ]
   },
   {
-    "tag": "tags same",
+    "tag": "aynı Etiketler",
     "messages": [
-      "An intent already exists with this tag."
+      "Bu etiketle oluşturulmuş bir intent zaten var."
     ]
   },
   {
-    "tag": "spotify tokens",
+    "tag": "spotify Token'ları",
     "messages": [
-      "You need to send the two tokens."
+      "Iki token'ı da göndermeniz gerekiyor."
     ]
   },
   {
-    "tag": "reminder",
+    "tag": "hatılatıcı",
     "messages": [
-      "- “%s” for the %s"
+      "- “%s” için %s"
     ]
   },
   {
-    "tag": "no reminders",
+    "tag": "Hatırlatıcı yok",
     "messages": [
-      "You have no reminders saved."
+      "Kayıtlı hatırlatıcınız yok."
     ]
   },
   {
-    "tag": "spotify credentials",
+    "tag": "spotify bilgileri",
     "messages": [
-      "You need to enter your Spotify credentials."
+      "Spotify kimlik bilgilerinizi girmeniz gerekiyor."
     ]
   },
   {
-    "tag": "spotify login",
+    "tag": "spotify giriş",
     "messages": [
-      "Login in progress <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+      "Giriş işlemi <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
     ]
   },
   {
-    "tag": "too long",
+    "tag": "çok uzun",
     "messages": [
-      "Please reduce the size of your message to less than 500"
+      "Lütfen mesajınızın boyutunu 500'den daha küçük bir boyuta indirin"
     ]
   },
   {
-    "tag": "no country",
+    "tag": "ülke yok",
     "messages": [
-      "I did not find a country in your message"
+      "Mesajınızda bir ülke bulamadım."
     ]
   },
   {
-    "tag": "math not valid",
+    "tag": "geçerli bir matematik işlemi değil",
     "messages": [
-      "Your math expression is not valid",
-      "Please review your math expression"
+      "Matematik ifadeniz geçerli değil",
+      "Lütfen matematik ifadenizi gözden geçirin"
     ]
   },
   {
-    "tag": "don't know name",
+    "tag": "adını bilmiyorum",
     "messages": [
-      "I'm sorry but I don't know your name yet"
+      "Üzgünüm ama, henüz ismini bilmiyorum"
     ]
   },
   {
-    "tag": "no name",
+    "tag": "isimsiz",
     "messages": [
-      "I am sorry I can't find a name in your message."
+      "Mesajınızda bir isim bulamadığım için üzgünüm."
     ]
   },
   {
-    "tag": "no genres",
+    "tag": "tür yok",
     "messages": [
-      "Sorry, I can't find any movie genre in your message, try these: Action, Adventure, Animation, Children, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, Musical, Mystery, Romance, Sci-Fi, Thriller, War and Western"
+      "Üzgünüm, mesajınızda hiç film türü bulamıyorum, şunları denemeye ne dersin: Aksiyon, Macera, Animasyon, Çocuklar, Komedi, Suç, Belgesel, Drama, Fantastik, Kara Film, Korku, Müzikal, Gizem, Romantik, Bilimkurgu , Gerilim, Savaş ve Batı"
     ]
   },
   {
-    "tag": "no genres saved",
+    "tag": "kaydedilmiş tür yok",
     "messages": [
-      "Sorry I can't find any movie genre in your data, try to set your preferences with “I like adventure movies”"
+      "Maalesef verilerinizde hiç film türü bulamıyorum, lütfen tercihlerinizi “Macera filmlerini seviyorum” gibi ifadeler kullanarak ayarlamaya çalışın"
     ]
   },
   {
-    "tag": "no jokes",
+    "tag": "şaka yok",
     "messages": [
-      "Sorry I couldn't come up with a joke. Please don't unplug me."
+      "Üzgünüm ben bir şaka göremedim. Lütfen fişimi çekmeyin."
     ]
   }
 ]

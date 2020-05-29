@@ -13,11 +13,11 @@ func init() {
 		{
 			Tag: modules.AreaTag,
 			Patterns: []string{
-				"What is the area of ",
-				"Give me the area of ",
+				"Alanı nedir ",
+				"Bana alanını ver ",
 			},
 			Responses: []string{
-				"The area of %s is %gkm²",
+				"%s bölgesinin alanı %gkm²",
 			},
 			Replacer: modules.AreaReplacer,
 		},
@@ -26,12 +26,12 @@ func init() {
 		{
 			Tag: modules.CapitalTag,
 			Patterns: []string{
-				"What is the capital of ",
-				"What's the capital of ",
-				"Give me the capital of ",
+				"Başkenti ",
+				"Başkenti neresidir",
+				"ülkenin başkenti ",
 			},
 			Responses: []string{
-				"The capital of %s is %s",
+				"%s ülkesinin başkenti %s",
 			},
 			Replacer: modules.CapitalReplacer,
 		},
@@ -40,13 +40,13 @@ func init() {
 		{
 			Tag: modules.CurrencyTag,
 			Patterns: []string{
-				"Which currency is used in ",
-				"Give me the used currency of ",
-				"Give me the currency of ",
-				"What is the currency of ",
+				"Hangi para birimini kullanır ",
+				"para birimini söyle ",
+				"bana para birimini ver ",
+				"para birimi nedir ",
 			},
 			Responses: []string{
-				"The currency of %s is %s",
+				"%s ülkesinin para birimi %s",
 			},
 			Replacer: modules.CurrencyReplacer,
 		},
@@ -58,12 +58,12 @@ func init() {
 		{
 			Tag: modules.MathTag,
 			Patterns: []string{
-				"Give me the result of ",
-				"Calculate ",
+				"Sonucunu ver ",
+				"Hesapla ",
 			},
 			Responses: []string{
-				"The result is %s",
-				"That makes %s",
+				"Sonuç %s",
+				"Hesaplanan sonuç %s",
 			},
 			Replacer: modules.MathReplacer,
 		},
@@ -76,12 +76,12 @@ func init() {
 		{
 			Tag: modules.GenresTag,
 			Patterns: []string{
-				"I like movies of adventure, animation",
-				"I watch movies of sci-fi",
+				"Macera, animasyon filmlerini severim",
+				"Bilim kurgu filmleri izlerim",
 			},
 			Responses: []string{
-				"Great choices! I save them into your client.",
-				"Understood, I send this information to your client.",
+				"Harika seçimler! Bunları müşterinize saklıyorum.",
+				"Anlaşıldı, bu bilgileri müşterinize gönderiyorum.",
 			},
 			Replacer: modules.GenresReplacer,
 		},
@@ -89,14 +89,14 @@ func init() {
 		{
 			Tag: modules.MoviesTag,
 			Patterns: []string{
-				"Can you find me a movie of",
-				"Give me a movie of",
-				"Find me a film of",
-				"I would like to watch a movie of",
+				"Bana bir film bulabilir misin",
+				"Bana bir film verir misin",
+				"bu türlerde bir film bakar mısın",
+				"Bu tarz filmler izlemekten hoşlanırım: ",
 			},
 			Responses: []string{
-				"I found this for you “%s” which is rated %.02f/5",
-				"Sure, I found this movie “%s” rated %.02f/5",
+				"Bunları senin için buldum “%s” ve puanı %.02f/5 olanları listeledim.",
+				"Tabii ki, Bu filmi buldum “%s” puanı da: %.02f/5",
 			},
 			Replacer: modules.MovieSearchReplacer,
 		},
@@ -104,12 +104,12 @@ func init() {
 		{
 			Tag: modules.MoviesAlreadyTag,
 			Patterns: []string{
-				"I already saw this movie",
-				"I have already watched this film",
-				"Oh I have already watched this movie",
+				"Bu filmi çoktan gördüm",
+				"Bu filmi çoktan izledim",
+				"Ohooo, bu filmi çoktan izledim",
 			},
 			Responses: []string{
-				"Oh I see, here's another one “%s” which is rated %.02f/5",
+				"Ah anlıyorum, İşte burada tam da aynı tadda “%s” hem de puanı %.02f/5",
 			},
 			Replacer: modules.MovieSearchReplacer,
 		},
@@ -117,11 +117,11 @@ func init() {
 		{
 			Tag: modules.MoviesDataTag,
 			Patterns: []string{
-				"I'm bored",
-				"I don't know what to do",
+				"sıkıldım",
+				"Ne yapacağımı bilmiyorum",
 			},
 			Responses: []string{
-				"I propose you a movie of %s “%s” which is rated %.02f/5",
+				"Sana bir film öneriim mi %s “%s” hem de puanı %.02f/5",
 			},
 			Replacer: modules.MovieSearchFromInformationReplacer,
 		},
@@ -130,10 +130,10 @@ func init() {
 		{
 			Tag: modules.NameGetterTag,
 			Patterns: []string{
-				"Do you know my name?",
+				"Adımı biliyor musun acaba?",
 			},
 			Responses: []string{
-				"Your name is %s!",
+				"Senin adın %s!",
 			},
 			Replacer: modules.NameGetterReplacer,
 		},
@@ -141,11 +141,11 @@ func init() {
 		{
 			Tag: modules.NameSetterTag,
 			Patterns: []string{
-				"My name is ",
-				"You can call me ",
+				"Benim adım ",
+				"Bana şey diye de seslenebilirsin, ımmm ",
 			},
 			Responses: []string{
-				"Great! Hi %s",
+				"Harika! Selam %s",
 			},
 			Replacer: modules.NameSetterReplacer,
 		},
@@ -154,11 +154,11 @@ func init() {
 		{
 			Tag: modules.RandomTag,
 			Patterns: []string{
-				"Give me a random number",
-				"Generate a random number",
+				"Rastgele bir sayı söyle",
+				"Rastgele bir sayı oluştur",
 			},
 			Responses: []string{
-				"The number is %s",
+				"İşte sayın %s",
 			},
 			Replacer: modules.RandomNumberReplacer,
 		},
@@ -171,13 +171,13 @@ func init() {
 		{
 			Tag: modules.ReminderSetterTag,
 			Patterns: []string{
-				"Remind me to cook a breakfast at 8pm",
-				"Remind me to call mom tuesday",
-				"Note that I have an exam",
-				"Remind me that I have a conference call tomorrow at 9pm",
+				"Bana saat 8'de kahvaltı yapmamı hatırlat",
+				"Salı günü annemi aramamı hatırlat",
+				"Bir sınavım olduğunu not al",
+				"Yarın saat 9'da bir konferans görüşmem olduğunu hatırlat",
 			},
 			Responses: []string{
-				"Noted! I will remind you: “%s” for the %s",
+				"Kaydettim bile! Size hatırlatacağım: “%s” için %s",
 			},
 			Replacer: modules.ReminderSetterReplacer,
 		},
@@ -185,11 +185,11 @@ func init() {
 		{
 			Tag: modules.ReminderGetterTag,
 			Patterns: []string{
-				"What did I ask for you to remember",
-				"Give me my reminders",
+				"Ne hatırlamanı istedim",
+				"Bana hatırlatıcılarımı ver",
 			},
 			Responses: []string{
-				"You asked me to remember those things:\n%s",
+				"Benden şu şeyleri hatırlamamı istedin:\n%s",
 			},
 			Replacer: modules.ReminderGetterReplacer,
 		},
@@ -201,11 +201,11 @@ func init() {
 		{
 			Tag: modules.SpotifySetterTag,
 			Patterns: []string{
-				"Here are my spotify tokens",
-				"My spotify secrets",
+				"İşte benim spotify tokenlarım",
+				"Spotify bilgilerim",
 			},
 			Responses: []string{
-				"Login in progress",
+				"Giriş devam ediyor",
 			},
 			Replacer: modules.SpotifySetterReplacer,
 		},
@@ -213,10 +213,10 @@ func init() {
 		{
 			Tag: modules.SpotifyPlayerTag,
 			Patterns: []string{
-				"Play from on Spotify",
+				"Spotify'dan birşeyler çal",
 			},
 			Responses: []string{
-				"Playing %s from %s on Spotify.",
+				"%s sanatçısının %s eseri Spotify ayrıcalığı ile sizlerle.(Bu sahnede alkış tutabilrsin)",
 			},
 			Replacer: modules.SpotifyPlayerReplacer,
 		},
@@ -224,12 +224,12 @@ func init() {
 		{
 			Tag: modules.JokesTag,
 			Patterns: []string{
-				"Tell me a joke",
-				"Make me laugh",
+				"Bana komik bir şeyler söyle",
+				"Beni güldür",
 			},
 			Responses: []string{
-				"Here you go, %s",
-				"Here's one, %s",
+				"Hadi bakalım, %s",
+				"Işte bir tane, %s",
 			},
 			Replacer: modules.JokesReplacer,
 		},
@@ -239,13 +239,13 @@ func init() {
 	// Please translate this method for adding the correct article in front of countries names.
 	// Otherwise, remove the countries modules from this file.
 
-	modules.ArticleCountries["en"] = ArticleCountries
+	modules.ArticleCountries["tr"] = ArticleCountries
 }
 
 // ArticleCountries returns the country with its article in front.
 func ArticleCountries(name string) string {
-	if name == "United States" {
-		return "the " + name
+	if name == "Türkiye" {
+		return "bir " + name
 	}
 
 	return name
