@@ -110,5 +110,11 @@
     "messages": [
       "Sorry I couldn't come up with a joke. Please don't unplug me."
     ]
+  },
+  {
+    "tag": "no random range",
+    "messages": [
+      "Sorry, I couldn't find a random number in the given range. Please check the range values."
+    ]
   }
 ]
