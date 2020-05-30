@@ -1,0 +1,114 @@
+[
+  {
+    "tag": "anlamadım",
+    "messages": [
+      "Elimden geleni yapmaya çalışıyorum, ancak anlamıyorum.",
+      "Ne demek istediğinizi tam olarak anladığımdan emin değilim.",
+      "I'm still young, you could help me to better understand on my GitHub",
+      "Isteğini anlamıyorum, üzgünüm"
+    ]
+  },
+  {
+    "tag": "hatırlatıcıları listele",
+    "messages": [
+      "Selam %s! Bu gün için hatırlatmalarınız var: %s."
+    ]
+  },
+  {
+    "tag": "Yetkiniz yok",
+    "messages": [
+      "Bu işlemi gerçekleştirmek için yetkiniz yok."
+    ]
+  },
+  {
+    "tag": "Aynı dizilim",
+    "messages": [
+      "Dizilim ve/veya kalıplar aynı olamaz."
+    ]
+  },
+  {
+    "tag": "aynı Etiketler",
+    "messages": [
+      "Bu etiketle oluşturulmuş bir intent zaten var."
+    ]
+  },
+  {
+    "tag": "spotify Token'ları",
+    "messages": [
+      "Iki token'ı da göndermeniz gerekiyor."
+    ]
+  },
+  {
+    "tag": "hatılatıcı",
+    "messages": [
+      "- “%s” için %s"
+    ]
+  },
+  {
+    "tag": "Hatırlatıcı yok",
+    "messages": [
+      "Kayıtlı hatırlatıcınız yok."
+    ]
+  },
+  {
+    "tag": "spotify bilgileri",
+    "messages": [
+      "Spotify kimlik bilgilerinizi girmeniz gerekiyor."
+    ]
+  },
+  {
+    "tag": "spotify giriş",
+    "messages": [
+      "Giriş işlemi <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+    ]
+  },
+  {
+    "tag": "çok uzun",
+    "messages": [
+      "Lütfen mesajınızın boyutunu 500'den daha küçük bir boyuta indirin"
+    ]
+  },
+  {
+    "tag": "ülke yok",
+    "messages": [
+      "Mesajınızda bir ülke bulamadım."
+    ]
+  },
+  {
+    "tag": "geçerli bir matematik işlemi değil",
+    "messages": [
+      "Matematik ifadeniz geçerli değil",
+      "Lütfen matematik ifadenizi gözden geçirin"
+    ]
+  },
+  {
+    "tag": "adını bilmiyorum",
+    "messages": [
+      "Üzgünüm ama, henüz ismini bilmiyorum"
+    ]
+  },
+  {
+    "tag": "isimsiz",
+    "messages": [
+      "Mesajınızda bir isim bulamadığım için üzgünüm."
+    ]
+  },
+  {
+    "tag": "tür yok",
+    "messages": [
+      "Üzgünüm, mesajınızda hiç film türü bulamıyorum, şunları denemeye ne dersin: Aksiyon, Macera, Animasyon, Çocuklar, Komedi, Suç, Belgesel, Drama, Fantastik, Kara Film, Korku, Müzikal, Gizem, Romantik, Bilimkurgu , Gerilim, Savaş ve Batı"
+    ]
+  },
+  {
+    "tag": "kaydedilmiş tür yok",
+    "messages": [
+      "Maalesef verilerinizde hiç film türü bulamıyorum, lütfen tercihlerinizi “Macera filmlerini seviyorum” gibi ifadeler kullanarak ayarlamaya çalışın"
+    ]
+  },
+  {
+    "tag": "şaka yok",
+    "messages": [
+      "Üzgünüm ben bir şaka göremedim. Lütfen fişimi çekmeyin."
+    ]
+  }
+]
