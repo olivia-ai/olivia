@@ -10,7 +10,7 @@ func init() {
 		// For modules related to countries, please add the translations of the countries' names
 		// or open an issue to ask for translations.
 
-		/*{
+		{
 			Tag: modules.AreaTag,
 			Patterns: []string{
 				"Alanı nedir ",
@@ -49,7 +49,7 @@ func init() {
 				"%s ülkesinin para birimi %s",
 			},
 			Replacer: modules.CurrencyReplacer,
-		},*/
+		},
 
 		// MATH
 		// A regex translation is also required in `language/math.go`, please don't forget to translate it.
