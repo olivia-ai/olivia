@@ -89,6 +89,21 @@ var RuleTranslations = map[string]RuleTranslation{
 		RuleNextDayOfWeek: "proper",
 		RuleNaturalDate:   `gener|febrer|març|abril|maig|juny|juliol|agost|setembre|octubre|novembre|desembre`,
 	},
+	"nl": {
+		DaysOfWeek: []string{
+			"maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag", "zondag",
+		},
+		Months: []string{
+			"januari", "februari", "maart", "april", "mei", "juni", "juli",
+			"augustus", "september", "oktober", "november", "december",
+		},
+		RuleToday:         `vandaag|vanavond`,
+		RuleTomorrow:      `(na )?morgen`,
+		RuleAfterTomorrow: "na",
+		RuleDayOfWeek:     `(volgende )?(maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)`,
+		RuleNextDayOfWeek: "volgende",
+		RuleNaturalDate:   `januari|februari|maart|april|mei|juni|juli|augustus|september|oktober|november|december`,
+	},
 }
 
 // A RuleTranslation is all the texts/regexs to match the dates

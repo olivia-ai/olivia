@@ -45,6 +45,10 @@ var (
 			"Acció", "Aventura", "Animació", "Nen", "Comèdia", "Crim", "Documental", "Drama", "Fantasia",
 			"Film-Noir", "Horror", "Musical", "Misteri", "Romanç", "Ciència-ficció", "Thriller", "War", "Western",
 		},
+		"nl": {
+			"Actie", "Avontuur", "Animatie", "Kinderen", "Komedie", "Krimi", "Documentaire", "Drama", "Fantasie",
+			"Film-Noir", "Horror", "Musical", "Mysterie", "Romantiek", "Sci-Fi", "Thriller", "Oorlog", "Western",
+		},
 	}
 	movies = SerializeMovies()
 )

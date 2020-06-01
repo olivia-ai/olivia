@@ -36,6 +36,11 @@ var SpotifyKeyword = map[string]SpotifyKeywords{
 		From: "dan",
 		On:   "kadar",
 	},
+	"nl": {
+		Play: "speel",
+		From: "van",
+		On:   "op",
+	},
 }
 
 // SpotifyKeywords are the keywords used to get music name
