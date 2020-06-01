@@ -1,0 +1,120 @@
+[
+  {
+    "tag": "don't understand",
+    "messages": [
+      "Ik doe mijn best, maar ik begrijp je niet",
+      "Ik ben er niet zeker van wat je wilt vragen",
+      "Ik ben nog erg jong, je kunt mij helpen te begrijpen op mijn GitHub profiel",
+      "Ik begrijp je verzoek niet"
+    ]
+  },
+  {
+    "tag": "list reminders",
+    "messages": [
+      "Hallo %s! Vandaag heb je de volgende herinneringen: %s."
+    ]
+  },
+  {
+    "tag": "no permission",
+    "messages": [
+      "Je hebt geen permissies om dit te doen."
+    ]
+  },
+  {
+    "tag": "patterns same",
+    "messages": [
+      "De patronen en/of antwoorden kunnen niet leeg zijn."
+    ]
+  },
+  {
+    "tag": "tags same",
+    "messages": [
+      "Er bestaat reeds een intent met deze tag."
+    ]
+  },
+  {
+    "tag": "spotify tokens",
+    "messages": [
+      "Je moet 2 tokens sturen."
+    ]
+  },
+  {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” voor op %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "Je hebt geen herinneringen opgeslagen."
+    ]
+  },
+  {
+    "tag": "spotify credentials",
+    "messages": [
+      "Je moet je Spotify gegevens opgeven."
+    ]
+  },
+  {
+    "tag": "spotify login",
+    "messages": [
+      "Login is bezig <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+    ]
+  },
+  {
+    "tag": "too long",
+    "messages": [
+      "Verklein alsjeblieft je bericht tot onder 500 karakters"
+    ]
+  },
+  {
+    "tag": "no country",
+    "messages": [
+      "Ik kan geen land vinden in je bericht"
+    ]
+  },
+  {
+    "tag": "math not valid",
+    "messages": [
+      "Je wiskundige expressie is niet valide",
+      "Controleer je wiskundige expressie"
+    ]
+  },
+  {
+    "tag": "don't know name",
+    "messages": [
+      "Sorry maar ik ken je naam nog niet"
+    ]
+  },
+  {
+    "tag": "no name",
+    "messages": [
+      "Sorry, maar ik kan geen naam vinden in je bericht."
+    ]
+  },
+  {
+    "tag": "no genres",
+    "messages": [
+      "Sorry, ik kan geen genre film vinden in je bericht, probeer: Actie, Avontuur, Animatie, Kinderen, Komedie, Krimi, Documentaire, Drama, Fantasie, Film-Noir, Horror, Musical, Mysterie, Romantiek, Sci-Fi, Thriller, Oorlog and Western"
+    ]
+  },
+  {
+    "tag": "no genres saved",
+    "messages": [
+      "Sorry, ik kan geen genre film in je data vinden. Probeer je voorkeuren in te stellen met “Ik hou van Avontuur films”"
+    ]
+  },
+  {
+    "tag": "no jokes",
+    "messages": [
+      "Sorry, ik kan geen moppen vinden. Trek niet de stekker uit mij."
+    ]
+  },
+  {
+    "tag": "no random range",
+    "messages": [
+      "Sorry, ik kan geen willekeurig nummer maken in dat bereik. Controleer de bereik waarden."
+    ]
+  }
+]
