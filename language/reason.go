@@ -34,6 +34,10 @@ var ReasonKeywords = map[string]ReasonKeyword{
 		That: "için",
 		To:   "sebebiyle",
 	},
+	"nl": {
+		That: "dat",
+		To:   "naar",
+	},
 }
 
 // ReasonKeyword are used to find reason for different languages
