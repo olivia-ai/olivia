@@ -9,6 +9,7 @@ import (
 	_ "github.com/olivia-ai/olivia/res/locales/fr"
 	_ "github.com/olivia-ai/olivia/res/locales/it"
 	_ "github.com/olivia-ai/olivia/res/locales/tr"
+	_ "github.com/olivia-ai/olivia/res/locales/nl"
 )
 
 // Locales is the list of locales's tags and names
@@ -42,6 +43,10 @@ var Locales = []Locale{
 	{
 		Tag:  "tr",
 		Name: "turkey",
+	},
+	{
+		Tag:  "nl",
+		Name: "dutch",
 	},
 }
 
