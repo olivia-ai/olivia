@@ -20,6 +20,8 @@ var authenticationHash []byte
 func GenerateToken() string {
 	b := make([]byte, 30)
 	rand.Read(b)
+
+	fmt.Println("hey")
 	return fmt.Sprintf("%x", b)
 }
 
