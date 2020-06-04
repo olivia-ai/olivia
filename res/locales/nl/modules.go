@@ -10,7 +10,7 @@ func init() {
 		// For modules related to countries, please add the translations of the countries' names
 		// or open an issue to ask for translations.
 
-		/*{
+		{
 			Tag: modules.AreaTag,
 			Patterns: []string{
 				"Wat is het oppervlakte van ",
@@ -52,7 +52,7 @@ func init() {
 				"De valuta van %s is %s",
 			},
 			Replacer: modules.CurrencyReplacer,
-		},*/
+		},
 
 		// MATH
 		// A regex translation is also required in `language/math.go`, please don't forget to translate it.
@@ -243,14 +243,14 @@ func init() {
 	// Please translate this method for adding the correct article in front of countries names.
 	// Otherwise, remove the countries modules from this file.
 
-	//modules.ArticleCountries["en"] = ArticleCountries
+	modules.ArticleCountries["nl"] = ArticleCountries
 }
-/*
+
 // ArticleCountries returns the country with its article in front.
 func ArticleCountries(name string) string {
-	if name == "United States" {
-		return "the " + name
+	if name == "Verenigde Staten" {
+		return "de " + name
 	}
 
 	return name
-}*/
+}
