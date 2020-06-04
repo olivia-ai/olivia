@@ -9,7 +9,7 @@
       "cn": "英国",
       "pt": "Reino Unido",
       "it": "Regno Unito",
-      "tr": "Birleşik Krallık"
+      "tr": "Birleşik Krallık",
       "nl": "Verenigd Koninkrijk"
     },
     "capital": "London",
@@ -26,7 +26,7 @@
       "cn": "阿富汗",
       "pt": "Afeganistão",
       "it": "Afghanistan",
-      "tr": "Afganistan"
+      "tr": "Afganistan",
       "nl": "Afghanistan"
     },
     "capital": "Kabul",
@@ -42,7 +42,7 @@
       "cn": "奥兰",
       "pt": "Ilhas Åland",
       "it": "Isole Åland",
-      "tr": "Aland Adaları"
+      "tr": "Aland Adaları",
       "nl": "Åland Eilanden"
     },
     "capital": "Mariehamn",
@@ -59,7 +59,7 @@
       "cn": "阿尔巴尼亚",
       "pt": "Albânia",
       "it": "Albania",
-      "tr": "Arnavutluk"
+      "tr": "Arnavutluk",
       "nl": "Albanië"
     },
     "capital": "Tirana",
@@ -76,7 +76,7 @@
       "cn": "阿尔及利亚",
       "pt": "Argélia",
       "it": "Algeria",
-      "tr": "Cezair"
+      "tr": "Cezair",
       "nl": "Algerije"
     },
     "capital": "Algiers",
@@ -92,7 +92,7 @@
       "cn": "美属萨摩亚",
       "pt": "Samoa Americana",
       "it": "Samoa Americane",
-      "tr": "Amerikan Samoası"
+      "tr": "Amerikan Samoası",
       "nl": "Amerikaans Samoa"
     },
     "capital": "Pago Pago",
@@ -109,7 +109,7 @@
       "cn": "安道尔",
       "pt": "Andorra",
       "it": "Andorra",
-      "tr": "Andorra"
+      "tr": "Andorra",
       "nl": "Andorra"
     },
     "capital": "Andorra la Vella",
@@ -126,7 +126,7 @@
       "cn": "安哥拉",
       "pt": "Angola",
       "it": "Angola",
-      "tr": "Angora"
+      "tr": "Angora",
       "nl": "Angola"
     },
     "capital": "Luanda",
@@ -142,7 +142,7 @@
       "cn": "安圭拉",
       "pt": "Anguilla",
       "it": "Anguilla",
-      "tr": "Anguilla"
+      "tr": "Anguilla",
       "nl": "Anguilla"
     },
     "capital": "The Valley",
@@ -158,7 +158,7 @@
       "cn": "南极洲",
       "pt": "Antártida",
       "it": "Antartide",
-      "tr": "Antartika"
+      "tr": "Antartika",
       "nl": "Antartica"
     },
     "capital": "",
