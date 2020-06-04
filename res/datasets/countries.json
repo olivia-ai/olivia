@@ -9,7 +9,8 @@
       "cn": "英国",
       "pt": "Reino Unido",
       "it": "Regno Unito",
-      "tr": "Birleşik Krallık"
+      "tr": "Birleşik Krallık",
+      "nl": "Verenigd Koninkrijk"
     },
     "capital": "London",
     "area": 242495,
@@ -25,7 +26,8 @@
       "cn": "阿富汗",
       "pt": "Afeganistão",
       "it": "Afghanistan",
-      "tr": "Afganistan"
+      "tr": "Afganistan",
+      "nl": "Afghanistan"
     },
     "capital": "Kabul",
     "area": 652230,
@@ -40,7 +42,8 @@
       "cn": "奥兰",
       "pt": "Ilhas Åland",
       "it": "Isole Åland",
-      "tr": "Aland Adaları"
+      "tr": "Aland Adaları",
+      "nl": "Åland Eilanden"
     },
     "capital": "Mariehamn",
     "area": 1580,
@@ -56,7 +59,8 @@
       "cn": "阿尔巴尼亚",
       "pt": "Albânia",
       "it": "Albania",
-      "tr": "Arnavutluk"
+      "tr": "Arnavutluk",
+      "nl": "Albanië"
     },
     "capital": "Tirana",
     "area": 28748,
@@ -72,7 +76,8 @@
       "cn": "阿尔及利亚",
       "pt": "Argélia",
       "it": "Algeria",
-      "tr": "Cezair"
+      "tr": "Cezair",
+      "nl": "Algerije"
     },
     "capital": "Algiers",
     "area": 2381741,
@@ -87,7 +92,8 @@
       "cn": "美属萨摩亚",
       "pt": "Samoa Americana",
       "it": "Samoa Americane",
-      "tr": "Amerikan Samoası"
+      "tr": "Amerikan Samoası",
+      "nl": "Amerikaans Samoa"
     },
     "capital": "Pago Pago",
     "area": 199,
@@ -103,7 +109,8 @@
       "cn": "安道尔",
       "pt": "Andorra",
       "it": "Andorra",
-      "tr": "Andorra"
+      "tr": "Andorra",
+      "nl": "Andorra"
     },
     "capital": "Andorra la Vella",
     "area": 468,
@@ -119,7 +126,8 @@
       "cn": "安哥拉",
       "pt": "Angola",
       "it": "Angola",
-      "tr": "Angora"
+      "tr": "Angora",
+      "nl": "Angola"
     },
     "capital": "Luanda",
     "area": 1246700,
@@ -134,7 +142,8 @@
       "cn": "安圭拉",
       "pt": "Anguilla",
       "it": "Anguilla",
-      "tr": "Anguilla"
+      "tr": "Anguilla",
+      "nl": "Anguilla"
     },
     "capital": "The Valley",
     "area": 91,
@@ -149,7 +158,8 @@
       "cn": "南极洲",
       "pt": "Antártida",
       "it": "Antartide",
-      "tr": "Antartika"
+      "tr": "Antartika",
+      "nl": "Antartica"
     },
     "capital": "",
     "area": 14000000,
@@ -165,7 +175,8 @@
       "cn": "安地卡及巴布達",
       "pt": "Antígua e Barbuda",
       "it": "Antigua e Barbuda",
-      "tr": "Antigua ve Barbuda"
+      "tr": "Antigua ve Barbuda",
+      "nl": "Antigua en Barbuda"
     },
     "capital": "Saint John's",
     "area": 442,
@@ -181,7 +192,8 @@
       "cn": "阿根廷",
       "pt": "Argentina",
       "it": "Argentina",
-      "tr": "Arjantin"
+      "tr": "Arjantin",
+      "nl": "Argentinië"
     },
     "capital": "Buenos Aires",
     "area": 2780400,
@@ -197,7 +209,8 @@
       "cn": "亞美尼亞",
       "pt": "Armênia",
       "it": "Armenia",
-      "tr": "Ermenistan"
+      "tr": "Ermenistan",
+      "nl": "Armenië"
     },
     "capital": "Yerevan",
     "area": 29743,
@@ -212,7 +225,8 @@
       "cn": "阿鲁巴",
       "pt": "Aruba",
       "it": "Aruba",
-      "tr": "Aruba"
+      "tr": "Aruba",
+      "nl": "Aruba"
     },
     "capital": "Oranjestad",
     "area": 180,
@@ -228,7 +242,8 @@
       "cn": "澳大利亚",
       "pt": "Austrália",
       "it": "Australia",
-      "tr": "Avustralya"
+      "tr": "Avustralya",
+      "nl": "Australië"
     },
     "capital": "Canberra",
     "area": 7692024,
@@ -244,7 +259,8 @@
       "cn": "奥地利",
       "pt": "Áustria",
       "it": "Austria",
-      "tr": "Avusturya"
+      "tr": "Avusturya",
+      "nl": "Oostenrijk"
     },
     "capital": "Vienna",
     "area": 83871,
@@ -260,7 +276,8 @@
       "cn": "阿塞拜疆",
       "pt": "Azerbaijão",
       "it": "Azerbaigian",
-      "tr": "Azerbaycan"
+      "tr": "Azerbaycan",
+      "nl": "Azerbeijan"
     },
     "capital": "Baku",
     "area": 86600,
@@ -276,7 +293,8 @@
       "cn": "巴哈马",
       "pt": "Bahamas",
       "it": "Bahamas",
-      "tr": "Bahamalar"
+      "tr": "Bahamalar",
+      "nl": "Bahamas"
     },
     "capital": "Nassau",
     "area": 13943,
@@ -292,7 +310,8 @@
       "cn": "巴林",
       "pt": "Bahrein",
       "it": "Bahrein",
-      "tr": "Bahreyn"
+      "tr": "Bahreyn",
+      "nl": "Bahrein"
     },
     "capital": "Manama",
     "area": 765,
@@ -308,7 +327,8 @@
       "cn": "孟加拉国",
       "pt": "Bangladesh",
       "it": "Bangladesh",
-      "tr": "Bangladeş"
+      "tr": "Bangladeş",
+      "nl": "Bangladesh"
     },
     "capital": "Dhaka",
     "area": 147570,
@@ -324,7 +344,8 @@
       "cn": "巴巴多斯",
       "pt": "Barbados",
       "it": "Barbados",
-      "tr": "Barbados"
+      "tr": "Barbados",
+      "nl": "Barbados"
     },
     "capital": "Bridgetown",
     "area": 430,
@@ -340,7 +361,8 @@
       "cn": "白俄羅斯",
       "pt": "Bielorrússia",
       "it": "Bielorussia",
-      "tr": "Belarus"
+      "tr": "Belarus",
+      "nl": "Belarus"
     },
     "capital": "Minsk",
     "area": 207600,
@@ -356,7 +378,8 @@
       "cn": "比利時",
       "pt": "Bélgica",
       "it": "Belgio",
-      "tr": "Belçika"
+      "tr": "Belçika",
+      "nl": "België"
     },
     "capital": "Brussels",
     "area": 30528,
@@ -372,7 +395,8 @@
       "cn": "伯利兹",
       "pt": "Belize",
       "it": "Belize",
-      "tr": "Belize"
+      "tr": "Belize",
+      "nl": "Belize"
     },
     "capital": "Belmopan",
     "area": 22966,
@@ -388,7 +412,8 @@
       "cn": "贝宁",
       "pt": "Benim",
       "it": "Benin",
-      "tr": "Benin"
+      "tr": "Benin",
+      "nl": "Benin"
     },
     "capital": "Porto Novo",
     "area": 112622,
@@ -403,7 +428,8 @@
       "cn": "百慕大",
       "pt": "Bermudas",
       "it": "Bermuda",
-      "tr": "Bermuda"
+      "tr": "Bermuda",
+      "nl": "Bermuda"
     },
     "capital": "Hamilton",
     "area": 54,
@@ -419,7 +445,8 @@
       "cn": "不丹",
       "pt": "Butão",
       "it": "Bhutan",
-      "tr": "Butan"
+      "tr": "Butan",
+      "nl": "Bhutan"
     },
     "capital": "Thimphu",
     "area": 38394,
@@ -435,7 +462,8 @@
       "cn": "波黑",
       "pt": "Bósnia e Herzegovina",
       "it": "Bosnia ed Erzegovina",
-      "tr": "Bosna Hersek"
+      "tr": "Bosna Hersek",
+      "nl": "Bosnië en Herzegovina"
     },
     "capital": "Sarajevo",
     "area": 51209,
@@ -451,7 +479,8 @@
       "cn": "博茨瓦纳",
       "pt": "Botswana",
       "it": "Botswana",
-      "tr": "Botsvana"
+      "tr": "Botsvana",
+      "nl": "Botswana"
     },
     "capital": "Gaborone",
     "area": 582000,
@@ -465,7 +494,8 @@
       "cn": "布韦岛",
       "pt": "Ilha Bouvet",
       "it": "Isola Bouvet",
-      "tr": "Bouvet Adası"
+      "tr": "Bouvet Adası",
+      "nl": "Bouvet IJland"
     },
     "capital": "",
     "area": 49,
@@ -481,7 +511,8 @@
       "cn": "巴西",
       "pt": "Brasil",
       "it": "Brasile",
-      "tr": "Brezilya"
+      "tr": "Brezilya",
+      "nl": "Brazilië"
     },
     "capital": "Brasília",
     "area": 8515767,
@@ -496,7 +527,8 @@
       "cn": "英屬印度洋領地",
       "pt": "Território Britânico do Oceano Índico",
       "it": "Territorio britannico dell'Oceano Indiano",
-      "tr": "Britanya Hint Okyanusu Toprakları"
+      "tr": "Britanya Hint Okyanusu Toprakları",
+      "nl": "Brits-Indisch oceaan territorium"
     },
     "capital": "Diego Garcia",
     "area": 60,
@@ -512,7 +544,8 @@
       "cn": "保加利亚",
       "pt": "Bulgária",
       "it": "Bulgaria",
-      "tr": "Bulgaristan"
+      "tr": "Bulgaristan",
+      "nl": "Bulgarije"
     },
     "capital": "Sofia",
     "area": 110879,
@@ -528,7 +561,8 @@
       "cn": "布吉納法索",
       "pt": "Burkina Faso",
       "it": "Burkina Faso",
-      "tr": "Burkina Faso"
+      "tr": "Burkina Faso",
+      "nl": "Burkina Faso"
     },
     "capital": "Ouagadougou",
     "area": 272967,
@@ -544,7 +578,8 @@
       "cn": "布隆迪",
       "pt": "Burundi",
       "it": "Burundi",
-      "tr": "Burundi"
+      "tr": "Burundi",
+      "nl": "Burundi"
     },
     "capital": "Bujumbura",
     "area": 27834,
@@ -560,7 +595,8 @@
       "cn": "柬埔寨",
       "pt": "Camboja",
       "it": "Cambogia",
-      "tr": "Kamboçya"
+      "tr": "Kamboçya",
+      "nl": "Combodja"
     },
     "capital": "Phnom Penh",
     "area": 181035,
@@ -576,7 +612,8 @@
       "cn": "喀麦隆",
       "pt": "Camarões",
       "it": "Camerun",
-      "tr": "Kamerun"
+      "tr": "Kamerun",
+      "nl": "Kameroen"
     },
     "capital": "Yaoundé",
     "area": 475442,
@@ -592,7 +629,8 @@
       "cn": "加拿大",
       "pt": "Canadá",
       "it": "Canada",
-      "tr": "Kanada"
+      "tr": "Kanada",
+      "nl": "Canada"
     },
     "capital": "Ottawa",
     "area": 9984670,
@@ -607,7 +645,8 @@
       "cn": "开曼群岛",
       "pt": "Ilhas Cayman",
       "it": "Isole Cayman",
-      "tr": "Cayman Adaları"
+      "tr": "Cayman Adaları",
+      "nl": "Kaaiman eilanden"
     },
     "capital": "George Town",
     "area": 264,
@@ -623,7 +662,8 @@
       "cn": "中非",
       "pt": "República Centro-Africana",
       "it": "Rep. Centrafricana",
-      "tr": "Orta Afrika Cumhuriyeti"
+      "tr": "Orta Afrika Cumhuriyeti",
+      "nl": "Centraal-Afrikaanse republiek"
     },
     "capital": "Bangui",
     "area": 622984,
@@ -639,7 +679,8 @@
       "cn": "乍得",
       "pt": "Chade",
       "it": "Ciad",
-      "tr": "Çad"
+      "tr": "Çad",
+      "nl": "Tsjaad"
     },
     "capital": "N'Djamena",
     "area": 1284000,
@@ -655,7 +696,8 @@
       "cn": "智利",
       "pt": "Chile",
       "it": "Cile",
-      "tr": "Şili"
+      "tr": "Şili",
+      "nl": "Chili"
     },
     "capital": "Santiago",
     "area": 756102,
@@ -671,7 +713,8 @@
       "cn": "中国",
       "pt": "China",
       "it": "Cina",
-      "tr": "Çin"
+      "tr": "Çin",
+      "nl": "China"
     },
     "capital": "Beijing",
     "area": 9706961,
@@ -686,7 +729,8 @@
       "cn": "圣诞岛",
       "pt": "Ilha do Natal",
       "it": "Isola di Natale",
-      "tr": "Noel Adası"
+      "tr": "Noel Adası",
+      "nl": "Kerst eiland"
     },
     "capital": "Flying Fish Cove",
     "area": 135,
@@ -701,7 +745,8 @@
       "cn": "科科斯（基林）群島",
       "pt": "Ilhas Cocos (Keeling)",
       "it": "Isole Cocos (Keeling)",
-      "tr": "Cocos (Keeling) Adaları"
+      "tr": "Cocos (Keeling) Adaları",
+      "nl": "Kokos eilanden"
     },
     "capital": "West Island",
     "area": 14,
@@ -717,7 +762,8 @@
       "cn": "哥伦比亚",
       "pt": "Colômbia",
       "it": "Colombia",
-      "tr": "Kolombiya"
+      "tr": "Kolombiya",
+      "nl": "Colombië"
     },
     "capital": "Bogotá",
     "area": 1141748,
@@ -733,7 +779,8 @@
       "cn": "科摩罗",
       "pt": "Comores",
       "it": "Comore",
-      "tr": "Komorlar"
+      "tr": "Komorlar",
+      "nl": "Comoren"
     },
     "capital": "Moroni",
     "area": 1862,
@@ -748,7 +795,8 @@
       "cn": "庫克群島",
       "pt": "Ilhas Cook",
       "it": "Isole Cook",
-      "tr": "Cook Adaları"
+      "tr": "Cook Adaları",
+      "nl": "Cook eilanden"
     },
     "capital": "Avarua",
     "area": 236,
@@ -764,7 +812,8 @@
       "cn": "哥斯达黎加",
       "pt": "Costa Rica",
       "it": "Costa Rica",
-      "tr": "Kosta Rika"
+      "tr": "Kosta Rika",
+      "nl": "Costa Rica"
     },
     "capital": "San José",
     "area": 51100,
@@ -780,7 +829,8 @@
       "cn": "克罗地亚",
       "pt": "Croácia",
       "it": "Croazia",
-      "tr": "Hırvatistan"
+      "tr": "Hırvatistan",
+      "nl": "Kroatië"
     },
     "capital": "Zagreb",
     "area": 56594,
@@ -796,7 +846,8 @@
       "cn": "古巴",
       "pt": "Cuba",
       "it": "Cuba",
-      "tr": "Küba"
+      "tr": "Küba",
+      "nl": "Cuba"
     },
     "capital": "Havana",
     "area": 109884,
@@ -811,7 +862,8 @@
       "cn": "库拉索",
       "pt": "Curaçao",
       "it": "Curaçao",
-      "tr": "Curaçao"
+      "tr": "Curaçao",
+      "nl": "Curaçao"
     },
     "capital": "Willemstad",
     "area": 444,
@@ -827,7 +879,8 @@
       "cn": "賽普勒斯",
       "pt": "Chipre",
       "it": "Cipro",
-      "tr": "Kıbrıs"
+      "tr": "Kıbrıs",
+      "nl": "Cyprus"
     },
     "capital": "Nicosia",
     "area": 9251,
@@ -843,7 +896,8 @@
       "cn": "捷克",
       "pt": "Chéquia",
       "it": "Rep. Ceca",
-      "tr": "Çekya"
+      "tr": "Çekya",
+      "nl": "Tsjechië"
     },
     "capital": "Prague",
     "area": 78865,
@@ -859,7 +913,8 @@
       "cn": "丹麥",
       "pt": "Dinamarca",
       "it": "Danimarca",
-      "tr": "Danimarka"
+      "tr": "Danimarka",
+      "nl": "Denemarken"
     },
     "capital": "Copenhagen",
     "area": 43094,
@@ -875,7 +930,8 @@
       "cn": "吉布提",
       "pt": "Djibouti",
       "it": "Gibuti",
-      "tr": "Cibuti"
+      "tr": "Cibuti",
+      "nl": "Djibouti"
     },
     "capital": "Djibouti",
     "area": 23200,
@@ -891,7 +947,8 @@
       "cn": "多米尼克",
       "pt": "Dominica",
       "it": "Dominica",
-      "tr": "Dominika"
+      "tr": "Dominika",
+      "nl": "Dominika"
     },
     "capital": "Roseau",
     "area": 751,
@@ -907,7 +964,8 @@
       "cn": "多米尼加",
       "pt": "República Dominicana",
       "it": "Rep. Dominicana",
-      "tr": "Dominik Cumhuriyeti"
+      "tr": "Dominik Cumhuriyeti",
+      "nl": "Dominikaanse republiek"
     },
     "capital": "Santo Domingo",
     "area": 48671,
@@ -923,7 +981,8 @@
       "cn": "厄瓜多尔",
       "pt": "Equador",
       "it": "Ecuador",
-      "tr": "Ekvador"
+      "tr": "Ekvador",
+      "nl": "Equador"
     },
     "capital": "Quito",
     "area": 276841,
@@ -939,7 +998,8 @@
       "cn": "埃及",
       "pt": "Egito",
       "it": "Egitto",
-      "tr": "Mısır"
+      "tr": "Mısır",
+      "nl": "Egypte"
     },
     "capital": "Cairo",
     "area": 1002450,
@@ -955,7 +1015,8 @@
       "cn": "薩爾瓦多",
       "pt": "El Salvador",
       "it": "El Salvador",
-      "tr": "El Salvador"
+      "tr": "El Salvador",
+      "nl": "El Salvador"
     },
     "capital": "San Salvador",
     "area": 21041,
@@ -971,7 +1032,8 @@
       "cn": "赤道几内亚",
       "pt": "Guiné Equatorial",
       "it": "Guinea Equatoriale",
-      "tr": "Ekvator Ginesi"
+      "tr": "Ekvator Ginesi",
+      "nl": "Guinea"
     },
     "capital": "Malabo",
     "area": 28051,
@@ -987,7 +1049,8 @@
       "cn": "厄立特里亚",
       "pt": "Eritreia",
       "it": "Eritrea",
-      "tr": "Eritre"
+      "tr": "Eritre",
+      "nl": "Eritrea"
     },
     "capital": "Asmara",
     "area": 117600,
@@ -1003,7 +1066,8 @@
       "cn": "爱沙尼亚",
       "pt": "Estónia",
       "it": "Estonia",
-      "tr": "Estonya"
+      "tr": "Estonya",
+      "nl": "Estland"
     },
     "capital": "Tallinn",
     "area": 45227,
@@ -1019,7 +1083,8 @@
       "cn": "斯威士兰",
       "pt": "Essuatíni",
       "it": "Swaziland",
-      "tr": "Svaziland"
+      "tr": "Svaziland",
+      "nl": "Swasiland"
     },
     "capital": "Lobamba",
     "area": 17364,
@@ -1035,7 +1100,8 @@
       "cn": "衣索比亞",
       "pt": "Etiópia",
       "it": "Etiopia",
-      "tr": "Etiyopya"
+      "tr": "Etiyopya",
+      "nl": "Ethiopië"
     },
     "capital": "Addis Ababa",
     "area": 1104300,
@@ -1050,7 +1116,8 @@
       "cn": "法罗群岛",
       "pt": "Ilhas Feroé",
       "it": "Fær Øer",
-      "tr": "Faroe Adaları"
+      "tr": "Faroe Adaları",
+      "nl": "Faroë eilanden"
     },
     "capital": "Tórshavn",
     "area": 1393,
@@ -1066,7 +1133,8 @@
       "cn": "斐济",
       "pt": "Fiji",
       "it": "Figi",
-      "tr": "Fiji"
+      "tr": "Fiji",
+      "nl": "Fiji"
     },
     "capital": "Suva",
     "area": 18272,
@@ -1082,7 +1150,8 @@
       "cn": "芬兰",
       "pt": "Finlândia",
       "it": "Finlandia",
-      "tr": "Finlandiya"
+      "tr": "Finlandiya",
+      "nl": "Finland"
     },
     "capital": "Helsinki",
     "area": 338424,
@@ -1098,7 +1167,8 @@
       "cn": "法國",
       "pt": "França",
       "it": "Francia",
-      "tr": "Fransa"
+      "tr": "Fransa",
+      "nl": "Frankrijk"
     },
     "capital": "Paris",
     "area": 551695,
@@ -1113,7 +1183,8 @@
       "cn": "法属圭亚那",
       "pt": "Guiana Francesa",
       "it": "Guyana francese",
-      "tr": "Fransız Guyanası"
+      "tr": "Fransız Guyanası",
+      "nl": "Frans Guinea"
     },
     "capital": "Cayenne",
     "area": 83534,
@@ -1128,7 +1199,8 @@
       "cn": "法屬玻里尼西亞",
       "pt": "Polinésia Francesa",
       "it": "Polinesia francese",
-      "tr": "Fransız Polinezyası"
+      "tr": "Fransız Polinezyası",
+      "nl": "Frans Polinesië"
     },
     "capital": "Papeetē",
     "area": 4167,
@@ -1144,7 +1216,8 @@
       "cn": "加彭",
       "pt": "Gabão",
       "it": "Gabon",
-      "tr": "Gabon"
+      "tr": "Gabon",
+      "nl": "Gabon"
     },
     "capital": "Libreville",
     "area": 267668,
@@ -1160,7 +1233,8 @@
       "cn": "冈比亚",
       "pt": "Gâmbia",
       "it": "Gambia",
-      "tr": "Gambiya"
+      "tr": "Gambiya",
+      "nl": "Gambia"
     },
     "capital": "Banjul",
     "area": 10689,
@@ -1176,7 +1250,8 @@
       "cn": "格鲁吉亚",
       "pt": "Geórgia",
       "it": "Georgia",
-      "tr": "Gürcistan"
+      "tr": "Gürcistan",
+      "nl": "Georgië"
     },
     "capital": "Tbilisi",
     "area": 69700,
@@ -1192,7 +1267,8 @@
       "cn": "德國",
       "pt": "Alemanha",
       "it": "Germania",
-      "tr": "Almanya"
+      "tr": "Almanya",
+      "nl": "Duitsland"
     },
     "capital": "Berlin",
     "area": 357114,
@@ -1208,7 +1284,8 @@
       "cn": "加纳",
       "pt": "Gana",
       "it": "Ghana",
-      "tr": "Gana"
+      "tr": "Gana",
+      "nl": "Ghana"
     },
     "capital": "Accra",
     "area": 238533,
@@ -1223,7 +1300,8 @@
       "cn": "直布罗陀",
       "pt": "Gibraltar",
       "it": "Gibilterra",
-      "tr": "Cebelitarık"
+      "tr": "Cebelitarık",
+      "nl": "Gibraltar"
     },
     "capital": "Gibraltar",
     "area": 6,
@@ -1239,7 +1317,8 @@
       "cn": "希臘",
       "pt": "Grécia",
       "it": "Grecia",
-      "tr": "Yunanistan"
+      "tr": "Yunanistan",
+      "nl": "Griekenland"
     },
     "capital": "Athens",
     "area": 131990,
@@ -1254,7 +1333,8 @@
       "cn": "格陵兰",
       "pt": "Gronelândia",
       "it": "Groenlandia",
-      "tr": "Grönland"
+      "tr": "Grönland",
+      "nl": "Groenland"
     },
     "capital": "Nuuk",
     "area": 2166086,
@@ -1270,7 +1350,8 @@
       "cn": "格瑞那達",
       "pt": "Granada",
       "it": "Grenada",
-      "tr": "Grenada"
+      "tr": "Grenada",
+      "nl": "Grenada"
     },
     "capital": "St. George's",
     "area": 344,
@@ -1285,7 +1366,8 @@
       "cn": "瓜德罗普",
       "pt": "Guadalupe",
       "it": "Guadalupa",
-      "tr": "Guadeloupe"
+      "tr": "Guadeloupe",
+      "nl": "Guadaloupe"
     },
     "capital": "Basse Terre",
     "area": 1628,
@@ -1300,7 +1382,8 @@
       "cn": "關島",
       "pt": "Guam",
       "it": "Guam",
-      "tr": "Guam"
+      "tr": "Guam",
+      "nl": "Guam"
     },
     "capital": "Hagåtña",
     "area": 549,
@@ -1316,7 +1399,8 @@
       "cn": "危地马拉",
       "pt": "Guatemala",
       "it": "Guatemala",
-      "tr": "Guatemala"
+      "tr": "Guatemala",
+      "nl": "Guatemala"
     },
     "capital": "Guatemala City",
     "area": 108889,
@@ -1331,7 +1415,8 @@
       "cn": "根西",
       "pt": "Guernsey",
       "it": "Guernsey",
-      "tr": "Guernsey"
+      "tr": "Guernsey",
+      "nl": "Guernsey"
     },
     "capital": "St. Peter Port",
     "area": 78,
@@ -1347,7 +1432,8 @@
       "cn": "几内亚",
       "pt": "Guiné",
       "it": "Guinea",
-      "tr": "Gine"
+      "tr": "Gine",
+      "nl": "Guinea"
     },
     "capital": "Conakry",
     "area": 245857,
@@ -1363,7 +1449,8 @@
       "cn": "几内亚比绍",
       "pt": "Guiné-Bissau",
       "it": "Guinea-Bissau",
-      "tr": "Gine-Bissau"
+      "tr": "Gine-Bissau",
+      "nl": "Guinea-Bissau"
     },
     "capital": "Bissau",
     "area": 36125,
@@ -1379,7 +1466,8 @@
       "cn": "圭亚那",
       "pt": "Guiana",
       "it": "Guyana",
-      "tr": "Guyana"
+      "tr": "Guyana",
+      "nl": "Guyana"
     },
     "capital": "Georgetown",
     "area": 214969,
@@ -1395,7 +1483,8 @@
       "cn": "海地",
       "pt": "Haiti",
       "it": "Haiti",
-      "tr": "Haiti"
+      "tr": "Haiti",
+      "nl": "Haïti"
     },
     "capital": "Port-au-Prince",
     "area": 27750,
@@ -1409,7 +1498,8 @@
       "cn": "赫德岛和麦克唐纳群岛",
       "pt": "Ilha Heard e Ilhas McDonald",
       "it": "Isole Heard e McDonald",
-      "tr": "Heard Adası ve McDonald Adaları"
+      "tr": "Heard Adası ve McDonald Adaları",
+      "nl": "Heard eiland en McDonald eilanden"
     },
     "capital": "",
     "area": 412,
@@ -1425,7 +1515,8 @@
       "cn": "洪都拉斯",
       "pt": "Honduras",
       "it": "Honduras",
-      "tr": "Honduras"
+      "tr": "Honduras",
+      "nl": "Honduras"
     },
     "capital": "Tegucigalpa",
     "area": 112492,
@@ -1440,7 +1531,8 @@
       "cn": "香港",
       "pt": "Hong Kong",
       "it": "Hong Kong",
-      "tr": "Hong Kong"
+      "tr": "Hong Kong",
+      "nl": "Hong Kong"
     },
     "capital": "City of Victoria",
     "area": 1104,
@@ -1456,7 +1548,8 @@
       "cn": "匈牙利",
       "pt": "Hungria",
       "it": "Ungheria",
-      "tr": "Macaristan"
+      "tr": "Macaristan",
+      "nl": "Hongarije"
     },
     "capital": "Budapest",
     "area": 93028,
@@ -1472,7 +1565,8 @@
       "cn": "冰島",
       "pt": "Islândia",
       "it": "Islanda",
-      "tr": "Izlanda"
+      "tr": "Izlanda",
+      "nl": "IJsland"
     },
     "capital": "Reykjavik",
     "area": 103000,
@@ -1488,7 +1582,8 @@
       "cn": "印度",
       "pt": "Índia",
       "it": "India",
-      "tr": "Hindistan"
+      "tr": "Hindistan",
+      "nl": "India"
     },
     "capital": "New Delhi",
     "area": 3287590,
@@ -1504,7 +1599,8 @@
       "cn": "印尼",
       "pt": "Indonésia",
       "it": "Indonesia",
-      "tr": "Endonezya"
+      "tr": "Endonezya",
+      "nl": "Indonesië"
     },
     "capital": "Jakarta",
     "area": 1904569,
@@ -1520,7 +1616,8 @@
       "cn": "伊拉克",
       "pt": "Iraque",
       "it": "Iraq",
-      "tr": "Irak"
+      "tr": "Irak",
+      "nl": "Irak"
     },
     "capital": "Baghdad",
     "area": 438317,
@@ -1536,7 +1633,8 @@
       "cn": "爱尔兰",
       "pt": "Irlanda",
       "it": "Irlanda",
-      "tr": "İrlanda"
+      "tr": "İrlanda",
+      "nl": "Ierland"
     },
     "capital": "Dublin",
     "area": 70273,
@@ -1551,7 +1649,8 @@
       "cn": "马恩岛",
       "pt": "Ilha de Man",
       "it": "Isola di Man",
-      "tr": "Man Adası"
+      "tr": "Man Adası",
+      "nl": "Man eiland"
     },
     "capital": "Douglas",
     "area": 572,
@@ -1567,7 +1666,8 @@
       "cn": "以色列",
       "pt": "Israel",
       "it": "Israele",
-      "tr": "İsrail"
+      "tr": "İsrail",
+      "nl": "Israël"
     },
     "capital": "Jerusalem",
     "area": 20770,
@@ -1583,7 +1683,8 @@
       "cn": "義大利",
       "pt": "Itália",
       "it": "Italia",
-      "tr": "İtalya"
+      "tr": "İtalya",
+      "nl": "Italië"
     },
     "capital": "Rome",
     "area": 301336,
@@ -1599,7 +1700,8 @@
       "cn": "牙买加",
       "pt": "Jamaica",
       "it": "Giamaica",
-      "tr": "Jamaika"
+      "tr": "Jamaika",
+      "nl": "Jamaica"
     },
     "capital": "Kingston",
     "area": 10991,
@@ -1615,7 +1717,8 @@
       "cn": "日本",
       "pt": "Japão",
       "it": "Giappone",
-      "tr": "Japonya"
+      "tr": "Japonya",
+      "nl": "Japan"
     },
     "capital": "Tokyo",
     "area": 377930,
@@ -1630,7 +1733,8 @@
       "cn": "澤西",
       "pt": "Jersey",
       "it": "Jersey",
-      "tr": "Jersey"
+      "tr": "Jersey",
+      "nl": "Jersey"
     },
     "capital": "Saint Helier",
     "area": 116,
@@ -1646,7 +1750,8 @@
       "cn": "约旦",
       "pt": "Jordânia",
       "it": "Giordania",
-      "tr": "Ürdün"
+      "tr": "Ürdün",
+      "nl": "Jordanië"
     },
     "capital": "Amman",
     "area": 89342,
@@ -1662,7 +1767,8 @@
       "cn": "哈萨克斯坦",
       "pt": "Cazaquistão",
       "it": "Kazakistan",
-      "tr": "Kazakistan"
+      "tr": "Kazakistan",
+      "nl": "Kazachstan"
     },
     "capital": "Astana",
     "area": 2724900,
@@ -1678,7 +1784,8 @@
       "cn": "肯尼亚",
       "pt": "Quênia",
       "it": "Kenya",
-      "tr": "Kenya"
+      "tr": "Kenya",
+      "nl": "Kenya"
     },
     "capital": "Nairobi",
     "area": 580367,
@@ -1694,7 +1801,8 @@
       "cn": "基里巴斯",
       "pt": "Kiribati",
       "it": "Kiribati",
-      "tr": "Kiribati"
+      "tr": "Kiribati",
+      "nl": "Kiribati"
     },
     "capital": "South Tarawa",
     "area": 811,
@@ -1710,7 +1818,8 @@
       "cn": "科威特",
       "pt": "Kuwait",
       "it": "Kuwait",
-      "tr": "Kuveyt"
+      "tr": "Kuveyt",
+      "nl": "Koeweit"
     },
     "capital": "Kuwait City",
     "area": 17818,
@@ -1725,8 +1834,9 @@
       "de": "Kirgisistan",
       "cn": "吉尔吉斯斯坦",
       "pt": "Quirguistão",
+      "it": "Kırgızistan",
       "tr": "Kirghizistan",
-      "it": "Kırgızistan"
+      "nl": "Kirgizië"
     },
     "capital": "Bishkek",
     "area": 199951,
@@ -1742,7 +1852,8 @@
       "cn": "拉脫維亞",
       "pt": "Letônia",
       "it": "Lettonia",
-      "tr": "Letonya"
+      "tr": "Letonya",
+      "nl": "Letland"
     },
     "capital": "Riga",
     "area": 64559,
@@ -1758,7 +1869,8 @@
       "cn": "黎巴嫩",
       "pt": "Líbano",
       "it": "Libano",
-      "tr": "Lübnan"
+      "tr": "Lübnan",
+      "nl": "Libanon"
     },
     "capital": "Beirut",
     "area": 10452,
@@ -1774,7 +1886,8 @@
       "cn": "賴索托",
       "pt": "Lesoto",
       "it": "Lesotho",
-      "tr": "Lesotho"
+      "tr": "Lesotho",
+      "nl": "Lesoto"
     },
     "capital": "Maseru",
     "area": 30355,
@@ -1790,7 +1903,8 @@
       "cn": "利比里亚",
       "pt": "Libéria",
       "it": "Liberia",
-      "tr": "Liberya"
+      "tr": "Liberya",
+      "nl": "Liberië"
     },
     "capital": "Monrovia",
     "area": 111369,
@@ -1806,7 +1920,8 @@
       "cn": "利比亞",
       "pt": "Líbia",
       "it": "Libia",
-      "tr": "Libya"
+      "tr": "Libya",
+      "nl": "Libië"
     },
     "capital": "Tripoli",
     "area": 1759540,
@@ -1822,7 +1937,8 @@
       "cn": "列支敦斯登",
       "pt": "Liechtenstein",
       "it": "Liechtenstein",
-      "tr": "Lihtenştayn"
+      "tr": "Lihtenştayn",
+      "nl": "Liechtenstein"
     },
     "capital": "Vaduz",
     "area": 160,
@@ -1838,7 +1954,8 @@
       "cn": "立陶宛",
       "pt": "Lituânia",
       "it": "Lituania",
-      "tr": "Litvanya"
+      "tr": "Litvanya",
+      "nl": "Litouwen"
     },
     "capital": "Vilnius",
     "area": 65300,
@@ -1854,7 +1971,8 @@
       "cn": "卢森堡",
       "pt": "Luxemburgo",
       "it": "Lussemburgo",
-      "tr": "Lüksemburg"
+      "tr": "Lüksemburg",
+      "nl": "Luxemburg"
     },
     "capital": "Luxembourg",
     "area": 2586,
@@ -1870,7 +1988,8 @@
       "cn": "马达加斯加",
       "pt": "Madagáscar",
       "it": "Madagascar",
-      "tr": "Madagaskar"
+      "tr": "Madagaskar",
+      "nl": "Madagascar"
     },
     "capital": "Antananarivo",
     "area": 587041,
@@ -1886,7 +2005,8 @@
       "cn": "马拉维",
       "pt": "Malawi",
       "it": "Malawi",
-      "tr": "Malawi"
+      "tr": "Malawi",
+      "nl": "Malawi"
     },
     "capital": "Lilongwe",
     "area": 118484,
@@ -1902,7 +2022,8 @@
       "cn": "马来西亚",
       "pt": "Malásia",
       "it": "Malaysia",
-      "tr": "Malezya"
+      "tr": "Malezya",
+      "nl": "Maleisië"
     },
     "capital": "Kuala Lumpur",
     "area": 330803,
@@ -1918,7 +2039,8 @@
       "cn": "馬爾地夫",
       "pt": "Maldivas",
       "it": "Maldive",
-      "tr": "Maldivler"
+      "tr": "Maldivler",
+      "nl": "Malediven"
     },
     "capital": "Malé",
     "area": 300,
@@ -1934,7 +2056,8 @@
       "cn": "马里",
       "pt": "Mali",
       "it": "Mali",
-      "tr": "Mali"
+      "tr": "Mali",
+      "nl": "Mali"
     },
     "capital": "Bamako",
     "area": 1240192,
@@ -1950,7 +2073,8 @@
       "cn": "馬爾他",
       "pt": "Malta",
       "it": "Malta",
-      "tr": "Malta"
+      "tr": "Malta",
+      "nl": "Malta"
     },
     "capital": "Valletta",
     "area": 316,
@@ -1966,7 +2090,8 @@
       "cn": "马绍尔群岛",
       "pt": "Ilhas Marshall",
       "it": "Isole Marshall",
-      "tr": "Marşal Adaları"
+      "tr": "Marşal Adaları",
+      "nl": "Marshall eilanden"
     },
     "capital": "Majuro",
     "area": 181,
@@ -1981,7 +2106,8 @@
       "cn": "马提尼克",
       "pt": "Martinica",
       "it": "Martinica",
-      "tr": "Martinik"
+      "tr": "Martinik",
+      "nl": "Martinica"
     },
     "capital": "Fort-de-France",
     "area": 1128,
@@ -1997,7 +2123,8 @@
       "cn": "毛里塔尼亚",
       "pt": "Mauritânia",
       "it": "Mauritania",
-      "tr": "Moritanya"
+      "tr": "Moritanya",
+      "nl": "Mauritanië"
     },
     "capital": "Nouakchott",
     "area": 1030700,
@@ -2013,7 +2140,8 @@
       "cn": "模里西斯",
       "pt": "Maurícia",
       "it": "Mauritius",
-      "tr": "Mauritius"
+      "tr": "Mauritius",
+      "nl": "Mauritius"
     },
     "capital": "Port Louis",
     "area": 2040,
@@ -2028,7 +2156,8 @@
       "cn": "马约特",
       "pt": "Mayotte",
       "it": "Mayotte",
-      "tr": "Mayotte"
+      "tr": "Mayotte",
+      "nl": "Mayotte"
     },
     "capital": "Mamoudzou",
     "area": 374,
@@ -2044,7 +2173,8 @@
       "cn": "墨西哥",
       "pt": "México",
       "it": "Messico",
-      "tr": "Meksika"
+      "tr": "Meksika",
+      "nl": "Mexico"
     },
     "capital": "Mexico City",
     "area": 1964375,
@@ -2060,7 +2190,8 @@
       "cn": "摩納哥",
       "pt": "Mónaco",
       "it": "Monaco",
-      "tr": "Monako"
+      "tr": "Monako",
+      "nl": "Monaco"
     },
     "capital": "Monaco",
     "area": 2.02,
@@ -2076,7 +2207,8 @@
       "cn": "蒙古國",
       "pt": "Mongólia",
       "it": "Mongolia",
-      "tr": "Moğolistan"
+      "tr": "Moğolistan",
+      "nl": "Mongolië"
     },
     "capital": "Ulan Bator",
     "area": 1564110,
@@ -2092,7 +2224,8 @@
       "cn": "蒙特內哥羅",
       "pt": "Montenegro",
       "it": "Montenegro",
-      "tr": "Karadağ"
+      "tr": "Karadağ",
+      "nl": "Montenegro"
     },
     "capital": "Podgorica",
     "area": 13812,
@@ -2107,7 +2240,8 @@
       "cn": "蒙特塞拉特",
       "pt": "Montserrat",
       "it": "Montserrat",
-      "tr": "Montserrat"
+      "tr": "Montserrat",
+      "nl": "Montserrat"
     },
     "capital": "Plymouth",
     "area": 102,
@@ -2123,7 +2257,8 @@
       "cn": "摩洛哥",
       "pt": "Marrocos",
       "it": "Marocco",
-      "tr": "Fas"
+      "tr": "Fas",
+      "nl": "Marokko"
     },
     "capital": "Rabat",
     "area": 446550,
@@ -2139,7 +2274,8 @@
       "cn": "莫桑比克",
       "pt": "Moçambique",
       "it": "Mozambico",
-      "tr": "Mozambik"
+      "tr": "Mozambik",
+      "nl": "Mozambiek"
     },
     "capital": "Maputo",
     "area": 801590,
@@ -2155,7 +2291,8 @@
       "cn": "緬甸",
       "pt": "Mianmar",
       "it": "Birmania",
-      "tr": "Myanmar"
+      "tr": "Myanmar",
+      "nl": "Myanmar"
     },
     "capital": "Naypyidaw",
     "area": 676578,
@@ -2171,7 +2308,8 @@
       "cn": "纳米比亚",
       "pt": "Namíbia",
       "it": "Namibia",
-      "tr": "Namibya"
+      "tr": "Namibya",
+      "nl": "Namibië"
     },
     "capital": "Windhoek",
     "area": 825615,
@@ -2187,7 +2325,8 @@
       "cn": "瑙鲁",
       "pt": "Nauru",
       "it": "Nauru",
-      "tr": "Nauru"
+      "tr": "Nauru",
+      "nl": "Nauro"
     },
     "capital": "Yaren",
     "area": 21,
@@ -2203,7 +2342,8 @@
       "cn": "尼泊尔",
       "pt": "Nepal",
       "it": "Nepal",
-      "tr": "Nepal"
+      "tr": "Nepal",
+      "nl": "Nepa;"
     },
     "capital": "Kathmandu",
     "area": 147181,
@@ -2219,7 +2359,8 @@
       "cn": "荷蘭",
       "pt": "Países Baixos",
       "it": "Paesi Bassi",
-      "tr": "Hollanda"
+      "tr": "Hollanda",
+      "nl": "Nederland"
     },
     "capital": "Amsterdam",
     "area": 41850,
@@ -2234,7 +2375,8 @@
       "cn": "新喀里多尼亞",
       "pt": "Nova Caledônia",
       "it": "Nuova Caledonia",
-      "tr": "Yeni Kaledonya"
+      "tr": "Yeni Kaledonya",
+      "nl": "Nieuw-Caledonië"
     },
     "capital": "Nouméa",
     "area": 18575,
@@ -2250,7 +2392,8 @@
       "cn": "新西蘭",
       "pt": "Nova Zelândia",
       "it": "Nuova Zelanda",
-      "tr": "Yeni Zelanda"
+      "tr": "Yeni Zelanda",
+      "nl": "Nieuw Zeeland"
     },
     "capital": "Wellington",
     "area": 270467,
@@ -2266,7 +2409,8 @@
       "cn": "尼加拉瓜",
       "pt": "Nicarágua",
       "it": "Nicaragua",
-      "tr": "Nikaragua"
+      "tr": "Nikaragua",
+      "nl": "Nicaragua"
     },
     "capital": "Managua",
     "area": 130373,
@@ -2282,7 +2426,8 @@
       "cn": "尼日尔",
       "pt": "Níger",
       "it": "Niger",
-      "tr": "Nijer"
+      "tr": "Nijer",
+      "nl": "Niger"
     },
     "capital": "Niamey",
     "area": 1267000,
@@ -2298,7 +2443,8 @@
       "cn": "奈及利亞",
       "pt": "Nigéria",
       "it": "Nigeria",
-      "tr": "Nijerya"
+      "tr": "Nijerya",
+      "nl": "Nigeria"
     },
     "capital": "Abuja",
     "area": 923768,
@@ -2313,7 +2459,8 @@
       "cn": "纽埃",
       "pt": "Niue",
       "it": "Niue",
-      "tr": "Niue"
+      "tr": "Niue",
+      "nl": "Niue"
     },
     "capital": "Alofi",
     "area": 260,
@@ -2328,7 +2475,8 @@
       "cn": "诺福克岛",
       "pt": "Ilha Norfolk",
       "it": "Isola Norfolk",
-      "tr": "Norfolk Adası"
+      "tr": "Norfolk Adası",
+      "nl": "Norfol eiland"
     },
     "capital": "Kingston",
     "area": 36,
@@ -2343,7 +2491,8 @@
       "cn": "北马里亚纳群岛",
       "pt": "Marianas Setentrionais",
       "it": "Isole Marianne Settentrionali",
-      "tr": "Kuzey Mariana Adaları"
+      "tr": "Kuzey Mariana Adaları",
+      "nl": "Noordelijke Mariana eilanden"
     },
     "capital": "Saipan",
     "area": 464,
@@ -2359,7 +2508,8 @@
       "cn": "挪威",
       "pt": "Noruega",
       "it": "Norvegia",
-      "tr": "Norveç"
+      "tr": "Norveç",
+      "nl": "Noorwegen"
     },
     "capital": "Oslo",
     "area": 323802,
@@ -2375,7 +2525,8 @@
       "cn": "阿曼",
       "pt": "Omã",
       "it": "Oman",
-      "tr": "Umman"
+      "tr": "Umman",
+      "nl": "Oman"
     },
     "capital": "Muscat",
     "area": 309500,
@@ -2391,7 +2542,8 @@
       "cn": "巴基斯坦",
       "pt": "Paquistão",
       "it": "Pakistan",
-      "tr": "Pakistan"
+      "tr": "Pakistan",
+      "nl": "Pakistan"
     },
     "capital": "Islamabad",
     "area": 881912,
@@ -2407,7 +2559,8 @@
       "cn": "帛琉",
       "pt": "Palau",
       "it": "Palau",
-      "tr": "Palau"
+      "tr": "Palau",
+      "nl": "Palau"
     },
     "capital": "Ngerulmud",
     "area": 459,
@@ -2423,7 +2576,8 @@
       "cn": "巴拿马",
       "pt": "Panamá",
       "it": "Panama",
-      "tr": "Panama"
+      "tr": "Panama",
+      "nl": "Panama"
     },
     "capital": "Panama City",
     "area": 75417,
@@ -2439,7 +2593,8 @@
       "cn": "巴布亚新几内亚",
       "pt": "Papua-Nova Guiné",
       "it": "Papua Nuova Guinea",
-      "tr": "Papua Yeni Gine"
+      "tr": "Papua Yeni Gine",
+      "nl": "Papua Nieuw Ginea"
     },
     "capital": "Port Moresby",
     "area": 462840,
@@ -2455,7 +2610,8 @@
       "cn": "巴拉圭",
       "pt": "Paraguai",
       "it": "Paraguay",
-      "tr": "Paraguay"
+      "tr": "Paraguay",
+      "nl": "Paraguay"
     },
     "capital": "Asunción",
     "area": 406752,
@@ -2471,7 +2627,8 @@
       "cn": "秘魯",
       "pt": "Peru",
       "it": "Perù",
-      "tr": "Peru"
+      "tr": "Peru",
+      "nl": "Peru"
     },
     "capital": "Lima",
     "area": 1285216,
@@ -2487,7 +2644,8 @@
       "cn": "菲律賓",
       "pt": "Filipinas",
       "it": "Filippine",
-      "tr": "Filipinler"
+      "tr": "Filipinler",
+      "nl": "Filipijnen"
     },
     "capital": "Manila",
     "area": 342353,
@@ -2503,7 +2661,8 @@
       "cn": "波蘭",
       "pt": "Polónia",
       "it": "Polonia",
-      "tr": "Polonya"
+      "tr": "Polonya",
+      "nl": "Polen"
     },
     "capital": "Warsaw",
     "area": 312679,
@@ -2519,7 +2678,8 @@
       "cn": "葡萄牙",
       "pt": "Portugal",
       "it": "Portogallo",
-      "tr": "Portekiz"
+      "tr": "Portekiz",
+      "nl": "Portugal"
     },
     "capital": "Lisbon",
     "area": 92090,
@@ -2534,7 +2694,8 @@
       "cn": "波多黎各",
       "pt": "Porto Rico",
       "it": "Porto Rico",
-      "tr": "Porto Riko"
+      "tr": "Porto Riko",
+      "nl": "Porto Rico"
     },
     "capital": "San Juan",
     "area": 8870,
@@ -2550,7 +2711,8 @@
       "cn": "卡塔尔",
       "pt": "Catar",
       "it": "Qatar",
-      "tr": "Katar"
+      "tr": "Katar",
+      "nl": "Katar"
     },
     "capital": "Doha",
     "area": 11586,
@@ -2565,7 +2727,8 @@
       "cn": "留尼旺",
       "pt": "Reunião",
       "it": "Riunione",
-      "tr": "Riunione"
+      "tr": "Riunione",
+      "nl": "Reunión"
     },
     "capital": "Saint-Denis",
     "area": 2511,
@@ -2581,7 +2744,8 @@
       "cn": "羅馬尼亞",
       "pt": "Roménia",
       "it": "Romania",
-      "tr": "Romanya"
+      "tr": "Romanya",
+      "nl": "Roemenië"
     },
     "capital": "Bucharest",
     "area": 238391,
@@ -2597,7 +2761,8 @@
       "cn": "卢旺达",
       "pt": "Ruanda",
       "it": "Ruanda",
-      "tr": "Ruanda"
+      "tr": "Ruanda",
+      "nl": "Ruanda"
     },
     "capital": "Kigali",
     "area": 26338,
@@ -2612,7 +2777,8 @@
       "cn": "圣巴泰勒米",
       "pt": "São Bartolomeu",
       "it": "Saint-Barthélemy",
-      "tr": "Saint Barthelemy"
+      "tr": "Saint Barthelemy",
+      "nl": "Sint-Bartholomeüs"
     },
     "capital": "Gustavia",
     "area": 21,
@@ -2627,7 +2793,8 @@
       "cn": "圣赫勒拿、阿森松和特里斯坦-达库尼亚",
       "pt": "Santa Helena, Ascensão e Tristão da Cunha",
       "it": "Sant'Elena, Ascensione e Tristan da Cunha",
-      "tr": "Saint Helena, Ascension ve Tristan da Cunha"
+      "tr": "Saint Helena, Ascension ve Tristan da Cunha",
+      "nl": "Sint-Helena, Ascension en Tristan da Cunha"
     },
     "capital": "Jamestown",
     "area": 394,
@@ -2643,7 +2810,8 @@
       "cn": "圣基茨和尼维斯",
       "pt": "São Cristóvão e Névis",
       "it": "Saint Kitts e Nevis",
-      "tr": "Saint Kitts ve Nevis"
+      "tr": "Saint Kitts ve Nevis",
+      "nl": "Sint Kitts en Nevis"
     },
     "capital": "Basseterre",
     "area": 261,
@@ -2659,7 +2827,8 @@
       "cn": "圣卢西亚",
       "pt": "Santa Lúcia",
       "it": "Saint Lucia",
-      "tr": "Saint Lucia"
+      "tr": "Saint Lucia",
+      "nl": "Sint Lucia"
     },
     "capital": "Castries",
     "area": 616,
@@ -2674,7 +2843,8 @@
       "cn": "圣皮埃尔和密克隆",
       "pt": "Saint-Pierre e Miquelon",
       "it": "Saint-Pierre e Miquelon",
-      "tr": "Saint Pierre ve Miquelon"
+      "tr": "Saint Pierre ve Miquelon",
+      "nl": "Sint Pierre en Miquelon"
     },
     "capital": "Saint-Pierre",
     "area": 242,
@@ -2690,7 +2860,8 @@
       "cn": "圣文森特和格林纳丁斯",
       "pt": "São Vicente e Granadinas",
       "it": "Saint Vincent e Grenadine",
-      "tr": "Saint Vincent ve Grenadinler"
+      "tr": "Saint Vincent ve Grenadinler",
+      "nl": "Sint Vincent en Grenada"
     },
     "capital": "Kingstown",
     "area": 389,
@@ -2706,7 +2877,8 @@
       "cn": "萨摩亚",
       "pt": "Samoa",
       "it": "Samoa",
-      "tr": "Samoa"
+      "tr": "Samoa",
+      "nl": "Samoa"
     },
     "capital": "Apia",
     "area": 2842,
@@ -2722,7 +2894,8 @@
       "cn": "圣马力诺",
       "pt": "San Marino",
       "it": "San Marino",
-      "tr": "San Marino"
+      "tr": "San Marino",
+      "nl": "San Marino"
     },
     "capital": "City of San Marino",
     "area": 61,
@@ -2738,7 +2911,8 @@
       "cn": "沙烏地阿拉伯",
       "pt": "Arábia Saudita",
       "it": "Arabia Saudita",
-      "tr": "Suudi Arabistan"
+      "tr": "Suudi Arabistan",
+      "nl": "Saodie Arabië"
     },
     "capital": "Riyadh",
     "area": 2149690,
@@ -2754,7 +2928,8 @@
       "cn": "塞内加尔",
       "pt": "Senegal",
       "it": "Senegal",
-      "tr": "Senegal"
+      "tr": "Senegal",
+      "nl": "Senegal"
     },
     "capital": "Dakar",
     "area": 196722,
@@ -2770,7 +2945,8 @@
       "cn": "塞爾維亞",
       "pt": "Sérvia",
       "it": "Serbia",
-      "tr": "Sırbistan"
+      "tr": "Sırbistan",
+      "nl": "Servië"
     },
     "capital": "Belgrade",
     "area": 88361,
@@ -2786,7 +2962,8 @@
       "cn": "塞舌尔",
       "pt": "Seicheles",
       "it": "Seychelles",
-      "tr": "Seychelles"
+      "tr": "Seychelles",
+      "nl": "Seychellen"
     },
     "capital": "Victoria",
     "area": 452,
@@ -2802,7 +2979,8 @@
       "cn": "塞拉利昂",
       "pt": "Serra Leoa",
       "it": "Sierra Leone",
-      "tr": "Sierra Leone"
+      "tr": "Sierra Leone",
+      "nl": "Sierra Leone"
     },
     "capital": "Freetown",
     "area": 71740,
@@ -2818,7 +2996,8 @@
       "cn": "新加坡",
       "pt": "Singapura",
       "it": "Singapore",
-      "tr": "Singapur"
+      "tr": "Singapur",
+      "nl": "Singapore"
     },
     "capital": "Singapore",
     "area": 710,
@@ -2834,7 +3013,8 @@
       "cn": "斯洛伐克",
       "pt": "Eslováquia",
       "it": "Slovacchia",
-      "tr": "Slovakya"
+      "tr": "Slovakya",
+      "nl": "Slowakije"
     },
     "capital": "Bratislava",
     "area": 49037,
@@ -2850,7 +3030,8 @@
       "cn": "斯洛維尼亞",
       "pt": "Eslovênia",
       "it": "Slovenia",
-      "tr": "Slovenya"
+      "tr": "Slovenya",
+      "nl": "Slovenië"
     },
     "capital": "Ljubljana",
     "area": 20273,
@@ -2866,7 +3047,8 @@
       "cn": "所罗门群岛",
       "pt": "Ilhas Salomão",
       "it": "Isole Salomone",
-      "tr": "Solomon Adaları"
+      "tr": "Solomon Adaları",
+      "nl": "Solomon eilanden"
     },
     "capital": "Honiara",
     "area": 28896,
@@ -2882,7 +3064,8 @@
       "cn": "索馬利亞",
       "pt": "Somália",
       "it": "Somalia",
-      "tr": "Somali"
+      "tr": "Somali",
+      "nl": "Somalië"
     },
     "capital": "Mogadishu",
     "area": 637657,
@@ -2898,7 +3081,8 @@
       "cn": "南非",
       "pt": "África do Sul",
       "it": "Sudafrica",
-      "tr": "Güney Afrika"
+      "tr": "Güney Afrika",
+      "nl": "Zuid Afrika"
     },
     "capital": "Pretoria",
     "area": 1221037,
@@ -2914,7 +3098,8 @@
       "cn": "南蘇丹",
       "pt": "Sudão do Sul",
       "it": "Sudan del Sud",
-      "tr": "Güney Sudan"
+      "tr": "Güney Sudan",
+      "nl": "Zuid Soedan"
     },
     "capital": "Juba",
     "area": 619745,
@@ -2929,7 +3114,8 @@
       "de": "Spanien",
       "cn": "西班牙",
       "pt": "Espanha",
-      "tr": "İspanya"
+      "tr": "İspanya",
+      "nl": "Spanje"
     },
     "capital": "Madrid",
     "area": 505992,
@@ -2945,7 +3131,8 @@
       "cn": "斯里蘭卡",
       "pt": "Sri Lanka",
       "it": "Sri Lanka",
-      "tr": "Sri Lanka"
+      "tr": "Sri Lanka",
+      "nl": "Sri Lanka"
     },
     "capital": "Colombo",
     "area": 65610,
@@ -2961,7 +3148,8 @@
       "cn": "苏丹",
       "pt": "Sudão",
       "it": "Sudan",
-      "tr": "Sudan"
+      "tr": "Sudan",
+      "nl": "Soedan"
     },
     "capital": "Khartoum",
     "area": 1886068,
@@ -2977,7 +3165,8 @@
       "cn": "苏里南",
       "pt": "Suriname",
       "it": "Suriname",
-      "tr": "Surinam"
+      "tr": "Surinam",
+      "nl": "Suriname"
     },
     "capital": "Paramaribo",
     "area": 163820,
@@ -2992,7 +3181,8 @@
       "cn": "斯瓦尔巴和扬马延",
       "pt": "Svalbard e Jan Mayen",
       "it": "Svalbard e Jan Mayen",
-      "tr": "Svalbard ve Jan Mayen"
+      "tr": "Svalbard ve Jan Mayen",
+      "nl": "Svalbard en Jan Mayen"
     },
     "capital": "Longyearbyen",
     "area": -1,
@@ -3008,7 +3198,8 @@
       "cn": "瑞典",
       "pt": "Suécia",
       "it": "Svezia",
-      "tr": "İsveç"
+      "tr": "İsveç",
+      "nl": "Zweden"
     },
     "capital": "Stockholm",
     "area": 450295,
@@ -3024,7 +3215,8 @@
       "cn": "瑞士",
       "pt": "Suíça",
       "it": "Svizzera",
-      "tr": "İsviçre"
+      "tr": "İsviçre",
+      "nl": "Zwitserland"
     },
     "capital": "Bern",
     "area": 41284,
@@ -3040,7 +3232,8 @@
       "cn": "塔吉克斯坦",
       "pt": "Tajiquistão",
       "it": "Tagikistan",
-      "tr": "Tacikistan"
+      "tr": "Tacikistan",
+      "nl": "Tadjikistan"
     },
     "capital": "Dushanbe",
     "area": 143100,
@@ -3056,7 +3249,8 @@
       "cn": "泰國",
       "pt": "Tailândia",
       "it": "Thailandia",
-      "tr": "Tayland"
+      "tr": "Tayland",
+      "nl": "Thailand"
     },
     "capital": "Bangkok",
     "area": 513120,
@@ -3072,7 +3266,8 @@
       "cn": "东帝汶",
       "pt": "Timor-Leste",
       "it": "Timor Est",
-      "tr": "Timor-Leste"
+      "tr": "Timor-Leste",
+      "nl": "Timor oost"
     },
     "capital": "Dili",
     "area": 14874,
@@ -3088,7 +3283,8 @@
       "cn": "多哥",
       "pt": "Togo",
       "it": "Togo",
-      "tr": "Togo"
+      "tr": "Togo",
+      "nl": "Togo"
     },
     "capital": "Lomé",
     "area": 56785,
@@ -3103,7 +3299,8 @@
       "cn": "托克勞",
       "pt": "Toquelau",
       "it": "Tokelau",
-      "tr": "Tokelau"
+      "tr": "Tokelau",
+      "nl": "Tokelau"
     },
     "capital": "Fakaofo",
     "area": 12,
@@ -3119,7 +3316,8 @@
       "cn": "汤加",
       "pt": "Tonga",
       "it": "Tonga",
-      "tr": "Tonga"
+      "tr": "Tonga",
+      "nl": "Tonga"
     },
     "capital": "Nuku'alofa",
     "area": 747,
@@ -3135,7 +3333,8 @@
       "cn": "千里達及托巴哥",
       "pt": "Trinidad e Tobago",
       "it": "Trinidad e Tobago",
-      "tr": "Trinidad ve Tobago"
+      "tr": "Trinidad ve Tobago",
+      "nl": "Trinidad en Tobago"
     },
     "capital": "Port of Spain",
     "area": 5130,
@@ -3151,7 +3350,8 @@
       "cn": "突尼西亞",
       "pt": "Tunísia",
       "it": "Tunisia",
-      "tr": "Tunus"
+      "tr": "Tunus",
+      "nl": "Tunesië"
     },
     "capital": "Tunis",
     "area": 163610,
@@ -3167,7 +3367,8 @@
       "cn": "土耳其",
       "pt": "Turquia",
       "it": "Turchia",
-      "tr": "Türkiye"
+      "tr": "Türkiye",
+      "nl": "Turkije"
     },
     "capital": "Ankara",
     "area": 783562,
@@ -3183,7 +3384,8 @@
       "cn": "土库曼斯坦",
       "pt": "Turquemenistão",
       "it": "Turkmenistan",
-      "tr": "Türkmenistan"
+      "tr": "Türkmenistan",
+      "nl": "Turkmenistan"
     },
     "capital": "Ashgabat",
     "area": 488100,
@@ -3198,7 +3400,8 @@
       "cn": "特克斯和凯科斯群岛",
       "pt": "Turks e Caicos",
       "it": "Turks e Caicos",
-      "tr": "Turks ve Caicos Adaları"
+      "tr": "Turks ve Caicos Adaları",
+      "nl": "Turks en Caicos eilanden"
     },
     "capital": "Cockburn Town",
     "area": 948,
@@ -3214,7 +3417,8 @@
       "cn": "图瓦卢",
       "pt": "Tuvalu",
       "it": "Tuvalu",
-      "tr": "Tuvalu"
+      "tr": "Tuvalu",
+      "nl": "Tuvalu"
     },
     "capital": "Funafuti",
     "area": 26,
@@ -3230,7 +3434,8 @@
       "cn": "乌干达",
       "pt": "Uganda",
       "it": "Uganda",
-      "tr": "Uganda"
+      "tr": "Uganda",
+      "nl": "Uganda"
     },
     "capital": "Kampala",
     "area": 241550,
@@ -3246,7 +3451,8 @@
       "cn": "烏克蘭",
       "pt": "Ucrânia",
       "it": "Ucraina",
-      "tr": "Ukrayna"
+      "tr": "Ukrayna",
+      "nl": "Oekraïne"
     },
     "capital": "Kyiv",
     "area": 603500,
@@ -3262,7 +3468,8 @@
       "cn": "阿联酋",
       "pt": "Emirados Árabes Unidos",
       "it": "Emirati Arabi Uniti",
-      "tr": "Birleşik Arap Emirlikleri"
+      "tr": "Birleşik Arap Emirlikleri",
+      "nl": "Verenigde Arabische Emiraten"
     },
     "capital": "Abu Dhabi",
     "area": 83600,
@@ -3278,7 +3485,8 @@
       "cn": "美国",
       "pt": "Estados Unidos",
       "it": "Stati Uniti",
-      "tr": "Amerika Birleşik Devletleri"
+      "tr": "Amerika Birleşik Devletleri",
+      "nl": "Verenigde Staten"
     },
     "capital": "Washington DC",
     "area": 9834000,
@@ -3294,7 +3502,8 @@
       "cn": "乌拉圭",
       "pt": "Uruguai",
       "it": "Uruguay",
-      "tr": "Uruguay"
+      "tr": "Uruguay",
+      "nl": "Uruguay"
     },
     "capital": "Montevideo",
     "area": 181034,
@@ -3310,7 +3519,8 @@
       "cn": "乌兹别克斯坦",
       "pt": "Uzbequistão",
       "it": "Uzbekistan",
-      "tr": "Özbekistan"
+      "tr": "Özbekistan",
+      "nl": "Oezbekistan"
     },
     "capital": "Tashkent",
     "area": 447400,
@@ -3326,7 +3536,8 @@
       "cn": "瓦努阿圖",
       "pt": "Vanuatu",
       "it": "Vanuatu",
-      "tr": "Vanuatu"
+      "tr": "Vanuatu",
+      "nl": "Vanuatu"
     },
     "capital": "Port Vila",
     "area": 12189,
@@ -3341,7 +3552,8 @@
       "cn": "瓦利斯和富圖納",
       "pt": "Wallis e Futuna",
       "it": "Wallis e Futuna",
-      "tr": "Wallis ve Futuna"
+      "tr": "Wallis ve Futuna",
+      "nl": "Wallis en Futuna"
     },
     "capital": "Mata Utu",
     "area": 142,
@@ -3356,7 +3568,8 @@
       "cn": "阿拉伯撒哈拉民主共和国",
       "pt": "Saara Ocidental",
       "it": "Sahara Occidentale",
-      "tr": "Batı Sahra"
+      "tr": "Batı Sahra",
+      "nl": "Westerse Sahara"
     },
     "capital": "El Aaiún",
     "area": 266000,
@@ -3372,7 +3585,8 @@
       "cn": "葉門",
       "pt": "Iêmen",
       "it": "Yemen",
-      "tr": "Yemen"
+      "tr": "Yemen",
+      "nl": "Jemen"
     },
     "capital": "Sana'a",
     "area": 527968,
@@ -3388,7 +3602,8 @@
       "cn": "尚比亞",
       "pt": "Zâmbia",
       "it": "Zambia",
-      "tr": "Zambiya"
+      "tr": "Zambiya",
+      "nl": "Zambië"
     },
     "capital": "Lusaka",
     "area": 752612,
@@ -3404,7 +3619,8 @@
       "cn": "辛巴威",
       "pt": "Zimbabwe",
       "it": "Zimbabwe",
-      "tr": "Zimbabve"
+      "tr": "Zimbabve",
+      "nl": "Zimbabwe"
     },
     "capital": "Harare",
     "area": 390757,
