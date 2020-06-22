@@ -104,7 +104,7 @@ var RuleTranslations = map[string]RuleTranslation{
 		RuleNextDayOfWeek: "volgende",
 		RuleNaturalDate:   `januari|februari|maart|april|mei|juni|juli|augustus|september|oktober|november|december`,
 	},
-	"gr": {
+	"el": {
 		DaysOfWeek: []string{
 			"δευτέρα", "τρίτη", "τετάρτη", "πέμπτη", "παρασκευή", "σάββατο", "κυριακή",
 		},
