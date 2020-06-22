@@ -239,6 +239,19 @@ func init() {
 			},
 			Replacer: modules.JokesReplacer,
 		},
+		{
+			Tag: modules.AdvicesTag,
+			Patterns: []string{
+				"Δώσε μου μια συμβουλή",
+				"Συμβούλεψε με",
+			},
+			Responses: []string{
+				"Εδώ είσαι, %s",
+				"Να ένα καλό, %s",
+				"Άκου προσεκτικά, %s",
+			},
+			Replacer: modules.AdvicesReplacer,
+		},
 	})
 
 	// COUNTRIES

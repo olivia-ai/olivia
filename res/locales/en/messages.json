@@ -116,5 +116,11 @@
     "messages": [
       "Sorry, I couldn't find a random number in the given range. Please check the range values."
     ]
+  },
+  {
+    "tag": "no advices",
+    "messages": [
+      "Sorry I couldn't come up with an advice. Please don't hate me."
+    ]
   }
 ]
