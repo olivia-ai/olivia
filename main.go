@@ -61,7 +61,6 @@ func main() {
 func reTrainModels(localesFlag string) {
 	// Iterate locales by separating them by comma
 	for _, localeFlag := range strings.Split(localesFlag, ",") {
-		fmt.Println(localeFlag)
 		path := fmt.Sprintf("res/locales/%s/training.json", localeFlag)
 		err := os.Remove(path)
 
