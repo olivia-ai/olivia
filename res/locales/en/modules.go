@@ -233,6 +233,19 @@ func init() {
 			},
 			Replacer: modules.JokesReplacer,
 		},
+		{
+			Tag: modules.AdvicesTag,
+			Patterns: []string{
+				"Give me an advice",
+				"Advise me",
+			},
+			Responses: []string{
+				"Here you go, %s",
+				"Here's one, %s",
+				"Listen closely, %s",
+			},
+			Replacer: modules.AdvicesReplacer,
+},
 	})
 
 	// COUNTRIES
