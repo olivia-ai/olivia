@@ -107,24 +107,24 @@
     "context": ""
   },
   {
-    "tag": "women",
+    "tag": "woman",
     "patterns": [
       "Are you a girl",
-      "You are a women"
+      "You are a woman"
     ],
     "responses": [
-      "Sure, I am a women"
+      "Sure, I am a woman"
     ],
     "context": ""
   },
   {
-    "tag": "men",
+    "tag": "man",
     "patterns": [
-      "Are you a men",
+      "Are you a man",
       "Are you a boy"
     ],
     "responses": [
-      "No, I am a women"
+      "No, I am a woman"
     ],
     "context": ""
   },
