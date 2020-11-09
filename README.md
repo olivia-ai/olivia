@@ -104,6 +104,12 @@ Clone the project via GitHub:
 ```bash 
 $ git clone git@github.com:olivia-ai/olivia.git
 ```
+CD into the repository
+
+```bash
+$ cd ~
+$ cd olivia/
+```
 
 Then download the dependencies
 ```bash
