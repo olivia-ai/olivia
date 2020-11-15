@@ -91,14 +91,13 @@ func init() {
 		{
 			Tag: modules.MoviesTag,
 			Patterns: []string{
-				"Can you find me a movie of",
-				"Give me a movie of",
-				"Find me a film of",
-				"I would like to watch a movie of",
+				"Find me a movie about",
+				"Give me a movie about",
+				"Find me a film about",
 			},
 			Responses: []string{
-				"I found this for you “%s” which is rated %.02f/5",
-				"Sure, I found this movie “%s” rated %.02f/5",
+				"I found the movie “%s” for you, which is rated %.02f/5",
+				"Sure, I found this movie “%s”, which is rated %.02f/5",
 			},
 			Replacer: modules.MovieSearchReplacer,
 		},
