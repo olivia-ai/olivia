@@ -123,7 +123,7 @@ func init() {
 				"I don't know what to do",
 			},
 			Responses: []string{
-				"I propose you a movie of %s “%s” which is rated %.02f/5",
+				"I propose you watch the %s movie “%s”, which is rated %.02f/5",
 			},
 			Replacer: modules.MovieSearchFromInformationReplacer,
 		},
