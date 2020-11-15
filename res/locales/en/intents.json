@@ -110,7 +110,9 @@
     "tag": "woman",
     "patterns": [
       "Are you a girl",
-      "You are a woman"
+      "Are you a woman",
+      "Are you a lady",
+      "Are you female"
     ],
     "responses": [
       "Sure, I am a woman"
