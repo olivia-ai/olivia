@@ -108,6 +108,7 @@ func init() {
 				"I already saw this movie",
 				"I have already watched this film",
 				"Oh I have already watched this movie",
+				"I have already seen this movie",
 			},
 			Responses: []string{
 				"Oh I see, here's another one “%s” which is rated %.02f/5",
