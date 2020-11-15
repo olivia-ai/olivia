@@ -76,12 +76,14 @@ func init() {
 		{
 			Tag: modules.GenresTag,
 			Patterns: []string{
-				"I like movies of adventure, animation",
-				"I watch movies of sci-fi",
+				"My favorite movie genres are Comedy, Horror",
+				"I like the Comedy, Horror genres",
+                "I like movies about War",
+                "I like Action movies",
 			},
 			Responses: []string{
-				"Great choices! I save them into your client.",
-				"Understood, I send this information to your client.",
+				"Great choices! I saved this movie genre information to your client.",
+				"Understood, I saved this movie genre information to your client.",
 			},
 			Replacer: modules.GenresReplacer,
 		},
