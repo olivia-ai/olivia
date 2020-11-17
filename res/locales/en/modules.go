@@ -76,12 +76,14 @@ func init() {
 		{
 			Tag: modules.GenresTag,
 			Patterns: []string{
-				"I like movies of adventure, animation",
-				"I watch movies of sci-fi",
+				"My favorite movie genres are Comedy, Horror",
+				"I like the Comedy, Horror genres",
+                "I like movies about War",
+                "I like Action movies",
 			},
 			Responses: []string{
-				"Great choices! I save them into your client.",
-				"Understood, I send this information to your client.",
+				"Great choices! I saved this movie genre information to your client.",
+				"Understood, I saved this movie genre information to your client.",
 			},
 			Replacer: modules.GenresReplacer,
 		},
@@ -89,14 +91,13 @@ func init() {
 		{
 			Tag: modules.MoviesTag,
 			Patterns: []string{
-				"Can you find me a movie of",
-				"Give me a movie of",
-				"Find me a film of",
-				"I would like to watch a movie of",
+				"Find me a movie about",
+				"Give me a movie about",
+				"Find me a film about",
 			},
 			Responses: []string{
-				"I found this for you “%s” which is rated %.02f/5",
-				"Sure, I found this movie “%s” rated %.02f/5",
+				"I found the movie “%s” for you, which is rated %.02f/5",
+				"Sure, I found this movie “%s”, which is rated %.02f/5",
 			},
 			Replacer: modules.MovieSearchReplacer,
 		},
@@ -107,6 +108,7 @@ func init() {
 				"I already saw this movie",
 				"I have already watched this film",
 				"Oh I have already watched this movie",
+				"I have already seen this movie",
 			},
 			Responses: []string{
 				"Oh I see, here's another one “%s” which is rated %.02f/5",
@@ -121,7 +123,7 @@ func init() {
 				"I don't know what to do",
 			},
 			Responses: []string{
-				"I propose you a movie of %s “%s” which is rated %.02f/5",
+				"I propose you watch the %s movie “%s”, which is rated %.02f/5",
 			},
 			Replacer: modules.MovieSearchFromInformationReplacer,
 		},
