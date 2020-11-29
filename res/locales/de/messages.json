@@ -96,7 +96,25 @@
   {
     "tag": "no genres saved",
     "messages": [
-      "Entschuldigung, ich kann kein Filmgenre in Ihren Daten finden. Versuchen Sie, Ihre Einstellungen mit “Ich mag Abenteuerfilme“ festzulegen."
+      "Entschuldigung, ich kann kein Filmgenre in Ihren Daten finden. Versuchen Sie, Ihre Einstellungen mit „Ich mag Abenteuerfilme“ festzulegen."
+    ]
+  },
+  {
+    "tag": "no jokes",
+    "messages": [
+      "Entschuldigung, ich kann leider keinen Witz erzählen. Bitte zieh mich nicht aus dem Strom."
+    ]
+  },
+  {
+    "tag": "no random range",
+    "messages": [
+      "Entschuldigung, ich kann keine Zufallszahl im vorgegebenen Intervall finden. Bitte überprüfe die Intervallgrenzen."
+    ]
+  },
+  {
+    "tag": "no advices",
+    "messages": [
+      "Entschuldigung, ich kann keinen Ratschlag geben. Bitte hasse mich nicht."
     ]
   }
 ]
