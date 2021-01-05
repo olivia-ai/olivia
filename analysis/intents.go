@@ -53,12 +53,12 @@ func SerializeModulesIntents(locale string) []Intent {
 	intents := make([]Intent, len(registeredModules))
 
 	for k, module := range registeredModules {
-		intents[k] = append(intents, Intent{
+		intents[k] = Intent{
 			Tag:       module.Tag,
 			Patterns:  module.Patterns,
 			Responses: module.Responses,
 			Context:   "",
-		})
+		}
 	}
 
 	return intents
