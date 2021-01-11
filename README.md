@@ -36,6 +36,10 @@
   <a href="#license">License</a>
 </p>
 
+<p align="center">
+  ⚠️ Please check the <strong><a href="https://github.com/olivia-ai/olivia/issues">Call for contributors</a></strong>
+</p>
+
 ## Introduction
 <p align="center">
   <img alt="introduction" height="100" src="https://i.imgur.com/Ygm9CMc.png">
