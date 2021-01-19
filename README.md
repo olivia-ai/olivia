@@ -61,7 +61,29 @@ Try it on [her website!](https://olivia-ai.org)
 
 
 ## Getting started
-### Installation
+### Installation 
+#### Login to Github 
+
+To get a personal accsess token from Github go to Setings>Developer settings>Personal access tokens
+
+Click on Genererate new Token and name it you MUST have read and write packages ticked on.
+Then click Generatre new token
+
+Go into home directory 
+```bash
+$ cd ~
+```
+Make TOKEN.txt file
+```bash
+$ sudo nano TOKEN.txt
+```
+Paste Token in to file then save
+
+Login to Github (Note: change USERNAME to Gthub username)
+```bash
+cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u USERNAME --password-stdin
+```
+
 #### Docker
 
 <p align="center">
