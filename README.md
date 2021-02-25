@@ -69,7 +69,7 @@ To get a personal accsess token from Github go to Setings>Developer settings>Per
 Click on Generate new Token and name it you MUST have read and write packages ticked on.
 Then click Generate new token
 
-Replace Token with the Token that you just made.
+Replace TOKEN with the Token that you just made.
 ```bash
 $ export PAT=TOKEN
 ```
