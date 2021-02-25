@@ -66,8 +66,8 @@ Try it on [her website!](https://olivia-ai.org)
 
 To get a personal accsess token from Github go to Setings>Developer settings>Personal access tokens
 
-Click on Genererate new Token and name it you MUST have read and write packages ticked on.
-Then click Generatre new token
+Click on Generate new Token and name it you MUST have read and write packages ticked on.
+Then click Generate new token
 
 Replace Token with the Token that you just made.
 ```bash
