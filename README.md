@@ -64,7 +64,7 @@ Try it on [her website!](https://olivia-ai.org)
 ### Installation 
 #### Login to Github 
 
-To get a personal accsess token from Github go to Setings>Developer settings>Personal access tokens
+To get a personal access token from Github go to Setings>Developer settings>Personal access tokens
 
 Click on Generate new Token and name it you MUST have read and write packages ticked on.
 Then click Generate new token
