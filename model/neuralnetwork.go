@@ -17,16 +17,19 @@ type NeuralNetwork struct {
 }
 
 // CreateNetwork creates a new NeuralNetwork by filling the matrixes with the given sizes and returns it.
-func CreateNetwork(learningRate float64, inputLayers int, outputLayers int, hiddensNodes ...int) NeuralNetwork {
+func CreateNetwork(learningRate float64, inputLayers int, hiddensNodes ...int) NeuralNetwork {
 	layers := []Matrix{
-		{},
+		make(Matrix, inputLayers),
 	}
 	// Generate the hidden(s) layer(s) and add them to the layers slice
 	for _, hiddenNodes := range hiddensNodes {
-		layers = append(layers, matrix.Generate(inputLayers, hiddenNodes))
+		layers = append(
+			layers, 
+			matrix.Generate(1, hiddenNodes),
+		)
 	}
 	// Add the output values to the layers slice
-	layers = append(layers, Matrix{})
+	layers = append(layers, make(Matrix, inputLayers))
 
 	// Generate the weights and biases
 	weightsNumber := len(layers) - 1

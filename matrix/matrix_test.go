@@ -1,4 +1,4 @@
-package network
+package matrix
 
 import (
 	"math/rand"
