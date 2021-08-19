@@ -59,7 +59,7 @@ func (nn *NeuralNetwork) FeedForward() {
 
 		productMatrix := layer.DotProduct(weights)
 		productMatrix.Sum(biases)
-		productMatrix.ApplyFunction(Sigmoid)
+		productMatrix.ApplyFunction(sigmoid)
 
 		// Replace the output values by the calculated ones
 		nn.Layers[i+1] = productMatrix
