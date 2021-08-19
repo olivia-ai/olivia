@@ -91,11 +91,10 @@ func (matrix Matrix) DotProduct(matrix2 Matrix) Matrix {
 
 // Sum processes the sum between matrix and matrix2, which should be of the same 
 // dimensions, and returns the result.
-func (matrix Matrix) Sum(matrix2 Matrix) (resultMatrix Matrix) {
+func (matrix Matrix) Sum(matrix2 Matrix) Matrix {
 	ErrorNotSameSize(matrix, matrix2)
 
-	resultMatrix = Generate(matrix.Rows(), matrix.Columns())
-	return resultMatrix.ApplyIndexedFunction(func(i, j int, x float64) float64 {
+	return matrix.ApplyIndexedFunction(func(i, j int, x float64) float64 {
 		return matrix[i][j] + matrix2[i][j]
 	})
 }
