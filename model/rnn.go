@@ -1,46 +1,47 @@
 package model
 
 import (
-	"github.com/olivia-ai/olivia/matrix"
+	"github.com/olivia-ai/olivia/matrices"
 )
 
-type Matrix = matrix.Matrix
+// An alias for the matrix type
+type matrix = matrices.Matrix
 
 // NeuralNetwork contains the Layers, Weights, Biases of a neural network then the actual output values
 // and the learning rate.
 type NeuralNetwork struct {
-	Layers  []Matrix
-	Weights []Matrix
-	Biases  []Matrix
+	Layers  []matrix
+	Weights []matrix
+	Biases  []matrix
 	Rate    float64
 	Time    float64
 }
 
 // CreateNetwork creates a new NeuralNetwork by filling the matrixes with the given sizes and returns it.
 func CreateNetwork(learningRate float64, inputLayers int, hiddensNodes ...int) NeuralNetwork {
-	layers := []Matrix{
+	layers := []matrix{
 		{make([]float64, inputLayers)},
 	}
 	// Generate the hidden(s) layer(s) and add them to the layers slice
 	for _, hiddenNodes := range hiddensNodes {
 		layers = append(
 			layers, 
-			matrix.Generate(1, hiddenNodes),
+			matrices.Generate(1, hiddenNodes),
 		)
 	}
 	// Add the output values to the layers slice
-	layers = append(layers, make(Matrix, inputLayers))
+	layers = append(layers, make(matrix, inputLayers))
 
 	// Generate the weights and biases
 	weightsNumber := len(layers) - 1
-	var weights []Matrix
-	var biases []Matrix
+	var weights []matrix
+	var biases []matrix
 
 	for i := 0; i < weightsNumber; i++ {
 		rows, columns := layers[i].Columns(), layers[i+1].Columns()
 
-		weights = append(weights, matrix.Generate(rows, columns))
-		biases = append(biases, matrix.GenerateRandom(layers[i].Rows(), columns))
+		weights = append(weights, matrices.Generate(rows, columns))
+		biases = append(biases, matrices.GenerateRandom(layers[i].Rows(), columns))
 	}
 
 	return NeuralNetwork{
