@@ -7,9 +7,9 @@ import (
 // An alias for the matrix type
 type matrix = matrices.Matrix
 
-// NeuralNetwork contains the Layers, Weights, Biases of a neural network then the actual output values
+// NN contains the Layers, Weights, Biases of a neural network then the actual output values
 // and the learning rate.
-type NeuralNetwork struct {
+type NN struct {
 	Layers  []matrix
 	Weights []matrix
 	Biases  []matrix
@@ -19,7 +19,7 @@ type NeuralNetwork struct {
 
 // CreateRNN creates a new recurrent neural network by filling the matrixes 
 // with the given sizes and returns it.
-func CreateRNN(learningRate float64, inputLayers int, hiddenLayersNodes ...int) NeuralNetwork {
+func CreateRNN(learningRate float64, inputLayers int, hiddenLayersNodes ...int) NN {
 	layers := []matrix{
 		{make([]float64, inputLayers)},
 	}
@@ -45,7 +45,7 @@ func CreateRNN(learningRate float64, inputLayers int, hiddenLayersNodes ...int) 
 		biases = append(biases, matrices.GenerateRandom(layers[i].Rows(), columns))
 	}
 
-	return NeuralNetwork{
+	return NN{
 		Layers:  layers,
 		Weights: weights,
 		Biases:  biases,
@@ -55,7 +55,7 @@ func CreateRNN(learningRate float64, inputLayers int, hiddenLayersNodes ...int) 
 
 // FeedForward processes the forward propagation of the neural network considering
 // that the first layer already contains the input.
-func (nn *NeuralNetwork) FeedForward() {
+func (nn *NN) FeedForward() {
 	for i := 0; i < len(nn.Layers)-1; i++ {
 		layer, weights, biases := nn.Layers[i], nn.Weights[i], nn.Biases[i]
 
