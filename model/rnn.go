@@ -19,15 +19,15 @@ type NeuralNetwork struct {
 
 // CreateRNN creates a new recurrent neural network by filling the matrixes 
 // with the given sizes and returns it.
-func CreateRNN(learningRate float64, inputLayers int, hiddensNodes ...int) NeuralNetwork {
+func CreateRNN(learningRate float64, inputLayers int, hiddenLayersNodes ...int) NeuralNetwork {
 	layers := []matrix{
 		{make([]float64, inputLayers)},
 	}
 	// Generate the hidden(s) layer(s) and add them to the layers slice
-	for _, hiddenNodes := range hiddensNodes {
+	for _, hiddenLayerNodes := range hiddenLayersNodes {
 		layers = append(
 			layers, 
-			matrices.Generate(1, hiddenNodes),
+			matrices.Generate(1, hiddenLayerNodes),
 		)
 	}
 	// Add the output values to the layers slice
