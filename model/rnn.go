@@ -17,8 +17,9 @@ type NeuralNetwork struct {
 	Time    float64
 }
 
-// CreateNetwork creates a new NeuralNetwork by filling the matrixes with the given sizes and returns it.
-func CreateNetwork(learningRate float64, inputLayers int, hiddensNodes ...int) NeuralNetwork {
+// CreateRNN creates a new recurrent neural network by filling the matrixes 
+// with the given sizes and returns it.
+func CreateRNN(learningRate float64, inputLayers int, hiddensNodes ...int) NeuralNetwork {
 	layers := []matrix{
 		{make([]float64, inputLayers)},
 	}
