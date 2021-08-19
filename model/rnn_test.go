@@ -4,8 +4,8 @@ import (
 	"testing"
 )
 
-func TestCreateNetwork(t *testing.T) {
-	nn := CreateNetwork(0.5, 10, 12, 20, 12)
+func TestCreateRNN(t *testing.T) {
+	nn := CreateRNN(0.5, 10, 12, 20, 12)
 
 	for i := 0; i < 4; i++ {
 		if nn.Layers[i].Columns() != nn.Weights[i].Rows() {
