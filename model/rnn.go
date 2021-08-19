@@ -19,7 +19,7 @@ type NeuralNetwork struct {
 // CreateNetwork creates a new NeuralNetwork by filling the matrixes with the given sizes and returns it.
 func CreateNetwork(learningRate float64, inputLayers int, hiddensNodes ...int) NeuralNetwork {
 	layers := []Matrix{
-		make(Matrix, inputLayers),
+		{make([]float64, inputLayers)},
 	}
 	// Generate the hidden(s) layer(s) and add them to the layers slice
 	for _, hiddenNodes := range hiddensNodes {
