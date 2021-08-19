@@ -62,6 +62,6 @@ func (nn *NeuralNetwork) FeedForward() {
 		productMatrix.ApplyFunction(Sigmoid)
 
 		// Replace the output values by the calculated ones
-		network.Layers[i+1] = productMatrix
+		nn.Layers[i+1] = productMatrix
 	}
 }
