@@ -50,3 +50,18 @@ func CreateNetwork(learningRate float64, inputLayers int, hiddensNodes ...int) N
 		Rate:    learningRate,
 	}
 }
+
+// FeedForward processes the forward propagation of the neural network considering
+// that the first layer already contains the input.
+func (nn *NeuralNetwork) FeedForward() {
+	for i := 0; i < len(nn.Layers)-1; i++ {
+		layer, weights, biases := nn.Layers[i], nn.Weights[i], nn.Biases[i]
+
+		productMatrix := layer.DotProduct(weights)
+		productMatrix.Sum(biases)
+		productMatrix.ApplyFunction(Sigmoid)
+
+		// Replace the output values by the calculated ones
+		network.Layers[i+1] = productMatrix
+	}
+}
