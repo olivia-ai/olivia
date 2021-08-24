@@ -16,3 +16,24 @@ func multipliesByTwo(x float64) float64 {
 func subtractsOne(x float64) float64 {
 	return x - 1
 }
+
+// softmax implementation https://en.wikipedia.org/wiki/Softmax_function
+func softmax(x []float64) []float64 {
+	var sum float64
+	result := make([]float64, len(x))
+
+	for i, v := range x {
+		exp := math.Exp(v)
+		result[i] = exp
+		sum += exp
+	}
+
+	if sum != 0.0 {
+		inverseSum := 1.0 / sum
+		for i := range result {
+			result[i] *= inverseSum
+		}
+	}
+
+	return result
+}
