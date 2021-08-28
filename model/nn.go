@@ -31,7 +31,7 @@ func CreateNeuralNetwork(learningRate float64, inputLayers int, outputLayers int
 		)
 	}
 	// Add the output values to the layers slice
-	layers = append(layers, make(matrix, outputLayers))
+	layers = append(layers, matrix{make([]float64, outputLayers)})
 
 	// Generate the weights and biases
 	weightsNumber := len(layers) - 1
