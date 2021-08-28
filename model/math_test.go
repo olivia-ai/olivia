@@ -1,7 +1,6 @@
 package model
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -28,7 +27,6 @@ func TestSubtractsOne(t *testing.T) {
 
 func TestSoftmax(t *testing.T) {
 	result := softmax([]float64{0.1, 5, 1.4})
-	fmt.Println(result)
 	if result[0] != 0.007196363319679012 || result[1] != 0.9663980447324454 || result[2] != 0.02640559194787556 {
 		t.Errorf("Softmax() failed.")
 	}
