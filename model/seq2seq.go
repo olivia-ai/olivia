@@ -1,6 +1,6 @@
 package model
 
-import "fmt"
+import "reflect"
 
 // Seq2Seq contains the stucture of a sequence to sequence model including
 // the encoder and decoder recurrent neural networks.
@@ -26,9 +26,7 @@ func CreateSeq2Seq(
 		// Use twice the size of the embedding size for the encoder because we need to take the input
 		// embedding and the previous one as input.
 		Encoder: CreateNeuralNetwork(learningRate, 2 * embeddingSize, embeddingSize, encoderHiddenLayersNodes...),
-		// Use three times the size of the embedding size for the decoder because we need to take the
-		// test embedding, the previous one and the context from Attention. 
-		Decoder: CreateNeuralNetwork(learningRate, 3 * embeddingSize, embeddingSize, decoderHiddenLayersNodes...),
+		Decoder: CreateNeuralNetwork(learningRate, 2 * embeddingSize, embeddingSize, decoderHiddenLayersNodes...),
 	}
 }
 
@@ -42,5 +40,17 @@ func (s2s *Seq2Seq) FeedForward(embeddings matrix) {
 		hiddenStates = append(hiddenStates, hidden[0])
 	}
 
-	fmt.Println(hiddenStates[len(hiddenStates)-1])
+	decoderHiddenStates := matrix{
+		hiddenStates[len(hiddenStates)-1],
+	}
+	output := matrix{
+		// START token
+		make([]float64, len(embeddings[0])),
+	}
+
+	// END token
+	for i := 0 ;reflect.DeepEqual(output[len(output)-1], make([]float64, len(embeddings[0]))); i++ {
+		input := append(output[len(output)-1], decoderHiddenStates[i]...)
+		output = append(output, s2s.Decoder.FeedForward(input)[0])
+	}
 }
