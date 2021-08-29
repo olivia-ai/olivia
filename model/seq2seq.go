@@ -7,30 +7,23 @@ import "reflect"
 type Seq2Seq struct {
 	Encoder NN
 	Decoder NN
+	VocabularySize int
 }
 
 // CreateSeq2Seq creates and returns a new sequence to sequence (seq2seq) model.
-func CreateSeq2Seq(
-	embeddingSize int, 
-	learningRate float64,
-	encoderHiddenLayersNodes []int,
-	decoderHiddenLayersNodes ...int,
-) Seq2Seq {
-	// Use the same hidden layers nodes count as for the encoder if not specified
-	// for the decoder
-	if (len(decoderHiddenLayersNodes) == 0) {
-		decoderHiddenLayersNodes = encoderHiddenLayersNodes
-	}
-
+func CreateSeq2Seq(vocabularySize int, learningRate float64, hiddenLayersNodes ...int) Seq2Seq {
 	return Seq2Seq{
 		// Use twice the size of the embedding size for the encoder because we need to take the input
 		// embedding and the previous one as input.
-		Encoder: CreateNeuralNetwork(learningRate, 2 * embeddingSize, embeddingSize, encoderHiddenLayersNodes...),
-		Decoder: CreateNeuralNetwork(learningRate, 2 * embeddingSize, embeddingSize, decoderHiddenLayersNodes...),
+		Encoder: CreateNeuralNetwork(learningRate, 2 * vocabularySize, vocabularySize, hiddenLayersNodes...),
+		Decoder: CreateNeuralNetwork(learningRate, 2 * vocabularySize, vocabularySize, hiddenLayersNodes...),
+		VocabularySize: vocabularySize,
 	}
 }
 
-func (s2s *Seq2Seq) FeedForward(embeddings matrix) {
+// FeedForward processes the forward propagation over the encoder and the decoder 
+// of the sequence to sequence model
+func (s2s *Seq2Seq) FeedForward(embeddings matrix) matrix {
 	hiddenStates := matrix{
 		make([]float64, len(embeddings[0])),
 	}
@@ -53,4 +46,6 @@ func (s2s *Seq2Seq) FeedForward(embeddings matrix) {
 		input := append(output[len(output)-1], decoderHiddenStates[i]...)
 		output = append(output, s2s.Decoder.FeedForward(input)[0])
 	}
+
+	return output[1:]
 }
