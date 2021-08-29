@@ -15,7 +15,7 @@ func TestCreateNeuralNetwork(t *testing.T) {
 	}
 }
 
-func TestFeedForward(t *testing.T) {
+func TestNNFeedForward(t *testing.T) {
 	nn := CreateNeuralNetwork(0.5, 1, 1)
 	rand.Seed(1)
 	output := nn.FeedForward([]float64{0.5})
