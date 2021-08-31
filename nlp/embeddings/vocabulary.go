@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/olivia-ai/olivia/data"
+	"github.com/olivia-ai/olivia/util"
 )
 
 func tokenize(sentence string) (tokens []string) {
@@ -19,11 +20,40 @@ func tokenize(sentence string) (tokens []string) {
 }
 
 func stem(word string) string {
+	// TODO implement
 	return word
 }
 
 func appendToVocabulary(tokenBase *[]string, words ...string) {
-	// TODO
+	for _, word := range words {
+		if !util.Contains(*tokenBase, word) {
+			*tokenBase = append(*tokenBase, word)
+		}
+	}
+}
+
+func getEmbeddingWithIndex(vocabularySize, index int) []float64 {
+	embedding := make([]float64, vocabularySize)
+	embedding[index] = 1
+	return embedding
+}
+
+func getEmbedding(vocabulary []string, word string) []float64 {
+	embedding := []float64{
+		// Initialize two values at the beginning for the start and end tokens
+		0, 0,
+	}
+
+	for _, token := range vocabulary {
+		var value float64 = 0
+		if token == word {
+			value = 1
+		}
+
+		embedding = append(embedding, value)
+	}
+	
+	return embedding
 }
 
 // EstablishVocabulary takes a slice of Conversation structs and establish the vocabulary set.
@@ -38,15 +68,12 @@ func EstablishVocabulary(conversations []data.Conversation) (vocabulary []string
 	return
 }
 
-func getEmbedding(vocabulary []string, word string) (embedding []float64) {
-	for _, token := range vocabulary {
-		var value float64 = 0
-		if token == word {
-			value = 1
-		}
+// GetEOS returns the embedding for the end of sentence token.
+func GetEOS(vocabularySize int) []float64 {
+	return getEmbeddingWithIndex(vocabularySize, 1)
+}
 
-		embedding = append(embedding, value)
-	}
-	
-	return
+// GetEOS returns the embedding for the beginning of sentence token.
+func GetBOS(vocabularySize int) []float64 {
+	return getEmbeddingWithIndex(vocabularySize, 0)
 }
