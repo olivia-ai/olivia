@@ -12,11 +12,13 @@ type Seq2Seq struct {
 
 // CreateSeq2Seq creates and returns a new sequence to sequence (seq2seq) model.
 func CreateSeq2Seq(vocabularySize int, learningRate float64, hiddenLayersNodes ...int) Seq2Seq {
+	// Use twice the size of the embedding size for the encoder because we need to take the input
+	// embedding and the previous one as input.
+	nn := CreateNeuralNetwork(learningRate, 2 * vocabularySize, vocabularySize, hiddenLayersNodes...)
+
 	return Seq2Seq{
-		// Use twice the size of the embedding size for the encoder because we need to take the input
-		// embedding and the previous one as input.
-		Encoder: CreateNeuralNetwork(learningRate, 2 * vocabularySize, vocabularySize, hiddenLayersNodes...),
-		Decoder: CreateNeuralNetwork(learningRate, 2 * vocabularySize, vocabularySize, hiddenLayersNodes...),
+		Encoder: nn,
+		Decoder: nn,
 		VocabularySize: vocabularySize,
 	}
 }
