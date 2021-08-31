@@ -1,6 +1,8 @@
 package embeddings
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestLevenshteinDistance(t *testing.T) {
 	distance := LevenshteinDistance("Hello", "Selol")
@@ -31,5 +33,12 @@ func TestLevenshteinContains(t *testing.T) {
 func BenchmarkLevenshteinContains(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		LevenshteinContains(tokenBaseSample, "France", 3)
+	}
+}
+
+func TestGetLevenshteinEmbedding(t *testing.T) {
+	embedding := GetLevenshteinEmbedding(tokenBaseSample, "France")
+	if embedding[7] != 1 || embedding[0] != 0 {
+		t.Errorf("GetLevenshteinEmbedding() failed.")
 	}
 }
