@@ -22,7 +22,8 @@ var tokenBaseSample = []string{
 }
 
 func TestLevenshteinContains(t *testing.T) {
-	if !LevenshteinContains(tokenBaseSample, "France", 3) {
+	condition, _ := LevenshteinContains(tokenBaseSample, "France", 3)
+	if !condition {
 		t.Errorf("LevenshteinContains() failed.")
 	}
 }
