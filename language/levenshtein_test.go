@@ -14,7 +14,8 @@ func TestLevenshteinDistance(t *testing.T) {
 }
 
 func TestLevenshteinContains(t *testing.T) {
-	if !LevenshteinContains("What is the capital of Frnaec ?", "France", 3) {
+	condition, _ := LevenshteinContains("What is the capital of Frnaec ?", "France", 3)
+	if condition {
 		t.Errorf("LevenshteinContains() failed.")
 	}
 }

@@ -18,3 +18,5 @@ vendor
 coverage.txt
 
 res/authentication.txt
+
+model/attention.go
