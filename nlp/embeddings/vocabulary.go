@@ -1,10 +1,12 @@
 package embeddings
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/olivia-ai/olivia/data"
 	"github.com/olivia-ai/olivia/util"
+	"github.com/tebeka/snowball"
 )
 
 func tokenize(sentence string) (tokens []string) {
@@ -20,8 +22,13 @@ func tokenize(sentence string) (tokens []string) {
 }
 
 func stem(word string) string {
-	// TODO implement
-	return word
+	stemmer, err := snowball.New("english")
+	if err != nil {
+		fmt.Errorf("Unable to load stemmer. %s", err)
+		return word
+	}
+
+	return stemmer.Stem(word)
 }
 
 func appendToVocabulary(tokenBase *[]string, words ...string) {
