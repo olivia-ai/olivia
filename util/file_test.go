@@ -11,3 +11,13 @@ func TestReadFile(t *testing.T) {
 		t.Errorf("file.ReadFile() failed.")
 	}
 }
+
+func TestReadCSV(t *testing.T) {
+	data := ReadCSV("data/mock.csv")
+
+	for i, line := range data {
+		if i == 0 && (line[0] != "How are you?" || line[1] != "Good and you?") {
+			t.Errorf("file.ReadCSV() failed.")
+		}
+	}
+}
