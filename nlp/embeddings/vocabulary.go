@@ -22,12 +22,16 @@ func stem(word string) string {
 	return word
 }
 
+func appendToVocabulary(tokenBase *[]string, words ...string) {
+	// TODO
+}
+
 // EstablishVocabulary takes a slice of Conversation structs and establish the vocabulary set.
 func EstablishVocabulary(conversations []data.Conversation) (vocabulary []string) {
 	for _, conversation := range conversations {
 		// Iterate through the answer and question to avoid code duplication
 		for _, sentence := range []string{conversation.Answer, conversation.Question} {
-			vocabulary = append(vocabulary, tokenize(sentence)...)
+			appendToVocabulary(&vocabulary, tokenize(sentence)...)
 		}
 	}
 
