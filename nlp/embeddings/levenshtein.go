@@ -29,11 +29,12 @@ func LevenshteinDistance(first, second string) int {
 
 // LevenshteinContains checks if the given word is present in the given token base using levenshtein distance
 // using the given rate.
-func LevenshteinContains(tokenBase []string, word string, rate int) bool {
+// It returns the boolean verifiying the condition and the original word found if any.
+func LevenshteinContains(tokenBase []string, word string, rate int) (bool, string) {
 	for _, token := range tokenBase {
 		if LevenshteinDistance(token, word) <= rate {
-			return true
+			return true, token
 		}
 	}
-	return false
+	return false, ""
 }
