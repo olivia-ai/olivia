@@ -38,3 +38,22 @@ func LevenshteinContains(tokenBase []string, word string, rate int) (bool, strin
 	}
 	return false, ""
 }
+
+// GetLevenshteinEmbedding finds the closest word in the given token base using levenshtein distance
+// and returns it as an embedding (bag of words).
+func GetLevenshteinEmbedding(vocabulary []string, word string) []float64 {
+	// Calculate levenshtein distances between every word
+	min, minWord := 100, ""
+	for _, token := range vocabulary {
+		if distance := LevenshteinDistance(token, word); distance < min {
+			min = distance
+			minWord = word
+		}
+
+		if min == 0 {
+			break
+		}
+	}
+
+	return getEmbedding(vocabulary, minWord)
+}
