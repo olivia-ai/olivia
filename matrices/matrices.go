@@ -92,7 +92,7 @@ func (matrix Matrix) DotProduct(matrix2 Matrix) Matrix {
 // Sum processes the sum between matrix and matrix2, which should be of the same 
 // dimensions, and returns the result.
 func (matrix Matrix) Sum(matrix2 Matrix) Matrix {
-	ErrorNotSameSize(matrix, matrix2)
+	errorNotSameSize(matrix, matrix2)
 
 	return matrix.ApplyIndexedFunction(func(i, j int, x float64) float64 {
 		return matrix[i][j] + matrix2[i][j]
@@ -101,7 +101,7 @@ func (matrix Matrix) Sum(matrix2 Matrix) Matrix {
 
 // Difference processes and returns the difference between matrix and matrix2.
 func (matrix Matrix) Difference(matrix2 Matrix) (resultMatrix Matrix) {
-	ErrorNotSameSize(matrix, matrix2)
+	errorNotSameSize(matrix, matrix2)
 
 	resultMatrix = Generate(matrix.Rows(), matrix.Columns())
 	return resultMatrix.ApplyIndexedFunction(func(i, j int, x float64) float64 {
@@ -111,7 +111,7 @@ func (matrix Matrix) Difference(matrix2 Matrix) (resultMatrix Matrix) {
 
 // Multiplication processes and returns the multiplication between matrix and matrix2
 func (matrix Matrix) Multiplication(matrix2 Matrix) (resultMatrix Matrix) {
-	ErrorNotSameSize(matrix, matrix2)
+	errorNotSameSize(matrix, matrix2)
 
 	resultMatrix = Generate(matrix.Rows(), matrix.Columns())
 	return resultMatrix.ApplyIndexedFunction(func(i, j int, x float64) float64 {
@@ -132,8 +132,8 @@ func (matrix Matrix) Transpose() (resultMatrix Matrix) {
 	return resultMatrix
 }
 
-// ErrorNotSameSize panics if the matrices do not have the same dimension
-func ErrorNotSameSize(matrix, matrix2 Matrix) {
+// errorNotSameSize panics if the matrices do not have the same dimension
+func errorNotSameSize(matrix, matrix2 Matrix) {
 	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
 		panic("These two matrices must have the same dimension.")
 	}
