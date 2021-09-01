@@ -24,7 +24,7 @@ func tokenize(sentence string) (tokens []string) {
 func stem(word string) string {
 	stemmer, err := snowball.New("english")
 	if err != nil {
-		fmt.Errorf("Unable to load stemmer. %s", err)
+		fmt.Printf("Unable to load stemmer. Returning un-stemmed word. %s\n", err)
 		return word
 	}
 
