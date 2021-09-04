@@ -31,3 +31,12 @@ func TestSoftmax(t *testing.T) {
 		t.Errorf("Softmax() failed.")
 	}
 }
+
+func TestNegativeLogLikelihood(t *testing.T) {
+	values := []float64{0.2, 0.5, 0.9}
+	expected := []float64{0, 1, 0}
+
+	if negativeLogLikelihood(values, expected) != 0.6931471805599453 {
+		t.Errorf("NegativeLogLikelihood() failed.")
+	}
+}
