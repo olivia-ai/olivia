@@ -1,6 +1,8 @@
 package model
 
-import "math"
+import (
+	"math"
+)
 
 // sigmoid is the chosen activation function
 func sigmoid(x float64) float64 {
@@ -36,4 +38,19 @@ func softmax(x []float64) []float64 {
 	}
 
 	return result
+}
+
+// negativeLogLikelihood returns the NLL (negative log likelihood) loss function from the given
+// values and expected values
+func negativeLogLikelihood(values, expected []float64) float64 {
+	if len(values) != len(expected) {
+		panic("Values sets not the same length")
+	}
+
+	sum := 0.0
+	for i := 0; i < len(values); i++ {
+		sum += values[i] * expected[i]
+	}
+
+	return -math.Log(sum)
 }
