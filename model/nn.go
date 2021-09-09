@@ -71,3 +71,16 @@ func (nn *NN) FeedForward(input []float64) matrix {
 
 	return nn.Layers[len(nn.Layers)-1]
 }
+
+func (nn *NN) PropagateBackward(previousGradient Gradient) {
+	var gradients []Gradient
+	gradients = append(gradients, previousGradient)
+
+	// Compute the Gradients of the hidden layers
+	for i := 0; i < len(nn.Layers)-2; i++ {
+		gradients = append(gradients, nn.ComputeGradients(i, gradients))
+	}
+
+	// Then adjust the weights and biases
+	nn.Adjust(gradients)
+}

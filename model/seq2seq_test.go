@@ -10,10 +10,10 @@ import (
 )
 
 func TestS2SFeedForward(t *testing.T) {
-
 	s := strings.Fields("how are you?")
 	c := data.ReadCSVConversationalDataset("data/mock.csv")
 	voc := embeddings.EstablishVocabulary(c)
+	
 	var input matrix
 	for _, word := range s {
 		input = append(
