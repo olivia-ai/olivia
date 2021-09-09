@@ -64,3 +64,18 @@ func (s2s *Seq2Seq) FeedForward(embeddings matrix) matrix {
 
 	return output
 }
+
+func (s2s *Seq2Seq) PropagateBackward(output matrix) {
+	var derivatives [][]Derivative
+
+	for i := 0; i < len(output); i++ {
+		idx := len(output) - i
+		expectedEmbedding := matrix{output[idx]}
+
+		derivatives = append(derivatives, []Derivative{
+			s2s.Decoder.ComputeLastLayerDerivatives(expectedEmbedding),
+		})
+		
+		
+	}
+}
