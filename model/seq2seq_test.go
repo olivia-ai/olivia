@@ -1,8 +1,6 @@
 package model
 
 import (
-	"fmt"
-	"strings"
 	"testing"
 
 	"github.com/olivia-ai/olivia/data"
@@ -10,19 +8,20 @@ import (
 )
 
 func TestS2SFeedForward(t *testing.T) {
-	s := strings.Fields("how are you?")
 	c := data.ReadCSVConversationalDataset("data/mock.csv")
 	voc := embeddings.EstablishVocabulary(c)
 	
-	var input matrix
-	for _, word := range s {
-		input = append(
-			input, 
-			embeddings.GetLevenshteinEmbedding(voc, word),
-		)
+	var input []matrix
+	var output []matrix
+	for _, conversation := range c {
+		input = append(input, embeddings.GetLevenshteinEmbeddings(voc, conversation.Question))
+		output = append(output, embeddings.GetLevenshteinEmbeddings(voc, conversation.Answer))
 	}
 
 	model := CreateSeq2Seq(len(voc) + 2, 0.25)
-	fmt.Println(model.Decoder.Layers)
-	fmt.Println(model.FeedForward(input))
+	
+	for i := 0; i < len(input); i++ {
+		calculatedOutput := model.FeedForwardWhileTraining(input[i], len(output[i]))
+		model.PropagateBackward(calculatedOutput, output[i])
+	}
 }

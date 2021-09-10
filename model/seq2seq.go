@@ -1,6 +1,7 @@
 package model
 
 import (
+	"fmt"
 	"reflect"
 
 	nlpe "github.com/olivia-ai/olivia/nlp/embeddings"
@@ -35,9 +36,9 @@ func CreateSeq2Seq(vocabularySize int, learningRate float64, hiddenLayersNodes .
 // propagation in order to distinguish between training and not training time.
 func (s2s *Seq2Seq) forwardLoopCondition(output matrix, isTraining bool, trainingTokensCount, trainingIndex int) bool {
 	if isTraining {
-		return !reflect.DeepEqual(s2s.EOS, output[len(output)-1])
+		return trainingIndex <= trainingTokensCount
 	} else {
-		return trainingIndex < trainingTokensCount
+		return !reflect.DeepEqual(s2s.EOS, output[len(output)-1])
 	}
 }
 
@@ -71,7 +72,7 @@ func (s2s *Seq2Seq) feedForward(embeddings matrix, isTraining bool, trainingToke
 		decoderHiddenStates = append(decoderHiddenStates, decoderOutput[s2s.VocabularySize:])
 	}
 
-	return output
+	return output[1:]
 }
 
 // FeedForward processes the forward propagation over the encoder and the decoder of the 
@@ -86,7 +87,14 @@ func (s2s *Seq2Seq) FeedForwardWhileTraining(embeddings matrix, tokensCount int)
 	return s2s.feedForward(embeddings, true, tokensCount)
 }
 
+// PropagagteBackward processes the backpropagation within the encoder and the decoder
+// for a sequence of embeddings.
 func (s2s *Seq2Seq) PropagateBackward(outputs, expectedOutputs matrix) {
+	if len(outputs) != len(expectedOutputs) {
+		fmt.Println("Cannot backpropgate, output and expected output not the same length.")
+		return
+	}
+
 	for i := 0; i < len(outputs); i++ {
 		idx := len(outputs) - i
 		output := matrix{outputs[idx]}

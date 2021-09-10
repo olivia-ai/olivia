@@ -1,5 +1,7 @@
 package embeddings
 
+import "github.com/olivia-ai/olivia/matrices"
+
 // LevenshteinDistance calculates the Levenshtein Distance between two given words and returns it.
 // Please see https://en.wikipedia.org/wiki/Levenshtein_distance.
 func LevenshteinDistance(first, second string) int {
@@ -57,4 +59,14 @@ func GetLevenshteinEmbedding(vocabulary []string, word string) []float64 {
 	}
 
 	return getEmbedding(vocabulary, minWord)
+}
+
+// GetLevenshteinEmbeddings finds the closest words contained in the given sentence
+// with the given vocabulary and returns a matrix.
+func GetLevenshteinEmbeddings(vocabulary []string, sentence string) (embeddings matrices.Matrix) {
+	for _, word := range tokenize(sentence) {
+		embeddings = append(embeddings, GetLevenshteinEmbedding(vocabulary, word))
+	}
+
+	return 
 }
