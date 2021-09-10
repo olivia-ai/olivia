@@ -31,9 +31,18 @@ func CreateSeq2Seq(vocabularySize int, learningRate float64, hiddenLayersNodes .
 	}
 }
 
-// FeedForward processes the forward propagation over the encoder and the decoder 
-// of the sequence to sequence model
-func (s2s *Seq2Seq) FeedForward(embeddings matrix) matrix {
+// forwardLoopCondition is a helper function to return the loop condition of the forward
+// propagation in order to distinguish between training and not training time.
+func (s2s *Seq2Seq) forwardLoopCondition(output matrix, isTraining bool, trainingTokensCount, trainingIndex int) bool {
+	if isTraining {
+		return !reflect.DeepEqual(s2s.EOS, output[len(output)-1])
+	} else {
+		return trainingIndex < trainingTokensCount
+	}
+}
+
+// feedForward implements the forward propagation for training of real conditions
+func (s2s *Seq2Seq) feedForward(embeddings matrix, isTraining bool, trainingTokensCount int) matrix {
 	hiddenStates := matrix{
 		// Initialize the hidden states with an empty embedding
 		make([]float64, len(embeddings[0])),
@@ -51,7 +60,7 @@ func (s2s *Seq2Seq) FeedForward(embeddings matrix) matrix {
 	}
 	output := matrix{s2s.BOS}
 
-	for i := 0; !reflect.DeepEqual(s2s.EOS, output[len(output)-1]); i++ {
+	for i := 0; s2s.forwardLoopCondition(output, isTraining, trainingTokensCount, i); i++ {
 		// Concatenate the previous output with the current hidden state
 		input := append(output[len(output)-1], decoderHiddenStates[i]...)
 
@@ -65,17 +74,27 @@ func (s2s *Seq2Seq) FeedForward(embeddings matrix) matrix {
 	return output
 }
 
-func (s2s *Seq2Seq) PropagateBackward(output matrix) {
-	var derivatives [][]Derivative
+// FeedForward processes the forward propagation over the encoder and the decoder of the 
+// sequence to sequence model. This function shall not be used in the training process.
+func (s2s *Seq2Seq) FeedForward(embeddings matrix) matrix {
+	return s2s.feedForward(embeddings, false, 0)
+}
 
-	for i := 0; i < len(output); i++ {
-		idx := len(output) - i
-		expectedEmbedding := matrix{output[idx]}
+// FeedForwardWhileTraining processes the forward propagation during training time over 
+// the encoder and the decoder of the sequence to sequence model.
+func (s2s *Seq2Seq) FeedForwardWhileTraining(embeddings matrix, tokensCount int) matrix {
+	return s2s.feedForward(embeddings, true, tokensCount)
+}
 
-		derivatives = append(derivatives, []Derivative{
-			s2s.Decoder.ComputeLastLayerDerivatives(expectedEmbedding),
-		})
+func (s2s *Seq2Seq) PropagateBackward(outputs, expectedOutputs matrix) {
+	for i := 0; i < len(outputs); i++ {
+		idx := len(outputs) - i
+		output := matrix{outputs[idx]}
+		expectedOutput := matrix{expectedOutputs[idx]}
 		
+		lastGradient := s2s.Decoder.computeLastLayerGradients(output, expectedOutput)
+		firstGradient := s2s.Decoder.PropagateBackward(lastGradient)
 		
+		s2s.Encoder.PropagateBackward(firstGradient)
 	}
 }

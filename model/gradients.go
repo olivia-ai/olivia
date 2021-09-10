@@ -5,21 +5,18 @@ type Gradient struct {
 	Adjustment matrix
 }
 
-// ComputeLastLayerGradients returns the Gradients of the last layer L
-func (nn NN) ComputeLastLayerGradients(output matrix) Gradient {
-	l := len(nn.Layers) - 1
-	lastLayer := nn.Layers[l]
-
+// computeLastLayerGradients returns the Gradients of the last layer L
+func (nn NN) computeLastLayerGradients(output, exceptedOutput matrix) Gradient {
 	// Compute Gradient for the last layer of weights and biases
 	// using the negative log likelihood loss function
-	loss := negativeLogLikelihood(output[0], lastLayer[0])
-	sigmoidGradient := lastLayer.Multiplication(
-		lastLayer.ApplyFunction(subtractsOne),
+	loss := negativeLogLikelihood(output[0], output[0])
+	sigmoidGradient := output.Multiplication(
+		output.ApplyFunction(subtractsOne),
 	)
 
 	// Compute delta and the weights' adjustment
 	delta := sigmoidGradient.ApplyRate(loss)
-	weights := nn.Layers[l-1].Transpose().DotProduct(delta)
+	weights := nn.Layers[len(nn.Layers)-2].Transpose().DotProduct(delta)
 
 	return Gradient{
 		Delta:      delta,

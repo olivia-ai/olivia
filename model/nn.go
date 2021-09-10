@@ -72,7 +72,10 @@ func (nn *NN) FeedForward(input []float64) matrix {
 	return nn.Layers[len(nn.Layers)-1]
 }
 
-func (nn *NN) PropagateBackward(previousGradient Gradient) {
+// PropagateBackward calculates the gradients for each layer and then adjusts the 
+// weights and biases, considering in parameter the Gradient for the last layer, or 
+// previous gradient. It returns the last gradient calculated.
+func (nn *NN) PropagateBackward(previousGradient Gradient) Gradient {
 	var gradients []Gradient
 	gradients = append(gradients, previousGradient)
 
@@ -83,4 +86,6 @@ func (nn *NN) PropagateBackward(previousGradient Gradient) {
 
 	// Then adjust the weights and biases
 	nn.Adjust(gradients)
+
+	return gradients[len(gradients)-1]
 }
