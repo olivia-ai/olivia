@@ -1,60 +1,50 @@
 package model
 
-type Gradient struct {
-	Delta matrix
-	Adjustment matrix
-}
-
 // computeLastLayerGradients returns the Gradients of the last layer L
-func (nn NN) computeLastLayerGradients(output, exceptedOutput matrix) Gradient {
+func (nn NN) computeLastLayerGradients(output, truncatedOutput, exceptedOutput matrix) matrix {
 	// Compute Gradient for the last layer of weights and biases
 	// using the negative log likelihood loss function
-	loss := negativeLogLikelihood(output[0], output[0])
+	loss := negativeLogLikelihood(truncatedOutput[0], exceptedOutput[0])
 	sigmoidGradient := output.Multiplication(
 		output.ApplyFunction(subtractsOne),
 	)
 
-	// Compute delta and the weights' adjustment
-	delta := sigmoidGradient.ApplyRate(loss)
-	weights := nn.Layers[len(nn.Layers)-2].Transpose().DotProduct(delta)
-
-	return Gradient{
-		Delta:      delta,
-		Adjustment: weights,
-	}
+	return sigmoidGradient.ApplyRate(loss)
 }
 
 // ComputeGradients returns the gradients of a specific layer l defined by i
-func (nn NN) ComputeGradients(i int, gradients []Gradient) Gradient {
+func (nn NN) ComputeGradients(i int, gradients []matrix, isLast bool) matrix {
 	l := len(nn.Layers) - 2 - i
 
+	// TODO:
+	// adapter la taille d'entrée du décodeur pour effectuer la backpropagation
+	// depuis l'encodeur:  16 -> 32
+
 	// Compute Gradient for the layer of weights and biases
-	delta := gradients[i].Delta.DotProduct(
+	return gradients[i].DotProduct(
 		nn.Weights[l].Transpose(),
 	).Multiplication(
 		nn.Layers[l].Multiplication(
 			nn.Layers[l].ApplyFunction(subtractsOne),
 		),
 	)
-	weights := nn.Layers[l-1].Transpose().DotProduct(delta)
-
-	return Gradient{
-		Delta:      delta,
-		Adjustment: weights,
-	}
 }
 
 // Adjust takes the computed Gradients and applies the adjustments to
 // the weights and biases
-func (nn NN) Adjust(gradients []Gradient) {
+func (nn NN) Adjust(gradients []matrix) {
 	for i, gradient := range gradients {
-		l := len(gradients) - i
+		l := len(gradients) - 2 - i
+		if l < 0 {
+			continue
+		}
 
-		nn.Weights[l-1] = nn.Weights[l-1].Sum(
-			gradient.Adjustment.ApplyRate(nn.Rate),
+		nn.Weights[l] = nn.Weights[l].Sum(
+			// Calculate weight adjustments
+			nn.Layers[l].Transpose().DotProduct(gradient).ApplyRate(nn.Rate),
 		)
-		nn.Biases[l-1] = nn.Biases[l-1].Sum(
-			gradient.Delta.ApplyRate(nn.Rate),
+		nn.Biases[l] = nn.Biases[l].Sum(
+			gradient.ApplyRate(nn.Rate),
 		)
 	}
 }

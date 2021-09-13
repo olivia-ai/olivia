@@ -27,7 +27,7 @@ func CreateNeuralNetwork(learningRate float64, inputLayers int, outputLayers int
 	for _, hiddenLayerNodes := range hiddenLayersNodes {
 		layers = append(
 			layers, 
-			matrices.Generate(1, hiddenLayerNodes),
+			matrices.GenerateRandom(1, hiddenLayerNodes),
 		)
 	}
 	// Add the output values to the layers slice
@@ -41,7 +41,7 @@ func CreateNeuralNetwork(learningRate float64, inputLayers int, outputLayers int
 	for i := 0; i < weightsNumber; i++ {
 		rows, columns := layers[i].Columns(), layers[i+1].Columns()
 
-		weights = append(weights, matrices.Generate(rows, columns))
+		weights = append(weights, matrices.GenerateRandom(rows, columns))
 		biases = append(biases, matrices.GenerateRandom(layers[i].Rows(), columns))
 	}
 
@@ -75,13 +75,19 @@ func (nn *NN) FeedForward(input []float64) matrix {
 // PropagateBackward calculates the gradients for each layer and then adjusts the 
 // weights and biases, considering in parameter the Gradient for the last layer, or 
 // previous gradient. It returns the last gradient calculated.
-func (nn *NN) PropagateBackward(previousGradient Gradient) Gradient {
-	var gradients []Gradient
+// isLast boolean shall be true if the network backpropagated is the last one on the 
+// chain. ex: the last decoder in a seq2seq
+func (nn *NN) PropagateBackward(previousGradient matrix, isDecoder bool) matrix {
+	var gradients []matrix
 	gradients = append(gradients, previousGradient)
 
 	// Compute the Gradients of the hidden layers
-	for i := 0; i < len(nn.Layers)-2; i++ {
-		gradients = append(gradients, nn.ComputeGradients(i, gradients))
+	for i := 0; i < len(nn.Layers)-1; i++ {
+		gradients = append(gradients, nn.ComputeGradients(
+			i, 
+			gradients, 
+			isDecoder && i == len(nn.Layers)-2,
+		))
 	}
 
 	// Then adjust the weights and biases
