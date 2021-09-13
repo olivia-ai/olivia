@@ -36,7 +36,7 @@ func CreateSeq2Seq(vocabularySize int, learningRate float64, hiddenLayersNodes .
 // propagation in order to distinguish between training and not training time.
 func (s2s *Seq2Seq) forwardLoopCondition(output matrix, isTraining bool, trainingTokensCount, trainingIndex int) bool {
 	if isTraining {
-		return trainingIndex <= trainingTokensCount
+		return trainingIndex < trainingTokensCount
 	} else {
 		return !reflect.DeepEqual(s2s.EOS, output[len(output)-1])
 	}
@@ -59,6 +59,7 @@ func (s2s *Seq2Seq) feedForward(embeddings matrix, isTraining bool, trainingToke
 		// Begin with the last hidden state of the encoder
 		hiddenStates[len(hiddenStates)-1],
 	}
+	fullOutput := matrix{}
 	output := matrix{s2s.BOS}
 
 	for i := 0; s2s.forwardLoopCondition(output, isTraining, trainingTokensCount, i); i++ {
@@ -67,12 +68,13 @@ func (s2s *Seq2Seq) feedForward(embeddings matrix, isTraining bool, trainingToke
 
 		decoderOutput := s2s.Decoder.FeedForward(input)[0]
 
+		fullOutput = append(fullOutput, decoderOutput)
 		// Split the decoder output in two equal parts for the word output and the hidden state
 		output = append(output, decoderOutput[0:s2s.VocabularySize])
 		decoderHiddenStates = append(decoderHiddenStates, decoderOutput[s2s.VocabularySize:])
 	}
 
-	return output[1:]
+	return fullOutput
 }
 
 // FeedForward processes the forward propagation over the encoder and the decoder of the 
@@ -96,13 +98,14 @@ func (s2s *Seq2Seq) PropagateBackward(outputs, expectedOutputs matrix) {
 	}
 
 	for i := 0; i < len(outputs); i++ {
-		idx := len(outputs) - i
+		idx := len(outputs) - 1 - i
 		output := matrix{outputs[idx]}
+		truncatedOutput := matrix{outputs[idx][:s2s.VocabularySize]}
 		expectedOutput := matrix{expectedOutputs[idx]}
+
+		lastGradient := s2s.Decoder.computeLastLayerGradients(output, truncatedOutput, expectedOutput)
+		firstGradient := s2s.Decoder.PropagateBackward(lastGradient, true)
 		
-		lastGradient := s2s.Decoder.computeLastLayerGradients(output, expectedOutput)
-		firstGradient := s2s.Decoder.PropagateBackward(lastGradient)
-		
-		s2s.Encoder.PropagateBackward(firstGradient)
+		s2s.Encoder.PropagateBackward(firstGradient, false)
 	}
 }
