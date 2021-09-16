@@ -16,13 +16,16 @@ func (nn NN) computeLastLayerGradients(output, truncatedOutput, exceptedOutput m
 func (nn NN) ComputeGradients(i int, gradients []matrix, isLast bool) matrix {
 	l := len(nn.Layers) - 2 - i
 
-	// TODO:
-	// adapter la taille d'entrée du décodeur pour effectuer la backpropagation
-	// depuis l'encodeur:  16 -> 32
+	weights := nn.Weights[l]
+	// Link the encoder with the decoder by only passing by the second half of the decoder's
+	// input, which represents the hidden state
+	if isLast {
+		weights = weights[len(weights)/2:]
+	}
 
 	// Compute Gradient for the layer of weights and biases
 	return gradients[i].DotProduct(
-		nn.Weights[l].Transpose(),
+		weights.Transpose(),
 	).Multiplication(
 		nn.Layers[l].Multiplication(
 			nn.Layers[l].ApplyFunction(subtractsOne),
