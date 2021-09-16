@@ -11,13 +11,6 @@ func TestSigmoid(t *testing.T) {
 	}
 }
 
-func TestMultipliesByTwo(t *testing.T) {
-	result := multipliesByTwo(2)
-	if result != 4 {
-		t.Errorf("MultipliesByTwo() failed.")
-	}
-}
-
 func TestSubtractsOne(t *testing.T) {
 	result := subtractsOne(21)
 	if result != 20 {
@@ -29,14 +22,5 @@ func TestSoftmax(t *testing.T) {
 	result := softmax([]float64{0.1, 5, 1.4})
 	if result[0] != 0.007196363319679012 || result[1] != 0.9663980447324454 || result[2] != 0.02640559194787556 {
 		t.Errorf("Softmax() failed.")
-	}
-}
-
-func TestNegativeLogLikelihood(t *testing.T) {
-	values := []float64{0.2, 0.5, 0.9}
-	expected := []float64{0, 1, 0}
-
-	if negativeLogLikelihood(values, expected) != 0.6931471805599453 {
-		t.Errorf("NegativeLogLikelihood() failed.")
 	}
 }

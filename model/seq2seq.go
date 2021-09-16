@@ -44,6 +44,10 @@ func (s2s *Seq2Seq) forwardLoopCondition(output matrix, isTraining bool, trainin
 
 // feedForward implements the forward propagation for training of real conditions
 func (s2s *Seq2Seq) feedForward(embeddings matrix, isTraining bool, trainingTokensCount int) matrix {
+	// c := data.ReadCSVConversationalDataset("data/mock.csv")
+	// voc := nlpe.EstablishVocabulary(c)
+
+
 	hiddenStates := matrix{
 		// Initialize the hidden states with an empty embedding
 		make([]float64, len(embeddings[0])),
@@ -65,10 +69,10 @@ func (s2s *Seq2Seq) feedForward(embeddings matrix, isTraining bool, trainingToke
 	for i := 0; s2s.forwardLoopCondition(output, isTraining, trainingTokensCount, i); i++ {
 		// Concatenate the previous output with the current hidden state
 		input := append(output[len(output)-1], decoderHiddenStates[i]...)
-
 		decoderOutput := s2s.Decoder.FeedForward(input)[0]
 
 		fullOutput = append(fullOutput, decoderOutput)
+
 		// Split the decoder output in two equal parts for the word output and the hidden state
 		output = append(output, decoderOutput[0:s2s.VocabularySize])
 		decoderHiddenStates = append(decoderHiddenStates, decoderOutput[s2s.VocabularySize:])
@@ -101,7 +105,7 @@ func (s2s *Seq2Seq) PropagateBackward(outputs, expectedOutputs matrix) {
 		idx := len(outputs) - 1 - i
 		output := matrix{outputs[idx]}
 		truncatedOutput := matrix{outputs[idx][:s2s.VocabularySize]}
-		expectedOutput := matrix{expectedOutputs[idx]}
+		expectedOutput := matrix{append(expectedOutputs[idx], make([]float64, s2s.VocabularySize)...)}
 
 		lastGradient := s2s.Decoder.computeLastLayerGradients(output, truncatedOutput, expectedOutput)
 		firstGradient := s2s.Decoder.PropagateBackward(lastGradient, true)

@@ -2,12 +2,18 @@ package embeddings
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/olivia-ai/olivia/data"
 	"github.com/olivia-ai/olivia/util"
 	"github.com/tebeka/snowball"
 )
+
+type embeddingMapping struct {
+	index int
+	value float64
+}
 
 func tokenize(sentence string) (tokens []string) {
 	tokens = strings.Fields(
@@ -73,6 +79,38 @@ func EstablishVocabulary(conversations []data.Conversation) (vocabulary []string
 	}
 
 	return
+}
+
+func ClosestEmbedding(embedding []float64) []float64 {
+	// Initialize the embedding mapping the index with its value to prepare for the sort
+	valuesMapping := []embeddingMapping{}
+	for i, value := range embedding {
+		valuesMapping = append(valuesMapping, embeddingMapping{i, value})
+	}
+
+	sort.Slice(valuesMapping, func(i, j int) bool {
+		return valuesMapping[i].value > valuesMapping[j].value
+	})
+
+	result := make([]float64, len(embedding))
+	result[valuesMapping[0].index] = 1
+	return result
+}
+
+// ReconstructWord takes the vocabulary and an embedding and returns the natural language word
+// matching the embedding.
+func ReconstructWord(vocabulary []string, embedding []float64) string {
+	for i, value := range embedding {
+		if i == 0 || i == 1 {
+			continue
+		}
+
+		if value == 1 {
+			return vocabulary[i]
+		}
+	}
+
+	return ""
 }
 
 // GetEOS returns the embedding for the end of sentence token.

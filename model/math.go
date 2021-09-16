@@ -9,9 +9,21 @@ func sigmoid(x float64) float64 {
 	return 1 / (1 + math.Exp(-x))
 }
 
-// MultipliesByTwo takes a float and returns the float multiplied by two
-func multipliesByTwo(x float64) float64 {
-	return 2 * x
+// relu stands for rectified linear unit and is an activation function
+func relu(x float64) float64 {
+	if x > 0 {
+		return x
+	} else {
+		return 0
+	}
+}
+
+func reluDerivative(x float64) float64 {
+	if x < 0 {
+		return 0
+	} else {
+		return 1
+	}
 }
 
 // SubtractsOne takes a float and returns the float subtracted by one
@@ -38,19 +50,4 @@ func softmax(x []float64) []float64 {
 	}
 
 	return result
-}
-
-// negativeLogLikelihood returns the NLL (negative log likelihood) loss function from the given
-// values and expected values
-func negativeLogLikelihood(values, expected []float64) float64 {
-	if len(values) != len(expected) {
-		panic("Values sets not the same length")
-	}
-
-	sum := 0.0
-	for i := 0; i < len(values); i++ {
-		sum += values[i] * expected[i]
-	}
-
-	return -math.Log(sum)
 }
