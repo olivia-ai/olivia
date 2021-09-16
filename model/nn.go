@@ -27,7 +27,7 @@ func CreateNeuralNetwork(learningRate float64, inputLayers int, outputLayers int
 	for _, hiddenLayerNodes := range hiddenLayersNodes {
 		layers = append(
 			layers, 
-			matrices.GenerateRandom(1, hiddenLayerNodes),
+			matrices.Generate(1, hiddenLayerNodes),
 		)
 	}
 	// Add the output values to the layers slice
@@ -63,7 +63,7 @@ func (nn *NN) FeedForward(input []float64) matrix {
 
 		productMatrix := layer.DotProduct(weights)
 		productMatrix.Sum(biases)
-		productMatrix.ApplyFunction(sigmoid)
+		productMatrix.ApplyFunction(relu)
 
 		// Replace the output values by the calculated ones
 		nn.Layers[i+1] = productMatrix

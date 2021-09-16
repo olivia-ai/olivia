@@ -1,6 +1,7 @@
 package matrices
 
 import (
+	"fmt"
 	"math/rand"
 )
 
@@ -101,6 +102,8 @@ func (matrix Matrix) Sum(matrix2 Matrix) Matrix {
 
 // Difference processes and returns the difference between matrix and matrix2.
 func (matrix Matrix) Difference(matrix2 Matrix) (resultMatrix Matrix) {
+	fmt.Println(matrix.Rows(), matrix.Columns())
+	fmt.Println(matrix2.Rows(), matrix2.Columns())
 	errorNotSameSize(matrix, matrix2)
 
 	resultMatrix = Generate(matrix.Rows(), matrix.Columns())
@@ -132,9 +135,22 @@ func (matrix Matrix) Transpose() (resultMatrix Matrix) {
 	return resultMatrix
 }
 
+// Mean returns the mean of all the values together
+func (matrix Matrix) Mean() (mean float64) {
+	for i := 0; i < matrix.Rows(); i++ {
+		for j := 0; j < matrix.Columns(); j++ {
+			mean += matrix[i][j]
+		}
+	}
+
+	mean /= float64(matrix.Rows() * matrix.Columns())
+
+	return
+}
+
 // errorNotSameSize panics if the matrices do not have the same dimension
 func errorNotSameSize(matrix, matrix2 Matrix) {
-	if matrix.Rows() != matrix2.Rows() && matrix.Columns() != matrix2.Columns() {
+	if matrix.Rows() != matrix2.Rows() || matrix.Columns() != matrix2.Columns() {
 		panic("These two matrices must have the same dimension.")
 	}
 }

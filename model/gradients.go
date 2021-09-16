@@ -4,12 +4,10 @@ package model
 func (nn NN) computeLastLayerGradients(output, truncatedOutput, exceptedOutput matrix) matrix {
 	// Compute Gradient for the last layer of weights and biases
 	// using the negative log likelihood loss function
-	loss := negativeLogLikelihood(truncatedOutput[0], exceptedOutput[0])
-	sigmoidGradient := output.Multiplication(
-		output.ApplyFunction(subtractsOne),
-	)
+	loss := exceptedOutput.Difference(output).ApplyRate(2)
+	activationDerivative := output.ApplyFunction(reluDerivative)
 
-	return sigmoidGradient.ApplyRate(loss)
+	return activationDerivative.Multiplication(loss)
 }
 
 // ComputeGradients returns the gradients of a specific layer l defined by i
