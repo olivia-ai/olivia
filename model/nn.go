@@ -1,6 +1,8 @@
 package model
 
 import (
+	"fmt"
+
 	"github.com/olivia-ai/olivia/matrices"
 )
 
@@ -62,6 +64,7 @@ func (nn *NN) FeedForward(input []float64) matrix {
 		layer, weights, biases := nn.Layers[i], nn.Weights[i], nn.Biases[i]
 
 		productMatrix := layer.DotProduct(weights)
+		fmt.Println(productMatrix)
 		productMatrix.Sum(biases)
 		productMatrix.ApplyFunction(relu)
 
