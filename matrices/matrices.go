@@ -1,7 +1,6 @@
 package matrices
 
 import (
-	"fmt"
 	"math/rand"
 )
 
@@ -10,6 +9,7 @@ type Matrix [][]float64
 
 // GenerateRandom return a generated matrix of dimensions rows and columns.
 // The values contained in the matrix are random and contained between -1 and 1.
+// https://machinelearningmastery.com/weight-initialization-for-deep-learning-neural-networks/
 func GenerateRandom(rows, columns int) (matrix Matrix) {
 	matrix = make(Matrix, rows)
 
@@ -102,8 +102,6 @@ func (matrix Matrix) Sum(matrix2 Matrix) Matrix {
 
 // Difference processes and returns the difference between matrix and matrix2.
 func (matrix Matrix) Difference(matrix2 Matrix) (resultMatrix Matrix) {
-	fmt.Println(matrix.Rows(), matrix.Columns())
-	fmt.Println(matrix2.Rows(), matrix2.Columns())
 	errorNotSameSize(matrix, matrix2)
 
 	resultMatrix = Generate(matrix.Rows(), matrix.Columns())
