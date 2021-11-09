@@ -16,6 +16,7 @@ type Message struct {
 var messages = map[string][]Message{}
 
 // SerializeMessages serializes the content of `res/datasets/messages.json` in JSON
+// 把对应的训练数据解析后加载在内存中
 func SerializeMessages(locale string) []Message {
 	var currentMessages []Message
 	err := json.Unmarshal(ReadFile("res/locales/"+locale+"/messages.json"), &currentMessages)

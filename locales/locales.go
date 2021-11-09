@@ -11,8 +11,6 @@ import (
 	_ "github.com/olivia-ai/olivia/res/locales/it"
 	_ "github.com/olivia-ai/olivia/res/locales/nl"
 	_ "github.com/olivia-ai/olivia/res/locales/tr"
-	_ "github.com/olivia-ai/olivia/res/locales/el"
-
 )
 
 // Locales is the list of locales's tags and names
@@ -23,38 +21,39 @@ var Locales = []Locale{
 		Tag:  "en",
 		Name: "english",
 	},
-	{
-		Tag:  "de",
-		Name: "german",
-	},
-	{
-		Tag:  "fr",
-		Name: "french",
-	},
-	{
-		Tag:  "es",
-		Name: "spanish",
-	},
-	{
-		Tag:  "ca",
-		Name: "catalan",
-	},
-	{
-		Tag:  "it",
-		Name: "italian",
-	},
-	{
-		Tag:  "tr",
-		Name: "turkish",
-	},
-	{
-		Tag:  "nl",
-		Name: "dutch",
-	},
-	{
-		Tag:  "el",
-		Name: "greek",
-	},
+	// todo,only for simple debug
+	//{
+	//	Tag:  "de",
+	//	Name: "german",
+	//},
+	//{
+	//	Tag:  "fr",
+	//	Name: "french",
+	//},
+	//{
+	//	Tag:  "es",
+	//	Name: "spanish",
+	//},
+	//{
+	//	Tag:  "ca",
+	//	Name: "catalan",
+	//},
+	//{
+	//	Tag:  "it",
+	//	Name: "italian",
+	//},
+	//{
+	//	Tag:  "tr",
+	//	Name: "turkish",
+	//},
+	//{
+	//	Tag:  "nl",
+	//	Name: "dutch",
+	//},
+	//{
+	//	Tag:  "el",
+	//	Name: "greek",
+	//},
 }
 
 // A Locale is a registered locale in the file
