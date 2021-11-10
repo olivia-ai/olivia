@@ -54,6 +54,9 @@ func (sentence Sentence) PredictTag(neuralNetwork network.Network) string {
 	// Enumerate the results with the intent tags
 	var resultsTag []Result
 	for i, result := range predict {
+		if i >= len(classes) {
+			continue
+		}
 		resultsTag = append(resultsTag, Result{classes[i], result})
 	}
 
