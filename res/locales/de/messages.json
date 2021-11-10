@@ -4,26 +4,26 @@
     "messages": [
       "Ich versuche mein Bestes zu geben, aber ich verstehe Sie nicht",
       "Ich bin mir nicht sicher, welche Nachricht Sie mir mitteilen möchten",
-      "Ich bin noch jung, du könntest mir helfen mich zu verbesern auf GitHub",
+      "Ich bin noch jung, du könntest mir auf GitHub helfen, mich zu verbessern",
       "Ich kann Ihre Anfrage leider nicht verstehen"
     ]
   },
   {
     "tag": "no permission",
     "messages": [
-      "Sie haben leider nicht die Berechtigungen."
+      "Sie haben dazu keine Befugnis."
     ]
   },
   {
     "tag": "patterns same",
     "messages": [
-      "Die Muster und oder Antworten dürfen nicht leer sein."
+      "Die Muster und/oder Antworten dürfen nicht leer sein."
     ]
   },
   {
     "tag": "tags same",
     "messages": [
-      "Mit diesem Tag ist bereits ein Vorhaben vorhanden"
+      "Es ist bereits ein Vorhaben mit diesem Tag vorhanden"
     ]
   },
   {
@@ -53,7 +53,7 @@
   {
     "tag": "spotify login",
     "messages": [
-      "Login in progress <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+      "Login läuft <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
     ]
   },
   {
@@ -96,7 +96,25 @@
   {
     "tag": "no genres saved",
     "messages": [
-      "Entschuldigung, ich kann kein Filmgenre in Ihren Daten finden. Versuchen Sie, Ihre Einstellungen mit “Ich mag Abenteuerfilme“ festzulegen."
+      "Entschuldigung, ich kann kein Filmgenre in Ihren Daten finden. Versuchen Sie, Ihre Einstellungen mit „Ich mag Abenteuerfilme“ festzulegen."
+    ]
+  },
+  {
+    "tag": "no jokes",
+    "messages": [
+      "Entschuldigung, ich kann leider keinen Witz erzählen. Bitte zieh mich nicht aus dem Strom."
+    ]
+  },
+  {
+    "tag": "no random range",
+    "messages": [
+      "Entschuldigung, ich kann keine Zufallszahl im vorgegebenen Intervall finden. Bitte überprüfe die Intervallgrenzen."
+    ]
+  },
+  {
+    "tag": "no advices",
+    "messages": [
+      "Entschuldigung, ich kann keinen Ratschlag geben. Bitte hasse mich nicht."
     ]
   }
 ]
