@@ -71,7 +71,7 @@ func (sentence Sentence) tokenize() (tokens []string) {
 // stem returns the sentence split in stemmed words
 // 过滤stopWord 并且去除词的状态
 func (sentence Sentence) stem() (tokenizeWords []string) {
-	locale := locales.GetTagByName(sentence.Locale)
+	locale := locales.GetNameByTag(sentence.Locale)
 	// Set default locale to english
 	if locale == "" {
 		locale = "english"
