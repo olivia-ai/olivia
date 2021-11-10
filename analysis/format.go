@@ -12,7 +12,6 @@ import (
 )
 
 // arrange checks the format of a string to normalize it, remove ignored characters
-// 简单过滤和替换，看起来对非英文不生效（替换.?!符号）
 func (sentence *Sentence) arrange() {
 	// Remove punctuation after letters
 	punctuationRegex := regexp.MustCompile(`[a-zA-Z]( )?(\.|\?|!|¿|¡)`)
@@ -69,14 +68,13 @@ func (sentence Sentence) tokenize() (tokens []string) {
 }
 
 // stem returns the sentence split in stemmed words
-// 过滤stopWord 并且去除词的状态
 func (sentence Sentence) stem() (tokenizeWords []string) {
 	locale := locales.GetNameByTag(sentence.Locale)
 	// Set default locale to english
 	if locale == "" {
 		locale = "english"
 	}
-	// pattern中剔除stopWord
+
 	tokens := sentence.tokenize()
 
 	stemmer, err := snowball.New(locale)

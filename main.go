@@ -37,7 +37,6 @@ func main() {
 	fmt.Println(color.FgLightGreen.Render(oliviaASCII))
 
 	// Create the authentication token
-	// 生成授权token
 	dashboard.Authenticate()
 
 	for _, locale := range locales.Locales {
@@ -45,7 +44,7 @@ func main() {
 
 		neuralNetworks[locale.Tag] = training.CreateNeuralNetwork(
 			locale.Tag,
-			true, // TODO 每次都重新训练数据，原本为false
+			false,
 		)
 	}
 

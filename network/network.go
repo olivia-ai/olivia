@@ -46,7 +46,6 @@ func LoadNetwork(fileName string) *Network {
 
 // CreateNetwork creates the network by generating the layers, weights and biases
 func CreateNetwork(locale string, rate float64, input, output Matrix, hiddensNodes ...int) Network {
-	// input、output 数组头上追加新的初始化层
 	input = append(Matrix{
 		make([]float64, len(input[0])),
 	}, input...)
