@@ -36,6 +36,10 @@
   <a href="#license">License</a>
 </p>
 
+<p align="center">
+  ⚠️ Please check the <strong><a href="https://github.com/olivia-ai/olivia/issues">Call for contributors</a></strong>
+</p>
+
 ## Introduction
 <p align="center">
   <img alt="introduction" height="100" src="https://i.imgur.com/Ygm9CMc.png">
@@ -57,7 +61,24 @@ Try it on [her website!](https://olivia-ai.org)
 
 
 ## Getting started
-### Installation
+### Installation 
+#### Login to Github 
+
+To get a personal access token from Github go to `Setings > Developer settings > Personal Access Tokens`
+
+Click on Generate new Token and name it you MUST have read and write packages ticked on.
+Then click Generate new token
+
+Replace `TOKEN` with the Token that you just made.
+```bash
+$ export PAT=TOKEN
+```
+
+Login to Github (Note: change USERNAME to Gthub username)
+```bash
+$ echo $PAT | docker login docker.pkg.github.com -u USERNAME --password-stdin
+```
+
 #### Docker
 
 <p align="center">
@@ -71,7 +92,7 @@ $ docker pull docker.pkg.github.com/olivia-ai/olivia/olivia:latest
 
 Then start it
 ```bash
-$ docker run -d -p 8080:8080 docker.pkg.github.com/olivia-ai/olivia/olivia:latest
+$ docker run -d -e PORT=8080 -p 8080:8080 docker.pkg.github.com/olivia-ai/olivia/olivia:latest
 ```
 
 You can just use the websocket of Olivia now.
