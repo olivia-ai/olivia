@@ -69,7 +69,7 @@ func (sentence Sentence) tokenize() (tokens []string) {
 
 // stem returns the sentence split in stemmed words
 func (sentence Sentence) stem() (tokenizeWords []string) {
-	locale := locales.GetNameByTag(sentence.Locale)
+	locale := locales.GetTagByName(sentence.Locale)
 	// Set default locale to english
 	if locale == "" {
 		locale = "english"
