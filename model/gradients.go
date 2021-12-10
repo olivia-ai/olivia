@@ -1,13 +1,12 @@
 package model
 
 // computeLastLayerGradients returns the Gradients of the last layer L
-func (nn NN) computeLastLayerGradients(output, truncatedOutput, exceptedOutput matrix) matrix {
+func (nn NN) computeLastLayerGradients(output matrix, loss float64) matrix {
 	// Compute Gradient for the last layer of weights and biases
 	// using the negative log likelihood loss function
-	loss := exceptedOutput.Difference(output).ApplyRate(2)
-	activationDerivative := output.ApplyFunction(reluDerivative)
+	activationDerivative := output.Multiplication(output.ApplyFunction(subtractsOne))
 
-	return activationDerivative.Multiplication(loss)
+	return activationDerivative.ApplyRate(loss)
 }
 
 // ComputeGradients returns the gradients of a specific layer l defined by i
@@ -25,13 +24,14 @@ func (nn NN) ComputeGradients(i int, gradients []matrix, isLast bool) matrix {
 	}
 
 	// Compute Gradient for the layer of weights and biases
-	return gradients[i].DotProduct(
+	grad := gradients[i].DotProduct(
 		weights.Transpose(),
 	).Multiplication(
 		layer.Multiplication(
 			layer.ApplyFunction(subtractsOne),
 		),
 	)
+	return grad
 }
 
 // Adjust takes the computed Gradients and applies the adjustments to
@@ -44,7 +44,7 @@ func (nn NN) Adjust(gradients []matrix) {
 		}
 
 		nn.Weights[l] = nn.Weights[l].Sum(
-			// Calculate weight adjustments
+			// Calculate the adjustment for the weights
 			nn.Layers[l].Transpose().DotProduct(gradient).ApplyRate(nn.Rate),
 		)
 		nn.Biases[l] = nn.Biases[l].Sum(

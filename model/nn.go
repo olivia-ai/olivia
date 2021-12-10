@@ -1,8 +1,6 @@
 package model
 
 import (
-	"fmt"
-
 	"github.com/olivia-ai/olivia/matrices"
 )
 
@@ -64,9 +62,8 @@ func (nn *NN) FeedForward(input []float64) matrix {
 		layer, weights, biases := nn.Layers[i], nn.Weights[i], nn.Biases[i]
 
 		productMatrix := layer.DotProduct(weights)
-		fmt.Println(productMatrix)
 		productMatrix.Sum(biases)
-		productMatrix.ApplyFunction(relu)
+		productMatrix.ApplyFunction(sigmoid)
 
 		// Replace the output values by the calculated ones
 		nn.Layers[i+1] = productMatrix
@@ -89,6 +86,7 @@ func (nn *NN) PropagateBackward(previousGradient matrix, isDecoder bool) matrix 
 		gradients = append(gradients, nn.ComputeGradients(
 			i, 
 			gradients, 
+			// Give a boolean if it is the last layer of the decoder
 			isDecoder && i == len(nn.Layers)-2,
 		))
 	}

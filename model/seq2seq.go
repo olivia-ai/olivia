@@ -75,6 +75,7 @@ func (s2s *Seq2Seq) feedForward(embeddings matrix, isTraining bool, trainingToke
 
 		// Split the decoder output in two equal parts for the word output and the hidden state
 		output = append(output, decoderOutput[0:s2s.VocabularySize])
+		fmt.Println(output)
 		decoderHiddenStates = append(decoderHiddenStates, decoderOutput[s2s.VocabularySize:])
 	}
 
@@ -101,13 +102,20 @@ func (s2s *Seq2Seq) PropagateBackward(outputs, expectedOutputs matrix) {
 		return
 	}
 
+	var loss float64
+	for i := 0; i < len(outputs); i++ {
+		idx := len(outputs) - 1 - i
+		expectedOutput := append(expectedOutputs[idx], make([]float64, s2s.VocabularySize)...)
+
+		loss += negativeLogLikelihood(expectedOutput, outputs[idx])
+	}
+	fmt.Printf("Loss: %f\n", loss)
+
 	for i := 0; i < len(outputs); i++ {
 		idx := len(outputs) - 1 - i
 		output := matrix{outputs[idx]}
-		truncatedOutput := matrix{outputs[idx][:s2s.VocabularySize]}
-		expectedOutput := matrix{append(expectedOutputs[idx], make([]float64, s2s.VocabularySize)...)}
 
-		lastGradient := s2s.Decoder.computeLastLayerGradients(output, truncatedOutput, expectedOutput)
+		lastGradient := s2s.Decoder.computeLastLayerGradients(output, loss)
 		firstGradient := s2s.Decoder.PropagateBackward(lastGradient, true)
 		
 		s2s.Encoder.PropagateBackward(firstGradient, false)
