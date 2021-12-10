@@ -9,26 +9,19 @@ func sigmoid(x float64) float64 {
 	return 1 / (1 + math.Exp(-x))
 }
 
-// relu stands for rectified linear unit and is an activation function
-func relu(x float64) float64 {
-	if x > 0 {
-		return x
-	} else {
-		return 0
-	}
-}
-
-func reluDerivative(x float64) float64 {
-	if x < 0 {
-		return 0
-	} else {
-		return 1
-	}
-}
-
 // SubtractsOne takes a float and returns the float subtracted by one
 func subtractsOne(x float64) float64 {
-	return x - 1
+	return 1 - x
+}
+
+func negativeLogLikelihood(expected, y []float64) float64 {
+	for i, val := range expected {
+		if val == 1 {
+			return -math.Log(y[i])
+		}
+	}
+
+	return 1.0
 }
 
 // softmax implementation https://en.wikipedia.org/wiki/Softmax_function

@@ -20,7 +20,7 @@ func TestNNFeedForward(t *testing.T) {
 	rand.Seed(5)
 	output := nn.FeedForward([]float64{0.5})
 
-	if output[0][0] != 0.6385666035863038 {
+	if output[0][0] != 0.3254432307595214 {
 		t.Errorf("Error with the feed forward, the output is wrong.")
 	}
 }
