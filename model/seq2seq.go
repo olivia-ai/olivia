@@ -75,7 +75,6 @@ func (s2s *Seq2Seq) feedForward(embeddings matrix, isTraining bool, trainingToke
 
 		// Split the decoder output in two equal parts for the word output and the hidden state
 		output = append(output, decoderOutput[0:s2s.VocabularySize])
-		fmt.Println(output)
 		decoderHiddenStates = append(decoderHiddenStates, decoderOutput[s2s.VocabularySize:])
 	}
 

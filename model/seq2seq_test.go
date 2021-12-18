@@ -1,7 +1,6 @@
 package model
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/olivia-ai/olivia/data"
@@ -34,5 +33,5 @@ func TestS2SFeedForward(t *testing.T) {
 		bar.Add(1)
 	}
 
-	fmt.Println(model.FeedForward(embeddings.GetLevenshteinEmbeddings(voc, c[0].Question)))
+	// fmt.Println(model.FeedForward(embeddings.GetLevenshteinEmbeddings(voc, c[0].Question)))
 }
