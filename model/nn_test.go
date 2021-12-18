@@ -16,11 +16,24 @@ func TestCreateNeuralNetwork(t *testing.T) {
 }
 
 func TestNNFeedForward(t *testing.T) {
-	nn := CreateNeuralNetwork(0.01, 1, 1)
+	nn := CreateNeuralNetwork(0.01, 3, 1)
 	rand.Seed(5)
-	output := nn.FeedForward([]float64{0.5})
 
-	if output[0][0] != 0.3254432307595214 {
-		t.Errorf("Error with the feed forward, the output is wrong.")
+	input := matrix{
+		{0, 1, 1},
+		{0, 1, 0},
+		{1, 0, 1},
+	}
+	output := matrix{
+		{1},
+		{0},
+		{1},
+	} 
+
+	for epoch := 0; epoch < 100; epoch++ {
+		for _, data := range input {
+			y := nn.FeedForward(data)
+			nn.PropagateBackward(nn.computeLastLayerGradients(y, negativeLogLikelihood(output[0], y[0])), false)
+		}
 	}
 }
