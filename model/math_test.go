@@ -13,7 +13,7 @@ func TestSigmoid(t *testing.T) {
 
 func TestSubtractsOne(t *testing.T) {
 	result := subtractsOne(21)
-	if result != 20 {
+	if result != -20 {
 		t.Errorf("SubtractsOne() failed.")
 	}
 }
