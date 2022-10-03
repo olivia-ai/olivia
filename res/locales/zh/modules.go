@@ -5,7 +5,7 @@ import (
 )
 
 func init() {
-	modules.RegisterModules("en", []modules.Module{
+	modules.RegisterModules("zh", []modules.Module{
 		// AREA
 		// For modules related to countries, please add the translations of the countries' names
 		// or open an issue to ask for translations.
@@ -13,11 +13,11 @@ func init() {
 		{
 			Tag: modules.AreaTag,
 			Patterns: []string{
-				"What is the area of ",
-				"Give me the area of ",
+				"的面积是多少",
+				"告诉我的面积",
 			},
 			Responses: []string{
-				"The area of %s is %gkm²",
+				"%s的面积为%g平方千米",
 			},
 			Replacer: modules.AreaReplacer,
 		},
@@ -26,12 +26,11 @@ func init() {
 		{
 			Tag: modules.CapitalTag,
 			Patterns: []string{
-				"What is the capital of ",
-				"What's the capital of ",
-				"Give me the capital of ",
+				"的首都在哪",
+				"哪是的首都",
 			},
 			Responses: []string{
-				"The capital of %s is %s",
+				"%s的首都是%s",
 			},
 			Replacer: modules.CapitalReplacer,
 		},
@@ -40,13 +39,12 @@ func init() {
 		{
 			Tag: modules.CurrencyTag,
 			Patterns: []string{
-				"Which currency is used in ",
-				"Give me the used currency of ",
-				"Give me the currency of ",
-				"What is the currency of ",
+				"使用哪种货币",
+				"的货币是什么",
+				"什么是的货币",
 			},
 			Responses: []string{
-				"The currency of %s is %s",
+				"%s的货币是%s",
 			},
 			Replacer: modules.CurrencyReplacer,
 		},
@@ -58,12 +56,17 @@ func init() {
 		{
 			Tag: modules.MathTag,
 			Patterns: []string{
-				"Give me the result of ",
-				"Calculate ",
+				"告诉我的结果",
+				"等于几",
+				"等于多少",
+				"计算",
+				"的结果是",
 			},
 			Responses: []string{
-				"The result is %s",
-				"That makes %s",
+				"结果是%s",
+				"答案是%s",
+				"等于%s",
+				"是%s",
 			},
 			Replacer: modules.MathReplacer,
 		},
@@ -76,14 +79,16 @@ func init() {
 		{
 			Tag: modules.GenresTag,
 			Patterns: []string{
-				"My favorite movie genres are Comedy, Horror",
-				"I like the Comedy, Horror genres",
-                "I like movies about War",
-                "I like Action movies",
+				"我最喜欢的电影类型是喜剧和恐怖",
+				"我喜欢恐怖电影",
+				"我喜欢喜剧、恐怖类型的电影",
+				"我喜欢关于战争的电影",
+				"我喜欢以战争为题材的电影",
+				"我喜欢以战争为主题的电影",
+				"我喜欢动作片",
 			},
 			Responses: []string{
-				"Great choices! I saved this movie genre information to your client.",
-				"Understood, I saved this movie genre information to your client.",
+				"我记住了你的电影偏好",
 			},
 			Replacer: modules.GenresReplacer,
 		},
@@ -91,13 +96,13 @@ func init() {
 		{
 			Tag: modules.MoviesTag,
 			Patterns: []string{
-				"Find me a movie about",
-				"Give me a movie about",
-				"Find me a film about",
+				"帮我找部电影",
+				"推荐部电影",
+				"我想看部电影",
 			},
 			Responses: []string{
-				"I found the movie “%s” for you, which is rated %.02f/5",
-				"Sure, I found this movie “%s”, which is rated %.02f/5",
+				"我为您找到了电影“%s”，分级为%.02f5",
+				"好巧不巧，我找到了电影“%s”，分级为%.02f5",
 			},
 			Replacer: modules.MovieSearchReplacer,
 		},
@@ -105,13 +110,12 @@ func init() {
 		{
 			Tag: modules.MoviesAlreadyTag,
 			Patterns: []string{
-				"I already saw this movie",
-				"I have already watched this film",
-				"Oh I have already watched this movie",
-				"I have already seen this movie",
+				"我看过这部电影了",
+				"我不喜欢这部电影",
+				"我对这部电影不感兴趣",
 			},
 			Responses: []string{
-				"Oh I see, here's another one “%s” which is rated %.02f/5",
+				"我又找到了另一个“%s”，分级为%.02f5",
 			},
 			Replacer: modules.MovieSearchReplacer,
 		},
@@ -119,11 +123,15 @@ func init() {
 		{
 			Tag: modules.MoviesDataTag,
 			Patterns: []string{
-				"I'm bored",
-				"I don't know what to do",
+				//"I'm bored",
+				//"I don't know what to do",
+				//The original English sentence is above, but I think "boring" has nothing to do with recommended movies; Shouldn't boring talk to robots?
+				//I don't think it is appropriate to use the word "boring" here; I'm not sure if it will take up other uses of the word "boring"
+				"随便推荐部电影吧",
+				"我想打发时间",
 			},
 			Responses: []string{
-				"I propose you watch the %s movie “%s”, which is rated %.02f/5",
+				"我建议你看%s电影“%s”，分级为%.02f5",
 			},
 			Replacer: modules.MovieSearchFromInformationReplacer,
 		},
@@ -132,10 +140,19 @@ func init() {
 		{
 			Tag: modules.NameGetterTag,
 			Patterns: []string{
-				"Do you know my name?",
+				"你知道我的名字吗？",
+				"我是谁？",
+				"我叫什么名字？",
+				"你认识我吗？",
+				"我的名字是什么？",
+				"你知道我叫什么名字吗？",
 			},
 			Responses: []string{
-				"Your name is %s!",
+				"我知道，你叫%s",
+				"你叫%s，对吧！",
+				"你肯定是%s",
+				"我认识你，你叫%s",
+				"我知道，你的名字是%s",
 			},
 			Replacer: modules.NameGetterReplacer,
 		},
@@ -143,11 +160,17 @@ func init() {
 		{
 			Tag: modules.NameSetterTag,
 			Patterns: []string{
-				"My name is ",
-				"You can call me ",
+				"我的名字是",
+				"我是",
+				"我的名字叫",
+				"你可以叫我",
 			},
 			Responses: []string{
-				"Great! Hi %s",
+				"很高兴认识你，%s",
+				"你好，%s",
+				"很抱歉以这种方式认识你，%s",
+				"我记住你了，%s",
+				"认识你是我的荣幸，%s",
 			},
 			Replacer: modules.NameSetterReplacer,
 		},
@@ -156,11 +179,15 @@ func init() {
 		{
 			Tag: modules.RandomTag,
 			Patterns: []string{
-				"Give me a random number",
-				"Generate a random number",
+				"给我一个随机数",
+				"生成随机数",
+				"我想要一个随机数",
+				"来一个随机数",
 			},
 			Responses: []string{
-				"The number is %s",
+				"好的，它是：%s",
+				"它来了：%s",
+				"这个数是：%s",
 			},
 			Replacer: modules.RandomNumberReplacer,
 		},
@@ -173,13 +200,13 @@ func init() {
 		{
 			Tag: modules.ReminderSetterTag,
 			Patterns: []string{
-				"Remind me to cook a breakfast at 8pm",
-				"Remind me to call mom tuesday",
-				"Note that I have an exam",
-				"Remind me that I have a conference call tomorrow at 9pm",
+				"提醒我上午8点做早餐",
+				"提醒我星期二给妈妈打电话",
+				"记得告诉我，我有一个考试",
+				"提醒我明天上午9点有电话会议",
 			},
 			Responses: []string{
-				"Noted! I will remind you: “%s” for the %s",
+				"好的，我会提醒您在%s去“%s",
 			},
 			Replacer: modules.ReminderSetterReplacer,
 		},
@@ -187,11 +214,11 @@ func init() {
 		{
 			Tag: modules.ReminderGetterTag,
 			Patterns: []string{
-				"What did I ask for you to remember",
-				"Give me my reminders",
+				"我有日程安排吗？",
+				"我最近需要做什么？",
 			},
 			Responses: []string{
-				"You asked me to remember those things:\n%s",
+				"我将提醒您:\n%s",
 			},
 			Replacer: modules.ReminderGetterReplacer,
 		},
@@ -200,6 +227,14 @@ func init() {
 		// A translation is needed in `language/music`, please don't forget to translate it.
 		// Otherwise, remove the registration of the Spotify modules in this file.
 
+		//I can't understand these. It seems that this is a foreign music platform?
+		//I may connect with Netease Cloud or Cool Dog slowly; At present, I have ideas about these two platforms
+		//If someone can provide help to connect with Himalayan FM or QQ music, then Guo Degang can speak crosstalk
+
+		//To add another word, the above is not necessarily possible;
+		//If the artificial neural network of this project does not meet my expectations,
+		//I may not continue to work; I haven't tried it yet. It was in English at that time.
+		//I questioned the performance of neural networks
 		{
 			Tag: modules.SpotifySetterTag,
 			Patterns: []string{
@@ -247,20 +282,20 @@ func init() {
 				"Listen closely, %s",
 			},
 			Replacer: modules.AdvicesReplacer,
-},
+		},
 	})
 
 	// COUNTRIES
 	// Please translate this method for adding the correct article in front of countries names.
 	// Otherwise, remove the countries modules from this file.
 
-	modules.ArticleCountries["en"] = ArticleCountries
+	modules.ArticleCountries["zh"] = ArticleCountries
 }
 
 // ArticleCountries returns the country with its article in front.
 func ArticleCountries(name string) string {
-	if name == "United States" {
-		return "the " + name
+	if name == "中国" {
+		return "这是 " + name
 	}
 
 	return name

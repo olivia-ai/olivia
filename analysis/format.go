@@ -2,11 +2,11 @@ package analysis
 
 import (
 	"fmt"
+	"github.com/go-ego/gse"
 	"regexp"
 	"strings"
 
 	"github.com/olivia-ai/olivia/locales"
-
 	"github.com/olivia-ai/olivia/util"
 	"github.com/tebeka/snowball"
 )
@@ -14,9 +14,9 @@ import (
 // arrange checks the format of a string to normalize it, remove ignored characters
 func (sentence *Sentence) arrange() {
 	// Remove punctuation after letters
-	punctuationRegex := regexp.MustCompile(`[a-zA-Z]( )?(\.|\?|!|¿|¡)`)
+	punctuationRegex := regexp.MustCompile(`[a-zA-Z\u4e00-\u9fa5]( )?([.?!¿¡，。？！])`)
 	sentence.Content = punctuationRegex.ReplaceAllStringFunc(sentence.Content, func(s string) string {
-		punctuation := regexp.MustCompile(`(\.|\?|!)`)
+		punctuation := regexp.MustCompile(`([.?!¿¡，。？！])`)
 		return punctuation.ReplaceAllString(s, "")
 	})
 
@@ -77,16 +77,30 @@ func (sentence Sentence) stem() (tokenizeWords []string) {
 
 	tokens := sentence.tokenize()
 
-	stemmer, err := snowball.New(locale)
-	if err != nil {
-		fmt.Println("Stemmer error", err)
-		return
-	}
-
-	// Get the string token and push it to tokenizeWord
-	for _, tokenizeWord := range tokens {
-		word := stemmer.Stem(tokenizeWord)
-		tokenizeWords = append(tokenizeWords, word)
+	// Do not change the way of word segmentation in other languages
+	if locale == "chinese" {
+		var seg gse.Segmenter
+		err := seg.LoadDict()
+		if err != nil {
+			fmt.Println("Stemmer error", err)
+			return
+		}
+		// Get the string token and push it to tokenizeWord
+		for _, tokenizeWord := range tokens {
+			word := seg.Cut(tokenizeWord, true)
+			tokenizeWords = append(tokenizeWords, word...)
+		}
+	} else {
+		stemmer, err := snowball.New(locale)
+		if err != nil {
+			fmt.Println("Stemmer error", err)
+			return
+		}
+		// Get the string token and push it to tokenizeWord
+		for _, tokenizeWord := range tokens {
+			word := stemmer.Stem(tokenizeWord)
+			tokenizeWords = append(tokenizeWords, word)
+		}
 	}
 
 	return

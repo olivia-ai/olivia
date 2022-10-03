@@ -51,6 +51,11 @@ var SpotifyKeyword = map[string]SpotifyKeywords{
 		From: "από",
 		On:   "στο",
 	},
+	"zh": {
+		Play: "播放",
+		From: "来自",
+		On:   "在",
+	},
 }
 
 // SpotifyKeywords are the keywords used to get music name

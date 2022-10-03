@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/fatih/color v1.9.0 // indirect
+	github.com/go-ego/gse v0.70.2
 	github.com/gookit/color v1.2.5
 	github.com/gorilla/mux v1.7.4
 	github.com/gorilla/websocket v1.4.2
