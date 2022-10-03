@@ -1,0 +1,126 @@
+[
+  {
+    "tag": "don't understand",
+    "messages": [
+      "I'm trying to do my best but I don't understand",
+      "I'm not sure what message you want to communicate to me",
+      "I'm still young, you could help me to better understand on my GitHub",
+      "I can't understand your request, sorry"
+    ]
+  },
+  {
+    "tag": "list reminders",
+    "messages": [
+      "Hello %s! For today you have these reminders: %s."
+    ]
+  },
+  {
+    "tag": "no permission",
+    "messages": [
+      "You don't have the permission to do this."
+    ]
+  },
+  {
+    "tag": "patterns same",
+    "messages": [
+      "The patterns and/or responses can't be empty."
+    ]
+  },
+  {
+    "tag": "tags same",
+    "messages": [
+      "An intent already exists with this tag."
+    ]
+  },
+  {
+    "tag": "spotify tokens",
+    "messages": [
+      "You need to send the two tokens."
+    ]
+  },
+  {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” for the %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "You have no reminders saved."
+    ]
+  },
+  {
+    "tag": "spotify credentials",
+    "messages": [
+      "You need to enter your Spotify credentials."
+    ]
+  },
+  {
+    "tag": "spotify login",
+    "messages": [
+      "Login in progress <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+    ]
+  },
+  {
+    "tag": "too long",
+    "messages": [
+      "Please reduce the size of your message to less than 500"
+    ]
+  },
+  {
+    "tag": "no country",
+    "messages": [
+      "I did not find a country in your message"
+    ]
+  },
+  {
+    "tag": "math not valid",
+    "messages": [
+      "Your math expression is not valid",
+      "Please review your math expression"
+    ]
+  },
+  {
+    "tag": "don't know name",
+    "messages": [
+      "I'm sorry but I don't know your name yet"
+    ]
+  },
+  {
+    "tag": "no name",
+    "messages": [
+      "I am sorry I can't find a name in your message."
+    ]
+  },
+  {
+    "tag": "no genres",
+    "messages": [
+      "Sorry, I can't find any movie genre in your message, try these: Action, Adventure, Animation, Children, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, Musical, Mystery, Romance, Sci-Fi, Thriller, War and Western"
+    ]
+  },
+  {
+    "tag": "no genres saved",
+    "messages": [
+      "Sorry I can't find any movie genre in your data, try to set your preferences with “I like adventure movies”"
+    ]
+  },
+  {
+    "tag": "no jokes",
+    "messages": [
+      "Sorry I couldn't come up with a joke. Please don't unplug me."
+    ]
+  },
+  {
+    "tag": "no random range",
+    "messages": [
+      "Sorry, I couldn't find a random number in the given range. Please check the range values."
+    ]
+  },
+  {
+    "tag": "no advices",
+    "messages": [
+      "Sorry I couldn't come up with an advice. Please don't hate me."
+    ]
+  }
+]
