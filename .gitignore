@@ -18,3 +18,9 @@ vendor
 coverage.txt
 
 res/authentication.txt
+
+model/attention.go
+
+data/mnist_test.csv
+data/mnist_train.csv
+*.DS_Store
