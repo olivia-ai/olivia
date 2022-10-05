@@ -119,6 +119,21 @@ var RuleTranslations = map[string]RuleTranslation{
 		RuleNextDayOfWeek: "επόμενη",
 		RuleNaturalDate:   `ιανουάριος|φεβρουάριος|μάρτιος|απρίλιος|μάιος|ιούνιος|ιούλιος|αύγουστος|σεπτέμβριος|οκτώβριος|νοέμβριος|δεκέμβριος`,
 	},
+	"zh": {
+		DaysOfWeek: []string{
+			"星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日",
+		},
+		Months: []string{
+			"一月", "二月", "三月", "四月", "五月", "六月", "七月",
+			"八月", "九月", "十月", "十一月", "十二月",
+		},
+		RuleToday:         `今天|今晚`,
+		RuleTomorrow:      `明天`,
+		RuleAfterTomorrow: "明天",
+		RuleDayOfWeek:     `(下个 )?(星期一|星期二|星期三|星期四|星期五|星期六|星期日)`,
+		RuleNextDayOfWeek: "下个",
+		RuleNaturalDate:   `一月|二月|三月|四月|五月|六月|七月|八月|九月|十月|十一月|十二月`,
+	},
 }
 
 // A RuleTranslation is all the texts/regexs to match the dates

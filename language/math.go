@@ -17,6 +17,7 @@ var MathDecimals = map[string]string{
 	"tr": `(\d+( |-)desimal(s)?)|(numara (dan )?desimal(s)? (mı )?\d+)`,
 	"nl": `(\d+( |-)decimal(en)?)|(nummer (van )?decimal(en)? (is )?\d+)`,
 	"el": `(\d+( |-)δεκαδικ(ό|ά)?)|(αριθμός (από )?δεκαδικ(ό|ά)? (είναι )?\d+)`,
+	"zh": `(\d+( |-)小数(s)?)|(数字 (是 )?小数(s)? (是 )?\d+)`,
 }
 
 // FindMathOperation finds a math operation in a string an returns it
