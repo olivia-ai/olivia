@@ -14,7 +14,7 @@ import (
 // arrange checks the format of a string to normalize it, remove ignored characters
 func (sentence *Sentence) arrange() {
 	// Remove punctuation after letters
-	punctuationRegex := regexp.MustCompile(`[a-zA-Z\u4e00-\u9fa5]( )?([.?!¿¡，。？！])`)
+	punctuationRegex := regexp.MustCompile("[a-zA-Z\u4e00-\u9fa5]( )?([.?!¿¡，。？！])")
 	sentence.Content = punctuationRegex.ReplaceAllStringFunc(sentence.Content, func(s string) string {
 		punctuation := regexp.MustCompile(`([.?!¿¡，。？！])`)
 		return punctuation.ReplaceAllString(s, "")
