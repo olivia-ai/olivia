@@ -13,8 +13,7 @@ require (
 	github.com/soudy/mathcat v0.0.0-20190121135055-f636e7f09e6c
 	github.com/tebeka/snowball v0.4.2
 	github.com/zmb3/spotify v0.0.0-20200422222148-5fe5f9535a2c
-	golang.org/x/crypto v0.0.0-20200510223506-06a226fb4e37
+	golang.org/x/crypto v0.1.0
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
-	golang.org/x/sys v0.0.0-20200513112337-417ce2331b5c // indirect
 	gopkg.in/cheggaaa/pb.v1 v1.0.28
 )
