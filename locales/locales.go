@@ -11,7 +11,6 @@ import (
 	_ "github.com/olivia-ai/olivia/res/locales/it"
 	_ "github.com/olivia-ai/olivia/res/locales/nl"
 	_ "github.com/olivia-ai/olivia/res/locales/tr"
-	_ "github.com/olivia-ai/olivia/res/locales/el"
 
 )
 
