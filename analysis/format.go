@@ -5,10 +5,10 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/kljensen/snowball"
 	"github.com/olivia-ai/olivia/locales"
 
 	"github.com/olivia-ai/olivia/util"
-	"github.com/tebeka/snowball"
 )
 
 // arrange checks the format of a string to normalize it, remove ignored characters
@@ -77,15 +77,13 @@ func (sentence Sentence) stem() (tokenizeWords []string) {
 
 	tokens := sentence.tokenize()
 
-	stemmer, err := snowball.New(locale)
-	if err != nil {
-		fmt.Println("Stemmer error", err)
-		return
-	}
-
 	// Get the string token and push it to tokenizeWord
 	for _, tokenizeWord := range tokens {
-		word := stemmer.Stem(tokenizeWord)
+		word, err := snowball.Stem(tokenizeWord, locale, true)
+		if err != nil {
+			fmt.Println("Stemmer error", err)
+			return
+		}
 		tokenizeWords = append(tokenizeWords, word)
 	}
 
