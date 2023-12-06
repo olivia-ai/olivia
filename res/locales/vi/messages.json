@@ -1,0 +1,125 @@
+[
+  {
+    "tag": "don't understand",
+    "messages": [
+      "Tôi đang cố nhưng nói thật thì tôi không hiểu lắm",
+      "Tôi không chắc về nội dung bạn gửi cho tôi, bạn nói rõ hơn được không",
+      "Thật xin lỗi, tôi thật sự không hiểu bạn đang nói gì"
+    ]
+  },
+  {
+    "tag": "list reminders",
+    "messages": [
+      "Xin chào %s! Hôm nay bạn có một vài lời nhắn: %s."
+    ]
+  },
+  {
+    "tag": "no permission",
+    "messages": [
+      "Tôi không có quyền làm việc này, xin lỗi"
+    ]
+  },
+  {
+    "tag": "patterns same",
+    "messages": [
+      "Các mẫu và/hoặc phản hồi không được để trống."
+    ]
+  },
+  {
+    "tag": "tags same",
+    "messages": [
+      "Ý định đã tồn tại với thẻ này."
+    ]
+  },
+  {
+    "tag": "spotify tokens",
+    "messages": [
+      "Bạn cần gửi hai mã tokens."
+    ]
+  },
+  {
+    "tag": "reminder",
+    "messages": [
+      "- “%s” cho %s"
+    ]
+  },
+  {
+    "tag": "no reminders",
+    "messages": [
+      "Bạn chưa lưu lời nhắc nào."
+    ]
+  },
+  {
+    "tag": "spotify credentials",
+    "messages": [
+      "Bạn cần nhập thông tin đăng nhập Spotify của mình."
+    ]
+  },
+  {
+    "tag": "spotify login",
+    "messages": [
+      "Đăng nhập <meta http-equiv=\"refresh\" content=\"0; url = %s\" />,"
+    ]
+  },
+  {
+    "tag": "too long",
+    "messages": [
+      "Vui lòng giảm kích thước tin nhắn của bạn xuống dưới 500 ký tự"
+    ]
+  },
+  {
+    "tag": "no country",
+    "messages": [
+      "Tôi không tìm thấy quốc gia nào trong tin nhắn của bạn"
+    ]
+  },
+  {
+    "tag": "math not valid",
+    "messages": [
+      "Biểu thức toán học của bạn không hợp lệ",
+      "Vui lòng xem lại biểu thức toán học của bạn"
+    ]
+  },
+  {
+    "tag": "don't know name",
+    "messages": [
+      "Tôi xin lỗi nhưng tôi chưa biết tên bạn"
+    ]
+  },
+  {
+    "tag": "no name",
+    "messages": [
+      "Tôi xin lỗi tôi không thể tìm thấy tên trong tin nhắn của bạn."
+    ]
+  },
+  {
+    "tag": "no genres",
+    "messages": [
+      "Xin lỗi, tôi không thể tìm thấy bất kỳ thể loại phim nào trong tin nhắn của bạn, hãy thử những thể loại sau: Hành động, Phiêu lưu, Hoạt hình, Trẻ em, Hài kịch, Tội phạm, Phim tài liệu, Chính kịch, Giả tưởng, Phim Noir, Kinh dị, Nhạc kịch, Bí ẩn, Lãng mạn, Khoa học viễn tưởng , Kinh dị, Chiến tranh và Miền Tây"
+    ]
+  },
+  {
+    "tag": "no genres saved",
+    "messages": [
+      "Rất tiếc, tôi không thể tìm thấy bất kỳ thể loại phim nào trong dữ liệu của bạn, hãy thử đặt tùy chọn của bạn bằng “Tôi thích phim phiêu lưu”"
+    ]
+  },
+  {
+    "tag": "no jokes",
+    "messages": [
+      "Xin lỗi tôi không thể nghĩ ra một trò đùa. Xin đừng rút phích cắm của tôi."
+    ]
+  },
+  {
+    "tag": "no random range",
+    "messages": [
+      "Sorry, I couldn't find a random number in the given range. Please check the range values."
+    ]
+  },
+  {
+    "tag": "no advices",
+    "messages": [
+      "Xin lỗi tôi không thể đưa ra lời khuyên. Xin đừng ghét tôi."
+    ]
+  }
+]

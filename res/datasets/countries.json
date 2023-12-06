@@ -3842,5 +3842,23 @@
     "capital": "Harare",
     "area": 390757,
     "currency": "ZWL"
+  },
+  {
+    "name": {
+      "en": "Ha Noi",
+      "fr": "Ha Noi",
+      "es": "Ha Noi",
+      "ca": "Ha Noi",
+      "de": "Ha Noi",
+      "cn": "河内",
+      "pt": "Ha Noi",
+      "it": "Ha Noi",
+      "tr": "Ha Noi",
+      "nl": "Ha Noi",
+      "el": "Ханой"
+    },
+    "capital": "Harare",
+    "area": 390757,
+    "currency": "ZWL"
   }
 ]

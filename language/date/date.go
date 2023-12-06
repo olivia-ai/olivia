@@ -36,6 +36,10 @@ var PatternTranslation = map[string]PatternTranslations{
 		DateRegex: `(από )?(το )?((μεθ )?αύριο|((σήμερα|απόψε)|(επόμενη )?(δευτέρα|τρίτη|τετάρτη|πέμπτη|παρασκευή|σάββατο|κυριακή))|(\d{2}|\d)(η)? (of )?(ιανουάριος|φεβρουάριος|μάρτιος|απρίλιος|μάιος|ιούνιος|ιούλιος|αύγουστος|σεπτέμβριος|οκτώβριος|νοέμβριος|δεκέμβριος)|((\d{2}|\d)/(\d{2}|\d)))`,
 		TimeRegex: `(at )?(\d{2}|\d)(:\d{2}|\d)?( )?(μμ|πμ|μ\.μ|π\.μ)`,
 	},
+	"vi": {
+		DateRegex: `(của )?(một )?((sau )?ngày mai|((hôm nay|tối nay)|(tiếp )?(thứ hai|thứ ba|thứ tư|thứ năm|thứ sáu|thứ bảy|chủ nhật))|(\d{2}|\d)(th|rd|st|nd)? (of )?(january|february|march|april|may|june|july|august|september|october|november|december)|((\d{2}|\d)/(\d{2}|\d)))`,
+		TimeRegex: `(tại )?(\d{2}|\d)(:\d{2}|\d)?( )?(chiều|sáng|p\.m|a\.m)`,
+	},
 }
 
 // PatternTranslations are the translations of the regexs for dates
