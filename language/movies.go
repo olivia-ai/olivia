@@ -57,6 +57,10 @@ var (
 			"Δράση", "Περιπέτεια", "Κινούμενα Σχέδια", "Παιδικά", "Κωμωδία", "Έγκλημα", "Ντοκιμαντέρ", "Δράμα", "Φαντασία",
 			"Film-Noir", "Τρόμου", "Μουσική", "Μυστηρίου", "Ρομαντική", "Επιστημονική Φαντασία", "Θρίλλερ", "Πολέμου", "Western",
 		},
+		"vi": {
+			"Hành động", "Thám hiển", "Hoạt hình", "Trẻ em", "Hài hước", "Tội phạm", "Phim tài liệu", "Kịch", "Viễn tưởng",
+			"Film-Noir", "Kinh dị", "Âm nhạc", "Bí ẩn", "Lãng mạn", "Khoa học - Viễn tưởng", "Giật gân", "Chiến tranh", "Western",
+		},
 	}
 	movies = SerializeMovies()
 )
